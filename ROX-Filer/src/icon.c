@@ -444,6 +444,7 @@ GType icon_get_type(void)
  */
 void icon_set_path(Icon *icon, const char *pathname, const char *name)
 {
+	gchar 	*base = NULL;
 	if (icon->path)
 	{
 		icon_unhash_path(icon);
@@ -464,11 +465,14 @@ void icon_set_path(Icon *icon, const char *pathname, const char *name)
 
 		icon_hash_path(icon);
 
-		if (!name)
-			name = g_basename(icon->src_path);
+		if (!name) {
+			base = g_path_get_basename(icon->src_path);
+			name = base;
+		}
 
 		icon->item = diritem_new(name);
 		diritem_restat(icon->path, icon->item, NULL);
+		g_free(base);
 	}
 }
 
@@ -733,7 +737,6 @@ static GdkFilterReturn filter_get_key(GdkXEvent *xevent,
 {
 	XKeyEvent *kev = (XKeyEvent *) xevent;
 	GtkWidget *popup = (GtkWidget *) data;
-	Display *dpy = GDK_DISPLAY();
 
 	if (kev->type != KeyRelease && kev->type != ButtonPressMask)
 		return GDK_FILTER_CONTINUE;
@@ -746,7 +749,7 @@ static GdkFilterReturn filter_get_key(GdkXEvent *xevent,
 		KeySym sym;
 		unsigned int m = kev->state;
 
-		sym = XKeycodeToKeysym(dpy, kev->keycode, 0);
+		sym = XLookupKeysym(kev, 0);
 		if (!sym)
 			return GDK_FILTER_CONTINUE;
 

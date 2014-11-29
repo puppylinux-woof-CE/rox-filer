@@ -208,13 +208,15 @@ static GtkWidget *make_vbox(const guchar *path, GObject *window)
 	GtkBox		*vbox;
 	XMLwrapper	*ai;
 	xmlNode 	*about = NULL;
-	gchar		*help_dir;
+	gchar		*help_dir, *base;
 	GtkWidget	*hbox, *name, *label;
 	MaskedPixmap    *thumb;
 
 	g_return_val_if_fail(path[0] == '/', NULL);
 	
-	item = diritem_new(g_basename(path));
+	base = g_path_get_basename(path);
+	item = diritem_new(base);
+	g_free(base);
 	diritem_restat(path, item, NULL);
 
 	ai = appinfo_get(path, item);
@@ -806,6 +808,7 @@ static GtkWidget *make_file_says(const guchar *path)
 	char 		*argv[] = {"file", "-b", NULL, NULL};
 	FileStatus 	*fs = NULL;
 	guchar 		*tmp;
+	gchar		*base = NULL;
 
 	w_file_label = gtk_label_new(_("<nothing yet>"));
 	l_file_label = GTK_LABEL(w_file_label);
@@ -837,12 +840,14 @@ static GtkWidget *make_file_says(const guchar *path)
 #ifdef FILE_B_FLAG
 			argv[2] = (char *) path;
 #else
-			argv[1] = (char *) g_basename(path);
+			base = g_path_get_basename(path);
+			argv[1] = base;
 			chdir(g_path_get_dirname(path));
 #endif
 			if (execvp(argv[0], argv))
 				fprintf(stderr, "execvp() error: %s\n",
 						g_strerror(errno));
+			g_free(base);
 			_exit(0);
 		default:
 			/* We are the parent */

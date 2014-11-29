@@ -257,7 +257,7 @@ int main(int argc, char **argv)
 	int		 i;
 	struct sigaction act;
 	guchar		*tmp, *dir;
-	gchar *client_id = NULL;
+	gchar *client_id = NULL, *base;
 	gboolean	show_user = FALSE;
 	gboolean	rpc_mode = FALSE;
 	xmlDocPtr	rpc, soap_rpc = NULL, reply;
@@ -436,11 +436,13 @@ int main(int argc, char **argv)
 				else
 					dir = pathdup(tmp);
 
+				base = g_path_get_basename(VALUE);
 				soap_add(body, "Show",
 					"Directory", dir ? dir : tmp,
-					"Leafname", g_basename(VALUE));
+					"Leafname", base);
 				g_free(tmp);
 				g_free(dir);
+				g_free(base);
 				break;
 			case 'l':
 			case 'r':

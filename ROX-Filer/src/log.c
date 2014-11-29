@@ -80,6 +80,7 @@ void log_info_paths(const gchar *message, GList *paths, const gchar *path)
 	struct tm *now;
 	char *actual_message = NULL;
 	int n_paths;
+	gchar *base;
 
 	if (!message)
 		message = "(no log message!)";
@@ -105,8 +106,11 @@ void log_info_paths(const gchar *message, GList *paths, const gchar *path)
 		n_paths = 0;
 	}
 
-	if (n_paths == 1)
-		actual_message = g_strdup_printf(_("%s '%s'"), message, g_basename((char *) paths->data));
+	if (n_paths == 1) {
+		base = g_path_get_basename((char *) paths->data);
+		actual_message = g_strdup_printf(_("%s '%s'"), message, base);
+		g_free(base);
+	}
 	else if (n_paths > 1)
 		actual_message = g_strdup_printf(_("%s on %d items"), message, n_paths);
 

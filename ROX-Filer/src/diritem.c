@@ -218,7 +218,7 @@ DirItem *diritem_new(const guchar *leafname)
 	item->base_type = TYPE_UNKNOWN;
 	item->flags = ITEM_FLAG_NEED_RESCAN_QUEUE;
 	item->mime_type = NULL;
-	item->leafname_collate = collate_key_new(leafname);
+	item->leafname_collate = collate_key_new(item->leafname);
 
 	return item;
 }
