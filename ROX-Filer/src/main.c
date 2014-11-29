@@ -569,8 +569,10 @@ int main(int argc, char **argv)
 
 	/* Try to send the request to an already-running copy of the filer */
 	gui_support_init();
-	if (remote_init(rpc, new_copy))
+	if (remote_init(rpc, new_copy)) {
+		xmlFreeDoc(rpc);	/* avoid memleak */
 		return EXIT_SUCCESS;	/* It worked - exit */
+	}
 
 	/* Put ourselves into the background (so 'rox' always works the
 	 * same, whether we're already running or not).
