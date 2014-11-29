@@ -593,10 +593,17 @@ char *pretty_time(const time_t *time)
  */
 guchar *copy_file(const guchar *from, const guchar *to)
 {
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+	const char *argv[] = {"cp", "-pRf", "--preserve=xattr", NULL, NULL, NULL};
+
+	argv[3] = from;
+	argv[4] = to;
+#else
 	const char *argv[] = {"cp", "-pRf", NULL, NULL, NULL};
 
 	argv[2] = from;
 	argv[3] = to;
+#endif
 
 	return fork_exec_wait(argv);
 }

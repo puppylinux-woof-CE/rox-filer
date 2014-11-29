@@ -99,7 +99,6 @@ int xattr_supported(const char *path)
 
 int xattr_have(const char *path)
 {
-	char buf[1];
 	ssize_t nent;
 	
 	RETURN_IF_IGNORED(FALSE);
@@ -108,7 +107,7 @@ int xattr_have(const char *path)
 		return FALSE;
 
 	errno=0;
-	nent=dyn_listxattr(path, buf, sizeof(buf));
+	nent=dyn_listxattr(path, NULL, 0);
 
 	if(nent<0 && errno==ERANGE)
 		return TRUE;
@@ -173,6 +172,52 @@ int xattr_set(const char *path, const char *attr,
 	return dyn_setxattr(path, attr, value, value_len, 0);
 }
 
+typedef struct
+{
+	gchar *name;
+	gchar *value;
+}
+XAttr;
+
+GArray* xattr_list(const char *path)
+{
+	ssize_t len;
+	gchar 	*list = NULL;
+	gchar 	*l;
+	GArray 	*xarr = NULL;
+	GRegex	*re;
+	XAttr	at;
+
+	xarr = g_array_sized_new(FALSE,FALSE,sizeof(XAttr),1);
+	re = g_regex_new("^user\\.",0,0,NULL);
+
+	len = dyn_listxattr(path, NULL, 0);
+	if(len <= 0)
+		return NULL;
+
+	list = g_new(gchar, len);
+	len = dyn_listxattr(path, list, len);
+	if(len < 0)
+		return NULL;
+
+	for(l=list;l != list + len;l = strchr(l,'\0')+1) {
+		if(*l == '\0')
+			continue;
+
+		/*if(!g_regex_match(re,l,0,NULL))*/
+			/*continue;*/
+
+		at.name = g_strdup_printf("%s",l);
+		at.value = xattr_get(path, at.name, NULL);
+
+		g_array_append_vals(xarr, &at, 1);
+	}
+
+	g_free(list);
+	g_regex_unref(re);
+
+	return xarr;
+}
 
 #elif defined(HAVE_ATTROPEN)
 
@@ -337,3 +382,90 @@ int xtype_set(const char *path, const MIME_type *type)
 	return res;
 }
 
+/* Extended attributes browser */
+
+static void dialog_response(GtkWidget *dialog, gint response, gpointer data)
+{
+	gtk_widget_destroy(dialog);
+}
+
+static GtkTreeModel* create_model(GArray *arr) {
+	int i;
+	GtkListStore *model;
+	GtkTreeIter iter;
+
+	model = gtk_list_store_new(2,G_TYPE_STRING,G_TYPE_STRING);
+	for(i=0;i<arr->len;i++) {
+		gtk_list_store_append(model,&iter);
+		gtk_list_store_set(model,&iter,
+				0,g_array_index(arr,XAttr,i).name,
+				1,g_array_index(arr,XAttr,i).value,
+				-1);
+	}
+	return GTK_TREE_MODEL(model);
+}
+
+void xattrs_browser(DirItem *item, const guchar *path)
+{
+	GtkDialog	*dialog;
+	GtkWidget	*vbox;
+	GtkWidget	*hbox;
+	GtkWidget	*sw;
+	GtkWidget	*tree;
+	GtkWidget	*but;
+	GtkTreeModel *mod;
+	GArray		*arr;
+	GtkCellRenderer	*ren;
+
+	g_return_if_fail(item != NULL && path != NULL);
+
+	if(xattr_have(path)) {
+
+		arr = xattr_list(path);
+		if(arr->len > 0) {
+			dialog = GTK_DIALOG(gtk_dialog_new());
+			gtk_window_set_title(GTK_WINDOW(dialog), _("Extended attributes"));
+			gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_MOUSE);
+			gtk_window_set_default_size(GTK_WINDOW(dialog),300,150);
+
+			vbox = gtk_dialog_get_content_area(dialog);
+
+			sw = gtk_scrolled_window_new(NULL,NULL);
+			gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(sw),
+					GTK_SHADOW_ETCHED_IN);
+			gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(sw),
+					GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
+			gtk_box_pack_start(GTK_BOX(vbox),sw,TRUE,TRUE,0);
+
+			mod = create_model(arr);
+			tree = gtk_tree_view_new_with_model(mod);
+			gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(tree),TRUE);
+			gtk_tree_selection_set_mode(gtk_tree_view_get_selection(GTK_TREE_VIEW(tree)),
+					GTK_SELECTION_SINGLE);
+			ren = gtk_cell_renderer_text_new();
+			g_object_set(ren,"editable",TRUE,NULL);
+			g_object_set_data(G_OBJECT(ren),"column",GINT_TO_POINTER(0));
+			gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tree),-1,
+					"Name",ren,"text",0,NULL);
+			ren = gtk_cell_renderer_text_new();
+			g_object_set(ren,"editable",TRUE,NULL);
+			g_object_set_data(G_OBJECT(ren),"column",GINT_TO_POINTER(1));
+			gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tree),-1,
+					"Value",ren,"text",1,NULL);
+			g_object_unref(mod);
+			gtk_container_add(GTK_CONTAINER(sw),tree);
+
+			hbox = gtk_dialog_get_action_area(dialog);
+			gtk_box_set_homogeneous(GTK_BOX(hbox),TRUE);
+			but = gtk_button_new_from_stock(GTK_STOCK_ADD);
+			gtk_box_pack_start(GTK_BOX(hbox),but,TRUE,FALSE,0);
+			but = gtk_button_new_from_stock(GTK_STOCK_REMOVE);
+			gtk_box_pack_start(GTK_BOX(hbox),but,TRUE,FALSE,0);
+
+			gtk_dialog_add_buttons(dialog,GTK_STOCK_CLOSE,GTK_RESPONSE_OK,NULL);
+			g_signal_connect(dialog, "response", G_CALLBACK(dialog_response), NULL);
+			gtk_dialog_set_default_response(dialog, GTK_RESPONSE_OK);
+			gtk_widget_show_all(GTK_WIDGET(dialog));
+		}
+	}
+}

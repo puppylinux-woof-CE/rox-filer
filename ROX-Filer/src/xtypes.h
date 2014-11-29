@@ -29,4 +29,7 @@ int xattr_set(const char *path, const char *attr,
 MIME_type *xtype_get(const char *path);
 int xtype_set(const char *path, const MIME_type *type);
 
+void xattrs_browser(DirItem *item, const guchar *path);
+GArray* xattr_list(const char *path);
+
 #endif
