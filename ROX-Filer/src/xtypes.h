@@ -25,10 +25,13 @@ int xattr_have(const char *path);
 gchar *xattr_get(const char *path, const char *attr, int *len);
 int xattr_set(const char *path, const char *attr,
 	      const char *value, int value_len);
+int xattr_rem(const char *path,
+		const char *attr);
 
 MIME_type *xtype_get(const char *path);
 int xtype_set(const char *path, const MIME_type *type);
 
+/* Xattr browser */
 void xattrs_browser(DirItem *item, const guchar *path);
 GArray* xattr_list(const char *path);
 

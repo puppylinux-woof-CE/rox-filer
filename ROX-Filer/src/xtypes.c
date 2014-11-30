@@ -59,6 +59,8 @@ static ssize_t (*dyn_getxattr)(const char *path, const char *name,
 			 void *value, size_t size) = NULL;
 static ssize_t (*dyn_listxattr)(const char *path, char *list,
 			 size_t size) = NULL;
+static int (*dyn_removexattr)(const char *path,
+		const char *name) = NULL;
 
 void xattr_init(void)
 {
@@ -77,6 +79,7 @@ void xattr_init(void)
 	dyn_setxattr = (void *) dlsym(libc, "setxattr");
 	dyn_getxattr = (void *) dlsym(libc, "getxattr");
 	dyn_listxattr = (void *) dlsym(libc, "listxattr");
+	dyn_removexattr = (void *) dlsym(libc, "removexattr");
 	
 	option_add_int(&o_xattr_ignore, "xattr_ignore", FALSE);
 }
@@ -175,6 +178,24 @@ int xattr_set(const char *path, const char *attr,
 		value_len = strlen(value);
 
 	return dyn_setxattr(path, attr, value, value_len, 0);
+}
+
+/* 0 on success */
+int xattr_rem(const char *path, const char *attr)
+{
+	if(o_xattr_ignore.int_value)
+	{
+		errno = ENOSYS;
+		return 1;
+	}
+
+	if(!dyn_setxattr)
+	{
+		errno = ENOSYS;
+		return 1;
+	}
+
+	return dyn_removexattr(path, attr);
 }
 
 #elif defined(HAVE_ATTROPEN)
@@ -301,6 +322,11 @@ int xattr_set(const char *path, const char *attr,
 	return 1; /* Set type failed */
 }
 
+int xattr_rem(const char *path, const char *attr)
+{
+	errno = ENOSYS;
+	return 1;
+}
 #endif
 
 MIME_type *xtype_get(const char *path)
