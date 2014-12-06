@@ -372,13 +372,23 @@ int xtype_set(const char *path, const MIME_type *type)
 enum
 {
 	COLUMN_NAME,
-	COLUMN_VALUE
+	COLUMN_VALUE,
+	COLUMN_EDIT
+};
+
+enum
+{
+	MODE_LEAVE,
+	MODE_REPLACE,
+	MODE_REMOVE
 };
 
 typedef struct
 {
 	gchar	*name;
 	gchar	*value;
+	int		mode;
+	int		user;
 }
 XAttr;
 
@@ -388,11 +398,9 @@ GArray* xattr_list(const char *path)
 	gchar 	*list;
 	gchar 	*l;
 	GArray 	*xarr;
-	GRegex	*re;
 	XAttr	at;
 
 	xarr = g_array_sized_new(FALSE,FALSE,sizeof(XAttr),0);
-	re = g_regex_new("^user\\.",0,0,NULL);
 
 	len = dyn_listxattr(path, NULL, 0);
 	if(len <= 0)
@@ -407,9 +415,10 @@ GArray* xattr_list(const char *path)
 		if(*l == '\0')
 			continue;
 
-		/* show only user attributes? */
-		/*if(!g_regex_match(re,l,0,NULL))*/
-			/*continue;*/
+		if(g_regex_match_simple("^user\\.",l,0,0) == TRUE)
+			at.user = 1;
+		else
+			at.user = 0;
 
 		at.name = g_strdup_printf("%s",l);
 		at.value = xattr_get(path, at.name, NULL);
@@ -418,9 +427,57 @@ GArray* xattr_list(const char *path)
 	}
 
 	g_free(list);
-	g_regex_unref(re);
 
 	return xarr;
+}
+
+GArray* compare_arrays(GArray *old, GArray *new)
+{
+	gint i,j;
+	GArray *A;
+	XAttr at;
+
+	A = g_array_sized_new(FALSE,FALSE,sizeof(XAttr),0);
+
+	/* Inefficient, good for small number of xattrs */
+	for(i=0;i<new->len;i++) {
+		for(j=0;j<old->len;j++) {
+			if(g_strcmp0(g_array_index(new, XAttr, i).name,
+						 g_array_index(old, XAttr, j).name) == 0) {
+				at.name = g_array_index(new, XAttr, j).name;
+				if(g_strcmp0(g_array_index(new, XAttr, i).value,
+							 g_array_index(old, XAttr, j).value) == 0) {
+					at.mode = MODE_LEAVE;
+				} else {
+					at.value = g_array_index(new, XAttr, j).value;
+					at.mode = MODE_REPLACE;
+				}
+				g_array_append_vals(A, &at, 1);
+				g_array_remove_index(new, j);
+				break;
+			}
+		}	
+	}
+
+	return A;
+}
+
+GArray* copy_array(GArray *A)
+{
+	gint i;
+	GArray *B;
+	guint len = A->len;
+	XAttr at;
+
+	B = g_array_sized_new(FALSE,FALSE,sizeof(XAttr),len);
+	for(i=0;i<len;i++) {
+		at.name = g_array_index(A,XAttr,i).name;
+		at.value = g_array_index(A,XAttr,i).value;
+		at.user = g_array_index(A,XAttr,i).user;
+		g_array_insert_vals(B,i,&at,1);
+	}
+
+	return B;
 }
 
 static void dialog_response(GtkWidget *dialog, gint response, gpointer data)
@@ -428,6 +485,7 @@ static void dialog_response(GtkWidget *dialog, gint response, gpointer data)
 	switch(response) {
 		case GTK_RESPONSE_CLOSE: {
 			g_array_free(((gpointer *)data)[1],TRUE);
+			g_array_free(((gpointer *)data)[3],TRUE);
 			g_free(data);
 			gtk_widget_destroy(dialog);
 		}
@@ -435,9 +493,20 @@ static void dialog_response(GtkWidget *dialog, gint response, gpointer data)
 
 		case GTK_RESPONSE_APPLY: {
 			GArray *arr = (GArray *)((gpointer *)data)[1];
+			GArray *arr_old = (GArray *)((gpointer *)data)[3];
 			gint i;
+			g_print("OLD\n");
+			for(i=0;i<arr_old->len;i++)
+				g_print("%s: %s %d\n",
+						g_array_index(arr_old, XAttr, i).name,
+						g_array_index(arr_old, XAttr, i).value,
+						g_array_index(arr_old, XAttr, i).user);  
+			g_print("NEW\n");
 			for(i=0;i<arr->len;i++)
-				g_print("%s: %s\n", g_array_index(arr, XAttr, i).name, g_array_index(arr, XAttr, i).value);  
+				g_print("%s: %s %d\n",
+						g_array_index(arr, XAttr, i).name,
+						g_array_index(arr, XAttr, i).value,
+						g_array_index(arr, XAttr, i).user);  
 		}
 		break;
 	}
@@ -450,33 +519,38 @@ static void add_item(GtkWidget *button, gpointer data)
 	GtkTreeModel *model = (GtkTreeModel *)((gpointer *)data)[0];
 	GArray *arr = (GArray *)((gpointer *)data)[1];
 
-	item.name = g_strdup("");
+	item.name = g_strdup("user.");
 	item.value = g_strdup("");
 	g_array_append_vals(arr,&item,1);
 
 	gtk_list_store_append(GTK_LIST_STORE(model),&iter);
-	gtk_list_store_set(GTK_LIST_STORE(model),&iter,COLUMN_NAME,item.name,COLUMN_VALUE,item.value,-1);
+	gtk_list_store_set(GTK_LIST_STORE(model),&iter,
+			COLUMN_NAME,item.name,COLUMN_VALUE,item.value,COLUMN_EDIT,TRUE,-1);
 }
 
 static void remove_item(GtkWidget *button, gpointer data)
 {
 	GtkTreeIter iter;
 	GtkTreeView *treeview = (GtkTreeView *)((gpointer *)data)[2];
-	GtkTreeModel *model = gtk_tree_view_get_model (treeview);
-	GtkTreeSelection *selection = gtk_tree_view_get_selection (treeview);
+	GtkTreeModel *model = gtk_tree_view_get_model(treeview);
+	GtkTreeSelection *selection = gtk_tree_view_get_selection(treeview);
 	GArray *arr = (GArray *)((gpointer *)data)[1];
 
-	if (gtk_tree_selection_get_selected (selection, NULL, &iter)) {
+	if (gtk_tree_selection_get_selected(selection, NULL, &iter)) {
 		gint i;
 		GtkTreePath *path;
+		gboolean edit;
+		
+		gtk_tree_model_get(model, &iter, COLUMN_EDIT, &edit, -1);
+		if(edit == TRUE) {
+			path = gtk_tree_model_get_path(model, &iter);
+			i = gtk_tree_path_get_indices(path)[0];
+			gtk_list_store_remove(GTK_LIST_STORE (model), &iter);
 
-		path = gtk_tree_model_get_path (model, &iter);
-		i = gtk_tree_path_get_indices(path)[0];
-		gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
+			g_array_remove_index(arr,i);
 
-		g_array_remove_index(arr,i);
-
-		gtk_tree_path_free (path);
+			gtk_tree_path_free(path);
+		}
 	}
 }
 
@@ -497,15 +571,18 @@ static void cell_edited(GtkCellRendererText *cell, const gchar *path_string, con
 			gint i;
 			gchar *old_text;
 
-			gtk_tree_model_get (model, &iter, column, &old_text, -1);
-			g_free (old_text);
+			gtk_tree_model_get(model, &iter, column, &old_text, -1);
+			g_free(old_text);
 
-			i = gtk_tree_path_get_indices (path)[0];
-			g_free (g_array_index (arr, XAttr, i).name);
-			g_array_index (arr, XAttr, i).name = g_strdup (new_text);
+			i = gtk_tree_path_get_indices(path)[0];
+			g_free(g_array_index(arr, XAttr, i).name);
+			if(g_regex_match_simple("^user\\.",new_text,0,0) == TRUE)
+				g_array_index(arr, XAttr, i).name = g_strdup(new_text);
+			else
+				g_array_index(arr, XAttr, i).name = g_strdup_printf("user.%s",new_text);
 
-			gtk_list_store_set (GTK_LIST_STORE (model), &iter, column,
-								g_array_index (arr, XAttr, i).name, -1);
+			gtk_list_store_set(GTK_LIST_STORE (model), &iter, column,
+					g_array_index(arr, XAttr, i).name, -1);
 		
 		}
 		break;
@@ -515,15 +592,15 @@ static void cell_edited(GtkCellRendererText *cell, const gchar *path_string, con
 			gint i;
 			gchar *old_text;
 
-			gtk_tree_model_get (model, &iter, column, &old_text, -1);
-			g_free (old_text);
+			gtk_tree_model_get(model, &iter, column, &old_text, -1);
+			g_free(old_text);
 
-			i = gtk_tree_path_get_indices (path)[0];
-			g_free (g_array_index (arr, XAttr, i).value);
-			g_array_index (arr, XAttr, i).value = g_strdup (new_text);
+			i = gtk_tree_path_get_indices(path)[0];
+			g_free(g_array_index(arr, XAttr, i).value);
+			g_array_index(arr, XAttr, i).value = g_strdup(new_text);
 
-			gtk_list_store_set (GTK_LIST_STORE (model), &iter, column,
-								g_array_index (arr, XAttr, i).value, -1);
+			gtk_list_store_set(GTK_LIST_STORE (model), &iter, column,
+					g_array_index(arr, XAttr, i).value, -1);
 		}
 		break;
 	}
@@ -537,16 +614,22 @@ static GtkTreeModel* create_model(GArray *arr) {
 	GtkTreeIter iter;
 	gchar *name, *value;
 	gchar *u8nam, *u8val;
+	gboolean edit;
 
-	model = gtk_list_store_new(2,G_TYPE_STRING,G_TYPE_STRING);
+	model = gtk_list_store_new(3,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_BOOLEAN);
 	for(i=0;i<arr->len;i++) {
 		name = g_array_index(arr,XAttr,i).name;
 		value = g_array_index(arr,XAttr,i).value;
 		u8nam = to_utf8(name);
 		u8val = to_utf8(value);
 
+		if(g_array_index(arr,XAttr,i).user == 1)
+			edit = TRUE;
+		else
+			edit = FALSE;
+
 		gtk_list_store_append(model,&iter);
-		gtk_list_store_set(model,&iter,COLUMN_NAME,u8nam,COLUMN_VALUE,u8val,-1);
+		gtk_list_store_set(model,&iter,COLUMN_NAME,u8nam,COLUMN_VALUE,u8val,COLUMN_EDIT,edit,-1);
 		g_free(u8nam);
 		g_free(u8val);
 	}
@@ -561,14 +644,15 @@ void xattrs_browser(DirItem *item, const guchar *path)
 	GtkWidget	*tree;
 	GtkWidget	*but;
 	GtkTreeModel *mod;
-	GArray		*arr;
+	GArray		*arr, *arr_old;
 	GtkCellRenderer	*ren;
 	gpointer 		*data;
 
 	g_return_if_fail(item != NULL && path != NULL);
 
-	data = g_new(gpointer, 3);
+	data = g_new(gpointer, 4);
 	arr = xattr_list(path);
+	arr_old = copy_array(arr); /* keep original attribute list */
 
 	dialog = GTK_DIALOG(gtk_dialog_new());
 	gtk_window_set_title(GTK_WINDOW(dialog), _("Extended attributes"));
@@ -609,23 +693,21 @@ void xattrs_browser(DirItem *item, const guchar *path)
 	mod = create_model(arr);
 	tree = gtk_tree_view_new_with_model(mod);
 	/* wrapper for variable passing */
-	data[0] = mod; data[1] = arr; data[2] = tree;
+	data[0] = mod; data[1] = arr; data[2] = tree; data[3] = arr_old;
 	gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(tree),TRUE);
 	gtk_tree_selection_set_mode(gtk_tree_view_get_selection(GTK_TREE_VIEW(tree)),
 			GTK_SELECTION_SINGLE);
 	/* add columns */
 	ren = gtk_cell_renderer_text_new();
-	g_object_set(ren,"editable",TRUE,NULL);
 	g_signal_connect(ren, "edited", G_CALLBACK(cell_edited), data);
 	g_object_set_data(G_OBJECT(ren),"column",GINT_TO_POINTER(0));
 	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tree),-1,
-			"Name",ren,"text",0,NULL);
+			"Name",ren,"text",COLUMN_NAME,"editable",COLUMN_EDIT,"sensitive",COLUMN_EDIT,NULL);
 	ren = gtk_cell_renderer_text_new();
-	g_object_set(ren,"editable",TRUE,NULL);
 	g_signal_connect(ren, "edited", G_CALLBACK(cell_edited), data);
 	g_object_set_data(G_OBJECT(ren),"column",GINT_TO_POINTER(1));
 	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tree),-1,
-			"Value",ren,"text",1,NULL);
+			"Value",ren,"text",COLUMN_VALUE,"editable",COLUMN_EDIT,"sensitive",COLUMN_EDIT,NULL);
 	g_object_unref(mod);
 	gtk_container_add(GTK_CONTAINER(sw),tree);
 
