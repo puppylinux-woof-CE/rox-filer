@@ -32,7 +32,9 @@ MIME_type *xtype_get(const char *path);
 int xtype_set(const char *path, const MIME_type *type);
 
 /* Xattr browser */
-void xattrs_browser(DirItem *item, const guchar *path);
-GArray* xattr_list(const char *path);
+void xattrs_browser(DirItem *, const guchar *);
+GArray* xattr_list(const char *);
+GArray* copy_array(GArray *);
+GArray* compare_arrays(GArray *,GArray *);
 
 #endif
