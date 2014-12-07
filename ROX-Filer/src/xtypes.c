@@ -715,7 +715,7 @@ void xattrs_browser(DirItem *item, const guchar *path)
 	dialog = GTK_DIALOG(gtk_dialog_new());
 	gtk_window_set_title(GTK_WINDOW(dialog), _("Extended attributes"));
 	gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_MOUSE);
-	gtk_window_set_default_size(GTK_WINDOW(dialog),300,150);
+	gtk_window_set_default_size(GTK_WINDOW(dialog),320,200);
 
 	content = gtk_dialog_get_content_area(dialog);
 
