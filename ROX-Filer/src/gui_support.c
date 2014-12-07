@@ -1546,6 +1546,7 @@ void make_heading(GtkWidget *label, double scale_factor)
 	pango_attr_list_insert(list, attr);
 
 	gtk_label_set_attributes(GTK_LABEL(label), list);
+	pango_attr_list_unref(list);
 }
 
 /* Launch a program using 0launch.
