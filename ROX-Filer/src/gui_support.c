@@ -1661,7 +1661,7 @@ gint current_event_button(void)
  */
 GdkPixbuf *create_spotlight_pixbuf(GdkPixbuf *src, GdkColor *color)
 {
-	guchar opacity = 192;
+	guchar opacity = 127;//192;
 	guchar alpha = 255 - opacity;
 	GdkPixbuf *dst;
 	GdkColorspace colorspace;
@@ -1694,6 +1694,8 @@ GdkPixbuf *create_spotlight_pixbuf(GdkPixbuf *src, GdkColor *color)
 	src_rowstride = gdk_pixbuf_get_rowstride(src);
 	dst_rowstride = gdk_pixbuf_get_rowstride(dst);
 
+	if (color == NULL)
+		goto error;
 	r = opacity * (color->red >> 8);
 	g = opacity * (color->green >> 8);
 	b = opacity * (color->blue >> 8);

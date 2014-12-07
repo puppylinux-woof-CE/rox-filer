@@ -158,9 +158,16 @@ void draw_huge_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 	int		image_x;
 	int		image_y;
 	GdkPixbuf	*pixbuf;
+	const guchar *path;
+	GdkColor	 *label = NULL;
 
 	if (!image)
 		return;
+
+	if(window_with_focus) {
+		path = make_path(window_with_focus->sym_path, item->leafname);
+		label = xlabel_get(path);
+	}
 
 	width = image->huge_width;
 	height = image->huge_height;
@@ -169,7 +176,8 @@ void draw_huge_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 
 	pixbuf = selected
 		? create_spotlight_pixbuf(image->huge_pixbuf, color)
-		: image->huge_pixbuf;
+		: (label == NULL) ? image->huge_pixbuf : 
+		create_spotlight_pixbuf(image->huge_pixbuf, label);
 
 	gdk_pixbuf_render_to_drawable_alpha(
 			pixbuf,
@@ -218,9 +226,16 @@ void draw_large_icon(GdkWindow *window,
 	int	image_x;
 	int	image_y;
 	GdkPixbuf *pixbuf;
+	const guchar *path;
+	GdkColor	 *label = NULL;
 
 	if (!image)
 		return;
+
+	if(window_with_focus) {
+		path = make_path(window_with_focus->sym_path, item->leafname);
+		label = xlabel_get(path);
+	}
 
 	width = MIN(image->width, ICON_WIDTH);
 	height = MIN(image->height, ICON_HEIGHT);
@@ -229,7 +244,8 @@ void draw_large_icon(GdkWindow *window,
 
 	pixbuf = selected
 		? create_spotlight_pixbuf(image->pixbuf, color)
-		: image->pixbuf;
+		: (label == NULL) ? image->pixbuf : 
+		create_spotlight_pixbuf(image->pixbuf, label);
 
 	gdk_pixbuf_render_to_drawable_alpha(
 			pixbuf,
@@ -268,12 +284,19 @@ void draw_small_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 {
 	int		width, height, image_x, image_y;
 	GdkPixbuf	*pixbuf;
+	const guchar *path;
+	GdkColor	 *label = NULL;
 	
 	if (!image)
 		return;
 
 	if (!image->sm_pixbuf)
 		pixmap_make_small(image);
+
+	if(window_with_focus) {
+		path = make_path(window_with_focus->sym_path, item->leafname);
+		label = xlabel_get(path);
+	}
 
 	width = MIN(image->sm_width, SMALL_WIDTH);
 	height = MIN(image->sm_height, SMALL_HEIGHT);
@@ -282,7 +305,8 @@ void draw_small_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 		
 	pixbuf = selected
 		? create_spotlight_pixbuf(image->sm_pixbuf, color)
-		: image->sm_pixbuf;
+		: (label == NULL) ? image->sm_pixbuf : 
+		create_spotlight_pixbuf(image->sm_pixbuf, label);
 
 	gdk_pixbuf_render_to_drawable_alpha(
 			pixbuf,

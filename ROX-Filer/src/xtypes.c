@@ -366,6 +366,30 @@ int xtype_set(const char *path, const MIME_type *type)
 	return res;
 }
 
+/* Label support */
+GdkColor *xlabel_get(const char *path)
+{
+	GdkColor *col = NULL;
+	gchar *buf;
+	char *nl;
+
+	buf = xattr_get(path, XATTR_LABEL, NULL);
+
+	if(buf)
+	{
+		nl = strchr(buf, '\n');
+		if(nl)
+			*nl = 0;
+		col = g_new(GdkColor, 1);
+		if(gdk_color_parse(buf, col) == FALSE) {
+			g_free(col);
+			col = NULL;
+		}
+		g_free(buf);
+	}
+	return col;
+}
+
 /* Extended attributes browser */
 #if defined(HAVE_GETXATTR) /* Linux-only for now */
 
