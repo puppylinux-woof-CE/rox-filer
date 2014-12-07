@@ -423,6 +423,8 @@ GArray* xattr_list(const char *path)
 
 		at.name = g_strdup_printf("%s",l);
 		at.value = xattr_get(path, at.name, NULL);
+		if(at.value == NULL)
+			at.value = g_strdup("");
 
 		g_array_append_vals(xarr, &at, 1);
 	}
@@ -573,7 +575,7 @@ static void dialog_response(GtkWidget *dialog, gint response, gpointer data)
 						xattr_set(path,g_array_index(changes,XAttr,i).name,g_array_index(changes,XAttr,i).value,-1);
 						break;
 					case MODE_REMOVE:
-						xattr_rem(path, g_array_index(changes,XAttr,i).name);
+						xattr_rem(path,g_array_index(changes,XAttr,i).name);
 						break;
 					default:
 						break;
@@ -651,17 +653,19 @@ static void cell_edited(GtkCellRendererText *cell, const gchar *path_string, con
 		case COLUMN_NAME:
 		{
 			gint i;
-			gchar *old_text;
+			gchar *old_text, *ascii;
 
 			gtk_tree_model_get(model, &iter, column, &old_text, -1);
 			g_free(old_text);
 
 			i = gtk_tree_path_get_indices(path)[0];
 			g_free(g_array_index(arr, XAttr, i).name);
-			if(g_regex_match_simple("^user\\.",new_text,0,0) == TRUE)
-				g_array_index(arr, XAttr, i).name = g_strdup(g_str_to_ascii(new_text,"C"));
+			ascii = g_str_to_ascii(new_text,"C");
+			if(g_regex_match_simple("^user\\.",ascii,0,0) == TRUE)
+				g_array_index(arr, XAttr, i).name = g_strdup(ascii);
 			else
-				g_array_index(arr, XAttr, i).name = g_strdup_printf("user.%s",g_str_to_ascii(new_text,"C"));
+				g_array_index(arr, XAttr, i).name = g_strdup_printf("user.%s",ascii);
+			g_free(ascii);
 
 			gtk_list_store_set(GTK_LIST_STORE(model), &iter, column,
 					g_array_index(arr, XAttr, i).name, -1);
