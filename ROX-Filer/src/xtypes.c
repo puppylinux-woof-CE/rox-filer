@@ -292,6 +292,30 @@ int xattr_set(const char *path, const char *attr,
 	return 1; /* Set type failed */
 }
 
+int xattr_rem(const char *path, const char *attr)
+{
+	int fd;
+	int er;
+
+	if(o_xattr_ignore.int_value)
+	{
+		errno = ENOSYS;
+		return 1;
+	}
+
+	fd=attropen(path, ".", O_WRONLY);
+	if(fd>0) {
+	
+		er=unlinkat(fd, attr, 0);
+		close(fd);
+
+		if(er<0)
+			return 0;
+	}
+
+	return 1;
+}
+
 #else
 /* No extended attributes available */
 
