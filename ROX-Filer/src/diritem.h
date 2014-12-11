@@ -42,6 +42,7 @@ struct _DirItem
 	time_t		atime, ctime, mtime;
 	MaskedPixmap	*_image;	/* NULL => leafname only so far */
 	MIME_type	*mime_type;
+	GdkColor	*label;
 	uid_t		uid;
 	gid_t		gid;
 	int		lstat_errno;	/* 0 if details are valid */

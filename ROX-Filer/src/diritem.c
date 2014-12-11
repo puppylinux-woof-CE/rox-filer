@@ -108,6 +108,8 @@ void diritem_restat(const guchar *path, DirItem *item, struct stat *parent)
 		if (xattr_have(path))
 			item->flags |= ITEM_FLAG_HAS_XATTR;
 
+		item->label = xlabel_get(path);
+
 		if (S_ISLNK(info.st_mode))
 		{
 			if (mc_stat(path, &info))
@@ -219,6 +221,7 @@ DirItem *diritem_new(const guchar *leafname)
 	item->flags = ITEM_FLAG_NEED_RESCAN_QUEUE;
 	item->mime_type = NULL;
 	item->leafname_collate = collate_key_new(item->leafname);
+	item->label = NULL;
 
 	return item;
 }
@@ -231,6 +234,9 @@ void diritem_free(DirItem *item)
 		g_object_unref(item->_image);
 	item->_image = NULL;
 	collate_key_free(item->leafname_collate);
+	if (item->label)
+		g_free(item->label);
+	item->label = NULL;
 	g_free(item->leafname);
 	g_free(item);
 }

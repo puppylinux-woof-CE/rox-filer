@@ -157,27 +157,28 @@ void draw_huge_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 	int		width, height;
 	int		image_x;
 	int		image_y;
-	GdkPixbuf	*pixbuf;
-	const guchar *path;
-	GdkColor	 *label = NULL;
+	GdkPixbuf	*pixbuf, *tmp;
 
 	if (!image)
 		return;
-
-	if(window_with_focus) {
-		path = make_path(window_with_focus->sym_path, item->leafname);
-		label = xlabel_get(path);
-	}
 
 	width = image->huge_width;
 	height = image->huge_height;
 	image_x = area->x + ((area->width - width) >> 1);
 	image_y = MAX(0, area->height - height - 6);
 
-	pixbuf = selected
-		? create_spotlight_pixbuf(image->huge_pixbuf, color)
-		: (label == NULL) ? image->huge_pixbuf : 
-		create_spotlight_pixbuf(image->huge_pixbuf, label);
+	if(item->label != NULL) {
+		tmp = create_spotlight_pixbuf(image->huge_pixbuf, item->label);
+		if(selected) {
+			pixbuf = create_spotlight_pixbuf(tmp, color);
+			g_object_unref(tmp);
+		} else
+			pixbuf = tmp;
+	} else {
+		pixbuf = selected
+				? create_spotlight_pixbuf(image->huge_pixbuf, color)
+				: image->huge_pixbuf;
+	}
 
 	gdk_pixbuf_render_to_drawable_alpha(
 			pixbuf,
@@ -188,7 +189,7 @@ void draw_huge_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 			GDK_PIXBUF_ALPHA_FULL, 128,	/* (unused) */
 			GDK_RGB_DITHER_NORMAL, 0, 0);
 
-	if (selected)
+	if (selected || item->label != NULL)
 		g_object_unref(pixbuf);
 
 	if (item->flags & ITEM_FLAG_MOUNT_POINT)
@@ -225,27 +226,28 @@ void draw_large_icon(GdkWindow *window,
 	int	height;
 	int	image_x;
 	int	image_y;
-	GdkPixbuf *pixbuf;
-	const guchar *path;
-	GdkColor	 *label = NULL;
+	GdkPixbuf *pixbuf, *tmp;
 
 	if (!image)
 		return;
-
-	if(window_with_focus) {
-		path = make_path(window_with_focus->sym_path, item->leafname);
-		label = xlabel_get(path);
-	}
 
 	width = MIN(image->width, ICON_WIDTH);
 	height = MIN(image->height, ICON_HEIGHT);
 	image_x = area->x + ((area->width - width) >> 1);
 	image_y = MAX(0, area->height - height - 6);
 
-	pixbuf = selected
-		? create_spotlight_pixbuf(image->pixbuf, color)
-		: (label == NULL) ? image->pixbuf : 
-		create_spotlight_pixbuf(image->pixbuf, label);
+	if(item->label != NULL) {
+		tmp = create_spotlight_pixbuf(image->pixbuf, item->label);
+		if(selected) {
+			pixbuf = create_spotlight_pixbuf(tmp, color);
+			g_object_unref(tmp);
+		} else
+			pixbuf = tmp;
+	} else {
+		pixbuf = selected
+				? create_spotlight_pixbuf(image->pixbuf, color)
+				: image->pixbuf;
+	}
 
 	gdk_pixbuf_render_to_drawable_alpha(
 			pixbuf,
@@ -256,7 +258,7 @@ void draw_large_icon(GdkWindow *window,
 			GDK_PIXBUF_ALPHA_FULL, 128,	/* (unused) */
 			GDK_RGB_DITHER_NORMAL, 0, 0);
 
-	if (selected)
+	if (selected || item->label != NULL)
 		g_object_unref(pixbuf);
 
 	if (item->flags & ITEM_FLAG_MOUNT_POINT)
@@ -283,9 +285,7 @@ void draw_small_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 		     GdkColor *color)
 {
 	int		width, height, image_x, image_y;
-	GdkPixbuf	*pixbuf;
-	const guchar *path;
-	GdkColor	 *label = NULL;
+	GdkPixbuf	*pixbuf, *tmp;
 	
 	if (!image)
 		return;
@@ -293,20 +293,23 @@ void draw_small_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 	if (!image->sm_pixbuf)
 		pixmap_make_small(image);
 
-	if(window_with_focus) {
-		path = make_path(window_with_focus->sym_path, item->leafname);
-		label = xlabel_get(path);
-	}
-
 	width = MIN(image->sm_width, SMALL_WIDTH);
 	height = MIN(image->sm_height, SMALL_HEIGHT);
 	image_x = area->x + ((area->width - width) >> 1);
 	image_y = MAX(0, SMALL_HEIGHT - image->sm_height);
-		
-	pixbuf = selected
-		? create_spotlight_pixbuf(image->sm_pixbuf, color)
-		: (label == NULL) ? image->sm_pixbuf : 
-		create_spotlight_pixbuf(image->sm_pixbuf, label);
+
+	if(item->label != NULL) {
+		tmp = create_spotlight_pixbuf(image->sm_pixbuf, item->label);
+		if(selected) {
+			pixbuf = create_spotlight_pixbuf(tmp, color);
+			g_object_unref(tmp);
+		} else
+			pixbuf = tmp;
+	} else {
+		pixbuf = selected
+				? create_spotlight_pixbuf(image->sm_pixbuf, color)
+				: image->sm_pixbuf;
+	}
 
 	gdk_pixbuf_render_to_drawable_alpha(
 			pixbuf,
@@ -317,7 +320,7 @@ void draw_small_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 			GDK_PIXBUF_ALPHA_FULL, 128,	/* (unused) */
 			GDK_RGB_DITHER_NORMAL, 0, 0);
 
-	if (selected)
+	if (selected || item->label != NULL)
 		g_object_unref(pixbuf);
 
 	if (item->flags & ITEM_FLAG_MOUNT_POINT)
