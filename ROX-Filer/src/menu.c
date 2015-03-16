@@ -1721,8 +1721,6 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
     return widgets;
 }
 
-
-
 /* Scan the SendTo dir and create and show the Send To menu.
  * The 'paths' list and every path in it is claimed, and will be
  * freed later -- don't free it yourself!
