@@ -1618,6 +1618,7 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
     const gchar *xdg_data_home;
     GList *apps_dirs = NULL;
     GList *list_iter;
+    GList *list_iter2;
     gchar **iter;
     gchar *mimeinfo_path;
     gchar *desktop_files_str;
@@ -1641,8 +1642,14 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 
     xdg_data_home = g_getenv("XDG_DATA_HOME");
 
-    if (g_strcmp0(xdg_data_home, ""))
-        apps_dirs = g_list_append(apps_dirs, g_strdup(xdg_data_home));
+	if (xdg_data_home)
+		xdg_data_home = g_strdup(xdg_data_home);
+
+    if (!xdg_data_home || !strcmp(xdg_data_home, ""))
+		xdg_data_home = g_strjoin("/", g_getenv("HOME"), ".local", "share", NULL);
+
+	apps_dirs = g_list_append(apps_dirs,
+			g_strjoin("/", xdg_data_home, "applications", NULL));
 
     for (iter = xdg_data_dirs; *iter; iter++) {
         apps_dirs = g_list_append(
@@ -1650,7 +1657,7 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
     }
     g_strfreev(xdg_data_dirs);
 
-    /* Iterate over applications dirs in XDG_DATA_DIRS and XDG_CONFIG_HOME */
+    /* Iterate over applications dirs in XDG_DATA_HOME and XDG_DATA_DIRS. */
     for (list_iter = apps_dirs; list_iter; list_iter = g_list_next(list_iter)) {
         if (!list_iter->data)
             continue;
@@ -1679,26 +1686,33 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
                 g_free(*iter);
                 continue;
             }
-            error = NULL;
-            full_path = g_strjoin("/", list_iter->data, *iter, NULL);
-            label = get_value_from_desktop_file(full_path, "Desktop Entry", "Name", &error);
-            if (label && !error) {
+			/* Look for .desktop file in applications subdir of XDG_DATA_HOME and XDG_DATA_DIRS. */
+			for (list_iter2 = apps_dirs; list_iter2; list_iter2 = g_list_next(list_iter2)) {
+				if (!list_iter2->data)
+					continue;
+				error = NULL;
+				full_path = g_strjoin("/", list_iter2->data, *iter, NULL);
+				label = get_value_from_desktop_file(full_path, "Desktop Entry", "Name", &error);
+				if (label && !error) {
 
-                ditem = diritem_new("");
-                diritem_restat(full_path, ditem, NULL);
+					ditem = diritem_new("");
+					diritem_restat(full_path, ditem, NULL);
 
-                item = make_send_to_item(ditem, label, get_menu_icon_style());
+					item = make_send_to_item(ditem, label, get_menu_icon_style());
 
-                g_signal_connect_swapped(item, "activate",
-                        G_CALLBACK(swapped_func), full_path);
-                if (menu)
-                    gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+					g_signal_connect_swapped(item, "activate",
+							G_CALLBACK(swapped_func), full_path);
+					if (menu)
+						gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
 
-                widgets = g_list_append(widgets, item);
-                g_hash_table_add(desktop_entries, *iter);
-            } else {
-                g_free(*iter);
-            }
+					widgets = g_list_append(widgets, item);
+					g_hash_table_add(desktop_entries, *iter);
+					break;
+				}
+			}
+			if (!g_hash_table_contains(desktop_entries, *iter)) {
+				g_free(*iter);
+			}
         }
         g_free(desktop_files);
         g_free(desktop_files_str);
@@ -1717,6 +1731,7 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 
     g_hash_table_destroy(desktop_entries);
     g_free(mime_type);
+	g_free(xdg_data_home);
 
     return widgets;
 }
