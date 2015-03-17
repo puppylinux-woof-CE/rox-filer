@@ -1567,8 +1567,8 @@ static void add_sendto(GtkWidget *menu, const gchar *type, const gchar *subtype)
 {
 		GList *widgets = NULL;
 		widgets = add_sendto_shared(menu, type, subtype, (CallbackFn) do_send_to);
-        widgets = g_list_concat(widgets,
-            add_sendto_desktop_items(menu, type, subtype, (CallbackFn) do_send_to));
+		widgets = g_list_concat(widgets,
+			add_sendto_desktop_items(menu, type, subtype, (CallbackFn) do_send_to));
 		if (widgets)
 			gtk_menu_shell_append(GTK_MENU_SHELL(menu),
 					gtk_menu_item_new());
@@ -1609,83 +1609,83 @@ GList *add_sendto_shared(GtkWidget *menu,
 GList *add_sendto_desktop_items(GtkWidget *menu,
         const gchar *type, const gchar *subtype, CallbackFn swapped_func)
 {
-    GList *widgets = NULL;
-    GError *error = NULL;
-    DirItem *ditem;
-    GtkWidget *item;
-    const gchar *xdg_data_dirs_env;
-    gchar **xdg_data_dirs;
-    const gchar *xdg_data_home;
-    GList *apps_dirs = NULL;
-    GList *list_iter;
-    GList *list_iter2;
-    gchar **iter;
-    gchar *mimeinfo_path;
-    gchar *desktop_files_str;
-    gchar **desktop_files;
-    gchar *mime_type;
-    gchar *label;
-    gchar *full_path;
-    GHashTable *desktop_entries;
-    GHashTableIter hash_table_iter;
-    gpointer key, value;
+	GList *widgets = NULL;
+	GError *error = NULL;
+	DirItem *ditem;
+	GtkWidget *item;
+	const gchar *xdg_data_dirs_env;
+	gchar **xdg_data_dirs;
+	const gchar *xdg_data_home;
+	GList *apps_dirs = NULL;
+	GList *list_iter;
+	GList *list_iter2;
+	gchar **iter;
+	gchar *mimeinfo_path;
+	gchar *desktop_files_str;
+	gchar **desktop_files;
+	gchar *mime_type;
+	gchar *label;
+	gchar *full_path;
+	GHashTable *desktop_entries;
+	GHashTableIter hash_table_iter;
+	gpointer key, value;
 
-    desktop_entries = g_hash_table_new(g_str_hash, g_str_equal);
+	desktop_entries = g_hash_table_new(g_str_hash, g_str_equal);
 
-    if (!type || !subtype)
-        return widgets;
+	if (!type || !subtype)
+		return widgets;
 
-    mime_type = g_strjoin("/", type, subtype, NULL);
+	mime_type = g_strjoin("/", type, subtype, NULL);
 
-    xdg_data_dirs_env = g_getenv("XDG_DATA_DIRS");
-    xdg_data_dirs = g_strsplit(xdg_data_dirs_env, ":", -1);
+	xdg_data_dirs_env = g_getenv("XDG_DATA_DIRS");
+	xdg_data_dirs = g_strsplit(xdg_data_dirs_env, ":", -1);
 
-    xdg_data_home = g_getenv("XDG_DATA_HOME");
+	xdg_data_home = g_getenv("XDG_DATA_HOME");
 
 	if (xdg_data_home)
 		xdg_data_home = g_strdup(xdg_data_home);
 
-    if (!xdg_data_home || !strcmp(xdg_data_home, ""))
+	if (!xdg_data_home || !strcmp(xdg_data_home, ""))
 		xdg_data_home = g_strjoin("/", g_getenv("HOME"), ".local", "share", NULL);
 
 	apps_dirs = g_list_append(apps_dirs,
 			g_strjoin("/", xdg_data_home, "applications", NULL));
 
-    for (iter = xdg_data_dirs; *iter; iter++) {
-        apps_dirs = g_list_append(
-                apps_dirs, g_strjoin("/", *iter, "applications", NULL));
-    }
-    g_strfreev(xdg_data_dirs);
+	for (iter = xdg_data_dirs; *iter; iter++) {
+		apps_dirs = g_list_append(
+				apps_dirs, g_strjoin("/", *iter, "applications", NULL));
+	}
+	g_strfreev(xdg_data_dirs);
 
-    /* Iterate over applications dirs in XDG_DATA_HOME and XDG_DATA_DIRS. */
-    for (list_iter = apps_dirs; list_iter; list_iter = g_list_next(list_iter)) {
-        if (!list_iter->data)
-            continue;
+	/* Iterate over applications dirs in XDG_DATA_HOME and XDG_DATA_DIRS. */
+	for (list_iter = apps_dirs; list_iter; list_iter = g_list_next(list_iter)) {
+		if (!list_iter->data)
+			continue;
 
-        mimeinfo_path = g_strjoin("/", list_iter->data, "mimeinfo.cache", NULL);
-        error = NULL;
-        desktop_files_str = get_value_from_desktop_file(
-                mimeinfo_path, "MIME Cache", mime_type, &error);
+		mimeinfo_path = g_strjoin("/", list_iter->data, "mimeinfo.cache", NULL);
+		error = NULL;
+		desktop_files_str = get_value_from_desktop_file(
+				mimeinfo_path, "MIME Cache", mime_type, &error);
 
-        if (!desktop_files_str || error) {
-            g_free(mimeinfo_path);
-            continue;
-        }
+		if (!desktop_files_str || error) {
+			g_free(mimeinfo_path);
+			continue;
+		}
 
-        desktop_files = g_strsplit(desktop_files_str, ";", -1);
-        iter = desktop_files;
+		desktop_files = g_strsplit(desktop_files_str, ";", -1);
+		iter = desktop_files;
 
-        /* Iterate over all desktop files associated with the given mimetype. */
-        for (iter = desktop_files; *iter; iter++) {
-            if (!strcmp(*iter, "")) {
-                g_free(*iter);
-                continue;
-            }
-            if (g_hash_table_contains(desktop_entries, *iter)) {
-                /* Item already added to menu. */
-                g_free(*iter);
-                continue;
-            }
+		/* Iterate over all desktop files associated with the given mimetype. */
+		for (iter = desktop_files; *iter; iter++) {
+			if (!strcmp(*iter, "")) {
+				g_free(*iter);
+				continue;
+			}
+			if (g_hash_table_contains(desktop_entries, *iter)) {
+				/* Item already added to menu. */
+				g_free(*iter);
+				continue;
+			}
 			/* Look for .desktop file in applications subdir of XDG_DATA_HOME and XDG_DATA_DIRS. */
 			for (list_iter2 = apps_dirs; list_iter2; list_iter2 = g_list_next(list_iter2)) {
 				if (!list_iter2->data)
@@ -1713,27 +1713,27 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 			if (!g_hash_table_contains(desktop_entries, *iter)) {
 				g_free(*iter);
 			}
-        }
-        g_free(desktop_files);
-        g_free(desktop_files_str);
-        g_free(mimeinfo_path);
-    }
+		}
+		g_free(desktop_files);
+		g_free(desktop_files_str);
+		g_free(mimeinfo_path);
+	}
 
-    for (list_iter = apps_dirs; list_iter; list_iter = g_list_next(list_iter)) {
-        g_free(list_iter->data);
-    }
-    g_list_free(apps_dirs);
+	for (list_iter = apps_dirs; list_iter; list_iter = g_list_next(list_iter)) {
+		g_free(list_iter->data);
+	}
+	g_list_free(apps_dirs);
 
-    g_hash_table_iter_init (&hash_table_iter, desktop_entries);
-    while (g_hash_table_iter_next (&hash_table_iter, &key, &value)) {
-        g_free(key);
-    }
+	g_hash_table_iter_init (&hash_table_iter, desktop_entries);
+	while (g_hash_table_iter_next (&hash_table_iter, &key, &value)) {
+		g_free(key);
+	}
 
-    g_hash_table_destroy(desktop_entries);
-    g_free(mime_type);
+	g_hash_table_destroy(desktop_entries);
+	g_free(mime_type);
 	g_free(xdg_data_home);
 
-    return widgets;
+	return widgets;
 }
 
 /* Scan the SendTo dir and create and show the Send To menu.
