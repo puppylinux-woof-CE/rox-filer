@@ -1642,6 +1642,10 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 	mime_type = g_strjoin("/", type, subtype, NULL);
 
 	xdg_data_dirs_env = g_getenv("XDG_DATA_DIRS");
+
+    if (!xdg_data_dirs_env || !strcmp(xdg_data_dirs_env, ""))
+        xdg_data_dirs_env = "/usr/share:/usr/local/share";
+
 	xdg_data_dirs = g_strsplit(xdg_data_dirs_env, ":", -1);
 
 	xdg_data_home = g_getenv("XDG_DATA_HOME");
