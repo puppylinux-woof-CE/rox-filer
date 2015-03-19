@@ -1616,7 +1616,7 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 	GtkWidget *item;
 	const gchar *xdg_data_dirs_env;
 	gchar **xdg_data_dirs;
-	const gchar *xdg_data_home;
+	gchar *xdg_data_home;
 	GList *apps_dirs = NULL;
 	GList *list_iter;
 	GList *list_iter2;
