@@ -1634,10 +1634,10 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
     if (!o_menu_xdg_apps.int_value)
         return widgets;
 
-	desktop_entries = g_hash_table_new(g_str_hash, g_str_equal);
-
 	if (!type || !subtype)
 		return widgets;
+
+	desktop_entries = g_hash_table_new(g_str_hash, g_str_equal);
 
 	mime_type = g_strjoin("/", type, subtype, NULL);
 
@@ -1648,12 +1648,14 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 
 	xdg_data_dirs = g_strsplit(xdg_data_dirs_env, ":", -1);
 
-	xdg_data_home = g_getenv("XDG_DATA_HOME");
+	xdg_data_home = g_strdup(g_getenv("XDG_DATA_HOME"));
 
-	if (xdg_data_home)
-		xdg_data_home = g_strdup(xdg_data_home);
+	if (xdg_data_home && !strcmp(xdg_data_home, "")) {
+		g_free(xdg_data_home);
+		xdg_data_home = NULL;
+	}
 
-	if (!xdg_data_home || !strcmp(xdg_data_home, ""))
+	if (!xdg_data_home)
 		xdg_data_home = g_strjoin("/", g_getenv("HOME"), ".local", "share", NULL);
 
 	apps_dirs = g_list_append(apps_dirs,
@@ -1675,8 +1677,14 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 		desktop_files_str = get_value_from_desktop_file(
 				mimeinfo_path, "MIME Cache", mime_type, &error);
 
-		if (!desktop_files_str || error) {
-			g_free(mimeinfo_path);
+		g_free(mimeinfo_path);
+
+		if (error) {
+			g_error_free(error);
+			continue;
+		}
+
+		if (!desktop_files_str) {
 			continue;
 		}
 
@@ -1701,22 +1709,34 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 				error = NULL;
 				full_path = g_strjoin("/", list_iter2->data, *iter, NULL);
 				label = get_value_from_desktop_file(full_path, "Desktop Entry", "Name", &error);
-				if (label && !error) {
-
-					ditem = diritem_new("");
-					diritem_restat(full_path, ditem, NULL);
-
-					item = make_send_to_item(ditem, label, get_menu_icon_style());
-
-					g_signal_connect_swapped(item, "activate",
-							G_CALLBACK(swapped_func), full_path);
-					if (menu)
-						gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-
-					widgets = g_list_append(widgets, item);
-					g_hash_table_add(desktop_entries, *iter);
-					break;
+				if (error) {
+					g_free(full_path);
+					g_error_free(error);
+					if (label)
+						g_free(label);
+					continue;
 				}
+				if (!label) {
+					g_free(full_path);
+					continue;
+				}
+
+				ditem = diritem_new("");
+				diritem_restat(full_path, ditem, NULL);
+
+				item = make_send_to_item(ditem, label, get_menu_icon_style());
+
+				g_signal_connect_swapped(item, "activate",
+						G_CALLBACK(swapped_func), full_path);
+				if (menu)
+					gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+
+				widgets = g_list_append(widgets, item);
+				g_hash_table_add(desktop_entries, *iter);
+
+				g_free(full_path);
+				g_free(label);
+				break;
 			}
 			if (!g_hash_table_contains(desktop_entries, *iter)) {
 				g_free(*iter);
@@ -1724,7 +1744,6 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 		}
 		g_free(desktop_files);
 		g_free(desktop_files_str);
-		g_free(mimeinfo_path);
 	}
 
 	for (list_iter = apps_dirs; list_iter; list_iter = g_list_next(list_iter)) {
