@@ -1734,7 +1734,9 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 				widgets = g_list_append(widgets, item);
 				g_hash_table_add(desktop_entries, *iter);
 
-				g_free(full_path);
+				g_signal_connect_swapped(item, "destroy",
+						G_CALLBACK(g_free), full_path);
+
 				g_free(label);
 				break;
 			}
