@@ -3,6 +3,7 @@ CHANGES
 + Added extended attributes (xattr) browser
 + Support for file and folder labels using xattr `user.label`
 + Better xattr and symlink icons
++ Upgraded some deprecated functions
 
 ROX-Filer
 =========
