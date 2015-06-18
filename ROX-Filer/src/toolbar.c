@@ -147,7 +147,8 @@ static Tool all_tools[] = {
 	 FALSE},
 	
 	{N_("Hidden"), ROX_STOCK_SHOW_HIDDEN, N_("Left: Show/hide hidden files\n"
-						 "Right: Show/hide thumbnails"),
+											 "Center: Reset to defaults\n"
+						 					 "Right: Show/hide thumbnails"),
 	 toolbar_hidden_clicked, DROP_NONE, TRUE,
 	 FALSE},
 	
@@ -498,14 +499,14 @@ static void toolbar_hidden_clicked(GtkWidget *widget,
 	GdkEvent	*event;
 
 	event = get_current_event(GDK_BUTTON_RELEASE);
-	if (event->type == GDK_BUTTON_RELEASE &&
-			((GdkEventButton *) event)->button == 1)
-	{
-		display_set_hidden(filer_window, !filer_window->show_hidden);
-	}
-	else
-	{
-		display_set_thumbs(filer_window, !filer_window->show_thumbs);
+	if(event->type == GDK_BUTTON_RELEASE) {
+		if(((GdkEventButton*)event)->button == 1)
+			display_set_hidden(filer_window, !filer_window->show_hidden);
+		else if(((GdkEventButton*)event)->button == 2) {
+			display_set_hidden(filer_window, o_display_show_hidden.int_value);
+			display_set_thumbs(filer_window, o_display_show_thumbs.int_value);
+		} else
+			display_set_thumbs(filer_window, !filer_window->show_thumbs);
 	}
 }
 
