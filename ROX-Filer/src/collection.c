@@ -747,14 +747,14 @@ static gint collection_key_press(GtkWidget *widget, GdkEventKey *event)
 		  {
 		        int first, last;
 		       	get_visible_limits(collection, &first, &last);
-			collection_move_cursor(collection, first - last - 1, 0);
+			collection_move_cursor(collection, first - last + 1, 0);
 			break;
 		  }
 		case GDK_Page_Down:
 		  {
 		        int first, last;
 		       	get_visible_limits(collection, &first, &last);
-			collection_move_cursor(collection, last - first + 1, 0);
+			collection_move_cursor(collection, last - first - 1, 0);
 			break;
 		  }
 		default:
@@ -1709,28 +1709,23 @@ void collection_move_cursor(Collection *collection, int drow, int dcol)
 {
 	int	row, col, item;
 	int	first, last, total_rows, total_cols;
-
 	g_return_if_fail(collection != NULL);
 	g_return_if_fail(IS_COLLECTION(collection));
-
 	if (!collection->number_of_items)
 	{
 		/* Show the cursor, even though there are no items */
 		collection_set_cursor_item(collection, 0, TRUE);
 		return;
 	}
-
 	get_visible_limits(collection, &first, &last);
 	total_rows = collection_get_rows(collection);
 	total_cols = collection_get_cols(collection);
-
 	item = collection->cursor_item;
 	if (item == -1)
 	{
 		item = MIN(collection->cursor_item_old,
-			   collection->number_of_items - 1);
+				collection->number_of_items - 1);
 	}
-
 	if (item == -1)
 	{
 		col = 0;
@@ -1739,41 +1734,50 @@ void collection_move_cursor(Collection *collection, int drow, int dcol)
 	else
 	{
 		collection_item_to_rowcol(collection, item, &row, &col);
-		
 		col += dcol;
-		if (collection->vertical_order) 
+		if (collection->vertical_order)
 		{
 			col = MAX(0,col);
 			col = MIN(col, total_cols - 1);
 		}
-
 		if (row < first)
 			row = first;
 		else if (row > last)
 			row = last;
 		else {
-			row += drow;
-			if (collection->vertical_order) 
+			if (collection->vertical_order)
 			{
-				if (row >= total_rows)
+				if (drow > 0 && row == total_rows - 1)
 				{
-					row = 0;
-					col += 1;
+					if (col != total_cols - 1)
+					{
+						row = 0;
+						col += 1;
+					}
 				}
+				else if (drow < 0 && row == 0)
+				{
+					if (col != 0)
+					{
+						row = total_rows - 1;
+						col -= 1;
+					}
+				}
+				else
+					row += drow;
+				row = CLAMP(row, 0, total_rows - 1);
 			}
-			else 
+			else
 			{
-				row = MAX(row, 0); 
+				row += drow;
+				row = MAX(row, 0);
 				row = MIN(row, total_rows - 1);
 			}
 		}
 	}
-
 	item = collection_rowcol_to_item(collection, row, col);
-
 	item = MAX(item, 0);
 	item = MIN(item, collection->number_of_items-1);
-
 	collection_set_cursor_item(collection, item, TRUE);
 }
 
