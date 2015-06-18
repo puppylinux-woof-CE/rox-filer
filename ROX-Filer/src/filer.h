@@ -74,6 +74,8 @@ struct _FilerWindow
 	SortType	sort_type;
 	GtkSortType	sort_order;
 
+	MaskedPixmap *win_icon;
+
 	DetailsType	details_type;
 	DisplayStyle	display_style;
 	DisplayStyle	display_style_wanted;
