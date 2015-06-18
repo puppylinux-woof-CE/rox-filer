@@ -83,7 +83,9 @@ static void toolbar_autosize_clicked(GtkWidget *widget, FilerWindow *filer_windo
 static void toolbar_details_clicked(GtkWidget *widget,
 				    FilerWindow *filer_window);
 static void toolbar_hidden_clicked(GtkWidget *widget,
-				   FilerWindow *filer_window);
+					FilerWindow *filer_window);
+static void toolbar_dirs_clicked(GtkWidget* widget,
+					FilerWindow *filer_window);
 static void toolbar_select_clicked(GtkWidget *widget,
 				   FilerWindow *filer_window);
 static void toolbar_sort_clicked(GtkWidget *widget,
@@ -151,6 +153,11 @@ static Tool all_tools[] = {
 						 					 "Right: Show/hide thumbnails"),
 	 toolbar_hidden_clicked, DROP_NONE, TRUE,
 	 FALSE},
+
+	{N_("Dirs"), GTK_STOCK_DIRECTORY, N_("Left: Show dirs only\n"
+										 "Right: Show files only"),
+	toolbar_dirs_clicked, DROP_NONE, FALSE,
+	FALSE},
 	
 	{N_("Select"), ROX_STOCK_SELECT, N_("Select all/invert selection"),
 	 toolbar_select_clicked, DROP_NONE, FALSE,
@@ -508,6 +515,31 @@ static void toolbar_hidden_clicked(GtkWidget *widget,
 		} else
 			display_set_thumbs(filer_window, !filer_window->show_thumbs);
 	}
+}
+
+static void toolbar_dirs_clicked(GtkWidget *widget,
+		FilerWindow *filer_window)
+{
+	GdkEvent *event = get_current_event(GDK_BUTTON_RELEASE);
+	if (event->type == GDK_BUTTON_RELEASE)
+	{
+		switch (((GdkEventButton *) event)->button)
+		{
+			case 1:
+				filer_window->dirs_only = !filer_window->dirs_only;
+				filer_window->files_only = FALSE;
+				break;
+			case 2:
+				filer_window->dirs_only = FALSE;
+				filer_window->files_only = FALSE;
+				break;
+			default:
+				filer_window->dirs_only = FALSE;
+				filer_window->files_only = !filer_window->files_only;
+		}
+		display_update_hidden(filer_window);
+	}
+	gdk_event_free(event);
 }
 
 static gboolean invert_cb(ViewIter *iter, gpointer data)

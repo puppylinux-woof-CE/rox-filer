@@ -2068,7 +2068,8 @@ void filer_set_title(FilerWindow *filer_window)
 
 	if (filer_window->scanning ||
 	    filer_window->filter != FILER_SHOW_ALL ||
-	    filer_window->show_hidden || filer_window->show_thumbs)
+	    filer_window->show_hidden || filer_window->show_thumbs ||
+		filer_window->dirs_only || filer_window->files_only)
 	{
 		if (o_short_flag_names.int_value)
 		{
@@ -2086,6 +2087,8 @@ void filer_set_title(FilerWindow *filer_window)
 				filer_window->scanning ? _("S") : "",
 				hidden,
 				filer_window->show_thumbs ? _("T") : "",
+				filer_window->dirs_only ? _("D") : "",
+				filer_window->files_only ? _("F") : "",
 				NULL);
 		}
 		else
@@ -2109,6 +2112,8 @@ void filer_set_title(FilerWindow *filer_window)
 				filer_window->scanning ? _("Scanning, ") : "",
 				hidden,
 				filer_window->show_thumbs ? _("Thumbs, ") : "",
+				filer_window->dirs_only ? _("Dirs only, ") : "",
+				filer_window->files_only ? _("Files only, ") : "",
 				NULL);
 			flags[strlen(flags) - 2] = ')';
 			g_free(hidden);
@@ -3004,20 +3009,29 @@ gboolean filer_match_filter(FilerWindow *filer_window, DirItem *item)
 {
 	g_return_val_if_fail(item != NULL, FALSE);
 
+	if (filer_window->files_only &&
+			item->base_type == TYPE_DIRECTORY)
+		return FALSE;
+
+	if (filer_window->dirs_only &&
+			item->base_type != TYPE_DIRECTORY)
+		return FALSE;
+
 	if(is_hidden(filer_window->real_path, item) &&
 	   (!filer_window->temp_show_hidden && !filer_window->show_hidden))
 		return FALSE;
 
 	switch(filer_window->filter) {
-	case FILER_SHOW_GLOB:
-		return fnmatch(filer_window->filter_string,
-			       item->leafname, 0)==0 ||
-		  (item->base_type==TYPE_DIRECTORY &&
-		   !filer_window->filter_directories);
-		
-	case FILER_SHOW_ALL:
-	default:
-		break;
+		case FILER_SHOW_GLOB:
+			return fnmatch(filer_window->filter_string,
+					item->leafname, 0)==0 ||
+				(item->base_type==TYPE_DIRECTORY &&
+				 !filer_window->filter_directories);
+			break;
+
+		case FILER_SHOW_ALL:
+		default:
+			break;
 	}
 	return TRUE;
 }
@@ -3046,13 +3060,13 @@ gboolean filer_set_filter(FilerWindow *filer_window, FilterType type,
 	{
 		switch(filer_window->filter)
 		{
-		case FILER_SHOW_ALL:
-			return FALSE;
-		case FILER_SHOW_GLOB:
-			if (strcmp(filer_window->filter_string,
-				   filter_string) == 0)
+			case FILER_SHOW_ALL:
 				return FALSE;
-			break;
+			case FILER_SHOW_GLOB:
+				if (strcmp(filer_window->filter_string,
+							filter_string) == 0)
+					return FALSE;
+				break;
 		}
 	}
 
