@@ -1521,6 +1521,8 @@ FilerWindow *filer_opendir(const char *path, FilerWindow *src_win,
 	filer_window->auto_scroll = -1;
 	filer_window->window_id = NULL;
 	filer_window->win_icon = NULL;
+	filer_window->dirs_only = FALSE;
+	filer_window->files_only = FALSE;
 
 	tidy_sympath(filer_window->sym_path);
 
