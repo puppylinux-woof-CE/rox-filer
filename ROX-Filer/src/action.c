@@ -218,6 +218,8 @@ void show_condition_help(gpointer data)
 "<b>IsSUID, IsSGID, IsSticky, IsReadable, IsWriteable, IsExecutable</b> "
 "(permissions)\n"
 "<b>IsEmpty, IsMine</b>\n"
+"<b>HasXattr</b> "
+"(extended attributes)\n"
 "A pattern in single quotes is a shell-style wildcard pattern to match. If it\n"
 "contains a slash then the match is against the full path; otherwise it is\n"
 "against the leafname only.\n"

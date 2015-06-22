@@ -37,6 +37,7 @@
 
 #include "main.h"
 #include "find.h"
+#include "xtypes.h"
 
 typedef struct _Eval Eval;
 
@@ -72,6 +73,7 @@ typedef enum {
 	IS_EXEC,
 	IS_EMPTY,
 	IS_MINE,
+	HAS_XATTR,
 } IsTest;
 
 typedef enum {
@@ -358,6 +360,12 @@ static gboolean test_is(FindCondition *condition, FindInfo *info)
 			return info->stats.st_size == 0;
 		case IS_MINE:
 			return info->stats.st_uid == euid;
+		case HAS_XATTR:
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+			return xattr_supported(info->fullpath) && xattr_have(info->fullpath);
+#else
+			return FALSE;
+#endif
 	}
 
 	return FALSE;
@@ -700,6 +708,7 @@ static FindCondition *parse_dash(const gchar **expression)
 			case 'w': test = IS_WRITEABLE; break;
 			case 'x': test = IS_EXEC; break;
 			case 'o': test = IS_MINE; break;
+			case 'X': test = HAS_XATTR; break;
 			case 'z': test = IS_EMPTY; break;
 			default:
 				  find_condition_free(retval);
@@ -775,6 +784,8 @@ static FindCondition *parse_is(const gchar **expression)
 		test = IS_EMPTY;
 	else if (MATCH(_("IsMine")))
 		test = IS_MINE;
+	else if (MATCH(_("HasXattr")))
+		test = HAS_XATTR;
 	else
 		return NULL;
 
