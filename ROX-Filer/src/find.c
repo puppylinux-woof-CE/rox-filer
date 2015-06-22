@@ -48,6 +48,9 @@ static FindCondition *parse_system(const gchar **expression);
 static FindCondition *parse_condition(const gchar **expression);
 static FindCondition *parse_match(const gchar **expression);
 static FindCondition *parse_comparison(const gchar **expression);
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+static FindCondition *parse_xattr(const gchar **expression);
+#endif
 static FindCondition *parse_dash(const gchar **expression);
 static FindCondition *parse_is(const gchar **expression);
 static Eval *parse_eval(const gchar **expression);
@@ -96,6 +99,12 @@ typedef enum {
 	V_GID,
 	V_BLOCKS,
 } VarType;
+
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+typedef enum {
+	X_LABEL,
+} XAttrType;
+#endif
 
 enum
 {
@@ -399,6 +408,30 @@ static gboolean test_comp(FindCondition *condition, FindInfo *info)
 	return FALSE;
 }
 
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+static gboolean test_xattr(FindCondition *condition, FindInfo *info) {
+	XAttrType type = *(XAttrType*)(condition->data1);
+	char* value = condition->data2;
+	GdkColor *col1,*col2 = NULL;
+
+	switch(type) {
+		case X_LABEL:
+			col2 = g_new(GdkColor,1);
+			if(gdk_color_parse(value, col2)) {
+				col1 = xlabel_get(info->fullpath);
+				if(col1 != NULL && gdk_color_equal(col1,col2)) {
+					g_free(col1);
+					g_free(col2);
+					return TRUE;
+				}
+			} else
+				g_free(col2);
+	}
+
+	return FALSE;
+}
+#endif
+
 /*				FREEING CODE				*/
 
 /* Frees the structure and g_free()s both data items (NULL is OK) */
@@ -583,6 +616,12 @@ static FindCondition *parse_condition(const gchar **expression)
 	cond = parse_is(expression);
 	if (cond)
 		return cond;
+
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+	cond = parse_xattr(expression);
+	if (cond)
+		return cond;
+#endif
 
 	return parse_comparison(expression);
 }
@@ -839,6 +878,59 @@ out:
 
 	return cond;
 }
+
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+static FindCondition *parse_xattr(const gchar **expression)
+{
+	FindCondition	*cond = NULL;
+	XAttrType		type;
+	GString			*str;
+
+	str = g_string_new(NULL);
+
+	if (MATCH(_("label")))
+		type = X_LABEL;
+	else
+		return NULL;
+
+	SKIP;
+
+	if (NEXT == '\'')
+	{
+		EAT;
+		while(NEXT != '\'')
+		{
+			gchar	c = NEXT;
+
+			if (c == '\0')
+				goto out;
+			EAT;
+
+			if (c == '\\' && NEXT == '\'')
+			{
+				c = NEXT;
+				EAT;
+			}
+
+			g_string_append_c(str, c);
+		}
+		EAT;
+	}
+	else
+		return NULL;
+
+	cond = g_new(FindCondition, 1);
+	cond->test = &test_xattr;
+	cond->free = (FindFree) &g_free;
+	cond->data1 = &type;
+	cond->data2 = str->str;
+
+out:
+	g_string_free(str, cond ? FALSE : TRUE);
+
+	return cond;
+}
+#endif
 
 /*			NUMERIC EXPRESSIONS				*/
 
