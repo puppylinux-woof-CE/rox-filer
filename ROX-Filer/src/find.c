@@ -102,6 +102,7 @@ typedef enum {
 
 #if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
 typedef enum {
+	X_ATTR,
 	X_LABEL,
 } XAttrType;
 #endif
@@ -371,7 +372,7 @@ static gboolean test_is(FindCondition *condition, FindInfo *info)
 			return info->stats.st_uid == euid;
 		case HAS_XATTR:
 #if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
-			return xattr_supported(info->fullpath) && xattr_have(info->fullpath);
+			return xattr_have(info->fullpath);
 #else
 			return FALSE;
 #endif
@@ -415,6 +416,10 @@ static gboolean test_xattr(FindCondition *condition, FindInfo *info) {
 	GdkColor *col1,*col2 = NULL;
 
 	switch(type) {
+		case X_ATTR:
+			if(xattr_get(info->fullpath, value, NULL) != NULL)
+				return TRUE;
+			break;
 		case X_LABEL:
 			col2 = g_new(GdkColor,1);
 			if(gdk_color_parse(value, col2)) {
@@ -426,6 +431,7 @@ static gboolean test_xattr(FindCondition *condition, FindInfo *info) {
 				}
 			} else
 				g_free(col2);
+			break;
 	}
 
 	return FALSE;
@@ -890,6 +896,8 @@ static FindCondition *parse_xattr(const gchar **expression)
 
 	if (MATCH(_("label")))
 		type = X_LABEL;
+	else if(MATCH(_("xattr")))
+		type = X_ATTR;
 	else
 		return NULL;
 

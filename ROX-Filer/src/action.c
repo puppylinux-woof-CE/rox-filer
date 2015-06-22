@@ -238,7 +238,8 @@ void show_condition_help(gpointer data)
 "a % in 'command' is replaced with the path of the current file)\n"
 #if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
 "<b>prune</b> (false, and prevents searching the contents of a directory)\n"
-"<b>label '<i>color</i>'</b> (true if user.label matches <i>color</i> as a color)."));
+"<b>label '<i>color</i>'</b> (true if user.label matches <i>color</i> as a color)\n"
+"<b>xattr '<i>attr</i>'</b> (true if file has non-empty extended attribute <i>attr</i>)."));
 #else
 "<b>prune</b> (false, and prevents searching the contents of a directory)."));
 #endif
