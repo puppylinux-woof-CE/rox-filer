@@ -306,7 +306,7 @@ const char *format_size_aligned(off_t size)
 			units = 'K';
 	}
 	else
-		units = ' ';
+		units = 'B';
 
 	g_free(buffer);
 	buffer = g_strdup_printf("%4" SIZE_FMT "%c", size, units);
