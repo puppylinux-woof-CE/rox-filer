@@ -218,8 +218,10 @@ void show_condition_help(gpointer data)
 "<b>IsSUID, IsSGID, IsSticky, IsReadable, IsWriteable, IsExecutable</b> "
 "(permissions)\n"
 "<b>IsEmpty, IsMine</b>\n"
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
 "<b>HasXattr</b> "
 "(extended attributes)\n"
+#endif
 "A pattern in single quotes is a shell-style wildcard pattern to match. If it\n"
 "contains a slash then the match is against the full path; otherwise it is\n"
 "against the leafname only.\n"
@@ -234,8 +236,12 @@ void show_condition_help(gpointer data)
 "<u>Specials</u>\n"
 "<b>system(command)</b> (true if 'command' returns with a zero exit status;\n"
 "a % in 'command' is replaced with the path of the current file)\n"
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
 "<b>prune</b> (false, and prevents searching the contents of a directory)\n"
 "<b>label '<i>color</i>'</b> (true if user.label matches <i>color</i> as a color)."));
+#else
+"<b>prune</b> (false, and prevents searching the contents of a directory)."));
+#endif
 
 	g_signal_connect(help, "response",
 			G_CALLBACK(gtk_widget_destroy), NULL);
