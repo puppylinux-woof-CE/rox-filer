@@ -411,7 +411,7 @@ static gboolean test_comp(FindCondition *condition, FindInfo *info)
 
 #if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
 static gboolean test_xattr(FindCondition *condition, FindInfo *info) {
-	XAttrType type = *(XAttrType*)(condition->data1);
+	XAttrType type = GPOINTER_TO_INT(condition->data1);
 	char* value = condition->data2;
 	GdkColor *col1,*col2 = NULL;
 
@@ -894,9 +894,9 @@ static FindCondition *parse_xattr(const gchar **expression)
 
 	str = g_string_new(NULL);
 
-	if (MATCH(_("label")))
+	if (MATCH(_("label"))) {
 		type = X_LABEL;
-	else if(MATCH(_("xattr")))
+	} else if(MATCH(_("xattr")))
 		type = X_ATTR;
 	else
 		return NULL;
@@ -930,7 +930,7 @@ static FindCondition *parse_xattr(const gchar **expression)
 	cond = g_new(FindCondition, 1);
 	cond->test = &test_xattr;
 	cond->free = (FindFree) &g_free;
-	cond->data1 = &type;
+	cond->data1 = GINT_TO_POINTER(type);
 	cond->data2 = str->str;
 
 out:
