@@ -748,7 +748,7 @@ void xattrs_browser(DirItem *item, const guchar *path)
 	GtkWidget	*content, *hbox, *name;
 	GtkWidget	*sw;
 	GtkWidget	*tree;
-	GtkWidget	*but;
+	GtkWidget	*but_add, *but_rem;
 	GtkTreeModel *mod;
 	GArray		*arr, *arr_old;
 	GtkCellRenderer	*ren;
@@ -818,18 +818,27 @@ void xattrs_browser(DirItem *item, const guchar *path)
 	gtk_container_add(GTK_CONTAINER(sw),tree);
 
 	hbox = gtk_hbox_new(FALSE,4);
-	but = gtk_button_new_from_stock(GTK_STOCK_ADD);
-	g_signal_connect(but, "clicked", G_CALLBACK(add_item), data);
-	gtk_box_pack_start(GTK_BOX(hbox),but,FALSE,FALSE,0);
-	but = gtk_button_new_from_stock(GTK_STOCK_REMOVE);
-	g_signal_connect(but, "clicked", G_CALLBACK(remove_item), data);
-	gtk_box_pack_start(GTK_BOX(hbox),but,FALSE,FALSE,0);
+	but_add = gtk_button_new_from_stock(GTK_STOCK_ADD);
+	g_signal_connect(but_add, "clicked", G_CALLBACK(add_item), data);
+	gtk_box_pack_start(GTK_BOX(hbox),but_add,FALSE,FALSE,0);
+	but_rem = gtk_button_new_from_stock(GTK_STOCK_REMOVE);
+	g_signal_connect(but_rem, "clicked", G_CALLBACK(remove_item), data);
+	gtk_box_pack_start(GTK_BOX(hbox),but_rem,FALSE,FALSE,0);
 	gtk_box_pack_start(GTK_BOX(content),hbox,FALSE,FALSE,0);
 
 	gtk_dialog_add_button(dialog,GTK_STOCK_APPLY,GTK_RESPONSE_APPLY);
 	gtk_dialog_add_button(dialog,GTK_STOCK_CLOSE,GTK_RESPONSE_CLOSE);
 	g_signal_connect(dialog, "response", G_CALLBACK(dialog_response), data);
 	gtk_dialog_set_default_response(dialog, GTK_RESPONSE_OK);
+
+	/* disable if not writable */
+	if(access(path, W_OK) != 0) {
+		gtk_widget_set_sensitive(but_add,FALSE);
+		gtk_widget_set_sensitive(but_rem,FALSE);
+		gtk_widget_set_sensitive(tree,FALSE);
+		gtk_dialog_set_response_sensitive(dialog,GTK_RESPONSE_APPLY,FALSE);
+	}
+
 	gtk_widget_show_all(GTK_WIDGET(dialog));
 }
 #endif
