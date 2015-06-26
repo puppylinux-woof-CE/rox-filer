@@ -819,6 +819,7 @@ void xattrs_browser(DirItem *item, const guchar *path)
 
 	hbox = gtk_hbox_new(FALSE,4);
 	but_add = gtk_button_new_from_stock(GTK_STOCK_ADD);
+	gtk_button_set_label(GTK_BUTTON(but_add), "A_dd");
 	g_signal_connect(but_add, "clicked", G_CALLBACK(add_item), data);
 	gtk_box_pack_start(GTK_BOX(hbox),but_add,FALSE,FALSE,0);
 	but_rem = gtk_button_new_from_stock(GTK_STOCK_REMOVE);
