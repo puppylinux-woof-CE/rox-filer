@@ -1762,6 +1762,10 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 					g_free(full_path);
 					continue;
 				}
+				if (!label) {
+					g_free(full_path);
+					continue;
+				}
 				if (only_show_in) {
 					gchar **envs = g_strsplit(only_show_in, ";", -1);
 					int i = 0;
@@ -1809,10 +1813,6 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 						g_free(full_path);
 						continue;
 					}
-				}
-				if (!label) {
-					g_free(full_path);
-					continue;
 				}
 
 				ditem = diritem_new("");
