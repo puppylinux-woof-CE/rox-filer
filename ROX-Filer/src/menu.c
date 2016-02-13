@@ -1633,8 +1633,8 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 	GHashTableIter hash_table_iter;
 	gpointer key, value;
 
-    if (!o_menu_xdg_apps.int_value)
-        return widgets;
+	if (!o_menu_xdg_apps.int_value)
+		return widgets;
 
 	if (!type || !subtype)
 		return widgets;
@@ -1645,8 +1645,8 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 
 	xdg_data_dirs_env = g_getenv("XDG_DATA_DIRS");
 
-    if (!xdg_data_dirs_env || !strcmp(xdg_data_dirs_env, ""))
-        xdg_data_dirs_env = "/usr/local/share:/usr/share";
+	if (!xdg_data_dirs_env || !strcmp(xdg_data_dirs_env, ""))
+		xdg_data_dirs_env = "/usr/local/share:/usr/share";
 
 	xdg_data_dirs = g_strsplit(xdg_data_dirs_env, ":", -1);
 
