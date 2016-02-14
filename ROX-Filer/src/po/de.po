@@ -4364,11 +4364,11 @@ msgstr "Ändere auch den Inhalt von Unterverzeichnissen"
 
 #: tips:184
 msgid "Mount commands"
-msgstr "Einhänge-Kommandos"
+msgstr "Kommandos zum Einhängen"
 
 #: tips:185
 msgid "Mount command"
-msgstr "Einhängen"
+msgstr "Kommando zum Einhängen"
 
 #: tips:186
 msgid "The command used to mount a filesystem. If unsure, use \"mount\"."
@@ -4378,7 +4378,7 @@ msgstr ""
 
 #: tips:187
 msgid "Unmount command"
-msgstr "Aushängen"
+msgstr "Kommando zum Aushängen"
 
 #: tips:188
 msgid ""
@@ -4390,7 +4390,7 @@ msgstr ""
 
 #: tips:189
 msgid "Eject command"
-msgstr "Auswerfen"
+msgstr "Kommando zum Auswerfen"
 
 #: tips:190
 msgid "The command used to eject removable media. If unsure, use \"eject\"."
