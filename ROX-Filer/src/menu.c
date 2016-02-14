@@ -2193,8 +2193,8 @@ static void clipboard_data_received(GtkClipboard *clipboard,
 		GtkSelectionData *selection_data, gpointer data)
 {
 	GList *local_paths = NULL;
-	guchar **uri_iter;
-	guchar **uri_list;
+	gchar **uri_iter;
+	gchar **uri_list;
 	const gchar *error = NULL;
 	const gchar *dest_path = (gchar *)data;
 
@@ -2223,12 +2223,14 @@ static void clipboard_data_received(GtkClipboard *clipboard,
 			"machine - I can't operate on multiple "
 			"remote files - sorry.");
 	else
+    {
 		action_copy(local_paths, dest_path, NULL, -1);
+        destroy_glist(&local_paths);
+    }
 
 	if (error)
 		delayed_error(_("Error getting file list: %s"), error);
 
-	destroy_glist(&local_paths);
 	g_strfreev(uri_list);
 
 	clipboard_clear(clipboard, NULL);
@@ -2361,17 +2363,8 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 			break;	/* Not a bulk rename... see below */
 		case FILE_COPY_TO_CLIPBOARD:
 		{
-			gchar *selected_path;
-			ViewIter iter;
-
 			clipboard_clear(clipboard, NULL);
-
-			view_get_iter(window_with_focus->view, &iter, VIEW_ITER_SELECTED);
-			while ((item = iter.next(&iter)))
-			{
-				selected_path = g_strdup(make_path(window_with_focus->sym_path, item->leafname));
-				selected_paths = g_list_append(selected_paths, selected_path);
-			}
+            selected_paths = filer_selected_items(window_with_focus);
 			return;
 		}
 		default:
