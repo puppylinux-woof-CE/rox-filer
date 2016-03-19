@@ -411,7 +411,31 @@ int sort_by_group(const void *item1, const void *item2)
 	return strcmp(name1, name2);
 }
 
-int sort_by_date(const void *item1, const void *item2)
+int sort_by_datea(const void *item1, const void *item2)
+{
+	const DirItem *i1 = (DirItem *) item1;
+	const DirItem *i2 = (DirItem *) item2;
+
+	/* SORT_DIRS; -- too confusing! */
+
+	return i1->atime < i2->atime ? -1 :
+		i1->atime > i2->atime ? 1 :
+		sort_by_name(item1, item2);
+}
+
+int sort_by_datec(const void *item1, const void *item2)
+{
+	const DirItem *i1 = (DirItem *) item1;
+	const DirItem *i2 = (DirItem *) item2;
+
+	/* SORT_DIRS; -- too confusing! */
+
+	return i1->ctime < i2->ctime ? -1 :
+		i1->ctime > i2->ctime ? 1 :
+		sort_by_name(item1, item2);
+}
+
+int sort_by_datem(const void *item1, const void *item2)
 {
 	const DirItem *i1 = (DirItem *) item1;
 	const DirItem *i2 = (DirItem *) item2;

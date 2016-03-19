@@ -438,7 +438,7 @@ static void toolbar_sort_clicked(GtkWidget *widget,
 	gchar *tip;
 
 	static const SortType sorts[]={
-		SORT_NAME, SORT_TYPE, SORT_DATE, SORT_SIZE,
+		SORT_NAME, SORT_TYPE, SORT_DATEC, SORT_SIZE,
 		SORT_OWNER, SORT_GROUP, 
 	};
 	static const char *sort_names[] = {
@@ -524,7 +524,7 @@ static void toolbar_details_clicked(GtkWidget *widget,
 					break;
 				default:
 					action = DETAILS_NONE;
-					break;	
+					break;
 			}	
 
 		if (filer_window->view_type != VIEW_TYPE_COLLECTION)
