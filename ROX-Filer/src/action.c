@@ -1407,8 +1407,11 @@ static void do_copy2(const char *path, const char *dest)
 		else
 		{
 			if (!exists)
+			{
 				/* (just been created then) */
+				lchown(dest_path, info.st_uid, info.st_gid);
 				send_check_path(dest_path);
+			}
 
 			action_leaf = NULL;
 			for_dir_contents(do_copy2, safe_path, safe_dest);
@@ -1457,7 +1460,10 @@ static void do_copy2(const char *path, const char *dest)
 			if (symlink(target, dest_path))
 				send_error();
 			else
+			{
+				lchown(dest_path, info.st_uid, info.st_gid);
 				send_check_path(dest_path);
+			}
 
 			g_free(target);
 		}
