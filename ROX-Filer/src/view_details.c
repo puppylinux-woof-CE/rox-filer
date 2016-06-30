@@ -1074,36 +1074,45 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	ADD_TEXT_COLUMN(_("_Name"), COL_LEAF);
 	gtk_tree_view_column_set_sort_column_id(column, COL_LEAF);
 	gtk_tree_view_column_set_resizable(column, TRUE);
+	gtk_tree_view_column_set_reorderable(column, TRUE);
 	ADD_TEXT_COLUMN(_("_Type"), COL_TYPE);
 	gtk_tree_view_column_set_sort_column_id(column, COL_TYPE);
 	gtk_tree_view_column_set_resizable(column, TRUE);
-	ADD_TEXT_COLUMN(_("_Permissions"), COL_PERM);
-	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
-	g_signal_connect_after(object, "realize",
-			       G_CALLBACK(set_column_mono_font),
-			       G_OBJECT(cell));
-	ADD_TEXT_COLUMN(_("_Owner"), COL_OWNER);
-	gtk_tree_view_column_set_sort_column_id(column, COL_OWNER);
-	ADD_TEXT_COLUMN(_("_Group"), COL_GROUP);
-	gtk_tree_view_column_set_sort_column_id(column, COL_GROUP);
+	gtk_tree_view_column_set_reorderable(column, TRUE);
 	ADD_TEXT_COLUMN(_("_Size"), COL_SIZE);
 	g_object_set(G_OBJECT(cell), "xalign", 1.0, "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
 			       G_CALLBACK(set_column_mono_font),
 			       G_OBJECT(cell));
 	gtk_tree_view_column_set_sort_column_id(column, COL_SIZE);
+	gtk_tree_view_column_set_reorderable(column, TRUE);
+	
+	ADD_TEXT_COLUMN(_("_Permissions"), COL_PERM);
+	gtk_tree_view_column_set_reorderable(column, TRUE);
+	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
+	g_signal_connect_after(object, "realize",
+			       G_CALLBACK(set_column_mono_font),
+			       G_OBJECT(cell));
+	ADD_TEXT_COLUMN(_("_Owner"), COL_OWNER);
+	gtk_tree_view_column_set_sort_column_id(column, COL_OWNER);
+	gtk_tree_view_column_set_reorderable(column, TRUE);
+	ADD_TEXT_COLUMN(_("_Group"), COL_GROUP);
+	gtk_tree_view_column_set_sort_column_id(column, COL_GROUP);
+	gtk_tree_view_column_set_reorderable(column, TRUE);
 	ADD_TEXT_COLUMN(_("Last _Modified"), COL_MTIME);
 	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
 			       G_CALLBACK(set_column_mono_font),
 			       G_OBJECT(cell));
 	gtk_tree_view_column_set_sort_column_id(column, COL_MTIME);
+	gtk_tree_view_column_set_reorderable(column, TRUE);
 	ADD_TEXT_COLUMN(_("Last _Changed"), COL_CTIME);
 	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
 			       G_CALLBACK(set_column_mono_font),
 			       G_OBJECT(cell));
 	gtk_tree_view_column_set_sort_column_id(column, COL_CTIME);
+	gtk_tree_view_column_set_reorderable(column, TRUE);
 }
 
 /* Create the handers for the View interface */
