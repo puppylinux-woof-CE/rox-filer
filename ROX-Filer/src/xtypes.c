@@ -482,6 +482,25 @@ GArray* xattr_list(const char *path)
 	return xarr;
 }
 
+
+void xattr_copy(const char *src_path, const char *dest_path) {
+	if (!dyn_listxattr || o_xattr_ignore.int_value) return;
+
+	GArray *arr = xattr_list(src_path);
+
+	int i;
+	for(i = 0; i < arr->len; i++) {
+		XAttr at = g_array_index(arr, XAttr, i);
+		xattr_set(dest_path, at.name, at.value, -1);
+
+		g_free(at.name);
+		g_free(at.value);
+	}
+
+	g_array_free(arr, TRUE);
+}
+
+
 GArray* compare_arrays(GArray *old, GArray *new)
 {
 	gint i,j;

@@ -1409,8 +1409,9 @@ static void do_copy2(const char *path, const char *dest)
 			if (!exists)
 			{
 				/* (just been created then) */
-				lchown(dest_path, info.st_uid, info.st_gid);
-				send_check_path(dest_path);
+				lchown(safe_dest, info.st_uid, info.st_gid);
+				xattr_copy(safe_path, safe_dest);
+				send_check_path(safe_dest);
 			}
 
 			action_leaf = NULL;

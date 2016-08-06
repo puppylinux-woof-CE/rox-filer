@@ -28,6 +28,7 @@ int xattr_set(const char *path, const char *attr,
 	      const char *value, int value_len);
 int xattr_rem(const char *path,
 		const char *attr);
+void xattr_copy(const char *src_path, const char *dest_path);
 
 MIME_type *xtype_get(const char *path);
 int xtype_set(const char *path, const MIME_type *type);
