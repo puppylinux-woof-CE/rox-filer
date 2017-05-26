@@ -555,7 +555,7 @@ static GtkTreeModel* create_model(GArray *arr) {
 	gchar *u8nam, *u8val;
 	gboolean edit;
 
-	g_return_if_fail(arr != NULL);
+	g_return_val_if_fail(arr != NULL,NULL);
 
 	model = gtk_list_store_new(4,G_TYPE_STRING,G_TYPE_STRING,
 			G_TYPE_BOOLEAN,G_TYPE_BOOLEAN);

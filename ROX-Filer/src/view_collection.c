@@ -236,6 +236,8 @@ GType view_collection_get_type(void)
 static void view_collection_destroy(GtkObject *view_collection)
 {
 	VIEW_COLLECTION(view_collection)->filer_window = NULL;
+
+    (*GTK_OBJECT_CLASS(parent_class)->destroy)(view_collection);
 }
 
 static void view_collection_finialize(GObject *object)

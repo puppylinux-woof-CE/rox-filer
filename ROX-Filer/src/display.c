@@ -889,7 +889,10 @@ void display_update_view(FilerWindow *filer_window,
 	}
 
 	if (list)
+    {
 		pango_layout_set_attributes(view->layout, list);
+        pango_attr_list_unref(list);
+    }
 
 	if (filer_window->details_type == DETAILS_NONE)
 	{

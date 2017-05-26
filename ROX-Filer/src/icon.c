@@ -1264,7 +1264,7 @@ static gboolean mykey_cmp(gconstpointer a, gconstpointer b)
 	MyKey *ka = (MyKey *) a;
 	MyKey *kb = (MyKey *) b;
 
-	return ka->keycode == kb->keycode && kb->modifier == kb->modifier;
+	return ka->keycode == kb->keycode && ka->modifier == kb->modifier;
 }
 
 /* Stolen from xfwm4 and modified.

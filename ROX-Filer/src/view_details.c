@@ -910,11 +910,17 @@ static void view_details_destroy(GtkObject *obj)
 
 	view_details->filer_window = NULL;
 	cancel_wink(view_details);
+
+    (*GTK_OBJECT_CLASS(parent_class)->destroy)(obj);
 }
 
 static void view_details_finialize(GObject *object)
 {
 	ViewDetails *view_details = (ViewDetails *) object;
+
+    int i = view_details->items->len;
+	while (i--)
+		free_view_item(view_details->items->pdata[i]);
 
 	g_ptr_array_free(view_details->items, TRUE);
 	view_details->items = NULL;
