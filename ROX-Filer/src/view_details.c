@@ -1009,8 +1009,12 @@ static void selection_changed(GtkTreeSelection *selection,
 {
 	ViewDetails *view_details = VIEW_DETAILS(user_data);
 
-	filer_selection_changed(view_details->filer_window,
-			gtk_get_current_event_time());
+	if (view_details_count_selected(user_data))
+		filer_selection_changed(view_details->filer_window,
+				gtk_get_current_event_time());
+	else
+		filer_lost_selection(view_details->filer_window,
+				gtk_get_current_event_time());
 }
 
 /*
