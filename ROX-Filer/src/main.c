@@ -526,7 +526,7 @@ int main(int argc, char **argv)
 
 	tooltips = gtk_tooltips_new();
 
-	if (euid == 0 || show_user)
+	if (show_user)
 		show_user_message = g_strdup_printf(_("Running as user '%s'"), 
 						    user_name(euid));
 	
