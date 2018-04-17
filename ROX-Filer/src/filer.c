@@ -161,6 +161,8 @@ static void load_settings(void);
 static void save_settings(void);
 static void check_settings(FilerWindow *filer_window);
 static char *tip_from_desktop_file(const char *full_path);
+static char *tip_from_comment_file(const char *full_path);
+#define COMMENT_MAX 2048 // protect against DoS
 
 static GdkCursor *busy_cursor = NULL;
 static GdkCursor *crosshair = NULL;
@@ -2419,6 +2421,20 @@ void filer_add_tip_details(FilerWindow *filer_window,
 			g_string_append_c(tip, '\n');
 			g_free(summary);
 		}
+	} else
+	{
+		char *commentpath = g_strconcat(".", item->leafname, ".comment", NULL);
+		fullpath = make_path(filer_window->real_path, commentpath);
+		g_free(commentpath);
+
+		char *comment;
+		comment = tip_from_comment_file(fullpath);
+		if (comment)
+		{
+			g_string_append(tip, comment);
+			g_string_append_c(tip, '\n');
+			g_free(comment);
+		}
 	}
 
 	if (!g_utf8_validate(item->leafname, -1, NULL))
@@ -3632,6 +3648,51 @@ static char *tip_from_desktop_file(const char *full_path)
 err:
 	if (error != NULL)
 		g_error_free(error);
+
+	return comment;
+}
+
+static char *tip_from_comment_file(const char *full_path)
+{
+	struct stat info;
+	int fd = -1;
+	ssize_t bytes_read = -1;
+	char *comment = NULL;
+	gsize comment_bytes = 0;
+
+	fd = open(full_path, O_RDONLY);
+	if (fd == -1 || fstat(fd, &info) != 0 || info.st_size == 0)
+	{
+		goto err;
+	}
+
+	comment_bytes = MIN(COMMENT_MAX, info.st_size);
+	comment = g_try_malloc(comment_bytes);
+
+	if (comment)
+	{
+		bytes_read = read(fd, comment, comment_bytes);
+		if (bytes_read == -1)
+			comment[0]=0;
+		else
+		{
+			// drop the final \n
+			if (comment[bytes_read-1]=='\n')
+				bytes_read--;
+			comment[bytes_read]=0;
+		}
+
+		// drop empty comment
+		if (comment[0] == 0)
+		{
+			g_free(comment);
+			comment = NULL;
+		}
+	}
+
+err:
+	if (fd != -1)
+		close(fd);
 
 	return comment;
 }
