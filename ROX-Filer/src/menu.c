@@ -239,7 +239,7 @@ static GtkItemFactoryEntry filer_menu_def[] = {
 {">" N_("Cut To Clipboard"),		"<Ctrl>X", file_op, FILE_CUT_TO_CLIPBOARD, "<StockItem>", GTK_STOCK_CUT},
 {">",				NULL, NULL, 0, "<Separator>"},
 {">" N_("Shift Open"),   	NULL, file_op, FILE_OPEN_FILE},
-{">" N_("Send To..."),		NULL, file_op, FILE_SEND_TO, NULL},
+{">" N_("Open With..."),		NULL, file_op, FILE_SEND_TO, NULL},
 {">",				NULL, NULL, 0, "<Separator>"},
 {">" N_("Set Run Action..."),	"asterisk", file_op, FILE_RUN_ACTION, "<StockItem>", GTK_STOCK_EXECUTE},
 {">" N_("Set Icon..."),		NULL, file_op, FILE_SET_ICON, NULL},
