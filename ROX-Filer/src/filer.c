@@ -64,6 +64,8 @@
 #include "action.h"
 #include "bookmarks.h"
 #include "xtypes.h"
+/* added for international desktop file comments */
+#include "i18n.h"
 
 static XMLwrapper *groups = NULL;
 
@@ -3636,8 +3638,32 @@ static char *tip_from_desktop_file(const char *full_path)
 	GError *error = NULL;
 	char *comment = NULL;
 
-	comment = get_value_from_desktop_file(full_path,
-			"Desktop Entry", "Comment", &error);
+	char *comment_key = NULL;
+	char *next;
+
+	/* attempt all variations of Comment[fr_FR], Comment[fr], and Comment */
+	/* start with full pattern first; there will always be current_lang */
+	comment_key = g_strconcat("Comment[",current_lang,"]",NULL);
+	do {
+		comment = get_value_from_desktop_file(full_path, "Desktop Entry", comment_key, &error);
+
+		/* drop the region: fr_FR becomes fr */
+		next = strchr(comment_key, '_');
+		if (next) {
+			*next = ']';
+			next++;
+		}
+		/* drop the lang altogether */
+		else
+			next = strchr(comment_key, '[');
+
+		/* update comment key */
+		if (next)
+			*next = 0;
+
+	} while (comment == NULL && next != NULL && error == NULL);
+	g_free(comment_key);
+
 	if (error)
 	{
 		delayed_error("Failed to parse .desktop file '%s':\n%s",
