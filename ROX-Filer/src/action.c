@@ -1341,10 +1341,16 @@ static void do_copy2(const char *path, const char *dest)
 	{
 		int		err;
 		gboolean	merge;
+		gboolean	is_newer;
 
 		merge = S_ISDIR(info.st_mode) && S_ISDIR(dest_info.st_mode);
 
-		if (!merge && o_newer && info.st_mtime > dest_info.st_mtime)
+		/* Using greater than or equal because people who tick the
+		 * "Newer" checkbox probably don't want to be prompted whether
+		 * to overwrite a file that has an identical mtime. */
+		is_newer = info.st_mtime >= dest_info.st_mtime;
+
+		if (!merge && o_newer && is_newer)
 		{
 			/* Newer; keep going */
 		}
@@ -1352,7 +1358,7 @@ static void do_copy2(const char *path, const char *dest)
 		{
 			printf_send("<%s", path);
 			printf_send(">%s", dest_path);
-			if (!printf_reply(from_parent, merge,
+			if (!printf_reply(from_parent, !o_newer || !is_newer,
 					  _("?'%s' already exists - %s?"),
 					  dest_path,
 					  merge ? _("merge contents")
@@ -1507,6 +1513,7 @@ static void do_move2(const char *path, const char *dest)
 	{
 		struct stat	info;
 		int		err;
+		gboolean	is_newer;
 
 		if (mc_lstat(dest_path, &info))
 		{
@@ -1514,7 +1521,12 @@ static void do_move2(const char *path, const char *dest)
 			return;
 		}
 
-		if (!is_dir && o_newer && info2.st_mtime > info.st_mtime)
+		/* Using greater than or equal because people who tick the
+		 * "Newer" checkbox probably don't want to be prompted whether
+		 * to overwrite a file that has an identical mtime. */
+		is_newer = info2.st_mtime >= info.st_mtime;
+
+		if (!is_dir && o_newer && is_newer)
 		{
 			/* Newer; keep going */
 		}
@@ -1522,7 +1534,7 @@ static void do_move2(const char *path, const char *dest)
 		{
 			printf_send("<%s", path);
 			printf_send(">%s", dest_path);
-			if (!printf_reply(from_parent, TRUE,
+			if (!printf_reply(from_parent, !o_newer || !is_newer,
 				       _("?'%s' already exists - overwrite?"),
 				       dest_path))
 				return;
@@ -2307,7 +2319,7 @@ void action_copy(GList *paths, const char *dest, const char *leaf, int quiet)
 
 	abox_add_flag(ABOX(abox),
 		   _("Newer"),
-		   _("Only over-write if source is newer than destination."),
+		   _("Always over-write if source is newer than destination."),
 		   'W', o_action_newer.int_value);
 	abox_add_flag(ABOX(abox),
 		_("Brief"), _("Only log directories as they are copied"),
@@ -2347,7 +2359,7 @@ void action_move(GList *paths, const char *dest, const char *leaf, int quiet)
 
 	abox_add_flag(ABOX(abox),
 		   _("Newer"),
-		   _("Only over-write if source is newer than destination."),
+		   _("Always over-write if source is newer than destination."),
 		   'W', o_action_newer.int_value);
 	abox_add_flag(ABOX(abox),
 		_("Brief"), _("Don't log each file as it is moved"),
