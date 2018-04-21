@@ -422,7 +422,8 @@ enum
 	COLUMN_NAME,
 	COLUMN_VALUE,
 	COLUMN_EDNAM,
-	COLUMN_EDVAL
+	COLUMN_EDVAL,
+	COLUMN_RMABL
 };
 
 enum
@@ -573,16 +574,23 @@ static GtkTreeModel* create_model(GArray *arr) {
 	gchar *name, *value;
 	gchar *u8nam, *u8val;
 	gboolean edit;
+	gboolean rmable;
 
 	g_return_val_if_fail(arr != NULL,NULL);
 
-	model = gtk_list_store_new(4,G_TYPE_STRING,G_TYPE_STRING,
-			G_TYPE_BOOLEAN,G_TYPE_BOOLEAN);
+	model = gtk_list_store_new(5,G_TYPE_STRING,G_TYPE_STRING,
+			G_TYPE_BOOLEAN,G_TYPE_BOOLEAN,G_TYPE_BOOLEAN);
 	for(i=0;i<arr->len;i++) {
 		if(g_array_index(arr,XAttr,i).user == 1)
+		{
 			edit = TRUE;
+			rmable = TRUE;
+		}
 		else
+		{
 			edit = FALSE;
+			rmable = FALSE;
+		}
 
 		name = g_array_index(arr,XAttr,i).name;
 		value = g_array_index(arr,XAttr,i).value;
@@ -593,7 +601,7 @@ static GtkTreeModel* create_model(GArray *arr) {
 
 		gtk_list_store_append(model,&iter);
 		gtk_list_store_set(model,&iter,COLUMN_NAME,u8nam,COLUMN_VALUE,u8val,
-				COLUMN_EDNAM,FALSE,COLUMN_EDVAL,edit,-1);
+				COLUMN_EDNAM,FALSE,COLUMN_EDVAL,edit,COLUMN_RMABL,rmable,-1);
 		g_free(u8nam);
 		g_free(u8val);
 	}
@@ -676,7 +684,8 @@ static void add_item(GtkWidget *button, gpointer data)
 
 	gtk_list_store_append(GTK_LIST_STORE(model),&iter);
 	gtk_list_store_set(GTK_LIST_STORE(model),&iter,
-			COLUMN_NAME,item.name,COLUMN_VALUE,item.value,COLUMN_EDNAM,TRUE,COLUMN_EDVAL,TRUE,-1);
+			COLUMN_NAME,item.name,COLUMN_VALUE,item.value,COLUMN_EDNAM,TRUE,
+			COLUMN_EDVAL,TRUE,COLUMN_RMABL,TRUE,-1);
 }
 
 static void remove_item(GtkWidget *button, gpointer data)
@@ -690,10 +699,10 @@ static void remove_item(GtkWidget *button, gpointer data)
 	if (gtk_tree_selection_get_selected(selection, NULL, &iter)) {
 		gint i;
 		GtkTreePath *path;
-		gboolean edit;
+		gboolean rmable;
 		
-		gtk_tree_model_get(model, &iter, COLUMN_EDVAL, &edit, -1);
-		if(edit == TRUE) {
+		gtk_tree_model_get(model, &iter, COLUMN_RMABL, &rmable, -1);
+		if(rmable == TRUE) {
 			path = gtk_tree_model_get_path(model, &iter);
 			i = gtk_tree_path_get_indices(path)[0];
 			gtk_list_store_remove(GTK_LIST_STORE(model), &iter);
