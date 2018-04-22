@@ -1499,34 +1499,36 @@ static void do_move2(const char *path, const char *dest)
 {
 	const char	*dest_path;
 	const char	*argv[] = {"mv", "-f", NULL, NULL, NULL};
-	struct stat	info2;
-	gboolean	is_dir;
-	char            *err;
+	struct stat 	info;
+	struct stat 	dest_info;
+	guchar		*error = NULL;
 
 	check_flags();
 
 	dest_path = make_dest_path(path, dest);
+	argv[2] = path;
+	argv[3] = dest_path;
 
-	is_dir = mc_lstat(path, &info2) == 0 && S_ISDIR(info2.st_mode);
-
-	if (access(dest_path, F_OK) == 0)
+	if (mc_lstat(path, &info))
 	{
-		struct stat	info;
+		send_error();
+		return;
+	}
+
+	if (mc_lstat(dest_path, &dest_info) == 0)
+	{
 		int		err;
+		gboolean	merge;
 		gboolean	is_newer;
 
-		if (mc_lstat(dest_path, &info))
-		{
-			send_error();
-			return;
-		}
+		merge = S_ISDIR(info.st_mode) && S_ISDIR(dest_info.st_mode);
 
 		/* Using greater than or equal because people who tick the
 		 * "Newer" checkbox probably don't want to be prompted whether
 		 * to overwrite a file that has an identical mtime. */
-		is_newer = info2.st_mtime >= info.st_mtime;
+		is_newer = info.st_mtime >= dest_info.st_mtime;
 
-		if (!is_dir && o_newer && is_newer)
+		if (!merge && o_newer && is_newer)
 		{
 			/* Newer; keep going */
 		}
@@ -1535,22 +1537,27 @@ static void do_move2(const char *path, const char *dest)
 			printf_send("<%s", path);
 			printf_send(">%s", dest_path);
 			if (!printf_reply(from_parent, !o_newer || !is_newer,
-				       _("?'%s' already exists - overwrite?"),
-				       dest_path))
+					  _("?'%s' already exists - %s?"),
+					  dest_path,
+					  merge ? _("merge contents")
+						: _("overwrite")))
 				return;
 		}
 
-		if (S_ISDIR(info.st_mode))
-			err = rmdir(dest_path);
-		else
-			err = unlink(dest_path);
-
-		if (err)
+		if (!merge)
 		{
-			send_error();
-			if (errno != ENOENT)
-				return;
-			printf_send(_("'Trying move anyway...\n"));
+			if (S_ISDIR(dest_info.st_mode))
+				err = rmdir(dest_path);
+			else
+				err = unlink(dest_path);
+
+			if (err)
+			{
+				send_error();
+				if (errno != ENOENT)
+					return;
+				printf_send(_("'Trying move anyway...\n"));
+			}
 		}
 	}
 	else if (!quiet)
@@ -1561,24 +1568,65 @@ static void do_move2(const char *path, const char *dest)
 				  _("?Move %s as %s?"), path, dest_path))
 			return;
 	}
-	else if (!o_brief)
+	else if (!o_brief || S_ISDIR(info.st_mode))
 		printf_send(_("'Moving %s as %s\n"), path, dest_path);
 
-	argv[2] = path;
-	argv[3] = dest_path;
+	if (S_ISDIR(info.st_mode))
+	{
+		mode_t	mode = info.st_mode;
+		char *safe_path, *safe_dest;
+		struct stat 	dest_info;
+		gboolean	exists;
 
-	err = fork_exec_wait(argv);
-	if (err)
+		safe_path = g_strdup(path);
+		safe_dest = g_strdup(dest_path);
+
+		exists = !mc_lstat(dest_path, &dest_info);
+
+		if (exists && !S_ISDIR(dest_info.st_mode))
+			printf_send(_("!ERROR: Destination already exists, "
+				      "but is not a directory\n"));
+		else
+		{
+			if (exists)
+			{
+				action_leaf = NULL;
+				for_dir_contents(do_move2, safe_path, safe_dest);
+				/* Note: dest_path now invalid... */
+
+				/* If rmdir cannot delete the directory because it is not empty
+				 * it is probably because some files failed to be moved,
+				 * so not treating it as an error. */
+				rmdir(safe_path);
+			}
+			else
+			{
+				/* Do actual move. */
+				error = fork_exec_wait(argv);
+			}
+		}
+
+		g_free(safe_path);
+		g_free(safe_dest);
+	}
+	else
+	{
+		/* Do actual move. */
+		error = fork_exec_wait(argv);
+	}
+
+	if (error)
 	{
 		printf_send(_("!%s\nFailed to move %s as %s\n"),
-			    err, path, dest_path);
-		g_free(err);
+			error, path, dest_path);
+		g_free(error);
+		error = NULL;
 	}
 	else
 	{
 		send_check_path(dest_path);
 
-		if (is_dir)
+		if (S_ISDIR(info.st_mode))
 			send_mount_path(path);
 		else
 			send_check_path(path);
