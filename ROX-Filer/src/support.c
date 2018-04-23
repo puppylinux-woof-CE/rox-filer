@@ -306,7 +306,7 @@ const char *format_size_aligned(off_t size)
 			units = 'K';
 	}
 	else
-		units = ' ';
+		units = 'B';
 
 	g_free(buffer);
 	buffer = g_strdup_printf("%4" SIZE_FMT "%c", size, units);
@@ -593,10 +593,21 @@ char *pretty_time(const time_t *time)
  */
 guchar *copy_file(const guchar *from, const guchar *to)
 {
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+//	const char *argv[] = {"cp", "-pRf", "--preserve=xattr", NULL, NULL, NULL};
+// Puppy linux's cp hasn't support of xattr.
+// So this aims same result without using 'xattr'
+	const char *argv[] = {"cp", "-af",
+		"--no-preserve=context,links", NULL, NULL, NULL};
+
+	argv[3] = from;
+	argv[4] = to;
+#else
 	const char *argv[] = {"cp", "-pRf", NULL, NULL, NULL};
 
 	argv[2] = from;
 	argv[3] = to;
+#endif
 
 	return fork_exec_wait(argv);
 }

@@ -84,6 +84,9 @@ typedef enum {
 	FILE_SET_TYPE,
 	FILE_COPY_TO_CLIPBOARD,
 	FILE_CUT_TO_CLIPBOARD,
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+	FILE_XATTRS,
+#endif
 } FileOp;
 
 typedef void (*ActionFn)(GList *paths,
@@ -194,9 +197,12 @@ static GtkWidget	*filer_filter_dirs_menu;/* The Filter Dirs item */
 static GtkWidget	*filer_reverse_menu;	/* The Reversed item */
 static GtkWidget	*filer_thumb_menu;	/* The Show Thumbs item */
 static GtkWidget	*filer_new_window;	/* The New Window item */
-static GtkWidget        *filer_new_menu;        /* The New submenu */
-static GtkWidget        *filer_follow_sym;      /* Follow symbolic links item */
-static GtkWidget        *filer_set_type;        /* Set type item */
+static GtkWidget    *filer_new_menu;        /* The New submenu */
+static GtkWidget    *filer_follow_sym;      /* Follow symbolic links item */
+static GtkWidget    *filer_set_type;        /* Set type item */
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+static GtkWidget	*filer_xattrs;	/* Extended attributes item */
+#endif
 
 #undef N_
 #define N_(x) x
@@ -245,6 +251,9 @@ static GtkItemFactoryEntry filer_menu_def[] = {
 {">",				NULL, NULL, 0, "<Separator>"},
 {">" N_("Set Run Action..."),	"asterisk", file_op, FILE_RUN_ACTION, "<StockItem>", GTK_STOCK_EXECUTE},
 {">" N_("Set Icon..."),		NULL, file_op, FILE_SET_ICON, NULL},
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+{">" N_("Extended attributes..."),		NULL, file_op, FILE_XATTRS, "<StockItem>", ROX_STOCK_XATTR},
+#endif
 {">" N_("Properties"),		"<Ctrl>P", file_op, FILE_PROPERTIES, "<StockItem>", GTK_STOCK_PROPERTIES},
 {">" N_("Count"),		NULL, file_op, FILE_USAGE, NULL},
 {">" N_("Set Type..."),		NULL, file_op, FILE_SET_TYPE, NULL},
@@ -332,6 +341,11 @@ gboolean ensure_filer_menu(void)
 							"Show Thumbnails");
 	GET_SSMENU_ITEM(item, "filer", "File", "Set Type...");
 	filer_set_type = GTK_BIN(item)->child;
+
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+	GET_SSMENU_ITEM(item, "filer", "File", "Extended attributes...");
+	filer_xattrs = GTK_BIN(item)->child;
+#endif
 
 	GET_SMENU_ITEM(filer_new_menu, "filer", "New");
 	GET_SSMENU_ITEM(item, "filer", "Window", "Follow Symbolic Links");
@@ -430,6 +444,9 @@ static void shade_file_menu_items(gboolean shaded)
 	menu_set_items_shaded(filer_file_menu, shaded, 2, 1);
 	menu_set_items_shaded(filer_file_menu, shaded, 8, 1);
 	menu_set_items_shaded(filer_file_menu, shaded, 11, 2);
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+	menu_set_items_shaded(filer_file_menu, shaded, 13, 1);
+#endif
 }
 
 /* 'data' is an array of three ints:
@@ -843,6 +860,13 @@ void show_filer_menu(FilerWindow *filer_window, GdkEvent *event, ViewIter *iter)
 		strcmp(filer_window->sym_path, filer_window->real_path) != 0);
 	gtk_widget_set_sensitive(filer_set_type,
 				 xattr_supported(filer_window->real_path));
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+	gtk_widget_set_sensitive(filer_xattrs,
+				xattr_supported(filer_window->real_path) &&
+				n_selected <= 1 &&
+				(file_item ? access(make_path(filer_window->real_path,
+						file_item->leafname), R_OK) : 0) == 0);
+#endif
 
 	if (n_selected && o_menu_quick.int_value) 
 		popup_menu = (state & GDK_CONTROL_MASK)
@@ -1160,13 +1184,15 @@ static void savebox_show(const gchar *action, const gchar *path,
 		gtk_savebox_set_pathname(GTK_SAVEBOX(savebox), path);
 	else
 	{
-		gchar *u8, *dir;
+		gchar *u8, *dir, *base;
 		dir = g_path_get_dirname(path);
-		u8 = to_utf8(g_basename(path));
+		base = g_path_get_basename(path);
+		u8 = to_utf8(base);
 		gtk_savebox_set_pathname(GTK_SAVEBOX(savebox),
 				make_path(dir, u8));
 		g_free(u8);
 		g_free(dir);
+		g_free(base);
 	}
 	gtk_savebox_set_icon(GTK_SAVEBOX(savebox), image->pixbuf);
 	g_object_unref(image);
@@ -1450,11 +1476,12 @@ static gboolean new_file_type_cb(GObject *savebox,
 			         const gchar *initial, const gchar *path)
 {
 	const gchar *oleaf, *leaf;
-	gchar *templ, *rtempl, *templ_dname, *dest;
+	gchar *templ, *rtempl, *templ_dname, *dest, *base;
 	GList *paths;
 
 	/* We can work out the template path from the initial name */
-	oleaf = g_basename(initial);
+	base = g_path_get_basename(initial);
+	oleaf = base;
 	templ_dname = choices_find_xdg_path_load("Templates", "", SITE);
 	if (!templ_dname)
 	{
@@ -1468,9 +1495,11 @@ static gboolean new_file_type_cb(GObject *savebox,
 	g_free(templ_dname);
 	rtempl = pathdup(templ);
 	g_free(templ);
+	g_free(base);
 
+	base = g_path_get_basename(path);
 	dest = g_path_get_dirname(path);
-	leaf = g_basename(path);
+	leaf = base;
 	paths = g_list_append(NULL, rtempl);
 
 	action_copy(paths, dest, leaf, TRUE);
@@ -1478,6 +1507,7 @@ static gboolean new_file_type_cb(GObject *savebox,
 	g_list_free(paths);
 	g_free(dest);
 	g_free(rtempl);
+	g_free(base);
 
 	if (filer_exists(window_with_focus))
 		display_set_autoselect(window_with_focus, leaf);
@@ -1496,16 +1526,19 @@ static void new_file_type(gchar *templ)
 {
 	const gchar *leaf;
 	MIME_type *type;
+	gchar *base;
 
 	g_return_if_fail(window_with_focus != NULL);
 	
-	leaf = g_basename(templ);
+	base = g_path_get_basename(templ);
+	leaf = base;
 	type = type_get_type(templ);
 
 	savebox_show(_("Create"),
 		make_path(window_with_focus->sym_path, leaf),
 		type_to_icon(type),
 		new_file_type_cb, GDK_ACTION_COPY);
+	g_free(base);
 }
 
 static void customise_send_to(gpointer data)
@@ -2328,6 +2361,11 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 			case FILE_PROPERTIES:
 				prompt = _("Properties of ... ?");
 				break;
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+			case FILE_XATTRS:
+				prompt = _("Extended attributes of ... ?");
+				break;
+#endif
 			case FILE_SET_TYPE:
 				prompt = _("Set type of ... ?");
 				break;
@@ -2484,6 +2522,12 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 		case FILE_SET_ICON:
 			icon_set_handler_dialog(item, path);
 			break;
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+		case FILE_XATTRS:
+			if(access(path, R_OK) == 0)
+				xattrs_browser(item, path);
+			break;
+#endif
 		default:
 			g_warning("Unknown action!");
 			return;

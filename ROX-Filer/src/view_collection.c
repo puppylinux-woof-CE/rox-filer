@@ -236,6 +236,8 @@ GType view_collection_get_type(void)
 static void view_collection_destroy(GtkObject *view_collection)
 {
 	VIEW_COLLECTION(view_collection)->filer_window = NULL;
+
+    (*GTK_OBJECT_CLASS(parent_class)->destroy)(view_collection);
 }
 
 static void view_collection_finialize(GObject *object)
@@ -1166,7 +1168,7 @@ static void view_collection_show_cursor(ViewIface *view)
 	ViewCollection	*view_collection = VIEW_COLLECTION(view);
 	Collection	*collection = view_collection->collection;
 
-	collection_move_cursor(collection, 0, 0);
+	collection_move_cursor(collection, 0, 0, 0);
 }
 
 /* The first time the next() method is used, this is called */

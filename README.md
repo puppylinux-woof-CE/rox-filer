@@ -1,3 +1,12 @@
+CHANGES
+
++ Added extended attributes (xattr) browser
++ Support for file and folder labels using xattr `user.label`
++ Better xattr and symlink icons
++ Upgraded some deprecated functions
++ Some improvements pulled from jun7's fork
++ Support for finding labels by color and xattr presence in 'Select If'
+
 ROX-Filer
 =========
 A RISC OS-like filer for X

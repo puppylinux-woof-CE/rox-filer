@@ -354,7 +354,7 @@ gtk_savebox_set_pathname (GtkSavebox *savebox, const gchar *pathname)
   slash = strrchr (pathname, '/');
   
   leaf = slash ? g_utf8_pointer_to_offset(pathname, slash) + 1 : 0;
-  dot = strchr(pathname + leaf, '.');
+  dot = strrchr(pathname + leaf, '.');
   
   gtk_editable_select_region (GTK_EDITABLE (savebox->entry), leaf,
 			      dot ? g_utf8_pointer_to_offset (pathname, dot)
@@ -376,6 +376,7 @@ button_press_over_icon (GtkWidget *drag_box, GdkEventButton *event,
 {
   GdkDragContext  *context;
   const gchar	  *uri = NULL, *leafname;
+  gchar			  *base = NULL;
 
   g_return_if_fail (savebox != NULL);
   g_return_if_fail (GTK_IS_SAVEBOX (savebox));
@@ -389,13 +390,15 @@ button_press_over_icon (GtkWidget *drag_box, GdkEventButton *event,
 			    event->button, (GdkEvent *) event);
 
   uri = gtk_entry_get_text (GTK_ENTRY (savebox->entry));
-  if (uri && *uri)
-    leafname = g_basename (uri);
+  if (uri && *uri) {
+    base = g_path_get_basename(uri);
+    leafname = base;
+  }
   else
     leafname = _("Unnamed");
   
   write_xds_property (context, leafname);
-
+  g_free(base);
   gtk_drag_set_icon_pixbuf (context,
 			    gtk_image_get_pixbuf (GTK_IMAGE (savebox->icon)),
 			    event->x, event->y);

@@ -759,7 +759,6 @@ static GdkFilterReturn filter_get_key(GdkXEvent *xevent,
 {
 	XKeyEvent *kev = (XKeyEvent *) xevent;
 	GtkWidget *popup = (GtkWidget *) data;
-	Display *dpy = GDK_DISPLAY();
 
 	if (kev->type != KeyRelease && kev->type != ButtonPressMask)
 		return GDK_FILTER_CONTINUE;
@@ -772,7 +771,7 @@ static GdkFilterReturn filter_get_key(GdkXEvent *xevent,
 		KeySym sym;
 		unsigned int m = kev->state;
 
-		sym = XKeycodeToKeysym(dpy, kev->keycode, 0);
+		sym = XLookupKeysym(kev, 0);
 		if (!sym)
 			return GDK_FILTER_CONTINUE;
 
@@ -1287,7 +1286,7 @@ static gboolean mykey_cmp(gconstpointer a, gconstpointer b)
 	MyKey *ka = (MyKey *) a;
 	MyKey *kb = (MyKey *) b;
 
-	return ka->keycode == kb->keycode && kb->modifier == kb->modifier;
+	return ka->keycode == kb->keycode && ka->modifier == kb->modifier;
 }
 
 /* Stolen from xfwm4 and modified.

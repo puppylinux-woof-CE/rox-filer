@@ -37,6 +37,7 @@
 
 #include "main.h"
 #include "find.h"
+#include "xtypes.h"
 
 typedef struct _Eval Eval;
 
@@ -47,6 +48,9 @@ static FindCondition *parse_system(const gchar **expression);
 static FindCondition *parse_condition(const gchar **expression);
 static FindCondition *parse_match(const gchar **expression);
 static FindCondition *parse_comparison(const gchar **expression);
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+static FindCondition *parse_xattr(const gchar **expression);
+#endif
 static FindCondition *parse_dash(const gchar **expression);
 static FindCondition *parse_is(const gchar **expression);
 static Eval *parse_eval(const gchar **expression);
@@ -72,6 +76,7 @@ typedef enum {
 	IS_EXEC,
 	IS_EMPTY,
 	IS_MINE,
+	HAS_XATTR,
 } IsTest;
 
 typedef enum {
@@ -94,6 +99,13 @@ typedef enum {
 	V_GID,
 	V_BLOCKS,
 } VarType;
+
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+typedef enum {
+	X_ATTR,
+	X_LABEL,
+} XAttrType;
+#endif
 
 enum
 {
@@ -358,6 +370,12 @@ static gboolean test_is(FindCondition *condition, FindInfo *info)
 			return info->stats.st_size == 0;
 		case IS_MINE:
 			return info->stats.st_uid == euid;
+		case HAS_XATTR:
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+			return xattr_have(info->fullpath);
+#else
+			return FALSE;
+#endif
 	}
 
 	return FALSE;
@@ -390,6 +408,35 @@ static gboolean test_comp(FindCondition *condition, FindInfo *info)
 
 	return FALSE;
 }
+
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+static gboolean test_xattr(FindCondition *condition, FindInfo *info) {
+	XAttrType type = GPOINTER_TO_INT(condition->data1);
+	char* value = condition->data2;
+	GdkColor *col1,*col2 = NULL;
+
+	switch(type) {
+		case X_ATTR:
+			if(xattr_get(info->fullpath, value, NULL) != NULL)
+				return TRUE;
+			break;
+		case X_LABEL:
+			col2 = g_new(GdkColor,1);
+			if(gdk_color_parse(value, col2)) {
+				col1 = xlabel_get(info->fullpath);
+				if(col1 != NULL && gdk_color_equal(col1,col2)) {
+					g_free(col1);
+					g_free(col2);
+					return TRUE;
+				}
+			} else
+				g_free(col2);
+			break;
+	}
+
+	return FALSE;
+}
+#endif
 
 /*				FREEING CODE				*/
 
@@ -576,6 +623,12 @@ static FindCondition *parse_condition(const gchar **expression)
 	if (cond)
 		return cond;
 
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+	cond = parse_xattr(expression);
+	if (cond)
+		return cond;
+#endif
+
 	return parse_comparison(expression);
 }
 
@@ -700,6 +753,7 @@ static FindCondition *parse_dash(const gchar **expression)
 			case 'w': test = IS_WRITEABLE; break;
 			case 'x': test = IS_EXEC; break;
 			case 'o': test = IS_MINE; break;
+			case 'X': test = HAS_XATTR; break;
 			case 'z': test = IS_EMPTY; break;
 			default:
 				  find_condition_free(retval);
@@ -775,6 +829,8 @@ static FindCondition *parse_is(const gchar **expression)
 		test = IS_EMPTY;
 	else if (MATCH(_("IsMine")))
 		test = IS_MINE;
+	else if (MATCH(_("HasXattr")))
+		test = HAS_XATTR;
 	else
 		return NULL;
 
@@ -828,6 +884,61 @@ out:
 
 	return cond;
 }
+
+#if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
+static FindCondition *parse_xattr(const gchar **expression)
+{
+	FindCondition	*cond = NULL;
+	XAttrType		type;
+	GString			*str;
+
+	str = g_string_new(NULL);
+
+	if (MATCH(_("label"))) {
+		type = X_LABEL;
+	} else if(MATCH(_("xattr")))
+		type = X_ATTR;
+	else
+		return NULL;
+
+	SKIP;
+
+	if (NEXT == '\'')
+	{
+		EAT;
+		while(NEXT != '\'')
+		{
+			gchar	c = NEXT;
+
+			if (c == '\0')
+				goto out;
+			EAT;
+
+			if (c == '\\' && NEXT == '\'')
+			{
+				c = NEXT;
+				EAT;
+			}
+
+			g_string_append_c(str, c);
+		}
+		EAT;
+	}
+	else
+		return NULL;
+
+	cond = g_new(FindCondition, 1);
+	cond->test = &test_xattr;
+	cond->free = (FindFree) &g_free;
+	cond->data1 = GINT_TO_POINTER(type);
+	cond->data2 = str->str;
+
+out:
+	g_string_free(str, cond ? FALSE : TRUE);
+
+	return cond;
+}
+#endif
 
 /*			NUMERIC EXPRESSIONS				*/
 

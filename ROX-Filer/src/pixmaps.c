@@ -269,7 +269,7 @@ void pixmap_background_thumb(const gchar *path, GFunc callback, gpointer data)
 	pid_t		child;
 	ChildThumbnail	*info;
 	MIME_type       *type;
-	gchar		*thumb_prog;
+	gchar		*thumb_prog, *base;
 
 	image = pixmap_try_thumb(path, TRUE);
 
@@ -332,7 +332,9 @@ void pixmap_background_thumb(const gchar *path, GFunc callback, gpointer data)
 		{
 			DirItem *item;
 			
-			item = diritem_new(g_basename(thumb_prog));
+			base = g_path_get_basename(thumb_prog);
+			item = diritem_new(base);
+			g_free(base);
 
 			diritem_restat(thumb_prog, item, NULL);
 			if (item->flags & ITEM_FLAG_APPDIR)

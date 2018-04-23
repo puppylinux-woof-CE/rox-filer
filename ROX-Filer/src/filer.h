@@ -67,10 +67,14 @@ struct _FilerWindow
 	ViewType	view_type;
 	gboolean	temp_item_selected;
 	gboolean	show_hidden;
+	gboolean	dirs_only;
+	gboolean	files_only;
 	gboolean	filter_directories;
 	FilerFlags	flags;
 	SortType	sort_type;
 	GtkSortType	sort_order;
+
+	MaskedPixmap *win_icon;
 
 	DetailsType	details_type;
 	DisplayStyle	display_style;

@@ -157,6 +157,16 @@ void check_globicon(const guchar *path, DirItem *item)
 		item->_image = g_fscache_lookup(pixmap_cache, gi);
 }
 
+MaskedPixmap *get_globicon(const guchar *path)
+{
+	gchar *gi;
+
+	gi = g_hash_table_lookup(glob_icons, path);
+	if (gi)
+		return g_fscache_lookup(pixmap_cache, gi);
+	return NULL;
+}
+
 static gboolean create_diricon(const guchar *filepath, const guchar *iconpath)
 {
 	if (!convert_to_png(iconpath, make_path(filepath, ".DirIcon")))

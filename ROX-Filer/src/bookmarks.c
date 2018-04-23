@@ -702,10 +702,10 @@ static void activate_edit(GtkMenuShell *item, gpointer data)
 	bookmarks_edit();
 }
 
-static gint cmp_dirname(gconstpointer a, gconstpointer b)
-{
-	return g_utf8_collate(*(gchar **) a, *(gchar **) b);
-}
+/*static gint cmp_dirname(gconstpointer a, gconstpointer b)*/
+/*{*/
+	/*return g_utf8_collate(*(gchar **) a, *(gchar **) b);*/
+/*}*/
 
 static void free_path_for_item(GtkWidget *widget, gpointer udata)
 {
@@ -733,7 +733,7 @@ static GtkWidget *build_history_menu(FilerWindow *filer_window)
 	for (next = history; next; next = next->next)
 		g_ptr_array_add(items, next->data);
 
-	g_ptr_array_sort(items, cmp_dirname);
+	/*g_ptr_array_sort(items, cmp_dirname);*/
 
 	for (i = 0; i < items->len; i++)
 	{

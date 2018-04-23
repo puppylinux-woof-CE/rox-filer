@@ -257,7 +257,7 @@ int main(int argc, char **argv)
 	int		 i;
 	struct sigaction act;
 	guchar		*tmp, *dir;
-	gchar *client_id = NULL;
+	gchar *client_id = NULL, *base;
 	gboolean	show_user = FALSE;
 	gboolean	rpc_mode = FALSE;
 	xmlDocPtr	rpc, soap_rpc = NULL, reply;
@@ -436,11 +436,13 @@ int main(int argc, char **argv)
 				else
 					dir = pathdup(tmp);
 
+				base = g_path_get_basename(VALUE);
 				soap_add(body, "Show",
 					"Directory", dir ? dir : tmp,
-					"Leafname", g_basename(VALUE));
+					"Leafname", base);
 				g_free(tmp);
 				g_free(dir);
+				g_free(base);
 				break;
 			case 'l':
 			case 'r':
@@ -567,8 +569,10 @@ int main(int argc, char **argv)
 
 	/* Try to send the request to an already-running copy of the filer */
 	gui_support_init();
-	if (remote_init(rpc, new_copy))
+	if (remote_init(rpc, new_copy)) {
+		xmlFreeDoc(rpc);	/* avoid memleak */
 		return EXIT_SUCCESS;	/* It worked - exit */
+	}
 
 	/* Put ourselves into the background (so 'rox' always works the
 	 * same, whether we're already running or not).

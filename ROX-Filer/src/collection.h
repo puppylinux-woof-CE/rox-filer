@@ -147,7 +147,7 @@ void 	collection_delete_if		(Collection *collection,
 						          gpointer data),
 			  		 gpointer data);
 void 	collection_move_cursor		(Collection *collection,
-					 int drow, int dcol);
+					 int drow, int dcol, int event_state);
 void	collection_lasso_box		(Collection *collection, int x, int y);
 void	collection_end_lasso		(Collection *collection,
 					 GdkFunction fn);

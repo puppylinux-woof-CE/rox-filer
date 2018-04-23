@@ -64,6 +64,7 @@
 #include "action.h"
 #include "bookmarks.h"
 #include "xtypes.h"
+#include "usericons.h"
 /* added for international desktop file comments */
 #include "i18n.h"
 
@@ -409,6 +410,25 @@ static void update_display(Directory *dir,
 			toolbar_update_info(filer_window);
 			break;
 		case DIR_END_SCAN:
+
+			if (filer_window->win_icon)
+				g_object_unref(filer_window->win_icon);
+			MaskedPixmap
+				*fi = get_globicon(filer_window->sym_path);
+			if (!fi)
+				fi = get_globicon(filer_window->real_path);
+			if (fi)
+				g_object_ref(fi);
+			if (!fi)
+				fi = g_fscache_lookup_full(pixmap_cache,
+						make_path(filer_window->real_path, ".DirIcon"),
+						FSCACHE_LOOKUP_ONLY_NEW, NULL);
+
+			gtk_window_set_icon(GTK_WINDOW(filer_window->window),
+					fi ? fi->src_pixbuf : NULL);
+
+			filer_window->win_icon = fi;
+
 			if (filer_window->window->window)
 				gdk_window_set_cursor(
 						filer_window->window->window,
@@ -439,6 +459,19 @@ static void update_display(Directory *dir,
 			break;
 		case DIR_UPDATE:
 			view_update_items(view, items);
+
+			if (!filer_window->win_icon)
+			{
+				filer_window->win_icon = g_fscache_lookup_full(
+						pixmap_cache,
+						make_path(filer_window->real_path, ".DirIcon"),
+						FSCACHE_LOOKUP_ONLY_NEW, NULL);
+
+				if (filer_window->win_icon)
+					gtk_window_set_icon(GTK_WINDOW(filer_window->window),
+							filer_window->win_icon->src_pixbuf);
+			}
+
 			break;
 		case DIR_ERROR_CHANGED:
 			filer_set_title(filer_window);
@@ -721,6 +754,8 @@ static void filer_window_destroyed(GtkWidget *widget, FilerWindow *filer_window)
 		g_free(filer_window->filter_string);
 	if(filer_window->regexp)
 		g_free(filer_window->regexp);
+	if(filer_window->win_icon)
+		g_object_unref(filer_window->win_icon);
 
 	g_free(filer_window->auto_select);
 	g_free(filer_window->real_path);
@@ -1290,8 +1325,9 @@ void filer_open_parent(FilerWindow *filer_window)
 
 void change_to_parent(FilerWindow *filer_window)
 {
-	char	*dir;
+	gchar	*dir;
 	const char *current = filer_window->sym_path;
+	gchar	*base;
 
 	if (current[0] == '/' && current[1] == '\0')
 		return;		/* Already in the root */
@@ -1301,8 +1337,10 @@ void change_to_parent(FilerWindow *filer_window)
 				g_strdup(filer_window->real_path));
 	
 	dir = g_path_get_dirname(current);
-	filer_change_to(filer_window, dir, g_basename(current));
+	base = g_path_get_basename(current);
+	filer_change_to(filer_window, dir, base);
 	g_free(dir);
+	g_free(base);
 }
 
 /* Removes trailing /s from path (modified in place) */
@@ -1486,6 +1524,9 @@ FilerWindow *filer_opendir(const char *path, FilerWindow *src_win,
 	filer_window->scrollbar = NULL;
 	filer_window->auto_scroll = -1;
 	filer_window->window_id = NULL;
+	filer_window->win_icon = NULL;
+	filer_window->dirs_only = FALSE;
+	filer_window->files_only = FALSE;
 
 	tidy_sympath(filer_window->sym_path);
 
@@ -2069,7 +2110,8 @@ void filer_set_title(FilerWindow *filer_window)
 
 	if (filer_window->scanning ||
 	    filer_window->filter != FILER_SHOW_ALL ||
-	    filer_window->show_hidden || filer_window->show_thumbs)
+	    filer_window->show_hidden || filer_window->show_thumbs ||
+		filer_window->dirs_only || filer_window->files_only)
 	{
 		if (o_short_flag_names.int_value)
 		{
@@ -2087,6 +2129,8 @@ void filer_set_title(FilerWindow *filer_window)
 				filer_window->scanning ? _("S") : "",
 				hidden,
 				filer_window->show_thumbs ? _("T") : "",
+				filer_window->dirs_only ? _("D") : "",
+				filer_window->files_only ? _("F") : "",
 				NULL);
 		}
 		else
@@ -2110,6 +2154,8 @@ void filer_set_title(FilerWindow *filer_window)
 				filer_window->scanning ? _("Scanning, ") : "",
 				hidden,
 				filer_window->show_thumbs ? _("Thumbs, ") : "",
+				filer_window->dirs_only ? _("Dirs only, ") : "",
+				filer_window->files_only ? _("Files only, ") : "",
 				NULL);
 			flags[strlen(flags) - 2] = ')';
 			g_free(hidden);
@@ -3019,20 +3065,29 @@ gboolean filer_match_filter(FilerWindow *filer_window, DirItem *item)
 {
 	g_return_val_if_fail(item != NULL, FALSE);
 
+	if (filer_window->files_only &&
+			item->base_type == TYPE_DIRECTORY)
+		return FALSE;
+
+	if (filer_window->dirs_only &&
+			item->base_type != TYPE_DIRECTORY)
+		return FALSE;
+
 	if(is_hidden(filer_window->real_path, item) &&
 	   (!filer_window->temp_show_hidden && !filer_window->show_hidden))
 		return FALSE;
 
 	switch(filer_window->filter) {
-	case FILER_SHOW_GLOB:
-		return fnmatch(filer_window->filter_string,
-			       item->leafname, 0)==0 ||
-		  (item->base_type==TYPE_DIRECTORY &&
-		   !filer_window->filter_directories);
-		
-	case FILER_SHOW_ALL:
-	default:
-		break;
+		case FILER_SHOW_GLOB:
+			return fnmatch(filer_window->filter_string,
+					item->leafname, 0)==0 ||
+				(item->base_type==TYPE_DIRECTORY &&
+				 !filer_window->filter_directories);
+			break;
+
+		case FILER_SHOW_ALL:
+		default:
+			break;
 	}
 	return TRUE;
 }
@@ -3061,13 +3116,13 @@ gboolean filer_set_filter(FilerWindow *filer_window, FilterType type,
 	{
 		switch(filer_window->filter)
 		{
-		case FILER_SHOW_ALL:
-			return FALSE;
-		case FILER_SHOW_GLOB:
-			if (strcmp(filer_window->filter_string,
-				   filter_string) == 0)
+			case FILER_SHOW_ALL:
 				return FALSE;
-			break;
+			case FILER_SHOW_GLOB:
+				if (strcmp(filer_window->filter_string,
+							filter_string) == 0)
+					return FALSE;
+				break;
 		}
 	}
 
