@@ -37,6 +37,11 @@ GList *add_sendto_shared(GtkWidget *menu,
 GList *add_sendto_desktop_items(GtkWidget *menu,
 		const gchar *type, const gchar *subtype, CallbackFn swapped_func);
 
+/* For "New" toolbar button */
+void show_new_directory(FilerWindow *filer_window);
+void show_new_file(FilerWindow *filer_window);
+void show_menu_new(FilerWindow *filer_window);
+
 /* Public menu handlers */
 void menu_rox_help(gpointer data, guint action, GtkWidget *widget);
 void menu_show_options(gpointer data, guint action, GtkWidget *widget);

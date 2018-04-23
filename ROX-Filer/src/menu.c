@@ -1421,6 +1421,12 @@ static gboolean new_directory_cb(GObject *savebox,
 	return TRUE;
 }
 
+void show_new_directory(FilerWindow *filer_window)
+{
+	window_with_focus = filer_window;
+	new_directory(NULL, 0, NULL);
+}
+
 static void new_directory(gpointer data, guint action, GtkWidget *widget)
 {
 	g_return_if_fail(window_with_focus != NULL);
@@ -1460,6 +1466,12 @@ static gboolean new_file_cb(GObject *savebox,
 	}
 
 	return TRUE;
+}
+
+void show_new_file(FilerWindow *filer_window)
+{
+	window_with_focus = filer_window;
+	new_file(NULL, 0, NULL);
 }
 
 static void new_file(gpointer data, guint action, GtkWidget *widget)
@@ -1539,6 +1551,14 @@ static void new_file_type(gchar *templ)
 		type_to_icon(type),
 		new_file_type_cb, GDK_ACTION_COPY);
 	g_free(base);
+}
+
+void show_menu_new(FilerWindow *filer_window)
+{
+	window_with_focus = filer_window;
+	ensure_filer_menu();
+	update_new_files_menu(get_menu_icon_style());
+	show_popup_menu(filer_new_menu, NULL, 1);
 }
 
 static void customise_send_to(gpointer data)
