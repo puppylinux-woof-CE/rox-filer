@@ -465,7 +465,7 @@ GArray* xattr_list(const char *path)
 		if(*l == '\0')
 			continue;
 
-		if(g_regex_match_simple("^user\\.",l,0,0) == TRUE)
+		if (strlen(l) > 4 && strncmp("user.", l, 4) == 0)
 			at.user = 1;
 		else
 			at.user = 0;
@@ -729,19 +729,17 @@ static void cell_edited(GtkCellRendererText *cell, const gchar *path_string, con
 		case COLUMN_NAME:
 		{
 			gint i;
-			gchar *old_text, *ascii;
+			gchar *old_text;
 
 			gtk_tree_model_get(model, &iter, column, &old_text, -1);
 			g_free(old_text);
 
 			i = gtk_tree_path_get_indices(path)[0];
 			g_free(g_array_index(arr, XAttr, i).name);
-			ascii = g_str_to_ascii(new_text,"C");
-			if(g_regex_match_simple("^user\\.",ascii,0,0) == TRUE)
-				g_array_index(arr, XAttr, i).name = g_strdup(ascii);
+			if (strlen(new_text) > 4 && strncmp("user.", new_text, 4) == 0)
+				g_array_index(arr, XAttr, i).name = g_strdup(new_text);
 			else
-				g_array_index(arr, XAttr, i).name = g_strdup_printf("user.%s",ascii);
-			g_free(ascii);
+				g_array_index(arr, XAttr, i).name = g_strdup_printf("user.%s",new_text);
 
 			gtk_list_store_set(GTK_LIST_STORE(model), &iter, column,
 					g_array_index(arr, XAttr, i).name, -1);
