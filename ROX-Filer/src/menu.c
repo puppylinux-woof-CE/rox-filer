@@ -109,7 +109,7 @@ static const GtkTargetEntry clipboard_targets[] = {
 	{"x-special/gnome-copied-files", 0, TARGET_GNOME_COPIED_FILES},
 };
 static GtkClipboard *clipboard;
-static gchar *clipboard_action;
+static gchar *clipboard_action = NULL;
 static gboolean clipboard_retrieved;
 static GList *selected_paths = NULL;
 
@@ -2178,7 +2178,6 @@ static void clipboard_get(GtkClipboard *clipboard, GtkSelectionData *selection_d
 			gtk_selection_data_set(selection_data, gnome_copied_files,
 					8, data, strlen(data));
 			g_free(data);
-			g_free(clipboard_action);
 			break;
 		}
 		default:
@@ -2413,14 +2412,22 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 		case FILE_COPY_TO_CLIPBOARD:
 		{
 			clipboard_clear(clipboard, NULL);
+
+			if (clipboard_action)
+				g_free(clipboard_action);
 			clipboard_action = g_strdup("copy\n");
+
 			selected_paths = filer_selected_items(window_with_focus);
 			return;
 		}
 		case FILE_CUT_TO_CLIPBOARD:
 		{
 			clipboard_clear(clipboard, NULL);
+
+			if (clipboard_action)
+				g_free(clipboard_action);
 			clipboard_action = g_strdup("cut\n");
+
 			selected_paths = filer_selected_items(window_with_focus);
 			return;
 		}
