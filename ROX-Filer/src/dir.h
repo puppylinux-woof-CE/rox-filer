@@ -23,6 +23,8 @@
 #define USE_NOTIFY
 extern gboolean dnotify_wakeup_flag;
 #endif
+gboolean dir_gone_wakeup_flag;
+char	*dir_gone_pathname;
 
 typedef enum {
 	DIR_START_SCAN,	/* Set 'scanning' indicator */
