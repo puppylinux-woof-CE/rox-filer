@@ -159,8 +159,8 @@ gboolean remote_init(xmlDocPtr rpc, gboolean new_copy)
 	 * of an already-running copy of this version of the filer, running
 	 * on the same machine and with the same euid.
 	 */
-	unique_id = g_strdup_printf("_ROX_FILER_%d_%s_%s",
-				(int) euid, VERSION, our_host_name());
+	unique_id = g_strdup_printf(new_copy ? "_ROX_FILER_%d_%s_%s_new_copy" :
+				"_ROX_FILER_%d_%s_%s", (int) euid, VERSION, our_host_name());
 	filer_atom = gdk_atom_intern(unique_id, FALSE);
 	g_free(unique_id);
 
