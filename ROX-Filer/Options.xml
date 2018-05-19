@@ -26,7 +26,7 @@
       <toggle name='display_dirs_first' label='Directories come first (for sort by name)'>If this is on then directories will always appear before anything else when sorting by name.</toggle>
       <toggle name='display_caps_first' label='Capitalised names first (for sort by name)'>If on, all filenames starting with a capital letter come before filenames starting with lowercase ones.</toggle>
     </frame>
-    <section title='Display'>
+    <section title='New Window'>
       <frame label='Default settings for new windows'>
         <toggle name='display_inherit_options' label='Inherit options from source window'>If this is on then display options for a new window are inherited from the source window if possible, otherwise they are set to the defaults below.</toggle>
         <hbox>
@@ -48,9 +48,11 @@ indicator'>If this is on then files which have one or more extended attributes s
           </vbox>
         </hbox>
       </frame>
+    </section>
+    <section title='Icon View'>
       <frame label='Icon View'>
         <hbox>
-	  <vbox>
+          <vbox>
             <menu name='display_icon_size' label='Default size:' sizegroup='disp2-def'>
               <item label='Huge Icons' value='2'/>
               <item label='Large Icons' value='0'/>
@@ -64,24 +66,36 @@ indicator'>If this is on then files which have one or more extended attributes s
               <item label='Type' value='4'/>
               <item label='Times' value='5'/>
             </menu>
-	  </vbox>
-	  <vbox>
-	    <label>Automatic small icons:</label>
+          </vbox>
+          <vbox>
+            <label>Automatic small icons:</label>
             <numentry name='filer_change_size_num' label='Change at:' unit='items' min='1' max='1000' width='4'>When automatic icon sizing is selected: If the directory contains this many items then it will be shown using Small Icons, otherwise Large Icons will be used.</numentry>
-	  </vbox>
+          </vbox>
         </hbox>
-	<spacer/>
-	<hbox>
+        <spacer/>
+        <hbox>
           <numentry name='display_large_width' label='Max width (Large icons):' unit='pixels' min='0' max='2000' width='3'>Text wider than this is broken onto two lines in Large Icons mode. In Huge Icons mode, text is wrapped when 50% wider than this.</numentry>
-	  <spacer/>
+          <spacer/>
           <numentry name='display_small_width' label='(Small Icons):' unit='pixels' min='0' max='2000' width='3'>Maximum width for the text beside a Small Icon.</numentry>
         </hbox>
-	<toggle name='vertical_order_small' label='Order small icons vertically'>If this option is on, then small icons are arranged in columns, not rows.</toggle>
-	<toggle name='vertical_order_large' label='Order large icons vertically'>If this option is on, then large icons are arranged in columns, not rows.</toggle>
+        <toggle name='vertical_order_large' label='Order large icons vertically'>If this option is on, then large icons are arranged in columns, not rows.</toggle>
+        <toggle name='vertical_order_small' label='Order small icons vertically'>If this option is on, then small icons are arranged in columns, not rows.</toggle>
       </frame>
+    </section>
+    <section title='List View'>
       <frame label='List View'>
         <toggle name='display_show_headers' label='Show column headings'>If this is on then column headings will be shown in the list view.</toggle>
         <toggle name='display_show_full_type' label='Show full type'>If this is on then the full description of each object's type will be show rather than a short summary of its basic type.</toggle>
+      </frame>
+      <frame label='Show Columns'>
+        <toggle name='display_show_name' label='Name'>If this is on then Name column will be shown in the list view.</toggle>
+        <toggle name='display_show_type' label='Type'>If this is on then Type column will be shown in the list view.</toggle>
+        <toggle name='display_show_size' label='Size'>If this is on then Size column will be shown in the list view.</toggle>
+        <toggle name='display_show_permissions' label='Permissions'>If this is on then Permissions column will be shown in the list view.</toggle>
+        <toggle name='display_show_owner' label='Owner'>If this is on then Owner column will be shown in the list view.</toggle>
+        <toggle name='display_show_group' label='Group'>If this is on then Group column will be shown in the list view.</toggle>
+        <toggle name='display_show_last_modified' label='Last Modified'>If this is on then Last Modified column will be shown in the list view.</toggle>
+        <toggle name='display_show_last_changed' label='Last Changed'>If this is on then Last Changed column will be shown in the list view.</toggle>
       </frame>
     </section>
     <section title='Tools/Minibuffer'>

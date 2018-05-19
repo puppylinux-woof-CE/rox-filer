@@ -45,6 +45,15 @@ struct _ViewDetails {
 	int		lasso_start_index;
 	int		drag_box_x[2];	/* Index 0 is the fixed corner */
 	int		drag_box_y[2];
+
+	GtkTreeViewColumn *name_column;
+	GtkTreeViewColumn *type_column;
+	GtkTreeViewColumn *size_column;
+	GtkTreeViewColumn *permissions_column;
+	GtkTreeViewColumn *owner_column;
+	GtkTreeViewColumn *group_column;
+	GtkTreeViewColumn *last_modified_column;
+	GtkTreeViewColumn *last_changed_column;
 };
 
 

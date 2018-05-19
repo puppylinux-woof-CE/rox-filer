@@ -33,6 +33,14 @@ extern Option o_display_show_headers, o_display_show_full_type;
 extern Option o_display_show_thumbs;
 extern Option o_small_width;
 extern Option o_vertical_order_small, o_vertical_order_large;
+extern Option o_display_show_name;
+extern Option o_display_show_type;
+extern Option o_display_show_size;
+extern Option o_display_show_permissions;
+extern Option o_display_show_owner;
+extern Option o_display_show_group;
+extern Option o_display_show_last_modified;
+extern Option o_display_show_last_changed;
 
 /* Prototypes */
 void display_init(void);

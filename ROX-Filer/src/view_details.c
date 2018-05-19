@@ -1081,10 +1081,18 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	gtk_tree_view_column_set_sort_column_id(column, COL_LEAF);
 	gtk_tree_view_column_set_resizable(column, TRUE);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
+	if (o_display_show_name.int_value == FALSE)
+		gtk_tree_view_column_set_visible(column, FALSE);
+	view_details->name_column = column;
+
 	ADD_TEXT_COLUMN(_("_Type"), COL_TYPE);
 	gtk_tree_view_column_set_sort_column_id(column, COL_TYPE);
 	gtk_tree_view_column_set_resizable(column, TRUE);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
+	if (o_display_show_type.int_value == FALSE)
+		gtk_tree_view_column_set_visible(column, FALSE);
+	view_details->type_column = column;
+
 	ADD_TEXT_COLUMN(_("_Size"), COL_SIZE);
 	g_object_set(G_OBJECT(cell), "xalign", 1.0, "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
@@ -1092,19 +1100,34 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 			       G_OBJECT(cell));
 	gtk_tree_view_column_set_sort_column_id(column, COL_SIZE);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
-	
+	if (o_display_show_size.int_value == FALSE)
+		gtk_tree_view_column_set_visible(column, FALSE);
+	view_details->size_column = column;
+
 	ADD_TEXT_COLUMN(_("_Permissions"), COL_PERM);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
 	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
 			       G_CALLBACK(set_column_mono_font),
 			       G_OBJECT(cell));
+	if (o_display_show_permissions.int_value == FALSE)
+		gtk_tree_view_column_set_visible(column, FALSE);
+	view_details->permissions_column = column;
+
 	ADD_TEXT_COLUMN(_("_Owner"), COL_OWNER);
 	gtk_tree_view_column_set_sort_column_id(column, COL_OWNER);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
+	if (o_display_show_owner.int_value == FALSE)
+		gtk_tree_view_column_set_visible(column, FALSE);
+	view_details->owner_column = column;
+
 	ADD_TEXT_COLUMN(_("_Group"), COL_GROUP);
 	gtk_tree_view_column_set_sort_column_id(column, COL_GROUP);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
+	if (o_display_show_group.int_value == FALSE)
+		gtk_tree_view_column_set_visible(column, FALSE);
+	view_details->group_column = column;
+
 	ADD_TEXT_COLUMN(_("Last _Modified"), COL_MTIME);
 	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
@@ -1112,6 +1135,10 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 			       G_OBJECT(cell));
 	gtk_tree_view_column_set_sort_column_id(column, COL_MTIME);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
+	if (o_display_show_last_modified.int_value == FALSE)
+		gtk_tree_view_column_set_visible(column, FALSE);
+	view_details->last_modified_column = column;
+
 	ADD_TEXT_COLUMN(_("Last _Changed"), COL_CTIME);
 	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
@@ -1119,6 +1146,9 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 			       G_OBJECT(cell));
 	gtk_tree_view_column_set_sort_column_id(column, COL_CTIME);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
+	if (o_display_show_last_changed.int_value == FALSE)
+		gtk_tree_view_column_set_visible(column, FALSE);
+	view_details->last_changed_column = column;
 }
 
 /* Create the handers for the View interface */
@@ -1186,6 +1216,38 @@ static void view_details_style_changed(ViewIface *view, int flags)
 	}
 
 	gtk_tree_path_free(path);
+
+	if (o_display_show_name.has_changed)
+		gtk_tree_view_column_set_visible(view_details->name_column,
+			o_display_show_name.int_value);
+
+	if (o_display_show_type.has_changed)
+		gtk_tree_view_column_set_visible(view_details->type_column,
+			o_display_show_type.int_value);
+
+	if (o_display_show_size.has_changed)
+		gtk_tree_view_column_set_visible(view_details->size_column,
+			o_display_show_size.int_value);
+
+	if (o_display_show_permissions.has_changed)
+		gtk_tree_view_column_set_visible(view_details->permissions_column,
+			o_display_show_permissions.int_value);
+
+	if (o_display_show_owner.has_changed)
+		gtk_tree_view_column_set_visible(view_details->owner_column,
+			o_display_show_owner.int_value);
+
+	if (o_display_show_group.has_changed)
+		gtk_tree_view_column_set_visible(view_details->group_column,
+			o_display_show_group.int_value);
+
+	if (o_display_show_last_modified.has_changed)
+		gtk_tree_view_column_set_visible(view_details->last_modified_column,
+			o_display_show_last_modified.int_value);
+
+	if (o_display_show_last_changed.has_changed)
+		gtk_tree_view_column_set_visible(view_details->last_changed_column,
+			o_display_show_last_changed.int_value);
 
 	gtk_tree_view_columns_autosize((GtkTreeView *) view);
 
