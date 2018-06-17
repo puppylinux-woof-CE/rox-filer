@@ -69,7 +69,7 @@
 #include "dnd.h"
 
 typedef enum {
-	FILE_COPY_ITEM,
+	FILE_DUPLICATE_ITEM,
 	FILE_RENAME_ITEM,
 	FILE_LINK_ITEM,
 	FILE_OPEN_FILE,
@@ -235,13 +235,12 @@ static GtkItemFactoryEntry filer_menu_def[] = {
 {">" N_("Refresh"),		NULL, refresh, 0, "<StockItem>", GTK_STOCK_REFRESH},
 {">" N_("Save Current Display Settings..."),	 NULL, save_settings, 0, NULL},
 {N_("File"),			NULL, NULL, 0, "<Branch>"},
-{">" N_("Copy..."),		"<Ctrl><Shift>C", file_op, FILE_COPY_ITEM, "<StockItem>", GTK_STOCK_COPY},
+{">" N_("Copy"),		"<Ctrl>C", file_op, FILE_COPY_TO_CLIPBOARD, "<StockItem>", GTK_STOCK_COPY},
+{">" N_("Cut"),		"<Ctrl>X", file_op, FILE_CUT_TO_CLIPBOARD, "<StockItem>", GTK_STOCK_CUT},
+{">" N_("Duplicate..."),	"<Ctrl>D", file_op, FILE_DUPLICATE_ITEM, "<StockItem>", GTK_STOCK_COPY},
 {">" N_("Rename..."),		NULL, file_op, FILE_RENAME_ITEM, NULL},
 {">" N_("Link..."),		NULL, file_op, FILE_LINK_ITEM, NULL},
-{">" N_("Delete"),	    	"<Ctrl><Shift>X", file_op, FILE_DELETE, "<StockItem>", GTK_STOCK_DELETE},
-{">",				NULL, NULL, 0, "<Separator>"},
-{">" N_("Copy To Clipboard"),		"<Ctrl>C", file_op, FILE_COPY_TO_CLIPBOARD, "<StockItem>", GTK_STOCK_COPY},
-{">" N_("Cut To Clipboard"),		"<Ctrl>X", file_op, FILE_CUT_TO_CLIPBOARD, "<StockItem>", GTK_STOCK_CUT},
+{">" N_("Delete"),		"Delete", file_op, FILE_DELETE, "<StockItem>", GTK_STOCK_DELETE},
 {">",				NULL, NULL, 0, "<Separator>"},
 {">" N_("Shift Open"),   	NULL, file_op, FILE_OPEN_FILE},
 {">" N_("Open With..."),		NULL, file_op, FILE_SEND_TO, NULL},
@@ -265,7 +264,7 @@ static GtkItemFactoryEntry filer_menu_def[] = {
 {">" N_("Select If..."),	"<Shift>question", mini_buffer, MINI_SELECT_IF, NULL},
 {N_("Options..."),		NULL, menu_show_options, 0, "<StockItem>", GTK_STOCK_PREFERENCES},
 {"",				NULL, NULL, 0, "<Separator>"},
-{N_("Paste From Clipboard"),		"<Ctrl>V", paste_from_clipboard, 0, "<StockItem>", GTK_STOCK_PASTE},
+{N_("Paste"),			"<Ctrl>V", paste_from_clipboard, 0, "<StockItem>", GTK_STOCK_PASTE},
 {"",				NULL, NULL, 0, "<Separator>"},
 {N_("New"),			NULL, NULL, 0, "<Branch>"},
 {">" N_("Directory"),		NULL, new_directory, 0, NULL},
@@ -355,7 +354,7 @@ gboolean ensure_filer_menu(void)
 
 	/* Shift Open... label */
 	items = gtk_container_get_children(GTK_CONTAINER(filer_file_menu));
-	file_shift_item = GTK_BIN(g_list_nth(items, 8)->data)->child;
+	file_shift_item = GTK_BIN(g_list_nth(items, 7)->data)->child;
 	g_list_free(items);
 
 	GET_SSMENU_ITEM(item, "filer", "Window", "New Window");
@@ -434,12 +433,12 @@ static void menuitem_no_shortcuts(GtkWidget *item)
 /* Shade items that only work on single files */
 static void shade_file_menu_items(gboolean shaded)
 {
-	menu_set_items_shaded(filer_file_menu, shaded, 0, 1);
-	menu_set_items_shaded(filer_file_menu, shaded, 2, 1);
-	menu_set_items_shaded(filer_file_menu, shaded, 8, 1);
-	menu_set_items_shaded(filer_file_menu, shaded, 11, 2);
+	menu_set_items_shaded(filer_file_menu, shaded, 2, 1); /* Duplicate... */
+	menu_set_items_shaded(filer_file_menu, shaded, 4, 1); /* Link... */
+	menu_set_items_shaded(filer_file_menu, shaded, 7, 1); /* Shift Open */
+	menu_set_items_shaded(filer_file_menu, shaded, 10, 2); /* Set Run Action... + Set Icon... */
 #if defined(HAVE_GETXATTR) || defined(HAVE_ATTROPEN)
-	menu_set_items_shaded(filer_file_menu, shaded, 13, 1);
+	menu_set_items_shaded(filer_file_menu, shaded, 12, 1); /* Extended Attributes... */
 #endif
 }
 
@@ -843,7 +842,7 @@ void show_filer_menu(FilerWindow *filer_window, GdkEvent *event, ViewIter *iter)
 						: _("(bad utf-8)"));
 				if (!can_set_run_action(file_item))
 					menu_set_items_shaded(filer_file_menu,
-							TRUE, 8, 1);
+							TRUE, 10, 1);
 				break;
 			default:
 				shade_file_menu_items(TRUE);
@@ -2365,8 +2364,8 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 
 		switch (action)
 		{
-			case FILE_COPY_ITEM:
-				prompt = _("Copy ... ?");
+			case FILE_DUPLICATE_ITEM:
+				prompt = _("Duplicate ... ?");
 				break;
 			case FILE_RENAME_ITEM:
 				prompt = _("Rename ... ?");
@@ -2530,9 +2529,9 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 
 	switch (action)
 	{
-		case FILE_COPY_ITEM:
+		case FILE_DUPLICATE_ITEM:
 			src_dest_action_item(path, di_image(item),
-					_("Copy"), copy_cb,
+					_("Duplicate"), copy_cb,
 					GDK_ACTION_COPY);
 			break;
 		case FILE_RENAME_ITEM:
