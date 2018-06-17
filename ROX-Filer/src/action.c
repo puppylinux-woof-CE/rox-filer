@@ -1351,20 +1351,13 @@ static void do_copy2(const char *path, const char *dest)
 	{
 		int		err;
 		gboolean	merge;
-		gboolean	is_newer;
+		gboolean	ignore_quiet;
 
 		merge = S_ISDIR(info.st_mode) && S_ISDIR(dest_info.st_mode);
 
-		/* Using greater than or equal because people who tick the
-		 * "Newer" checkbox probably don't want to be prompted whether
-		 * to overwrite a file that has an identical mtime. */
-		is_newer = info.st_mtime >= dest_info.st_mtime;
-
-		if (!merge && o_newer && is_newer)
-		{
-			/* Newer; keep going */
-		}
-		else if (!merge && o_ignore && !is_newer)
+		if (o_ignore &&
+				info.st_mtime <= dest_info.st_mtime &&
+				!S_ISDIR(info.st_mode))
 		{
 			/* Ignore Older; skip */
 			return;
@@ -1377,11 +1370,26 @@ static void do_copy2(const char *path, const char *dest)
 		{
 			printf_send("<%s", path);
 			printf_send(">%s", dest_path);
-			if (!printf_reply(from_parent, !o_newer || !is_newer || merge,
-					  _("?'%s' already exists - %s?"),
-					  dest_path,
-					  merge ? _("merge contents")
-					  	: _("overwrite")))
+
+			/* Using greater than or equal because people who tick the
+			* "Newer" checkbox probably don't want to be prompted whether
+			* to overwrite a file that has an identical mtime. */
+			if (o_newer &&
+					info.st_mtime >= dest_info.st_mtime &&
+					!S_ISDIR(info.st_mode))
+			{
+				ignore_quiet = FALSE;
+			}
+			else
+			{
+				ignore_quiet = TRUE;
+			}
+
+			if (!printf_reply(from_parent, ignore_quiet,
+				_("?'%s' already exists - %s?"),
+				dest_path,
+				merge ? _("merge contents")
+					: _("overwrite")))
 				return;
 		}
 
@@ -1525,8 +1533,6 @@ static void do_move2(const char *path, const char *dest)
 	check_flags();
 
 	dest_path = make_dest_path(path, dest);
-	argv[2] = path;
-	argv[3] = dest_path;
 
 	if (mc_lstat(path, &info))
 	{
@@ -1538,20 +1544,13 @@ static void do_move2(const char *path, const char *dest)
 	{
 		int		err;
 		gboolean	merge;
-		gboolean	is_newer;
+		gboolean	ignore_quiet;
 
 		merge = S_ISDIR(info.st_mode) && S_ISDIR(dest_info.st_mode);
 
-		/* Using greater than or equal because people who tick the
-		 * "Newer" checkbox probably don't want to be prompted whether
-		 * to overwrite a file that has an identical mtime. */
-		is_newer = info.st_mtime >= dest_info.st_mtime;
-
-		if (!merge && o_newer && is_newer)
-		{
-			/* Newer; keep going */
-		}
-		else if (!merge && o_ignore && !is_newer)
+		if (o_ignore &&
+				info.st_mtime <= dest_info.st_mtime &&
+				!S_ISDIR(info.st_mode))
 		{
 			/* Ignore Older; skip */
 			return;
@@ -1564,11 +1563,26 @@ static void do_move2(const char *path, const char *dest)
 		{
 			printf_send("<%s", path);
 			printf_send(">%s", dest_path);
-			if (!printf_reply(from_parent, !o_newer || !is_newer || merge,
-					  _("?'%s' already exists - %s?"),
-					  dest_path,
-					  merge ? _("merge contents")
-						: _("overwrite")))
+
+			/* Using greater than or equal because people who tick the
+			* "Newer" checkbox probably don't want to be prompted whether
+			* to overwrite a file that has an identical mtime. */
+			if (o_newer &&
+					info.st_mtime >= dest_info.st_mtime &&
+					!S_ISDIR(info.st_mode))
+			{
+				ignore_quiet = FALSE;
+			}
+			else
+			{
+				ignore_quiet = TRUE;
+			}
+
+			if (!printf_reply(from_parent, ignore_quiet,
+				_("?'%s' already exists - %s?"),
+				dest_path,
+				merge ? _("merge contents")
+					: _("overwrite")))
 				return;
 		}
 
@@ -1599,9 +1613,11 @@ static void do_move2(const char *path, const char *dest)
 	else if (!o_brief || S_ISDIR(info.st_mode))
 		printf_send(_("'Moving %s as %s\n"), path, dest_path);
 
+	argv[2] = path;
+	argv[3] = dest_path;
+
 	if (S_ISDIR(info.st_mode))
 	{
-		mode_t	mode = info.st_mode;
 		char *safe_path, *safe_dest;
 		struct stat 	dest_info;
 		gboolean	exists;
