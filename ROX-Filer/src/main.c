@@ -817,28 +817,6 @@ static void child_died_callback(void)
 	} while (1);
 }
 
-static void dir_gone_wakeup(void)
-{
-	xmlDocPtr	rpc, reply;
-	xmlNodePtr	body;
-	guchar		*tmp;
-
-	rpc = soap_new(&body);
-	tmp = pathdup(dir_gone_pathname);
-	if (dir_gone_pathname)
-	{
-		g_free(dir_gone_pathname);
-		dir_gone_pathname = NULL;
-	}
-
-	soap_add(body, "CloseDir", "Filename", tmp, NULL, NULL);
-	g_free(tmp);
-
-	reply = run_soap(rpc);
-	xmlFreeDoc(rpc);
-	soap_reply(reply, FALSE);
-}
-
 #define BUFLEN 40
 /* When data is written to_wakeup_pipe, this gets called from the event
  * loop some time later. Useful for getting out of signal handlers, etc.
@@ -855,8 +833,6 @@ static void wake_up_cb(gpointer data, gint source, GdkInputCondition condition)
 	if (dnotify_wakeup_flag)
 		dnotify_wakeup();
 #endif
-	if (dir_gone_wakeup_flag);
-		dir_gone_wakeup();
 }
 
 static void xrandr_size_change(GdkScreen *screen, gpointer user_data)

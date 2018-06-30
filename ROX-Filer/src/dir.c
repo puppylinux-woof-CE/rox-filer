@@ -1044,13 +1044,9 @@ static void dir_rescan(Directory *dir)
 	/* Saves statting the parent for each item... */
 	if (mc_stat(pathname, &dir->stat_info))
 	{
-		/* Can only close one pathname at a time */
-		if (!dir_gone_wakeup_flag) /* just in case... */
-		{
-			dir_gone_wakeup_flag = TRUE;
-			dir_gone_pathname = strdup(pathname);
-			write(to_wakeup_pipe, "\0", 1);	/* Wake up! */
-		}
+		dir->error = g_strdup_printf(_("Can't stat directory: %s"),
+				g_strerror(errno));
+		dir_error_changed(dir);
 		return;		/* Report on attach */
 	}
 
