@@ -62,12 +62,14 @@
 #include "support.h"
 #include "gui_support.h"
 #include "dir.h"
+#include "filer.h"
 #include "fscache.h"
 #include "mount.h"
 #include "pixmaps.h"
 #include "type.h"
 #include "usericons.h"
 #include "main.h"
+#include "options.h"
 
 #ifdef USE_NOTIFY
 static GHashTable *notify_fd_to_dir = NULL;
@@ -90,6 +92,8 @@ static int in_callback = 0;
 
 GFSCache *dir_cache = NULL;
 
+static Option o_close_dir_when_missing;
+
 /* Static prototypes */
 static void update(Directory *dir, gchar *pathname, gpointer data);
 static void set_idle_callback(Directory *dir);
@@ -99,7 +103,6 @@ static void dir_recheck(Directory *dir,
 			const guchar *path, const guchar *leafname);
 static GPtrArray *hash_to_array(GHashTable *hash);
 static void dir_force_update_item(Directory *dir, const gchar *leaf);
-static Directory *dir_new(const char *pathname);
 static void dir_rescan(Directory *dir);
 #ifdef USE_NOTIFY
 static void dir_rescan_soon(Directory *dir);
@@ -117,6 +120,8 @@ static void dnotify_handler(int sig, siginfo_t *si, void *data);
 
 void dir_init(void)
 {
+	option_add_int(&o_close_dir_when_missing, "close_dir_when_missing", TRUE);
+
 	dir_cache = g_fscache_new((GFSLoadFunc) dir_new,
 				(GFSUpdateFunc) update, NULL);
 
@@ -237,6 +242,47 @@ void dir_attach(Directory *dir, DirCallback callback, gpointer data)
 
 	if (!dir->scanning)
 		callback(dir, DIR_END_SCAN, NULL, data);
+}
+
+void dir_reattach(Directory *dir)
+{
+#ifdef USE_INOTIFY
+	if (dir->users)
+	{
+		int fd;
+
+		fd = inotify_add_watch( inotify_fd,
+					dir->pathname,
+					IN_CREATE | IN_DELETE | IN_MOVE |
+					IN_ATTRIB);
+
+		if (fd != -1)
+		{
+
+			dir->notify_fd = fd;
+			g_hash_table_replace(notify_fd_to_dir,
+					    GINT_TO_POINTER(fd), dir);
+		}
+	}
+#endif
+#ifdef USE_DNOTIFY
+	if (dir->users)
+	{
+		int fd;
+
+		fd = open(dir->pathname, O_RDONLY);
+
+		if (fd != -1)
+		{
+			dir->notify_fd = fd;
+			g_hash_table_replace(notify_fd_to_dir,
+					GINT_TO_POINTER(fd), dir);
+			fcntl(fd, F_SETSIG, SIGRTMIN);
+			fcntl(fd, F_NOTIFY, DN_CREATE | DN_DELETE | DN_RENAME |
+					    DN_ATTRIB | DN_MULTISHOT);
+		}
+	}
+#endif
 }
 
 /* Undo the effect of dir_attach */
@@ -1001,7 +1047,7 @@ static GType dir_get_type(void)
 	return type;
 }
 
-static Directory *dir_new(const char *pathname)
+Directory *dir_new(const char *pathname)
 {
 	Directory *dir;
 
@@ -1038,15 +1084,22 @@ static void dir_rescan(Directory *dir)
 	if (dir->error)
 	{
 		null_g_free(&dir->error);
+		dir_reattach(dir);
 		dir_error_changed(dir);
 	}
 
 	/* Saves statting the parent for each item... */
 	if (mc_stat(pathname, &dir->stat_info))
 	{
-		dir->error = g_strdup_printf(_("Can't stat directory: %s"),
-				g_strerror(errno));
-		dir_error_changed(dir);
+		if (o_close_dir_when_missing.int_value)
+			g_idle_add((GSourceFunc)filer_close_recursive, g_strdup(dir->pathname));
+		else
+		{
+			dir->error = g_strdup_printf(_("Can't stat directory: %s"),
+					g_strerror(errno));
+			dir_error_changed(dir);
+			remove_missing(dir, names);
+		}
 		return;		/* Report on attach */
 	}
 

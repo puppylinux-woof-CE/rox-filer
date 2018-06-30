@@ -266,6 +266,31 @@ static void view_collection_class_init(gpointer gclass, gpointer data)
 	GTK_OBJECT_CLASS(object)->destroy = view_collection_destroy;
 }
 
+static gboolean transparent_expose(GtkWidget *widget,
+			GdkEventExpose *event,
+			ViewCollection *view)
+{
+	cairo_t *cr = gdk_cairo_create(widget->window);
+
+	gdk_cairo_region(cr, event->region);
+	cairo_set_operator(cr, CAIRO_OPERATOR_SOURCE);
+
+	if (view->filer_window->directory->error)
+	{
+		cairo_set_source_rgba(cr, 0.9, .0, .0, .6);
+		cairo_paint(cr);
+
+		cairo_set_font_size(cr, 15);
+		cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
+		cairo_select_font_face(cr, "sans-serif", 0, CAIRO_FONT_WEIGHT_BOLD);
+		cairo_move_to(cr, 5, 20);
+		cairo_show_text(cr, view->filer_window->directory->error);
+	}
+
+	cairo_destroy(cr);
+	return FALSE;
+}
+
 static void view_collection_init(GTypeInstance *object, gpointer gclass)
 {
 	ViewCollection *view_collection = (ViewCollection *) object;
@@ -274,6 +299,10 @@ static void view_collection_init(GTypeInstance *object, gpointer gclass)
 	GtkAdjustment *adj;
 
 	collection = collection_new();
+
+	g_signal_connect(collection, "expose-event",
+				G_CALLBACK(transparent_expose), object);
+
 	view_collection->collection = COLLECTION(collection);
 
 	adj = view_collection->collection->vadj;

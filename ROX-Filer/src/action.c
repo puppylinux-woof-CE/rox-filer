@@ -358,7 +358,7 @@ static void process_message(GUIside *gui_side, const gchar *buffer)
 		abox_clear_results(abox);
 	else if (*buffer == 'X')
 	{
-		filer_close_recursive(buffer + 1);
+		filer_close_recursive(g_strdup(buffer + 1));
 		/* Let child know it's safe to continue... */
 		fputc('X', gui_side->to_child);
 		fflush(gui_side->to_child);

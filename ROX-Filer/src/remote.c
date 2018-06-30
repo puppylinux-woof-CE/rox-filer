@@ -824,12 +824,7 @@ static xmlNodePtr rpc_RunURI(GList *args)
 
 static xmlNodePtr rpc_CloseDir(GList *args)
 {
-	char	   *path;
-
-	path = string_value(ARG(0));
-	filer_close_recursive(path);
-	g_free(path);
-
+	filer_close_recursive(string_value(ARG(0)));
 	return NULL;
 }
 

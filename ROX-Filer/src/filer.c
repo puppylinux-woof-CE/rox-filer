@@ -475,6 +475,7 @@ static void update_display(Directory *dir,
 			break;
 		case DIR_ERROR_CHANGED:
 			filer_set_title(filer_window);
+			gtk_widget_queue_draw(GTK_WIDGET(view));
 			break;
 		case DIR_QUEUE_INTERESTING:
 			queue_interesting(filer_window);
@@ -498,10 +499,6 @@ static void attach(FilerWindow *filer_window)
 			g_printerr(_("Error scanning '%s':\n%s\n"),
 				filer_window->sym_path,
 				filer_window->directory->error);
-		else
-			delayed_error(_("Error scanning '%s':\n%s"),
-					filer_window->sym_path,
-					filer_window->directory->error);
 	}
 }
 
@@ -778,9 +775,8 @@ static gboolean may_rescan(FilerWindow *filer_window, gboolean warning)
 	dir = g_fscache_lookup(dir_cache, filer_window->real_path);
 	if (!dir)
 	{
-		if (warning)
-			info_message(_("Directory missing/deleted"));
-		gtk_widget_destroy(filer_window->window);
+		if (!warning)
+			gtk_widget_destroy(filer_window->window);
 		return FALSE;
 	}
 	if (dir == filer_window->directory)
@@ -1378,16 +1374,8 @@ void filer_change_to(FilerWindow *filer_window,
 
 	sym_path = g_strdup(path);
 	real_path = pathdup(path);
-	new_dir  = g_fscache_lookup(dir_cache, real_path);
-
-	if (!new_dir)
-	{
-		delayed_error(_("Directory '%s' is not accessible"),
-				sym_path);
-		g_free(real_path);
-		g_free(sym_path);
-		return;
-	}
+	new_dir = g_fscache_lookup(dir_cache, real_path) ?:
+		dir_new(real_path); //dummy dir
 	
 	if (o_unique_filer_windows.int_value && !spring_in_progress)
 	{
@@ -1534,15 +1522,8 @@ FilerWindow *filer_opendir(const char *path, FilerWindow *src_win,
 	 * a new one if needed. This does not cause a scan to start,
 	 * so if a new entry is created then it will be empty.
 	 */
-	filer_window->directory = g_fscache_lookup(dir_cache, real_path);
-	if (!filer_window->directory)
-	{
-		delayed_error(_("Directory '%s' not found."), path);
-		g_free(filer_window->real_path);
-		g_free(filer_window->sym_path);
-		g_free(filer_window);
-		return NULL;
-	}
+	filer_window->directory = g_fscache_lookup(dir_cache, real_path) ?:
+		dir_new(real_path); //dummy dir
 
 	filer_window->temp_item_selected = FALSE;
 	filer_window->flags = (FilerFlags) 0;
@@ -1779,6 +1760,11 @@ static void filer_add_widgets(FilerWindow *filer_window, const gchar *wm_class)
 	if (wm_class)
 		gtk_window_set_wmclass(GTK_WINDOW(filer_window->window),
 				       wm_class, PROJECT);
+
+	GdkScreen *screen = gtk_widget_get_screen(filer_window->window);
+	GdkColormap *rgba = gdk_screen_get_rgba_colormap(screen);
+	if (rgba)
+		gtk_widget_set_colormap(filer_window->window, rgba);
 
 	/* This property is cleared when the window is destroyed.
 	 * You can thus ref filer_window->window and use this to see
@@ -2023,13 +2009,14 @@ void filer_check_mounted(const char *real_path)
 }
 
 /* Close all windows displaying 'path' or subdirectories of 'path' */
-void filer_close_recursive(const char *path)
+gboolean filer_close_recursive(char *path)
 {
 	GList	*next = all_filer_windows;
 	gchar	*real;
 	int	len;
 
 	real = pathdup(path);
+	g_free(path);
 	len = strlen(real);
 
 	while (next)
@@ -2046,6 +2033,7 @@ void filer_close_recursive(const char *path)
 				gtk_widget_destroy(filer_window->window);
 		}
 	}
+	return FALSE;
 }
 
 /* Like minibuffer_show(), except that:

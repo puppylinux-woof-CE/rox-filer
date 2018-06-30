@@ -138,7 +138,7 @@ void change_to_parent(FilerWindow *filer_window);
 void full_refresh(void);
 void filer_openitem(FilerWindow *filer_window, ViewIter *iter, OpenFlags flags);
 void filer_check_mounted(const char *real_path);
-void filer_close_recursive(const char *path);
+gboolean filer_close_recursive(char *path); //eats path
 void filer_change_to(FilerWindow *filer_window,
 			const char *path, const char *from);
 gboolean filer_exists(FilerWindow *filer_window);
