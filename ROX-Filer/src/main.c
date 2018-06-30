@@ -823,23 +823,20 @@ static void dir_gone_wakeup(void)
 	xmlNodePtr	body;
 	guchar		*tmp;
 
+	rpc = soap_new(&body);
+	tmp = pathdup(dir_gone_pathname);
 	if (dir_gone_pathname)
 	{
-		rpc = soap_new(&body);
-
-		tmp = pathdup(dir_gone_pathname);
 		g_free(dir_gone_pathname);
 		dir_gone_pathname = NULL;
-
-		soap_add(body, "CloseDir", "Filename", tmp, NULL, NULL);
-		g_free(tmp);
-
-		reply = run_soap(rpc);
-		xmlFreeDoc(rpc);
-		soap_reply(reply, FALSE);
 	}
 
-	dir_gone_wakeup_flag = FALSE;
+	soap_add(body, "CloseDir", "Filename", tmp, NULL, NULL);
+	g_free(tmp);
+
+	reply = run_soap(rpc);
+	xmlFreeDoc(rpc);
+	soap_reply(reply, FALSE);
 }
 
 #define BUFLEN 40
