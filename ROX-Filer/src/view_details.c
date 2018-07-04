@@ -832,12 +832,7 @@ static gboolean view_details_expose(GtkWidget *widget, GdkEventExpose *event)
 	if (view_details->filer_window->directory->error)
 	{
 		cairo_t *cr = gdk_cairo_create(event->window);
-
-		gtk_tree_view_get_visible_rect(tree, &focus_rectangle);
-
-		gdk_cairo_rectangle(cr, &focus_rectangle);
 		cairo_set_operator(cr, CAIRO_OPERATOR_SOURCE);
-
 		cairo_set_source_rgba(cr, 0.9, .0, .0, .6);
 		cairo_paint(cr);
 
@@ -846,6 +841,9 @@ static gboolean view_details_expose(GtkWidget *widget, GdkEventExpose *event)
 		cairo_select_font_face(cr, "sans-serif", 0, CAIRO_FONT_WEIGHT_BOLD);
 		cairo_move_to(cr, 5, 20);
 		cairo_show_text(cr, view_details->filer_window->directory->error);
+
+		cairo_destroy(cr);
+		return TRUE;
 	}
 
 	if (view_details->lasso_box)
