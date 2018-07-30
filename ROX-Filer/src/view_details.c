@@ -42,6 +42,7 @@
 #include "menu.h"
 #include "options.h"
 #include "cell_icon.h"
+#include "cell_text.h"
 
 /* These are the column numbers in the ListStore */
 #define COL_LEAF   0
@@ -1050,7 +1051,7 @@ static void set_column_mono_font(GtkWidget *widget, GObject *object)
 }
 
 #define ADD_TEXT_COLUMN(name, model_column) \
-	cell = gtk_cell_renderer_text_new();	\
+	cell = cell_text_new();	\
 	column = gtk_tree_view_column_new_with_attributes(name, cell, \
 					    "text", model_column,	\
 					    "foreground-gdk", COL_COLOUR, \
@@ -1097,6 +1098,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 					    "item", COL_VIEW_ITEM,
 					    NULL);
 	gtk_tree_view_append_column(treeview, column);
+	view_details->icon_column = column;
 
 	ADD_TEXT_COLUMN(_("_Name"), COL_LEAF);
 	gtk_tree_view_column_set_sort_column_id(column, COL_LEAF);
@@ -1107,6 +1109,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	view_details->name_column = column;
 
 	ADD_TEXT_COLUMN(_("_Type"), COL_TYPE);
+	g_object_set(G_OBJECT(cell), "show_selection_state", FALSE, NULL);
 	gtk_tree_view_column_set_sort_column_id(column, COL_TYPE);
 	gtk_tree_view_column_set_resizable(column, TRUE);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
@@ -1115,6 +1118,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	view_details->type_column = column;
 
 	ADD_TEXT_COLUMN(_("_Size"), COL_SIZE);
+	g_object_set(G_OBJECT(cell), "show_selection_state", FALSE, NULL);
 	g_object_set(G_OBJECT(cell), "xalign", 1.0, "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
 			       G_CALLBACK(set_column_mono_font),
@@ -1126,6 +1130,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	view_details->size_column = column;
 
 	ADD_TEXT_COLUMN(_("_Permissions"), COL_PERM);
+	g_object_set(G_OBJECT(cell), "show_selection_state", FALSE, NULL);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
 	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
@@ -1136,6 +1141,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	view_details->permissions_column = column;
 
 	ADD_TEXT_COLUMN(_("_Owner"), COL_OWNER);
+	g_object_set(G_OBJECT(cell), "show_selection_state", FALSE, NULL);
 	gtk_tree_view_column_set_sort_column_id(column, COL_OWNER);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
 	if (o_display_show_owner.int_value == FALSE)
@@ -1143,6 +1149,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	view_details->owner_column = column;
 
 	ADD_TEXT_COLUMN(_("_Group"), COL_GROUP);
+	g_object_set(G_OBJECT(cell), "show_selection_state", FALSE, NULL);
 	gtk_tree_view_column_set_sort_column_id(column, COL_GROUP);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
 	if (o_display_show_group.int_value == FALSE)
@@ -1150,6 +1157,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	view_details->group_column = column;
 
 	ADD_TEXT_COLUMN(_("Last _Modified"), COL_MTIME);
+	g_object_set(G_OBJECT(cell), "show_selection_state", FALSE, NULL);
 	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
 			       G_CALLBACK(set_column_mono_font),
@@ -1161,6 +1169,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	view_details->last_modified_column = column;
 
 	ADD_TEXT_COLUMN(_("Last _Changed"), COL_CTIME);
+	g_object_set(G_OBJECT(cell), "show_selection_state", FALSE, NULL);
 	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
 			       G_CALLBACK(set_column_mono_font),
@@ -1593,15 +1602,17 @@ static void view_details_get_iter_at_point(ViewIface *view, ViewIter *iter,
 	ViewDetails *view_details = (ViewDetails *) view;
 	GtkTreeView *tree = (GtkTreeView *) view;
 	GtkTreePath *path = NULL;
+	GtkTreeViewColumn *column = NULL;
 	int i = -1;
 	gint cell_y;
 
-	if (gtk_tree_view_get_path_at_pos(tree, x, y + 4, &path, NULL,
+	if (gtk_tree_view_get_path_at_pos(tree, x, y + 4, &path, &column,
 					  NULL, &cell_y))
 	{
 		g_return_if_fail(path != NULL);
 
-		if (cell_y > 8)
+		if (cell_y > 8 && (column == view_details->name_column ||
+							column == view_details->icon_column))
 			i = gtk_tree_path_get_indices(path)[0];
 		gtk_tree_path_free(path);
 	}

@@ -46,6 +46,7 @@ struct _ViewDetails {
 	int		drag_box_x[2];	/* Index 0 is the fixed corner */
 	int		drag_box_y[2];
 
+	GtkTreeViewColumn *icon_column;
 	GtkTreeViewColumn *name_column;
 	GtkTreeViewColumn *type_column;
 	GtkTreeViewColumn *size_column;
