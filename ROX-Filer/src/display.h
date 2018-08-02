@@ -39,8 +39,9 @@ extern Option o_display_show_size;
 extern Option o_display_show_permissions;
 extern Option o_display_show_owner;
 extern Option o_display_show_group;
-extern Option o_display_show_last_modified;
-extern Option o_display_show_last_changed;
+extern Option o_display_show_atime;
+extern Option o_display_show_ctime;
+extern Option o_display_show_mtime;
 
 /* Prototypes */
 void display_init(void);

@@ -95,8 +95,9 @@ indicator'>If this is on then files which have one or more extended attributes s
         <toggle name='display_show_permissions' label='Permissions'>If this is on then Permissions column will be shown in the list view.</toggle>
         <toggle name='display_show_owner' label='Owner'>If this is on then Owner column will be shown in the list view.</toggle>
         <toggle name='display_show_group' label='Group'>If this is on then Group column will be shown in the list view.</toggle>
-        <toggle name='display_show_last_modified' label='Last Modified'>If this is on then Last Modified column will be shown in the list view.</toggle>
-        <toggle name='display_show_last_changed' label='Last Changed'>If this is on then Last Changed column will be shown in the list view.</toggle>
+        <toggle name='display_show_mtime' label='Last Modified'>If this is on then Last Modified column will be shown in the list view.</toggle>
+        <toggle name='display_show_ctime' label='Last Changed'>If this is on then Last Changed column will be shown in the list view.</toggle>
+        <toggle name='display_show_atime' label='Last Accessed'>If this is on then Last Accessed column will be shown in the list view.</toggle>
       </frame>
     </section>
     <section title='Tools/Minibuffer'>

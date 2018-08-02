@@ -77,8 +77,9 @@ Option o_display_show_size;
 Option o_display_show_permissions;
 Option o_display_show_owner;
 Option o_display_show_group;
-Option o_display_show_last_modified;
-Option o_display_show_last_changed;
+Option o_display_show_mtime;
+Option o_display_show_ctime;
+Option o_display_show_atime;
 Option o_display_inherit_options;
 static Option o_filer_change_size_num;
 Option o_vertical_order_small, o_vertical_order_large;
@@ -114,8 +115,9 @@ void display_init()
 	option_add_int(&o_display_show_permissions, "display_show_permissions", TRUE);
 	option_add_int(&o_display_show_owner, "display_show_owner", TRUE);
 	option_add_int(&o_display_show_group, "display_show_group", TRUE);
-	option_add_int(&o_display_show_last_modified, "display_show_last_modified", TRUE);
-	option_add_int(&o_display_show_last_changed, "display_show_last_changed", TRUE);
+	option_add_int(&o_display_show_mtime, "display_show_mtime", TRUE);
+	option_add_int(&o_display_show_ctime, "display_show_ctime", TRUE);
+	option_add_int(&o_display_show_atime, "display_show_atime", FALSE);
 	option_add_int(&o_display_inherit_options,
 		       "display_inherit_options", FALSE); 
 	option_add_int(&o_filer_change_size_num, "filer_change_size_num", 30); 

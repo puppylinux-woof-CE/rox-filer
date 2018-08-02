@@ -53,8 +53,9 @@ struct _ViewDetails {
 	GtkTreeViewColumn *permissions_column;
 	GtkTreeViewColumn *owner_column;
 	GtkTreeViewColumn *group_column;
-	GtkTreeViewColumn *last_modified_column;
-	GtkTreeViewColumn *last_changed_column;
+	GtkTreeViewColumn *atime_column;
+	GtkTreeViewColumn *ctime_column;
+	GtkTreeViewColumn *mtime_column;
 };
 
 

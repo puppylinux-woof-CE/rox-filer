@@ -53,11 +53,12 @@
 #define COL_SIZE   5
 #define COL_MTIME  6
 #define COL_CTIME  7
-#define COL_ITEM   8
-#define COL_COLOUR 9
-#define COL_WEIGHT 10
-#define COL_VIEW_ITEM 11
-#define N_COLUMNS  12
+#define COL_ATIME  8
+#define COL_ITEM   9
+#define COL_COLOUR 10
+#define COL_WEIGHT 11
+#define COL_VIEW_ITEM 12
+#define N_COLUMNS  13
 
 static gpointer parent_class = NULL;
 
@@ -375,6 +376,15 @@ static void details_get_value(GtkTreeModel *tree_model,
 			g_free(time);
 			break;
 		}
+		case COL_ATIME:
+		{
+			gchar *time;
+			time = pretty_time(&item->atime);
+			g_value_init(value, G_TYPE_STRING);
+			g_value_set_string(value, time);
+			g_free(time);
+			break;
+		}
 		case COL_PERM:
 			g_value_init(value, G_TYPE_STRING);
 			g_value_set_string(value, pretty_permissions(m));
@@ -540,11 +550,10 @@ static gboolean details_get_sort_column_id(GtkTreeSortable *sortable,
 		case SORT_TYPE: col = COL_TYPE; break;
 		case SORT_DATEM: col = COL_MTIME; break;
 		case SORT_DATEC: col = COL_CTIME; break;
+		case SORT_DATEA: col = COL_ATIME; break;
 		case SORT_SIZE: col = COL_SIZE; break;
 		case SORT_OWNER: col = COL_OWNER; break;
 		case SORT_GROUP: col = COL_GROUP; break;
-		case SORT_DATEA:
-			break;
 		default:
 			g_warning("details_get_sort_column_id(): error!");
 			return FALSE;
@@ -579,6 +588,9 @@ static void details_set_sort_column_id(GtkTreeSortable     *sortable,
 			break;
 		case COL_CTIME:
 			display_set_sort_type(filer_window, SORT_DATEC, order);
+			break;
+		case COL_ATIME:
+			display_set_sort_type(filer_window, SORT_DATEA, order);
 			break;
 		case COL_TYPE:
 			display_set_sort_type(filer_window, SORT_TYPE, order);
@@ -1164,9 +1176,9 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 			       G_OBJECT(cell));
 	gtk_tree_view_column_set_sort_column_id(column, COL_MTIME);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
-	if (o_display_show_last_modified.int_value == FALSE)
+	if (o_display_show_mtime.int_value == FALSE)
 		gtk_tree_view_column_set_visible(column, FALSE);
-	view_details->last_modified_column = column;
+	view_details->mtime_column = column;
 
 	ADD_TEXT_COLUMN(_("Last _Changed"), COL_CTIME);
 	g_object_set(G_OBJECT(cell), "show_selection_state", FALSE, NULL);
@@ -1176,9 +1188,20 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 			       G_OBJECT(cell));
 	gtk_tree_view_column_set_sort_column_id(column, COL_CTIME);
 	gtk_tree_view_column_set_reorderable(column, TRUE);
-	if (o_display_show_last_changed.int_value == FALSE)
+	if (o_display_show_ctime.int_value == FALSE)
 		gtk_tree_view_column_set_visible(column, FALSE);
-	view_details->last_changed_column = column;
+	view_details->ctime_column = column;
+
+	ADD_TEXT_COLUMN(_("Last _Accessed"), COL_ATIME);
+	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
+	g_signal_connect_after(object, "realize",
+			       G_CALLBACK(set_column_mono_font),
+			       G_OBJECT(cell));
+	gtk_tree_view_column_set_sort_column_id(column, COL_ATIME);
+	gtk_tree_view_column_set_reorderable(column, TRUE);
+	if (o_display_show_atime.int_value == FALSE)
+		gtk_tree_view_column_set_visible(column, FALSE);
+	view_details->atime_column = column;
 }
 
 /* Create the handers for the View interface */
@@ -1271,13 +1294,17 @@ static void view_details_style_changed(ViewIface *view, int flags)
 		gtk_tree_view_column_set_visible(view_details->group_column,
 			o_display_show_group.int_value);
 
-	if (o_display_show_last_modified.has_changed)
-		gtk_tree_view_column_set_visible(view_details->last_modified_column,
-			o_display_show_last_modified.int_value);
+	if (o_display_show_mtime.has_changed)
+		gtk_tree_view_column_set_visible(view_details->mtime_column,
+			o_display_show_mtime.int_value);
 
-	if (o_display_show_last_changed.has_changed)
-		gtk_tree_view_column_set_visible(view_details->last_changed_column,
-			o_display_show_last_changed.int_value);
+	if (o_display_show_ctime.has_changed)
+		gtk_tree_view_column_set_visible(view_details->ctime_column,
+			o_display_show_ctime.int_value);
+
+	if (o_display_show_atime.has_changed)
+		gtk_tree_view_column_set_visible(view_details->atime_column,
+			o_display_show_atime.int_value);
 
 	gtk_tree_view_columns_autosize((GtkTreeView *) view);
 
