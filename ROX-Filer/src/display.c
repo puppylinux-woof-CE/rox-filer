@@ -108,7 +108,7 @@ void display_init()
 	option_add_int(&o_display_show_hidden, "display_show_hidden", FALSE);
 	option_add_int(&o_display_show_thumbs, "display_show_thumbs", FALSE);
 	option_add_int(&o_display_show_headers, "display_show_headers", TRUE);
-	option_add_int(&o_display_show_full_type, "display_show_full_type", FALSE);
+	option_add_int(&o_display_show_full_type, "display_show_full_type", TRUE);
 	option_add_int(&o_display_show_name, "display_show_name", TRUE);
 	option_add_int(&o_display_show_type, "display_show_type", TRUE);
 	option_add_int(&o_display_show_size, "display_show_size", TRUE);
@@ -116,7 +116,7 @@ void display_init()
 	option_add_int(&o_display_show_owner, "display_show_owner", TRUE);
 	option_add_int(&o_display_show_group, "display_show_group", TRUE);
 	option_add_int(&o_display_show_mtime, "display_show_mtime", TRUE);
-	option_add_int(&o_display_show_ctime, "display_show_ctime", TRUE);
+	option_add_int(&o_display_show_ctime, "display_show_ctime", FALSE);
 	option_add_int(&o_display_show_atime, "display_show_atime", FALSE);
 	option_add_int(&o_display_inherit_options,
 		       "display_inherit_options", FALSE); 

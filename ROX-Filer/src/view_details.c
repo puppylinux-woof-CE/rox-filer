@@ -1193,6 +1193,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	view_details->ctime_column = column;
 
 	ADD_TEXT_COLUMN(_("Last _Accessed"), COL_ATIME);
+	g_object_set(G_OBJECT(cell), "show_selection_state", FALSE, NULL);
 	g_object_set(G_OBJECT(cell), "font", "monospace", NULL);
 	g_signal_connect_after(object, "realize",
 			       G_CALLBACK(set_column_mono_font),
