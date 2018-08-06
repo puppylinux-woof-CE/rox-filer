@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-22 21:13-0500\n"
+"POT-Creation-Date: 2018-08-05 23:42-0500\n"
 "PO-Revision-Date: 2005-01-27 14:01+0200\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish\n"
@@ -31,11 +31,11 @@ msgstr "Hiljaa"
 msgid "Don't confirm every operation"
 msgstr "Älä pyydä vahvistusta jokaiselle tapahtumalle"
 
-#: abox.c:454 infobox.c:795 tips:36
+#: abox.c:454 infobox.c:795 tips:38 tips:80
 msgid "Name"
 msgstr "Nimi"
 
-#: abox.c:460 menu.c:274
+#: abox.c:460 menu.c:270
 msgid "Directory"
 msgstr "Hakemisto"
 
@@ -396,38 +396,38 @@ msgstr "'Vaihdetaan tiedoston '%s' tyypiksi '%s'\n"
 msgid "'Non-regular file '%s' not changed\n"
 msgstr ""
 
-#: action.c:1381 action.c:1568
+#: action.c:1389 action.c:1582
 #, c-format
 msgid "?'%s' already exists - %s?"
 msgstr "?'%s' on jo olemassa - %s?"
 
-#: action.c:1383 action.c:1570
+#: action.c:1391 action.c:1584
 msgid "merge contents"
 msgstr "yhdistä sisällöt"
 
-#: action.c:1384 action.c:1571
+#: action.c:1392 action.c:1585
 msgid "overwrite"
 msgstr "korvaa"
 
-#: action.c:1400
+#: action.c:1408
 msgid "'Trying copy anyway...\n"
 msgstr "'Yritetään kopioida siitä huolimatta...\n"
 
-#: action.c:1409
+#: action.c:1417
 #, c-format
 msgid "?Copy %s as %s?"
 msgstr "?Kopioidaanko %s kohteeseen %s?"
 
-#: action.c:1413
+#: action.c:1421
 #, c-format
 msgid "'Copying %s as %s\n"
 msgstr "'Kopioidaan %s kohteeseen %s\n"
 
-#: action.c:1428 action.c:1615
+#: action.c:1436 action.c:1631
 msgid "!ERROR: Destination already exists, but is not a directory\n"
 msgstr "!VIRHE: Kohde on jo olemassa, mutta ei ole hakemisto\n"
 
-#: action.c:1507
+#: action.c:1515
 #, c-format
 msgid ""
 "!%s\n"
@@ -436,21 +436,21 @@ msgstr ""
 "!%s\n"
 "Tiedoston '%s' kopiointi epäonnistui\n"
 
-#: action.c:1587
+#: action.c:1601
 msgid "'Trying move anyway...\n"
 msgstr "'Yritetään siirtää kaikesta huolimatta...\n"
 
-#: action.c:1596
+#: action.c:1610
 #, c-format
 msgid "?Move %s as %s?"
 msgstr "?Siirretäänkö %s kohteeseen %s?"
 
-#: action.c:1600
+#: action.c:1614
 #, c-format
 msgid "'Moving %s as %s\n"
 msgstr "'Siirretään %s kohteeseen %s\n"
 
-#: action.c:1648
+#: action.c:1664
 #, c-format
 msgid ""
 "!%s\n"
@@ -459,45 +459,45 @@ msgstr ""
 "!%s\n"
 "!VIRHE: Tiedoston %s siirto kohteeseen %s epäonnistui\n"
 
-#: action.c:1670
+#: action.c:1686
 msgid "!ERROR: Can't copy object into itself\n"
 msgstr "!VIRHE: Kohdetta ei voi kopioida itseensä\n"
 
-#: action.c:1685
+#: action.c:1701
 msgid "!ERROR: Can't move/rename object into itself\n"
 msgstr "!VIRHE: Kohdetta ei voi siirtää/nimetä itsensä päälle\n"
 
-#: action.c:1697
+#: action.c:1713
 #, c-format
 msgid "'Linking %s as %s\n"
 msgstr "'Linkitetään %s nimellä %s\n"
 
-#: action.c:1702
+#: action.c:1718
 #, c-format
 msgid "?Link %s as %s?"
 msgstr "?Linkitetäänkö %s nimellä %s?"
 
-#: action.c:1745
+#: action.c:1761
 #, c-format
 msgid "'Mounting %s\n"
 msgstr "'Liitetään %s\n"
 
-#: action.c:1746
+#: action.c:1762
 #, c-format
 msgid "'Unmounting %s\n"
 msgstr "'Irrotetaan %s\n"
 
-#: action.c:1749
+#: action.c:1765
 #, c-format
 msgid "?Mount %s?"
 msgstr "?Liitetäänkö %s tiedostojärjestelmään?"
 
-#: action.c:1750
+#: action.c:1766
 #, c-format
 msgid "?Unmount %s?"
 msgstr "?Irrotetaanko %s tiedostojärjestelmästä?"
 
-#: action.c:1771
+#: action.c:1787
 #, c-format
 msgid ""
 "!%s\n"
@@ -506,7 +506,7 @@ msgstr ""
 "!%s\n"
 "Liittäminen epäonnistui\n"
 
-#: action.c:1772
+#: action.c:1788
 #, c-format
 msgid ""
 "!%s\n"
@@ -515,11 +515,11 @@ msgstr ""
 "!%s\n"
 "Irrottaminen epäonnistui\n"
 
-#: action.c:1780
+#: action.c:1796
 msgid "'(seems to be mounted now anyway)\n"
 msgstr "'(näyttää ainakin olevan nyt liitetty)\n"
 
-#: action.c:1829
+#: action.c:1845
 #, c-format
 msgid ""
 "'\n"
@@ -528,218 +528,218 @@ msgstr ""
 "'\n"
 "Yhteensä: %s ("
 
-#: action.c:1835
+#: action.c:1851
 msgid "file"
 msgstr "tiedosto"
 
-#: action.c:1835
+#: action.c:1851
 msgid "files"
 msgstr "tiedostoa"
 
-#: action.c:1839
+#: action.c:1855
 msgid "no directories)\n"
 msgstr "ei hakemistoja)\n"
 
-#: action.c:1843
+#: action.c:1859
 msgid "directory"
 msgstr "hakemisto"
 
-#: action.c:1844
+#: action.c:1860
 msgid "directories"
 msgstr "hakemistoa"
 
-#: action.c:1885
+#: action.c:1901
 msgid "!No mount points selected!\n"
 msgstr "!Ei liitoskohtia valittuna!\n"
 
-#: action.c:1970
+#: action.c:1986
 msgid "?Another search?"
 msgstr "?Uusi haku?"
 
-#: action.c:2002 action.c:2036
+#: action.c:2018 action.c:2052
 #, c-format
 msgid "!'%s' is a symbolic link\n"
 msgstr "!'%s' on symbolinen linkki\n"
 
-#: action.c:2077
+#: action.c:2093
 msgid "You need to select some items to search through"
 msgstr "Sinun täytyy valita hakukohteet"
 
-#: action.c:2087 menu.c:262
+#: action.c:2103 menu.c:258
 msgid "Find"
 msgstr "Etsi"
 
-#: action.c:2122
+#: action.c:2138
 msgid "You need to select some items to count"
 msgstr "Sinun täytyy valita laskettavat kohteet"
 
-#: action.c:2126
+#: action.c:2142
 msgid "Disk Usage"
 msgstr "Levyn Käyttö"
 
-#: action.c:2164
+#: action.c:2180
 msgid "Mount / Unmount"
 msgstr "Liitä / Irrota"
 
-#: action.c:2183
+#: action.c:2199
 msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr "ROX-Filer ei vielä tue liitoskohtia järjestelmässäsi. Pahoittelen."
 
-#: action.c:2197 menu.c:244 tips:173
+#: action.c:2213 menu.c:243 tips:196
 msgid "Delete"
 msgstr "Poista"
 
-#: action.c:2211 tips:178
+#: action.c:2227 tips:201
 msgid "Force"
 msgstr "Pakota"
 
-#: action.c:2211
+#: action.c:2227
 msgid "Don't confirm deletion of non-writeable items"
 msgstr "Poista kirjoitussuojatut kohteet pyytämättä vahvistusta."
 
-#: action.c:2214 action.c:2275 action.c:2340 action.c:2423 action.c:2473
-#: tips:180
+#: action.c:2230 action.c:2291 action.c:2356 action.c:2439 action.c:2489
+#: tips:203
 msgid "Brief"
 msgstr "Suppea"
 
-#: action.c:2214
+#: action.c:2230
 msgid "Only log directories being deleted"
 msgstr "Kirjaa vain poistettavat hakemistot"
 
-#: action.c:2233
+#: action.c:2249
 msgid "You need to select the items whose permissions you want to change"
 msgstr "Sinun täytyy valita kohteet, joiden oikeuksia haluat vaihtaa"
 
-#: action.c:2241
+#: action.c:2257
 msgid "a+x (Make executable/searchable)"
 msgstr "a+x (Anna suoritus/selausoikeudet)"
 
-#: action.c:2243
+#: action.c:2259
 msgid "a-x (Make non-executable/non-searchable)"
 msgstr "a-x (Poista suoritus/selausoikeudet)"
 
-#: action.c:2245
+#: action.c:2261
 msgid "u+rw (Give owner read+write)"
 msgstr "u+rw (Anna omistajalle luku- ja kirjoitusoikeudet)"
 
-#: action.c:2247
+#: action.c:2263
 msgid "go-rwx (Private - owner access only)"
 msgstr "go-rwx (Henkilökohtainen - vain omistajan saatavilla)"
 
-#: action.c:2249
+#: action.c:2265
 msgid "go=u-w (Public access, not write)"
 msgstr "go=u-w (Julkisesti saatavilla, ei kirjoitettavissa)"
 
-#: action.c:2260 menu.c:215 menu.c:260 tips:53
+#: action.c:2276 menu.c:212 menu.c:256 tips:56 tips:86
 msgid "Permissions"
 msgstr "Oikeudet"
 
-#: action.c:2275 action.c:2340
+#: action.c:2291 action.c:2356
 msgid "Don't list processed files"
 msgstr "Älä luettele käsiteltyjä tiedostoja"
 
-#: action.c:2278 action.c:2343 tips:182
+#: action.c:2294 action.c:2359 tips:205
 msgid "Recurse"
 msgstr "Rekursiivinen"
 
-#: action.c:2278
+#: action.c:2294
 msgid "Also change contents of subdirectories"
 msgstr "Muuta myös alihakemistojen sisältöä"
 
-#: action.c:2282
+#: action.c:2298
 msgid "Command:"
 msgstr "Komento:"
 
-#: action.c:2312
+#: action.c:2328
 msgid "You need to select the items whose type you want to change"
 msgstr "Sinun täytyy valita kohteet, joiden tyypin haluat vaihtaa"
 
-#: action.c:2325
+#: action.c:2341
 msgid "Set type"
 msgstr "Aseta tyyppi"
 
-#: action.c:2343
+#: action.c:2359
 msgid "Change contents of subdirectories"
 msgstr "Muuta alihakemistojen sisältöä"
 
-#: action.c:2350 infobox.c:651
+#: action.c:2366 infobox.c:651
 msgid "Type:"
 msgstr "Tyyppi:"
 
-#: action.c:2397 dnd.c:123 menu.c:2522 tips:167
+#: action.c:2413 dnd.c:123 menu.c:238 tips:190
 msgid "Copy"
 msgstr "Kopioi"
 
-#: action.c:2411 action.c:2461 tips:188
+#: action.c:2427 action.c:2477 tips:211
 msgid "Ignore Older"
 msgstr ""
 
-#: action.c:2412 action.c:2462 tips:189
+#: action.c:2428 action.c:2478 tips:212
 #, fuzzy
 msgid "Silently ignore if source is older than destination."
 msgstr "Korvaa ainoastaan, jos lähdetiedosto on kohdetta uudempi."
 
-#: action.c:2415 action.c:2465 tips:186
+#: action.c:2431 action.c:2481 tips:209
 msgid "Newer"
 msgstr "Uudemmat"
 
-#: action.c:2416 action.c:2466 tips:187
+#: action.c:2432 action.c:2482 tips:210
 #, fuzzy
 msgid "Always over-write if source is newer than destination."
 msgstr "Korvaa ainoastaan, jos lähdetiedosto on kohdetta uudempi."
 
-#: action.c:2419 action.c:2469 tips:184
+#: action.c:2435 action.c:2485 tips:207
 msgid "Merge"
 msgstr ""
 
-#: action.c:2420 action.c:2470 tips:185
+#: action.c:2436 action.c:2486 tips:208
 #, fuzzy
 msgid "Always merge directories."
 msgstr "hakemistoa"
 
-#: action.c:2423
+#: action.c:2439
 msgid "Only log directories as they are copied"
 msgstr "Kirjaa vain kopioitavat hakemistot"
 
-#: action.c:2447 dnd.c:124 tips:169
+#: action.c:2463 dnd.c:124 tips:192
 msgid "Move"
 msgstr "Siirrä"
 
-#: action.c:2473
+#: action.c:2489
 msgid "Don't log each file as it is moved"
 msgstr "Älä kirjaa jokaista tiedostoa siirrettäessä"
 
-#: action.c:2496 tips:171
+#: action.c:2512 tips:194
 msgid "Link"
 msgstr "Luo linkki"
 
-#: action.c:2521 appmenu.c:112 filer.c:683 infobox.c:1067
+#: action.c:2537 appmenu.c:112 filer.c:680 infobox.c:1067
 msgid "Eject"
 msgstr "Poista media"
 
-#: action.c:2593
+#: action.c:2609
 msgid "Deleting items such as "
 msgstr "Kohteiden, kuten "
 
-#: action.c:2597
+#: action.c:2613
 msgid "Deleting the item "
 msgstr "Kohteen "
 
-#: action.c:2599
+#: action.c:2615
 msgid "Deleting the items "
 msgstr "Kohteiden "
 
-#: action.c:2618
+#: action.c:2634
 msgid " and "
 msgstr " sekä "
 
-#: action.c:2627
+#: action.c:2643
 msgid " will affect some items on the pinboard or panel - really delete it?"
 msgstr ""
 " poistaminen vaikuttaa kohteisiin työpöydällä tai paneelissa - poistetaanko "
 "se varmasti?"
 
-#: action.c:2634
+#: action.c:2650
 msgid " will affect some items on the pinboard or panel - really delete them?"
 msgstr ""
 " poistaminen vaikuttaa kohteisiin työpöydällä tai paneelissa - poistetaanko "
@@ -758,11 +758,11 @@ msgstr ""
 "Luo tähän hakemistoon symboliset linkit haluamiisi ohjelmiin. Ne näkyvät "
 "valikossa kaikille tiedostoille, joiden tyyppi on '%s/%s'."
 
-#: appmenu.c:347 menu.c:276
+#: appmenu.c:347 menu.c:272
 msgid "Customise Menu..."
 msgstr "Mukauta Valikkoa..."
 
-#: appmenu.c:402 menu.c:294 toolbar.c:174
+#: appmenu.c:402 menu.c:290 toolbar.c:174
 msgid "Help"
 msgstr "Ohje"
 
@@ -960,17 +960,17 @@ msgid ""
 "%s"
 msgstr ""
 
-#: dir.c:1047
+#: dir.c:1098
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "Hakemiston tila ei saatavilla: %s"
 
-#: dir.c:1056
+#: dir.c:1109
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "Ei voi avata hakemistoa: %s"
 
-#: display.c:710
+#: display.c:728
 #, c-format
 msgid "lstat(2) failed: %s"
 msgstr "lstat(2) epäonnistui: %s"
@@ -1065,13 +1065,13 @@ msgid ""
 "Can't get data from remote machine (application/octet-stream not provided)"
 msgstr "Etäkoneelta ei saada tietoa (ei application/octet-stream:ia tarjolla)"
 
-#: dnd.c:1017 menu.c:2305
+#: dnd.c:1017 menu.c:2321
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr ""
 "Jotkut tiedostoista ovat eri koneella - ne jätetään huomiotta - pahoittelen"
 
-#: dnd.c:1024 menu.c:2311
+#: dnd.c:1024 menu.c:2327
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1083,7 +1083,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "Tuntematon toiminto pyydetty"
 
-#: dnd.c:1045 menu.c:2325
+#: dnd.c:1045 menu.c:2341
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Virhe noudettaessa tiedostolistaa: %s"
@@ -1128,7 +1128,7 @@ msgstr ""
 "Kohde '%s' ei ole saatavilla:\n"
 "%s"
 
-#: filer.c:498
+#: filer.c:499
 #, c-format
 msgid ""
 "Error scanning '%s':\n"
@@ -1137,16 +1137,7 @@ msgstr ""
 "Virhe lukiessa kohdetta '%s:\n"
 "%s\n"
 
-#: filer.c:502
-#, c-format
-msgid ""
-"Error scanning '%s':\n"
-"%s"
-msgstr ""
-"Virhe lukiessa kohdetta '%s:\n"
-"%s"
-
-#: filer.c:658
+#: filer.c:655
 msgid ""
 "Do you want to unmount this device?\n"
 "\n"
@@ -1156,23 +1147,19 @@ msgstr ""
 "\n"
 "Tämä tekee tallennuslaitteen poistamisesta turvallisen."
 
-#: filer.c:663
+#: filer.c:660
 msgid "Perform the same action in future for this mount point"
 msgstr ""
 
-#: filer.c:670
+#: filer.c:667
 msgid "No change"
 msgstr "Ei muutosta"
 
-#: filer.c:676 infobox.c:1065 menu.c:933
+#: filer.c:673 infobox.c:1065 menu.c:942
 msgid "Unmount"
 msgstr "Irrota"
 
-#: filer.c:782
-msgid "Directory missing/deleted"
-msgstr "Hakemisto puuttuu/poistettu"
-
-#: filer.c:1146
+#: filer.c:1142
 #, c-format
 msgid ""
 "Group %s is not set. Select some files and press Ctrl+%s to set the group. "
@@ -1184,123 +1171,113 @@ msgstr ""
 "uudelleen.\n"
 "Varmista, että NumLock on päällä, jos käytät numeronäppäimistöä."
 
-#: filer.c:1385
-#, c-format
-msgid "Directory '%s' is not accessible"
-msgstr "Hakemisto '%s' ei ole saatavilla"
-
-#: filer.c:1540
-#, c-format
-msgid "Directory '%s' not found."
-msgstr "Hakemistoa '%s' ei löytynyt."
-
-#: filer.c:1840
+#: filer.c:1826
 msgid "Cancel"
 msgstr "Peruuta"
 
-#: filer.c:2122
+#: filer.c:2110
 msgid "A"
 msgstr ""
 
-#: filer.c:2124 find.c:1034
+#: filer.c:2112 find.c:1034
 msgid "G"
 msgstr "G"
 
-#: filer.c:2129
+#: filer.c:2117
 msgid "S"
 msgstr "L"
 
-#: filer.c:2131
+#: filer.c:2119
 msgid "T"
 msgstr "P"
 
-#: filer.c:2132
+#: filer.c:2120
 msgid "D"
 msgstr ""
 
-#: filer.c:2133
+#: filer.c:2121
 msgid "F"
 msgstr ""
 
-#: filer.c:2143
+#: filer.c:2131
 msgid "All, "
 msgstr ""
 
-#: filer.c:2146
+#: filer.c:2134
 #, c-format
 msgid "Glob (%s), "
 msgstr ""
 
-#: filer.c:2154
+#: filer.c:2142
 msgid "Scanning, "
 msgstr "Luetaan, "
 
-#: filer.c:2156
+#: filer.c:2144
 msgid "Thumbs, "
 msgstr "Pienoiskuvat, "
 
-#: filer.c:2157
+#: filer.c:2145
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2158
+#: filer.c:2146
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2434
+#: filer.c:2422
 msgid "Symbolic link to "
 msgstr "Symbolinen linkki kohteeseen"
 
-#: filer.c:2490
+#: filer.c:2478
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "Tiedostonimen koodaus ei ole UTF-8. Se pitäisi nimetä uudelleen.\n"
 
-#: filer.c:2807 menu.c:2512
+#: filer.c:2795 menu.c:2524
 msgid "Item no longer exists!"
 msgstr "Kohdetta ei enää ole!"
 
-#: filer.c:3622
+#: filer.c:3610
 msgid "Select display properties to save"
 msgstr "Valitse tallennettavat näkymäasetukset"
 
-#: filer.c:3626
+#: filer.c:3614
 msgid "<b>Save display settings for directory</b>"
 msgstr ""
 
-#: filer.c:3633
+#: filer.c:3621
 #, fuzzy
 msgid "Select settings to save"
 msgstr "Valitse tallennettavat näkymäasetukset"
 
-#: filer.c:3640
+#: filer.c:3628
 msgid "Position"
 msgstr "Sijainti"
 
-#: filer.c:3645 toolbar.c:137 toolbar.c:141 tips:39
+#: filer.c:3633 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "Koko"
 
-#: filer.c:3650
+#: filer.c:3638
 msgid "Show hidden"
 msgstr "Näytä piilotetut"
 
-#: filer.c:3656
+#: filer.c:3644
 msgid "Display style"
 msgstr "Näkymä"
 
-#: filer.c:3662
+#: filer.c:3650
 msgid "Sort type and order"
 msgstr "järjestämistapa"
 
-#: filer.c:3667 toolbar.c:145
+#: filer.c:3655 toolbar.c:145
 msgid "Details"
 msgstr "Tiedot"
 
-#: filer.c:3672 tips:92 tips:93
+#: filer.c:3660 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "Pienoiskuvat"
 
-#: filer.c:3678
+#: filer.c:3666
 msgid "Filter"
 msgstr "Suodatin"
 
@@ -1630,47 +1607,47 @@ msgstr "(napsauta asettaaksesi)"
 msgid "ROX-Filer"
 msgstr "ROX-Filer"
 
-#: icon.c:132 menu.c:295
+#: icon.c:132 menu.c:291
 msgid "About ROX-Filer..."
 msgstr "Tietoja ROX-Fileristä..."
 
-#: icon.c:133 menu.c:296
+#: icon.c:133 menu.c:292
 msgid "Show Help Files"
 msgstr "Näytä Ohjetiedostot"
 
-#: icon.c:134 menu.c:297
+#: icon.c:134 menu.c:293
 msgid "Manual"
 msgstr "Käsikirja"
 
-#: icon.c:136 menu.c:269
+#: icon.c:136 menu.c:265
 msgid "Options..."
 msgstr "Asetukset..."
 
-#: icon.c:137 menu.c:281
+#: icon.c:137 menu.c:277
 msgid "Home Directory"
 msgstr "Kotihakemisto"
 
-#: icon.c:138 icon.c:1435 menu.c:240 type.c:224
+#: icon.c:138 icon.c:1437 menu.c:237 type.c:224
 msgid "File"
 msgstr "Tiedosto"
 
-#: icon.c:139 menu.c:249 menu.c:946
+#: icon.c:139 menu.c:245 menu.c:955
 msgid "Shift Open"
 msgstr "Shift+Avaa"
 
-#: icon.c:140 menu.c:257
+#: icon.c:140 menu.c:253
 msgid "Properties"
 msgstr "Ominaisuudet"
 
-#: icon.c:141 menu.c:252
+#: icon.c:141 menu.c:248
 msgid "Set Run Action..."
 msgstr "Aseta Suoritustoiminto..."
 
-#: icon.c:142 menu.c:253
+#: icon.c:142 menu.c:249
 msgid "Set Icon..."
 msgstr "Aseta Kuvake..."
 
-#: icon.c:143 icon.c:892
+#: icon.c:143 icon.c:894
 msgid "Edit Item"
 msgstr "Muokkaa kohdetta"
 
@@ -1682,7 +1659,7 @@ msgstr "Näytä Sijainti"
 msgid "Remove Item(s)"
 msgstr "Poista kohde/kohteet"
 
-#: icon.c:318 log.c:111 menu.c:828
+#: icon.c:318 log.c:111 menu.c:837
 #, c-format
 msgid "%s '%s'"
 msgstr "%s '%s'"
@@ -1691,61 +1668,61 @@ msgstr "%s '%s'"
 msgid "Nothing"
 msgstr "Ei mitään"
 
-#: icon.c:618
+#: icon.c:620
 msgid "The location must contain at least one character!"
 msgstr "Sijainnissa täytyy olla vähintään yksi merkki!"
 
-#: icon.c:683
+#: icon.c:685
 #, c-format
 msgid "You must unlock '%s' before removing it"
 msgstr ""
 
-#: icon.c:693
+#: icon.c:695
 msgid "You must first select some items to remove"
 msgstr "Valitse ensin kohteita poistettavaksi"
 
-#: icon.c:699
+#: icon.c:701
 msgid "An item must be unlocked before it can be removed."
 msgstr ""
 
-#: icon.c:713
+#: icon.c:715
 msgid "You must open the menu over an item"
 msgstr "Valikko täytyy avata kohteen yläpuolella"
 
-#: icon.c:738 menu.c:1348
+#: icon.c:740 menu.c:1357
 msgid "You can only set the run action for a regular file"
 msgstr "Voit asettaa suoritustoiminnon ainoastaan tavalliselle tiedostolle"
 
-#: icon.c:823
+#: icon.c:825
 msgid "Press the desired shortcut (eg, Control+F1)"
 msgstr "Paina haluamiasi pikanäppäimiä (esim. Ctrl+F1)"
 
-#: icon.c:845
+#: icon.c:847
 msgid "Failed to get keyboard grab!"
 msgstr "Näppäimistön kaappaus epäonnistui!"
 
-#: icon.c:895
+#: icon.c:897
 msgid "Clicking the icon opens:"
 msgstr "Kuvakkeen napsauttaminen avaa:"
 
-#: icon.c:905
+#: icon.c:907
 msgid "Arguments to pass (for executables):"
 msgstr "Annettavat argumentit (käynnistystiedostoille):"
 
-#: icon.c:919
+#: icon.c:921
 msgid "The text displayed under the icon is:"
 msgstr "Kuvakkeen alla näytettävä teksti on:"
 
-#: icon.c:932
+#: icon.c:934
 msgid "The keyboard shortcut is:"
 msgstr "Pikanäppäin on:"
 
-#: icon.c:952
+#: icon.c:954
 #, fuzzy
 msgid "Locked"
 msgstr "Vastake"
 
-#: icon.c:957
+#: icon.c:959
 msgid "Locking an item prevents it from being accidentally removed"
 msgstr ""
 
@@ -1758,7 +1735,7 @@ msgstr "Haluatko varmasti avata %d ikkunaa?"
 msgid "Show Info"
 msgstr "Näytä tiedot"
 
-#: infobox.c:136 menu.c:833
+#: infobox.c:136 menu.c:842
 msgid "(bad utf-8)"
 msgstr "(epäkelpo utf-8)"
 
@@ -1812,7 +1789,7 @@ msgstr ""
 "%s\n"
 "(huomaa: vanha linkki on poistettu)"
 
-#: infobox.c:571 tips:249
+#: infobox.c:571 tips:272
 msgid "Error:"
 msgstr "Virhe:"
 
@@ -1900,11 +1877,11 @@ msgstr "file(1) kertoo... %s"
 msgid "Could not change permissions: %s"
 msgstr "Oikeuksien muuttaminen epäonnistui: %s"
 
-#: infobox.c:962
+#: infobox.c:962 tips:88
 msgid "Owner"
 msgstr "Omistaja"
 
-#: infobox.c:964
+#: infobox.c:964 tips:90
 msgid "Group"
 msgstr "Ryhmä"
 
@@ -2159,7 +2136,7 @@ msgid ""
 "Right-click for a list of versions."
 msgstr ""
 
-#: main.c:967 menu.c:1449 menu.c:1455
+#: main.c:967 menu.c:1458 menu.c:1464
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "Virhe luotaessa kohdetta '%s': %s"
@@ -2179,270 +2156,267 @@ msgid ""
 "If you are using Zero Install you should use 0alias instead."
 msgstr ""
 
-#: menu.c:211 tips:28
+#: menu.c:208
 msgid "Display"
 msgstr "Näytä"
 
-#: menu.c:212 tips:33
+#: menu.c:209 tips:35
 msgid "Icons View"
 msgstr "Kuvakenäkymä"
 
-#: menu.c:213
+#: menu.c:210
 msgid "Icons, With..."
 msgstr "Kuvakkeet, sekä..."
 
-#: menu.c:214 tips:52
+#: menu.c:211 tips:55
 msgid "Sizes"
 msgstr "Koot"
 
-#: menu.c:216 tips:233
+#: menu.c:213 tips:256
 msgid "Types"
 msgstr "Tyypit"
 
-#: menu.c:217 tips:55
+#: menu.c:214 tips:58
 msgid "Times"
 msgstr "Ajat"
 
-#: menu.c:218 tips:34 tips:70
+#: menu.c:215 tips:36 tips:73 tips:74
 msgid "List View"
 msgstr "Listanäkymä"
 
-#: menu.c:220
+#: menu.c:217
 msgid "Bigger Icons"
 msgstr "Suuremmat Kuvakkeet"
 
-#: menu.c:221
+#: menu.c:218
 msgid "Smaller Icons"
 msgstr "Pienemmät Kuvakkeet"
 
-#: menu.c:222 tips:49
+#: menu.c:219 tips:52
 msgid "Automatic"
 msgstr "Automaattinen"
 
-#: menu.c:224
+#: menu.c:221
 msgid "Sort by Name"
 msgstr "Järjestä Nimen mukaan"
 
-#: menu.c:225
+#: menu.c:222
 msgid "Sort by Type"
 msgstr "Järjestä Tyypin mukaan"
 
-#: menu.c:226
+#: menu.c:223
 #, fuzzy
 msgid "Sort by Date (atime)"
 msgstr "Järjestä Päivämäärän mukaan"
 
-#: menu.c:227
+#: menu.c:224
 #, fuzzy
 msgid "Sort by Date (ctime)"
 msgstr "Järjestä Päivämäärän mukaan"
 
-#: menu.c:228
+#: menu.c:225
 #, fuzzy
 msgid "Sort by Date (mtime)"
 msgstr "Järjestä Päivämäärän mukaan"
 
-#: menu.c:229
+#: menu.c:226
 msgid "Sort by Size"
 msgstr "Järjestä Koon mukaan"
 
-#: menu.c:230
+#: menu.c:227
 msgid "Sort by Owner"
 msgstr "Järjestä Omistajan mukaan"
 
-#: menu.c:231
+#: menu.c:228
 msgid "Sort by Group"
 msgstr "Järjestä Ryhmän mukaan"
 
-#: menu.c:232
+#: menu.c:229
 msgid "Reversed"
 msgstr "Käänteinen"
 
-#: menu.c:234
+#: menu.c:231
 msgid "Show Hidden"
 msgstr "Näytä Piilotetut"
 
-#: menu.c:235
+#: menu.c:232
 msgid "Filter Files..."
 msgstr "Suodata Tiedostot..."
 
-#: menu.c:236
+#: menu.c:233
 msgid "Filter Directories With Files"
 msgstr ""
 
-#: menu.c:237
+#: menu.c:234
 msgid "Show Thumbnails"
 msgstr "Näytä Pienoiskuvat"
 
-#: menu.c:238
+#: menu.c:235
 msgid "Refresh"
 msgstr "Virkistä"
 
-#: menu.c:239
+#: menu.c:236
 #, fuzzy
 msgid "Save Current Display Settings..."
 msgstr "Tallenna Näkymäasetukset..."
 
-#: menu.c:241
-msgid "Copy..."
-msgstr "Kopioi..."
+#: menu.c:239
+#, fuzzy
+msgid "Cut"
+msgstr "Laske"
 
-#: menu.c:242
+#: menu.c:240
+msgid "Duplicate..."
+msgstr ""
+
+#: menu.c:241
 msgid "Rename..."
 msgstr "Nimeä Uudelleen..."
 
-#: menu.c:243
+#: menu.c:242
 msgid "Link..."
 msgstr "Luo Linkki..."
 
 #: menu.c:246
-msgid "Copy To Clipboard"
-msgstr ""
-
-#: menu.c:247
-msgid "Cut To Clipboard"
-msgstr ""
-
-#: menu.c:250
 #, fuzzy
 msgid "Open With..."
 msgstr "Kuvakkeet, sekä..."
 
-#: menu.c:255
+#: menu.c:251
 #, fuzzy
 msgid "Extended attributes..."
 msgstr "Lisäattribuutit"
 
-#: menu.c:258
+#: menu.c:254
 msgid "Count"
 msgstr "Laske"
 
-#: menu.c:259
+#: menu.c:255
 msgid "Set Type..."
 msgstr "Aseta Tyyppi..."
 
-#: menu.c:263 toolbar.c:164
+#: menu.c:259 toolbar.c:164
 msgid "Select"
 msgstr "Valitse"
 
-#: menu.c:264
+#: menu.c:260
 msgid "Select All"
 msgstr "Valitse Kaikki"
 
-#: menu.c:265
+#: menu.c:261
 msgid "Clear Selection"
 msgstr "Poista Valinta"
 
-#: menu.c:266
+#: menu.c:262
 msgid "Invert Selection"
 msgstr "Käänteinen Valinta"
 
-#: menu.c:267
+#: menu.c:263
 msgid "Select by Name..."
 msgstr "Valitse Nimen perusteella..."
 
-#: menu.c:268
+#: menu.c:264
 msgid "Select If..."
 msgstr "Valitse Jos..."
 
-#: menu.c:271
-msgid "Paste From Clipboard"
+#: menu.c:267
+msgid "Paste"
 msgstr ""
 
-#: menu.c:273 toolbar.c:168
+#: menu.c:269 toolbar.c:168
 msgid "New"
 msgstr "Uusi"
 
-#: menu.c:275
+#: menu.c:271
 msgid "Blank file"
 msgstr "Tyhjä tiedosto"
 
-#: menu.c:277 tasklist.c:305
+#: menu.c:273 tasklist.c:305
 msgid "Window"
 msgstr "Ikkuna"
 
-#: menu.c:278
+#: menu.c:274
 msgid "Parent, New Window"
 msgstr "Ylätaso, Uusi Ikkuna"
 
-#: menu.c:279
+#: menu.c:275
 msgid "Parent, Same Window"
 msgstr "Ylätaso, Sama Ikkuna"
 
-#: menu.c:280
+#: menu.c:276 tips:30
 msgid "New Window"
 msgstr "Uusi Ikkuna"
 
-#: menu.c:282
+#: menu.c:278
 msgid "Show Bookmarks"
 msgstr "Näytä Kirjanmerkit"
 
-#: menu.c:283
+#: menu.c:279
 #, fuzzy
 msgid "Show Log"
 msgstr "Näytä tiedot"
 
-#: menu.c:284
+#: menu.c:280
 msgid "Follow Symbolic Links"
 msgstr "Seuraa Symbolisia Linkkejä"
 
-#: menu.c:285
+#: menu.c:281
 msgid "Resize Window"
 msgstr "Muuta Ikkunan Kokoa"
 
-#: menu.c:288
+#: menu.c:284
 msgid "Close Window"
 msgstr "Sulje Ikkuna"
 
-#: menu.c:290
+#: menu.c:286
 msgid "Enter Path..."
 msgstr "Syötä Polku..."
 
-#: menu.c:291
+#: menu.c:287
 msgid "Shell Command..."
 msgstr "Komentotulkin komento..."
 
-#: menu.c:292
+#: menu.c:288
 #, fuzzy
 msgid "Terminal Here"
 msgstr "Pääte Tähän"
 
-#: menu.c:293
+#: menu.c:289
 #, fuzzy
 msgid "Switch to Terminal"
 msgstr "Vaihda päättesovellukseen"
 
-#: menu.c:780
+#: menu.c:789
 msgid "You should Shift+Menu click over a file to send it somewhere"
 msgstr ""
 "Paina Shift+Menupainike tiedoston yläpuolella lähettääksesi sen jonnekin"
 
-#: menu.c:818
+#: menu.c:827
 msgid "Next Click"
 msgstr "Seuraava Napsautus"
 
-#: menu.c:840
+#: menu.c:849
 #, c-format
 msgid "%d items"
 msgstr "%d kohdetta"
 
-#: menu.c:935
+#: menu.c:944
 msgid "Open unmounted"
 msgstr "Avaa irrotettu"
 
-#: menu.c:938
+#: menu.c:947
 msgid "Show Target"
 msgstr "Näytä Kohde"
 
-#: menu.c:940
+#: menu.c:949
 msgid "Look Inside"
 msgstr "Katso Sisään"
 
-#: menu.c:942
+#: menu.c:951
 msgid "Open As Text"
 msgstr "Avaa Tekstinä"
 
-#: menu.c:1113
+#: menu.c:1122
 msgid ""
 "Extended attributes, used to store types, are not supported for this file or "
 "files.\n"
@@ -2456,15 +2430,15 @@ msgstr ""
 "ehkäpä tiedostojärjestelmää liittäessä täytyy yksinkertaisesti antaa "
 "vaadittava valitsin. (Linux-järjestelmissä 'user_xattr')."
 
-#: menu.c:1119
+#: menu.c:1128
 msgid "Setting type not supported for some of these files"
 msgstr "Osa tiedostoista ei tue tyypin asettamista."
 
-#: menu.c:1156
+#: menu.c:1165
 msgid "_Relative link"
 msgstr "_Suhteellinen linkki"
 
-#: menu.c:1162
+#: menu.c:1171
 msgid ""
 "If on, the symlink will store the path from the symlink to the target file. "
 "Use this if the symlink and the target will be moved together.\n"
@@ -2476,39 +2450,39 @@ msgstr ""
 "Muussa tapauksessa tallennetaan polku juurihakemistosta - käytä tätä, jos "
 "linkkiä voidaan siirtää, mutta kohde pysyy paikallaan."
 
-#: menu.c:1234
+#: menu.c:1243
 msgid "New pathname is not absolute"
 msgstr "Uusi polku ei ole absoluuttinen"
 
-#: menu.c:1302
+#: menu.c:1311
 #, c-format
 msgid "Symlink from '%s' already exists. Replace it with a link to '%s'?"
 msgstr ""
 "Symbolinen linkki kohteesta '%s' on jo olemassa. Korvataanko se kohteeseen "
 "'%s' osoittavalla linkillä?"
 
-#: menu.c:1308
+#: menu.c:1317
 msgid "_Replace"
 msgstr "_Korvaa"
 
-#: menu.c:1434 menu.c:1481 menu.c:1549
+#: menu.c:1443 menu.c:1490 menu.c:1558
 msgid "Create"
 msgstr "Luo"
 
-#: menu.c:1435
+#: menu.c:1444
 msgid "NewDir"
 msgstr "UusiHakemisto"
 
-#: menu.c:1482
+#: menu.c:1491
 msgid "NewFile"
 msgstr "UusiTiedosto"
 
-#: menu.c:1501
+#: menu.c:1510
 #, c-format
 msgid "Error creating file: could not find the template for %s"
 msgstr "Virhe luotaessa tiedostoa: muodolle %s ei löytynyt pohjaa"
 
-#: menu.c:1588
+#: menu.c:1597
 #, fuzzy, c-format
 msgid ""
 "The `Send To' menu provides a quick way to send some files to an "
@@ -2537,7 +2511,7 @@ msgstr ""
 "näytetään ainoastaan kyseisille tiedostotyypeille. '.group' näytetään, kun "
 "useita tiedostoja on valittuna."
 
-#: menu.c:1600
+#: menu.c:1609
 msgid ""
 "I'll show you your SendTo directory now; you should symlink (Ctrl+Shift "
 "drag) any applications you want into it."
@@ -2545,11 +2519,11 @@ msgstr ""
 "Näytän nyt SendTo-hakemistosi; sinun pitäisi luoda tänne symboliset linkit "
 "(Ctrl+Shift ja raahata) haluamillesi sovelluksille."
 
-#: menu.c:1603 menu.c:1643
+#: menu.c:1612 menu.c:1652
 msgid "Your CHOICESPATH variable setting prevents customisations - sorry."
 msgstr "CHOICESPATH-muuttujasi asetus estää mukauttamisen - pahoittelen."
 
-#: menu.c:1636
+#: menu.c:1645
 #, c-format
 msgid ""
 "Any files placed in your Templates directories will appear on the `New' "
@@ -2561,7 +2535,7 @@ msgid ""
 "%s\n"
 msgstr ""
 
-#: menu.c:1641
+#: menu.c:1650
 #, fuzzy
 msgid ""
 "I'll show you your Templates directory now; you should place any template "
@@ -2570,15 +2544,15 @@ msgstr ""
 "Näytän nyt SendTo-hakemistosi; sinun pitäisi luoda tänne symboliset linkit "
 "(Ctrl+Shift ja raahata) haluamillesi sovelluksille."
 
-#: menu.c:1989
+#: menu.c:1998
 msgid "Customise"
 msgstr "Mukauta"
 
-#: menu.c:2062
+#: menu.c:2071
 msgid "This is already the canonical name for this directory."
 msgstr "Tämä on jo hakemiston kanoninen nimi."
 
-#: menu.c:2093
+#: menu.c:2102
 msgid ""
 "You can't open a second view onto this directory because the `Unique "
 "Windows' option is turned on in the Options window."
@@ -2586,89 +2560,93 @@ msgstr ""
 "Et voi avata toista näkymää tähän hakemistoon, koska `Ainutkertaiset "
 "Ikkunat'-asetus on valittuna Asetukset-ikkunassa."
 
-#: menu.c:2336
+#: menu.c:2282
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2370
-msgid "Copy ... ?"
-msgstr "Kopioidaanko ... ?"
+#: menu.c:2368
+msgid "Duplicate ... ?"
+msgstr ""
 
-#: menu.c:2373
+#: menu.c:2371
 msgid "Rename ... ?"
 msgstr "Nimetäänkö uudelleen ... ?"
 
-#: menu.c:2376
+#: menu.c:2374
 msgid "Symlink ... ?"
 msgstr "Luodaanko Symbolinen Linkki ... ?"
 
-#: menu.c:2379
+#: menu.c:2377
 msgid "Shift Open ... ?"
 msgstr "Shift+Avataanko ... ?"
 
-#: menu.c:2382
+#: menu.c:2380
 msgid "Properties of ... ?"
 msgstr "Näytetäänkö tiedot ... ?"
 
-#: menu.c:2386
+#: menu.c:2384
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Lisäattribuutit"
 
-#: menu.c:2390
+#: menu.c:2388
 msgid "Set type of ... ?"
 msgstr "Asetetaanko tyyppi ... ?"
 
-#: menu.c:2393
+#: menu.c:2391
 msgid "Set run action for ... ?"
 msgstr "Asetetaanko Suoritustoiminto kohteelle ... ?"
 
-#: menu.c:2396
+#: menu.c:2394
 msgid "Set icon for ... ?"
 msgstr "Asetetaanko kuvake kohteelle ... ?"
 
-#: menu.c:2399
+#: menu.c:2397
 msgid "Send ... to ... ?"
 msgstr "Lähetetäänkö ... kohteeseen ... ?"
 
-#: menu.c:2402
+#: menu.c:2400
 msgid "DELETE ... ?"
 msgstr "POISTETAANKO ... ?"
 
-#: menu.c:2405
+#: menu.c:2403
 msgid "Count the size of ... ?"
 msgstr "Lasketaanko koko kohteelle ... ?"
 
-#: menu.c:2408
+#: menu.c:2406
 msgid "Set permissions on ... ?"
 msgstr "Asetetaanko oikeudet kohteelle ... ?"
 
-#: menu.c:2411
+#: menu.c:2409
 msgid "Search inside ... ?"
 msgstr "Etsitäänkö kohteesta ... ?"
 
-#: menu.c:2414
+#: menu.c:2412
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Kopioidaanko ... ?"
 
-#: menu.c:2417
+#: menu.c:2415
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2495
+#: menu.c:2507
 msgid "You cannot do this to more than one item at a time"
 msgstr "Et voi tehdä tätä kuin yhdelle kohteelle kerrallaan"
 
-#: menu.c:2527
+#: menu.c:2534
+msgid "Duplicate"
+msgstr ""
+
+#: menu.c:2539
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
-#: menu.c:2532
+#: menu.c:2544
 msgid "Symlink"
 msgstr "Luo symbolinen linkki"
 
-#: menu.c:2567
+#: menu.c:2579
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2689,7 +2667,7 @@ msgstr ""
 "\tgtk-can-change-accels = 1\n"
 "\t(tämä toimii vain, kun XSETTINGS EI ole käytössä)"
 
-#: menu.c:2578
+#: menu.c:2590
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2709,7 +2687,7 @@ msgstr ""
 "Pikanäppäin ilmestyy kohteen viereen, ja voit jatkossa vain painaa "
 "pikanäppäintä avaamatta valikkoa."
 
-#: menu.c:2593
+#: menu.c:2605
 msgid "Set keyboard shortcuts"
 msgstr "Aseta pikanäppäimet"
 
@@ -3093,7 +3071,7 @@ msgstr "Tuntematon yksityiskohtatyyppi '%s'"
 msgid "Unknown sorting type '%s'"
 msgstr "Tuntematon lajittelutyyppi '%s'"
 
-#: remote.c:1248
+#: remote.c:1243
 #, c-format
 msgid "Attempt to invoke unknown SOAP method '%s'"
 msgstr "Kutsuttu epäkelpoa SOAP-metodia '%s'"
@@ -3330,7 +3308,7 @@ msgstr "Näytä ROX-Filerin ohje"
 msgid " (%u hidden)"
 msgstr " (%u piilotettua)"
 
-#: toolbar.c:245 tips:58
+#: toolbar.c:245 tips:61
 msgid "items"
 msgstr "kohdetta"
 
@@ -3616,47 +3594,51 @@ msgstr ""
 "Virhe luotaessa kuvaa '%s':\n"
 "%s"
 
-#: view_details.c:980
+#: view_details.c:1010
 msgid "Mono font"
 msgstr ""
 
-#: view_details.c:981
+#: view_details.c:1011
 msgid "Font for displaying mono-spaced text"
 msgstr ""
 
-#: view_details.c:1080
+#: view_details.c:1115
 msgid "_Name"
 msgstr "_Nimi"
 
-#: view_details.c:1084
+#: view_details.c:1123
 msgid "_Type"
 msgstr "_Tyyppi"
 
-#: view_details.c:1088
+#: view_details.c:1132
 msgid "_Size"
 msgstr "_Koko"
 
-#: view_details.c:1096
+#: view_details.c:1144
 msgid "_Permissions"
 msgstr "O_ikeudet"
 
-#: view_details.c:1102
+#: view_details.c:1155
 msgid "_Owner"
 msgstr "_Omistaja"
 
-#: view_details.c:1105
+#: view_details.c:1163
 msgid "_Group"
 msgstr "_Ryhmä"
 
-#: view_details.c:1108
+#: view_details.c:1171
 msgid "Last _Modified"
 msgstr "Viimeksi _Muokattu"
 
-#: view_details.c:1115
+#: view_details.c:1183
 msgid "Last _Changed"
 msgstr ""
 
-#: xtypes.c:792 tips:277
+#: view_details.c:1195
+msgid "Last _Accessed"
+msgstr ""
+
+#: xtypes.c:790 tips:300
 msgid "Extended attributes"
 msgstr "Lisäattribuutit"
 
@@ -3750,10 +3732,20 @@ msgstr ""
 "aiheuttaa toisen ikkunan sulkemisen."
 
 #: tips:17
+msgid "Close window when dir missing"
+msgstr ""
+
+#: tips:18
+msgid ""
+"If a directory that is open in a window disappears, (deleted or unmounted) "
+"automatically close window."
+msgstr ""
+
+#: tips:19
 msgid "New window on button 1"
 msgstr "Uusi ikkuna 1-painikkeella"
 
-#: tips:18
+#: tips:20
 msgid ""
 "Clicking with mouse button 1 (usually the left button) opens a directory in "
 "a new window with this turned on. Clicking with the button-2 (middle) will "
@@ -3763,11 +3755,11 @@ msgstr ""
 "napsauttaminen avaa hakemiston uudessa ikkunassa. 2-painikkeen "
 "(keskimmäinen) napsauttaminen käyttää nykyistä ikkunaa."
 
-#: tips:19
+#: tips:21
 msgid "Single-click navigation"
 msgstr "Kertapainallusnavigaatio"
 
-#: tips:20 tips:116
+#: tips:22 tips:139
 msgid ""
 "Clicking on an item opens it with this on. Hold down Control to select the "
 "item instead. If off, clicking once selects an item; double click to open "
@@ -3777,11 +3769,11 @@ msgstr ""
 "painettuna valitaksesi kohteen. Muussa tapauksessa kertapainallus valitsee "
 "kohteen; avaaminen tapahtuu kaksoisnapsauttamalla."
 
-#: tips:21
+#: tips:23
 msgid "Double-click on background resizes"
 msgstr "Kaksoisnapsautus taustalla muuttaa kokoa"
 
-#: tips:22
+#: tips:24
 msgid ""
 "If on then double clicking on the window background resizes the window, just "
 "like clicking on the Automatic size mode button in the toolbar."
@@ -3789,15 +3781,15 @@ msgstr ""
 "Tämän ollessa valittuna ikkunan taustan kaksoisnapsautus muuttaa ikkunan "
 "kokoa samoin, kuin työkalupalkin Automaattinen koko-painike."
 
-#: tips:23
+#: tips:25
 msgid "Sorting"
 msgstr "Järjestäminen"
 
-#: tips:24
+#: tips:26
 msgid "Directories come first (for sort by name)"
 msgstr "Kansiot ensin (nimen mukaan järjestettäessä)"
 
-#: tips:25
+#: tips:27
 msgid ""
 "If this is on then directories will always appear before anything else when "
 "sorting by name."
@@ -3805,11 +3797,11 @@ msgstr ""
 "Tämän ollessa valittuna kansiot näytetään aina ensimmäisenä järjestettäessä "
 "nimen mukaan."
 
-#: tips:26
+#: tips:28
 msgid "Capitalised names first (for sort by name)"
 msgstr "Suuraakkosilla kirjoitetut ensin (nimen mukaan järjestettäessä)"
 
-#: tips:27
+#: tips:29
 msgid ""
 "If on, all filenames starting with a capital letter come before filenames "
 "starting with lowercase ones."
@@ -3817,15 +3809,15 @@ msgstr ""
 "Tämän ollessa valittuna kaikki suuraakkosella alkavat tiedostonimet "
 "esitetään ennen pienaakkosella alkavia."
 
-#: tips:29
+#: tips:31
 msgid "Default settings for new windows"
 msgstr "Oletusasetukset uusille ikkunoille"
 
-#: tips:30
+#: tips:32
 msgid "Inherit options from source window"
 msgstr "Peri asetukset lähdeikkunalta"
 
-#: tips:31
+#: tips:33
 msgid ""
 "If this is on then display options for a new window are inherited from the "
 "source window if possible, otherwise they are set to the defaults below."
@@ -3834,27 +3826,27 @@ msgstr ""
 "lähdeikkunalta silloin, kun se on mahdollista. Muussa tapauksessa ne "
 "asetetaan allaoleviin oletusarvoihin."
 
-#: tips:32
+#: tips:34
 msgid "View type:"
 msgstr "Näkymätyyppi:"
 
-#: tips:35
+#: tips:37
 msgid "Sort by:"
 msgstr "Järjestysperuste:"
 
-#: tips:37 tips:54
+#: tips:39 tips:57 tips:82
 msgid "Type"
 msgstr "Tyyppi"
 
-#: tips:38
+#: tips:40
 msgid "Date"
 msgstr "Päivämäärä"
 
-#: tips:40
+#: tips:42
 msgid "Show hidden files"
 msgstr "Näytä piilotetut tiedostot"
 
-#: tips:41
+#: tips:43
 msgid ""
 "If this is on then files whose names start with a dot are shown too, "
 "otherwise they are hidden."
@@ -3862,54 +3854,54 @@ msgstr ""
 "Tämän ollessa valittuna myös .-alkuiset tiedostot näytetään, muussa "
 "tapauksessa ne piilotetaan."
 
-#: tips:42
+#: tips:44
 #, fuzzy
 msgid "Show extended attribute indicator"
 msgstr "Lisäattribuutit"
 
-#: tips:43
+#: tips:45
 msgid ""
 "If this is on then files which have one or more extended attributes set will "
 "have an emblem added to indicate this."
 msgstr ""
 
-#: tips:44
+#: tips:46 tips:47
 msgid "Icon View"
 msgstr "Kuvakenäkymä"
 
-#: tips:45
+#: tips:48
 msgid "Default size:"
 msgstr "Oletuskoko:"
 
-#: tips:46
+#: tips:49
 msgid "Huge Icons"
 msgstr "Jättimäiset kuvakkeet"
 
-#: tips:47 tips:221
+#: tips:50 tips:244
 msgid "Large Icons"
 msgstr "Suuret kuvakkeet"
 
-#: tips:48 tips:220
+#: tips:51 tips:243
 msgid "Small Icons"
 msgstr "Pienet kuvakkeet"
 
-#: tips:50
+#: tips:53
 msgid "Default details:"
 msgstr "Oletustiedot:"
 
-#: tips:51
+#: tips:54
 msgid "No details"
 msgstr "Ei tietoja"
 
-#: tips:56
+#: tips:59
 msgid "Automatic small icons:"
 msgstr "Automaattiset pienet kuvakkeet:"
 
-#: tips:57
+#: tips:60
 msgid "Change at:"
 msgstr "Muutosraja:"
 
-#: tips:59
+#: tips:62
 msgid ""
 "When automatic icon sizing is selected: If the directory contains this many "
 "items then it will be shown using Small Icons, otherwise Large Icons will be "
@@ -3919,15 +3911,15 @@ msgstr ""
 "sisältää näin monta kohdetta, se näytetään käyttäen Pieniä kuvakkeita. "
 "Muussa tapauksessa käytetään Suuria kuvakkeita."
 
-#: tips:60
+#: tips:63
 msgid "Max width (Large icons):"
 msgstr "Enimmäiskoko (Suuret kuvakkeet):"
 
-#: tips:61 tips:64
+#: tips:64 tips:67
 msgid "pixels"
 msgstr "pistettä"
 
-#: tips:62
+#: tips:65
 msgid ""
 "Text wider than this is broken onto two lines in Large Icons mode. In Huge "
 "Icons mode, text is wrapped when 50% wider than this."
@@ -3936,85 +3928,158 @@ msgstr ""
 "Jättimäiset kuvakkeet-tilassa teksti kierrätetään, kun se on 50% tätä "
 "leveämpi."
 
-#: tips:63
+#: tips:66
 msgid "(Small Icons):"
 msgstr "(Pienet kuvakkeet):"
 
-#: tips:65
+#: tips:68
 msgid "Maximum width for the text beside a Small Icon."
 msgstr "Pienten kuvakkeiden vieressä olevan tekstin enimmäisleveys."
 
-#: tips:66
-msgid "Order small icons vertically"
-msgstr ""
-
-#: tips:67
-msgid ""
-"If this option is on, then small icons are arranged in columns, not rows."
-msgstr ""
-
-#: tips:68
+#: tips:69
 msgid "Order large icons vertically"
 msgstr ""
 
-#: tips:69
+#: tips:70
 msgid ""
 "If this option is on, then large icons are arranged in columns, not rows."
 msgstr ""
 
 #: tips:71
+msgid "Order small icons vertically"
+msgstr ""
+
+#: tips:72
+msgid ""
+"If this option is on, then small icons are arranged in columns, not rows."
+msgstr ""
+
+#: tips:75
 msgid "Show column headings"
 msgstr "Näytä sarakkeiden otsakkeet"
 
-#: tips:72
+#: tips:76
 msgid "If this is on then column headings will be shown in the list view."
 msgstr ""
 "Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
 
-#: tips:73
+#: tips:77
 #, fuzzy
 msgid "Show full type"
 msgstr "Järjestä tyypin mukaan"
 
-#: tips:74
+#: tips:78
 msgid ""
 "If this is on then the full description of each object's type will be show "
 "rather than a short summary of its basic type."
 msgstr ""
 
-#: tips:75
+#: tips:79
+#, fuzzy
+msgid "Show Columns"
+msgstr "Näytä sarakkeiden otsakkeet"
+
+#: tips:81
+#, fuzzy
+msgid "If this is on then Name column will be shown in the list view."
+msgstr ""
+"Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
+
+#: tips:83
+#, fuzzy
+msgid "If this is on then Type column will be shown in the list view."
+msgstr ""
+"Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
+
+#: tips:85
+#, fuzzy
+msgid "If this is on then Size column will be shown in the list view."
+msgstr ""
+"Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
+
+#: tips:87
+#, fuzzy
+msgid "If this is on then Permissions column will be shown in the list view."
+msgstr ""
+"Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
+
+#: tips:89
+#, fuzzy
+msgid "If this is on then Owner column will be shown in the list view."
+msgstr ""
+"Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
+
+#: tips:91
+#, fuzzy
+msgid "If this is on then Group column will be shown in the list view."
+msgstr ""
+"Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
+
+#: tips:92
+#, fuzzy
+msgid "Last Modified"
+msgstr "Viimeksi _Muokattu"
+
+#: tips:93
+#, fuzzy
+msgid "If this is on then Last Modified column will be shown in the list view."
+msgstr ""
+"Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
+
+#: tips:94
+msgid "Last Changed"
+msgstr ""
+
+#: tips:95
+#, fuzzy
+msgid "If this is on then Last Changed column will be shown in the list view."
+msgstr ""
+"Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
+
+#: tips:96
+#, fuzzy
+msgid "Last Accessed"
+msgstr "Hakemisto '%s' ei ole saatavilla"
+
+#: tips:97
+#, fuzzy
+msgid "If this is on then Last Accessed column will be shown in the list view."
+msgstr ""
+"Tämän ollessa valittuna sarakkeiden otsakkeet näytetään listanäkymässä."
+
+#: tips:98
 msgid "Tools/Minibuffer"
 msgstr "Työkalut/Minipuskuri"
 
-#: tips:76
+#: tips:99
 msgid "Toolbar"
 msgstr "Työkalupalkki"
 
-#: tips:77
+#: tips:100
 msgid "Toolbar type:"
 msgstr "Työkalupalkin tyyppi:"
 
-#: tips:78
+#: tips:101
 msgid "No toolbar"
 msgstr "Ei työkalupalkkia"
 
-#: tips:79
+#: tips:102
 msgid "Icons only"
 msgstr "Vain kuvakkeet"
 
-#: tips:80
+#: tips:103
 msgid "Text under icons"
 msgstr "Teksti kuvakkeiden alla"
 
-#: tips:81
+#: tips:104
 msgid "Text beside icons"
 msgstr "Teksti kuvakkeiden vieressä"
 
-#: tips:82
+#: tips:105
 msgid "Show totals of items"
 msgstr "Näytä kohteiden yhteismäärä"
 
-#: tips:83
+#: tips:106
 msgid ""
 "Show the number of items displayed in a filer window, as well as the number "
 "of hidden items (if any). When there's a selection, show the number of "
@@ -4024,15 +4089,15 @@ msgstr ""
 "samoin kuin piilotettujen kohteiden määrä (jos yhtään). Kun on tehty "
 "valinta, näytä valittujen kohteiden lukumäärä ja yhteiskoko."
 
-#: tips:84
+#: tips:107
 msgid "Select the buttons you want on the bar:"
 msgstr "Valitse palkkiin haluamasi painikkeet:"
 
-#: tips:85
+#: tips:108
 msgid "Width of toolbar sets minimum width of window"
 msgstr "Työkalupalkin leveys määrää ikkunan vähimmäisleveyden"
 
-#: tips:86
+#: tips:109
 msgid ""
 "Each filer window is constrained to be wide enough to show the whole of the "
 "toolbar"
@@ -4040,15 +4105,15 @@ msgstr ""
 "Jokainen tiedostonhallintaikkuna pakotetaan vähintään niin leveäksi, että "
 "koko työkalupalkki mahtuu näkyviin"
 
-#: tips:87
+#: tips:110
 msgid "Minibuffer"
 msgstr "Minipuskuri"
 
-#: tips:88
+#: tips:111
 msgid "Beep if Tab-completion fails"
 msgstr "Piippaa, jos Tab-täydennys epäonnistuu"
 
-#: tips:89
+#: tips:112
 msgid ""
 "When using the `Enter Path...' minibuffer and Tab is pressed, beep if "
 "nothing happens (eg, because there are several possibilities and the next "
@@ -4058,11 +4123,11 @@ msgstr ""
 "piippaa, jos mitään ei tapahdu (esim. koska on useita vaihtoehtoja ja "
 "seuraava merkki vaihtelee)."
 
-#: tips:90
+#: tips:113
 msgid "Beep if there are several matches"
 msgstr "Piippaa, jos vastaavuuksia on useita"
 
-#: tips:91
+#: tips:114
 msgid ""
 "When using the `Enter Path...' minibuffer and Tab is pressed, beep if there "
 "is more than one matching file, even though some more letters were added."
@@ -4071,7 +4136,7 @@ msgstr ""
 "piippaa, jos vastaavia kohteita on enemmän kuin yksi, vaikka merkkejä "
 "olisikin lisätty."
 
-#: tips:94
+#: tips:117
 msgid ""
 "When thumbnails are turned on, each image file in a directory is loaded and "
 "a small thumbnail of it is shown."
@@ -4079,11 +4144,11 @@ msgstr ""
 "Pienoiskuvien ollessa käytössä hakemiston jokainen kuvatiedosto ladataan ja "
 "siitä esitetään pieni pienoiskuva."
 
-#: tips:95
+#: tips:118
 msgid "Show image thumbnails"
 msgstr "Näytä pienoiskuvat"
 
-#: tips:96
+#: tips:119
 msgid ""
 "This is the default setting for new windows. Use the Display menu to turn "
 "thumbnails on and off for individual windows."
@@ -4091,16 +4156,16 @@ msgstr ""
 "Tämä on oletusasetus uusille ikkunoille. Voit ottaa pienoiskuvat käyttöön "
 "yksittäisissä ikkunoissa Näytä-valikon kautta."
 
-#: tips:97
+#: tips:120
 #, fuzzy
 msgid "Video thumbnails"
 msgstr "Näytä Pienoiskuvat"
 
-#: tips:98
+#: tips:121
 msgid "Thumbnails cache"
 msgstr "Pienoiskuvavälimuisti"
 
-#: tips:99
+#: tips:122
 msgid ""
 "To speed things up, the generated thumbnails are stored in the hidden ~/."
 "thumbnails directory. Click here to remove all the cached thumbnails. They "
@@ -4110,16 +4175,16 @@ msgstr ""
 "thumbnails-hakemistoon. Paina tästä poistaaksesi kaikki pienoiskuvat "
 "välimuistista. Ne luodaan uudelleen tarvittaessa."
 
-#: tips:100
+#: tips:123
 #, fuzzy
 msgid "Manage thumbnails"
 msgstr "Näytä pienoiskuvat"
 
-#: tips:101 tips:158
+#: tips:124 tips:181
 msgid "Pinboard"
 msgstr "Työpöytä"
 
-#: tips:102
+#: tips:125
 msgid ""
 "When using a pinboard, you can drag files and applications onto the desktop "
 "background to create shortcuts to them."
@@ -4127,47 +4192,47 @@ msgstr ""
 "Työpöydän ollessa käytössä voit vetää tiedostoja ja sovelluksia työpöydän "
 "taustalle luodaksesi niihin pikakuvakkeet."
 
-#: tips:103 tips:217
+#: tips:126 tips:240
 msgid "Appearance"
 msgstr "Ulkoasu"
 
-#: tips:104
+#: tips:127
 msgid "Foreground:"
 msgstr "Etuala:"
 
-#: tips:105
+#: tips:128
 msgid "Text shadow:"
 msgstr "Tekstin varjo:"
 
-#: tips:106
+#: tips:129
 msgid "Background:"
 msgstr "Tausta:"
 
-#: tips:107
+#: tips:130
 msgid "No shadow"
 msgstr "Ei varjoa"
 
-#: tips:108
+#: tips:131
 msgid "Thin"
 msgstr "Ohut"
 
-#: tips:109
+#: tips:132
 msgid "Thick"
 msgstr "Paksu"
 
-#: tips:110
+#: tips:133
 msgid "Use custom font:"
 msgstr "Mukautettu kirjasin:"
 
-#: tips:111
+#: tips:134
 msgid "The font used for the text displayed under the icons"
 msgstr "Kirjasin, jota käytetään kuvakkeiden alla olevassa tekstissä"
 
-#: tips:112
+#: tips:135
 msgid "Fast scaling of images"
 msgstr "Kuvien nopea skaalaus"
 
-#: tips:113
+#: tips:136
 msgid ""
 "Choose between the fast or slow method of scaling backdrop images.  The slow "
 "method can give better results."
@@ -4175,19 +4240,19 @@ msgstr ""
 "Valitse nopean ja hitaan taustakuvien skaalausmenetelmän väliltä. Hidas "
 "menetelmä saattaa antaa paremman tuloksen."
 
-#: tips:114
+#: tips:137
 msgid "Pinboard behaviour"
 msgstr "Työpöydän toiminta"
 
-#: tips:115
+#: tips:138
 msgid "Single-click to open"
 msgstr "Kertanapsautus avaa"
 
-#: tips:117
+#: tips:140
 msgid "Keep icons within screen limits"
 msgstr "Pidä kuvakkeet ruudun alueella"
 
-#: tips:118
+#: tips:141
 msgid ""
 "If this is set, pinboard icons are always kept completely within screen "
 "limits, including the label."
@@ -4195,39 +4260,39 @@ msgstr ""
 "Tämän ollessa valittuna työpöydän kuvakkeet pidetään aina kokonaan ruudun "
 "rajojen sisäpuolella nimikettä myöten."
 
-#: tips:119
+#: tips:142
 msgid "Icon grid step:"
 msgstr "Kuvakeruudukon askelväli:"
 
-#: tips:120
+#: tips:143
 msgid "Fine"
 msgstr "Hieno"
 
-#: tips:121
+#: tips:144
 msgid "Use a 2-pixel grid for positioning icons on the desktop."
 msgstr "Käytä 2 kuvapisteen ruudukkoa kuvakkeiden sijoitteluun työpöydällä."
 
-#: tips:122
+#: tips:145
 msgid "Medium"
 msgstr "Kohtalainen"
 
-#: tips:123
+#: tips:146
 msgid "Use a 16-pixel grid for positioning icons on the desktop."
 msgstr "Käytä 16 kuvapisteen ruudukkoa kuvakkeiden sijoitteluun työpöydällä."
 
-#: tips:124
+#: tips:147
 msgid "Coarse"
 msgstr "Karkea"
 
-#: tips:125
+#: tips:148
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Käytä 32 kuvapisteen ruudukkoa kuvakkeiden sijoitteluun työpöydällä."
 
-#: tips:126 tips:128
+#: tips:149 tips:151
 msgid "Iconified windows"
 msgstr "Pienennetyt ikkunat"
 
-#: tips:127
+#: tips:150
 msgid ""
 "Most window managers provide a way to iconify (or 'minimise') windows, and "
 "various programs, including ROX-Filer, can be used to display the iconified "
@@ -4237,11 +4302,11 @@ msgstr ""
 "ikkunoita, ja useat ohjelmat, ROX-Filer mukaanluettuna, kykenevät näyttämään "
 "nämä pienennetyt ikkunat."
 
-#: tips:129
+#: tips:152
 msgid "Show iconified windows"
 msgstr "Näytä pienennetyt ikkunat"
 
-#: tips:130
+#: tips:153
 msgid ""
 "If this option is on, the filer will show each iconified window as a small "
 "button on the pinboard. Requires a compatible window manager, and the "
@@ -4251,11 +4316,11 @@ msgstr ""
 "ikkunan pienenä kuvakkeena työpöydällä. Vaatii yhteensopivan "
 "ikkunanmanagerin ja ROX-työpöydän pitää olla käytössä."
 
-#: tips:131
+#: tips:154
 msgid "Show per workspace"
 msgstr ""
 
-#: tips:132
+#: tips:155
 #, fuzzy
 msgid ""
 "If this option is on, the filer will only show iconified windows associated "
@@ -4265,39 +4330,39 @@ msgstr ""
 "ikkunan pienenä kuvakkeena työpöydällä. Vaatii yhteensopivan "
 "ikkunanmanagerin ja ROX-työpöydän pitää olla käytössä."
 
-#: tips:133
+#: tips:156
 msgid "Iconify to the"
 msgstr "Pienennä"
 
-#: tips:134
+#: tips:157
 msgid "top-left"
 msgstr "ylävasemmalle"
 
-#: tips:135
+#: tips:158
 msgid "top-right"
 msgstr "yläoikealle"
 
-#: tips:136
+#: tips:159
 msgid "bottom-left"
 msgstr "alavasemmalle"
 
-#: tips:137
+#: tips:160
 msgid "bottom-right"
 msgstr "alaoikealle"
 
-#: tips:138
+#: tips:161
 msgid ", going"
 msgstr ", lisäten"
 
-#: tips:139
+#: tips:162
 msgid "horizontally"
 msgstr "vaakasuuntaisesti"
 
-#: tips:140
+#: tips:163
 msgid "vertically"
 msgstr "pystysuuntaisesti"
 
-#: tips:141
+#: tips:164
 msgid ""
 "Sometimes the filer doesn't know about your desktop furniture and puts "
 "iconified windows under (for example) the Gnome panel. You can define a top "
@@ -4309,111 +4374,111 @@ msgstr ""
 "ylä- ja alamarginaalit välttääksesi kuvakkeiden sijoittelua näille alueille. "
 "Tiedostonhallinta tietää kyllä oman paneelinsa sijainnin."
 
-#: tips:142
+#: tips:165
 msgid "Top margin"
 msgstr "Ylämarginaali"
 
-#: tips:143
+#: tips:166
 msgid "Height of no-go area at top of screen."
 msgstr "Luoksepääsemättömän alueen korkeus ruudun yläreunassa."
 
-#: tips:144
+#: tips:167
 msgid "Bottom margin"
 msgstr "Alamarginaali"
 
-#: tips:145
+#: tips:168
 msgid "Height of no-go area at bottom of screen."
 msgstr "Luoksepääsemättömän alueen korkeus ruudun alareunassa."
 
-#: tips:146
+#: tips:169
 #, fuzzy
 msgid "Left margin"
 msgstr "Ylämarginaali"
 
-#: tips:147
+#: tips:170
 #, fuzzy
 msgid "Width of no-go area at left of screen."
 msgstr "Luoksepääsemättömän alueen korkeus ruudun yläreunassa."
 
-#: tips:148
+#: tips:171
 #, fuzzy
 msgid "Right margin"
 msgstr "Alamarginaali"
 
-#: tips:149
+#: tips:172
 #, fuzzy
 msgid "Width of no-go area at right of screen."
 msgstr "Luoksepääsemättömän alueen korkeus ruudun yläreunassa."
 
-#: tips:150
+#: tips:173
 msgid "Desktop"
 msgstr ""
 
-#: tips:151
+#: tips:174
 msgid ""
 "When run by a session manager program (such as ROX-Session) the filer can "
 "open up a panel and/or the pinboard.  Here you configure which."
 msgstr ""
 
-#: tips:152
+#: tips:175
 #, fuzzy
 msgid "Panel only"
 msgstr "Vain kuva"
 
-#: tips:153
+#: tips:176
 #, fuzzy
 msgid "Only a panel is shown."
 msgstr "Vain kuva näytetään."
 
-#: tips:154
+#: tips:177
 #, fuzzy
 msgid "Pinboard only"
 msgstr "Työpöytä"
 
-#: tips:155
+#: tips:178
 #, fuzzy
 msgid "Only the pinboard is shown."
 msgstr "Vain kuva näytetään."
 
-#: tips:156
+#: tips:179
 #, fuzzy
 msgid "Panel and pinboard"
 msgstr "Työpöytä"
 
-#: tips:157
+#: tips:180
 msgid "Both a panel and a pinboard are shown."
 msgstr ""
 
-#: tips:159
+#: tips:182
 msgid "Enter the name of the pinboard to show here."
 msgstr ""
 
-#: tips:160
+#: tips:183
 #, fuzzy
 msgid "Panel (obsolete)"
 msgstr "Paneelin tyyli"
 
-#: tips:161
+#: tips:184
 msgid ""
 "Enter the name of the panel to show here. This option is now only used when "
 "upgrading from an old version."
 msgstr ""
 
-#: tips:162
+#: tips:185
 msgid "Changes here take effect the next time the filer is run."
 msgstr ""
 
-#: tips:163
+#: tips:186
 msgid ""
 "The session manager activates these options by\n"
 "using the -S or --rox-session argument to rox."
 msgstr ""
 
-#: tips:164
+#: tips:187
 msgid "Action windows"
 msgstr "Toimintaikkunat"
 
-#: tips:165
+#: tips:188
 msgid ""
 "Action windows appear when you start a background\n"
 "operation, such as copying or deleting some files."
@@ -4421,97 +4486,97 @@ msgstr ""
 "Toimintaikkuna avautuu, kun aloitat taustatoiminnon,\n"
 "kuten tiedostojen kopioinnin tai poiston."
 
-#: tips:166
+#: tips:189
 msgid "Auto-start (Quiet) these actions"
 msgstr "Kännistä automaattisesti (hiljaisena) nämä toiminnot"
 
-#: tips:168
+#: tips:191
 msgid "Copy files without confirming first."
 msgstr "Kopioi tiedostot pyytämättä vahvistusta."
 
-#: tips:170
+#: tips:193
 msgid "Move files without confirming first."
 msgstr "Siirrä tiedostot pyytämättä vahvistusta."
 
-#: tips:172
+#: tips:195
 msgid "Create links to files without confirming first."
 msgstr "Luo linkit tiedostoihin pyytämättä vahvistusta."
 
-#: tips:174
+#: tips:197
 msgid "Delete files without confirming first."
 msgstr "Poista tiedostot pyytämättä vahvistusta.."
 
-#: tips:175
+#: tips:198
 msgid "Mount"
 msgstr "Liitä"
 
-#: tips:176
+#: tips:199
 msgid "Mount and unmount filesystems without confirming first."
 msgstr "Liitä ja irrota tiedostojärjestelmät pyytämättä vahvistusta."
 
-#: tips:177
+#: tips:200
 msgid "Default settings"
 msgstr "Oletusasetukset"
 
-#: tips:179
+#: tips:202
 msgid "Don't confirm deletion of non-writeable items."
 msgstr "Poista kirjoitussuojatut tiedostot pyytämättä vahvistusta."
 
-#: tips:181
+#: tips:204
 msgid "Don't display so much information in the message area."
 msgstr "Näytä vähemmän tietoa viestialueella."
 
-#: tips:183
+#: tips:206
 msgid "Also change contents of subdirectories."
 msgstr "Muuta myös alihakemistojen sisältöä."
 
-#: tips:190
+#: tips:213
 #, fuzzy
 msgid "Mount commands"
 msgstr "Liitoskohta"
 
-#: tips:191
+#: tips:214
 #, fuzzy
 msgid "Mount command"
 msgstr "Liitoskohta"
 
-#: tips:192
+#: tips:215
 msgid "The command used to mount a filesystem. If unsure, use \"mount\"."
 msgstr ""
 
-#: tips:193
+#: tips:216
 #, fuzzy
 msgid "Unmount command"
 msgstr "Irrota"
 
-#: tips:194
+#: tips:217
 msgid ""
 "The command used to unmount a filesystem. If unsure, use \"umount\" (yes, "
 "without the first \"n\")."
 msgstr ""
 
-#: tips:195
+#: tips:218
 #, fuzzy
 msgid "Eject command"
 msgstr "_Käytä komentoa"
 
-#: tips:196
+#: tips:219
 msgid "The command used to eject removable media. If unsure, use \"eject\"."
 msgstr ""
 
-#: tips:197
+#: tips:220
 msgid "Drag and Drop"
 msgstr "Vetäminen ja Pudottaminen"
 
-#: tips:198
+#: tips:221
 msgid "Dragging to icons"
 msgstr "Kuvakkeisiin raahaaminen"
 
-#: tips:199
+#: tips:222
 msgid "Allow dragging to icons in filer windows"
 msgstr "Salli tiedostonhallintaikkunoiden kuvakkeisiin raahaaminen"
 
-#: tips:200
+#: tips:223
 msgid ""
 "When this is on you can drag a file over a sub-directory or program in a "
 "filer window. The item will highlight when you do this and dropping the file "
@@ -4521,11 +4586,11 @@ msgstr ""
 "päälle tiedostonhallintaikkunassa. Tällöin kohde korostetaan ja "
 "pudottaessasi tiedosto lisätään hakemistoon tai ladataan sovellukseen."
 
-#: tips:201
+#: tips:224
 msgid "Directories spring open"
 msgstr "Hakemistot ponnahtavat auki"
 
-#: tips:202
+#: tips:225
 msgid ""
 "This option, which requires the above option to be turned on too, causes the "
 "highlighted directory to 'spring open' after the file is held over it for a "
@@ -4535,15 +4600,15 @@ msgstr ""
 "korostetun hakemiston 'ponnahtamaan auki' pidettyäsi tiedostoa sen "
 "yläpuolella hetken aikaa."
 
-#: tips:203
+#: tips:226
 msgid "Spring delay:"
 msgstr "Ponnahdusviive:"
 
-#: tips:204
+#: tips:227
 msgid "ms"
 msgstr "ms"
 
-#: tips:205
+#: tips:228
 msgid ""
 "This option sets how long, in ms, you must hold a file over a directory "
 "before it will spring open. The above option must be turned on for this to "
@@ -4553,19 +4618,19 @@ msgstr ""
 "tiedostoa hakemiston päällä, ennen kuin se ponnahtaa auki. Myös ylläoleva "
 "asetus täytyy olla valittuna, jotta tämä vaikuttaisi."
 
-#: tips:206
+#: tips:229
 msgid "When dragging files with the left mouse button"
 msgstr "Raahattaessa tiedostoja hiiren vasemmalla painikkeella"
 
-#: tips:207 tips:211
+#: tips:230 tips:234
 msgid "Show a menu of possible actions"
 msgstr "Näytä mahdolliset toiminnot valikkona"
 
-#: tips:208
+#: tips:231
 msgid "Copy the files"
 msgstr "Kopioi tiedostot"
 
-#: tips:209
+#: tips:232
 msgid ""
 "Note that you can still get the menu to appear, by dragging with Alt held "
 "down."
@@ -4573,15 +4638,15 @@ msgstr ""
 "Huomaa, että saat yhä valikon esiin raahaamalla, kun Alt-näppäin on "
 "painettuna."
 
-#: tips:210
+#: tips:233
 msgid "When dragging files with the middle mouse button"
 msgstr "Raahattaessa tiedostoja hiiren keskipainikkeella"
 
-#: tips:212
+#: tips:235
 msgid "Move the files"
 msgstr "Siirrä tiedostot"
 
-#: tips:213
+#: tips:236
 msgid ""
 "Note that you can still get the menu to appear, by dragging with the left "
 "button and holding down the Alt key."
@@ -4589,11 +4654,11 @@ msgstr ""
 "Huomaa, että saat yhä valikon esiin raahaamalla vasemmalla painikkeella, kun "
 "Alt-näppäin on painettuna."
 
-#: tips:214
+#: tips:237
 msgid "Download handler"
 msgstr "Latauksenkäsittelijä"
 
-#: tips:215
+#: tips:238
 msgid ""
 "When you drag a file from a web browser or other remote source, this program "
 "will be run to download it. $1 is the URI dragged to the filer, and the "
@@ -4605,35 +4670,35 @@ msgstr ""
 "raahaamasi URI, ja kohde on nykyinen hakemisto. Esim:\n"
 "xterm -e wget $1"
 
-#: tips:216
+#: tips:239
 msgid "Menus"
 msgstr "Valikot"
 
-#: tips:218
+#: tips:241
 msgid "Size of icons in menus:"
 msgstr "Valikkojen kuvakkeiden koko:"
 
-#: tips:219
+#: tips:242
 msgid "No Icons"
 msgstr "Ei Kuvakkeita"
 
-#: tips:222
+#: tips:245
 msgid "Same as current window"
 msgstr "Sama kuin nykyisessä ikkunassa"
 
-#: tips:223
+#: tips:246
 msgid "Same as default"
 msgstr "Sama kuin oletus"
 
-#: tips:224
+#: tips:247
 msgid "Behaviour"
 msgstr "Toimintatapa"
 
-#: tips:225
+#: tips:248
 msgid "File menu on right-click"
 msgstr "Tiedostovalikko oikealla painikkeella"
 
-#: tips:226
+#: tips:249
 msgid ""
 "Show the File menu instead of the main menu when right-clicking with files "
 "selected (the main menu can be accessed by holding down Control)."
@@ -4642,41 +4707,41 @@ msgstr ""
 "hiiren painiketta, kun valittuna on tiedostoja (päävalikon saat pitämällä "
 "Ctrl-näppäinta painettuna)."
 
-#: tips:227
+#: tips:250
 #, fuzzy
 msgid "Terminal emulator program"
 msgstr "'Pääte Tähän'-sovellus"
 
-#: tips:228
+#: tips:251
 #, fuzzy
 msgid "The program to launch when you choose `Terminal Here' from the menu."
 msgstr ""
 "Sovellus, joka käynnistetään valitessasi valikosta toiminnon 'Pääte Tähän'."
 
-#: tips:229
+#: tips:252
 msgid "Keyboard shortcuts"
 msgstr "Pikanäppäimet"
 
-#: tips:230
+#: tips:253
 #, fuzzy
 msgid "Applications"
 msgstr "ROX-sovellus"
 
-#: tips:231
+#: tips:254
 msgid "Show .desktop applications in \"Send To\" menu."
 msgstr ""
 
-#: tips:232
+#: tips:255
 msgid ""
 "Show applications installed via .desktop files (usually in /usr/share/"
 "applications and ~/.local/share/applications) in \"Send To\" menus."
 msgstr ""
 
-#: tips:234
+#: tips:257
 msgid "MIME types"
 msgstr "MIME-tyypit"
 
-#: tips:235
+#: tips:258
 #, fuzzy
 msgid ""
 "The filer uses a set of rules to work out the correct MIME type for each "
@@ -4689,24 +4754,24 @@ msgstr ""
 "\n"
 "http://rox.sourceforge.net/mime_editor.html"
 
-#: tips:236
+#: tips:259
 msgid "Edit MIME rules"
 msgstr ""
 
-#: tips:237
+#: tips:260
 #, fuzzy
 msgid "Themes"
 msgstr "Ajat"
 
-#: tips:238
+#: tips:261
 msgid "Icon theme"
 msgstr "Kuvaketeema"
 
-#: tips:239
+#: tips:262
 msgid "Themes should be placed inside the ~/.icons directory."
 msgstr "Teemat pitäisi sijoittaa ~/.icons-hakemistoon"
 
-#: tips:240
+#: tips:263
 msgid ""
 "Use the 'Set Icon...' dialog box to set the icon for each MIME type. Note "
 "that icons set this way override those from the selected theme."
@@ -4714,39 +4779,39 @@ msgstr ""
 "Käytä 'Aseta Kuvake...'-ikkunaa asettaaksesi kuvakkeet eri MIME-tyypeille. "
 "Huomaa, että näin valitut kuvakkeet syrjäyttävät valitun teeman kuvakkeet."
 
-#: tips:241
+#: tips:264
 msgid "Colours"
 msgstr "Värit"
 
-#: tips:242
+#: tips:265
 msgid "File type colours"
 msgstr "Tiedostotyyppien värit"
 
-#: tips:243
+#: tips:266
 msgid "Colour files based on their types"
 msgstr "Väritä tiedostot tyyppien mukaan"
 
-#: tips:244
+#: tips:267
 msgid "Filenames (and details) are coloured according to the file's type."
 msgstr "Tiedostonimet (ja tiedot) väritetään tiedoston tyypin mukaan."
 
-#: tips:245
+#: tips:268
 msgid "Directory:"
 msgstr "Hakemisto:"
 
-#: tips:246
+#: tips:269
 msgid "Regular file:"
 msgstr "Tavallinen tiedosto:"
 
-#: tips:247
+#: tips:270
 msgid "Pipe:"
 msgstr "Putki:"
 
-#: tips:248
+#: tips:271
 msgid "Socket:"
 msgstr "Vastake:"
 
-#: tips:250
+#: tips:273
 msgid ""
 "Error, such as a symlink which points to a non-existant file, or a file "
 "which the filer does not have permission to examine."
@@ -4754,19 +4819,19 @@ msgstr ""
 "Virhe, kuten symbolinen linkki olemattomaan tiedostoon tai tiedosto, jonka "
 "tarkasteluun tiedostonhallinnalla ei ole oikeuksia."
 
-#: tips:251
+#: tips:274
 msgid "Character device:"
 msgstr "Merkkilaite:"
 
-#: tips:252
+#: tips:275
 msgid "Block device:"
 msgstr "Lohkolaite:"
 
-#: tips:253
+#: tips:276
 msgid "Door:"
 msgstr "Ovi:"
 
-#: tips:254
+#: tips:277
 msgid ""
 "Door files are a bit like sockets or pipes, and have only been seen on "
 "Solaris."
@@ -4774,39 +4839,39 @@ msgstr ""
 "Ovitiedostot muistuttavat hieman vastakkeita ja putkia, mutta niitä on nähty "
 "vain Solaris-järjestelmissä."
 
-#: tips:255
+#: tips:278
 msgid "Executable file:"
 msgstr "Käynnistystiedosto:"
 
-#: tips:256
+#: tips:279
 msgid "Application directory:"
 msgstr "Sovellushakemisto:"
 
-#: tips:257
+#: tips:280
 msgid "Unknown type:"
 msgstr "Tuntematon tyyppi:"
 
-#: tips:258
+#: tips:281
 msgid "Compatibility"
 msgstr "Yhteensopivuus"
 
-#: tips:259
+#: tips:282
 msgid "Command line program"
 msgstr ""
 
-#: tips:260
+#: tips:283
 msgid "Make script"
 msgstr ""
 
-#: tips:261
+#: tips:284
 msgid "Window manager problems"
 msgstr "Ikkunamanagerin ongelmat"
 
-#: tips:262
+#: tips:285
 msgid "Override window manager control of the pinboard and panels"
 msgstr "Syrjäytä ikkunamanagerin hallinta työpöydältä ja paneeleista."
 
-#: tips:263
+#: tips:286
 msgid ""
 "Some window managers don't support the new Extended Window Manager Hints "
 "system, and so treat the pinboard and panels like normal windows. Turn this "
@@ -4821,12 +4886,12 @@ msgstr ""
 "reunusten ilmestyminen ikkunoiden ympärille tai niiden esiintyminen "
 "ikkunanvalintalistoissa."
 
-#: tips:264
+#: tips:287
 msgid "Pass all backdrop mouse clicks to window manager"
 msgstr ""
 "Ohjaa taustakuvan päällä tapahtuvat hiiren napsautukset ikkunamanagerille"
 
-#: tips:265
+#: tips:288
 msgid ""
 "Normally, right clicking on the desktop background will open the pinboard "
 "menu and left clicking will clear the selection. Turn this on to forward the "
@@ -4837,11 +4902,11 @@ msgstr ""
 "tapahtumat sen sijaan ikkunamanagerillesi. Kuvakkeen napsauttamisia ei "
 "ohjata eteenpäin."
 
-#: tips:266
+#: tips:289
 msgid "Blackbox root menus hack"
 msgstr "Blackboxin juurivalikon korjaus"
 
-#: tips:267
+#: tips:290
 msgid ""
 "Blackbox, Fluxbox and similar window managers do not yet work well with the "
 "ROX-Filer pinboard. This option enables some workarounds. These window "
@@ -4853,11 +4918,11 @@ msgstr ""
 "kiertokeinoja. Näiden ikkunamanagerien odotetaan muuttavan käytöstään "
 "uudemmissa versioissaan, jolloin tämä ei ole enää tarpeellista."
 
-#: tips:268
+#: tips:291
 msgid "Panel is a 'dock'"
 msgstr "Paneeli on 'telakka'"
 
-#: tips:269
+#: tips:292
 #, fuzzy
 msgid ""
 "Makes sure panels stay against screen edges. Disable this option if the "
@@ -4867,37 +4932,37 @@ msgstr ""
 "Poista tämä valinta, jos paneeli pysyy haluamattasi aina päällimmäisenä. "
 "Vaatii ohjelman uudelleenkäynnistyksen."
 
-#: tips:270
+#: tips:293
 #, fuzzy
 msgid "Panel stays on top"
 msgstr "Paneelin tyyli"
 
-#: tips:271
+#: tips:294
 msgid ""
 "Keeps the panel above other windows. Enable this option to make sure the "
 "dock option works correctly in some versions of compiz. May require a "
 "restart to take effect."
 msgstr ""
 
-#: tips:272
+#: tips:295
 msgid "Panel confined to work area"
 msgstr ""
 
-#: tips:273
+#: tips:296
 msgid ""
 "Keeps the panel confined to the work area specified by the Extended Window "
 "Manager Specification. Applies to new panels."
 msgstr ""
 
-#: tips:274
+#: tips:297
 msgid "Drag and drop"
 msgstr "Raahaaminen ja pudottaminen"
 
-#: tips:275
+#: tips:298
 msgid "Don't use hostnames"
 msgstr "Älä käytä isäntänimiä"
 
-#: tips:276
+#: tips:299
 msgid ""
 "Some older applications don't support XDND fully and may need to have this "
 "option turned on. Use this if dragging files to an application shows a + "
@@ -4907,11 +4972,11 @@ msgstr ""
 "vaatia tämän asetuksen valitsemista. Käytä, jos raahatessasi tiedoston "
 "sovelluksen päälle osoittimeen ilmestyy +-merkki, mutta pudotus ei toimi."
 
-#: tips:278
+#: tips:301
 msgid "Don't use extended attributes"
 msgstr "Älä käytä lisäattribuutteja"
 
-#: tips:279
+#: tips:302
 msgid ""
 "This disables the use of extended attributes available in newer operating "
 "systems and file systems.  With this option set the 'Set Type' menu entry is "
@@ -5057,6 +5122,28 @@ msgstr ""
 #, fuzzy
 msgid "<b>Position</b>"
 msgstr "<b>Oikeudet</b>"
+
+#~ msgid ""
+#~ "Error scanning '%s':\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Virhe lukiessa kohdetta '%s:\n"
+#~ "%s"
+
+#~ msgid "Directory missing/deleted"
+#~ msgstr "Hakemisto puuttuu/poistettu"
+
+#~ msgid "Directory '%s' is not accessible"
+#~ msgstr "Hakemisto '%s' ei ole saatavilla"
+
+#~ msgid "Directory '%s' not found."
+#~ msgstr "Hakemistoa '%s' ei löytynyt."
+
+#~ msgid "Copy..."
+#~ msgstr "Kopioi..."
+
+#~ msgid "Copy ... ?"
+#~ msgstr "Kopioidaanko ... ?"
 
 #~ msgid "?'%s' already exists - overwrite?"
 #~ msgstr "?'%s' on jo olemassa - korvataanko?"
