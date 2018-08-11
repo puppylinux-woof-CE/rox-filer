@@ -28,6 +28,7 @@
 
 #include "global.h"
 
+#include "support.h"
 #include "gui_support.h"
 
 #include "choices.h"
@@ -283,7 +284,8 @@ static gchar *choices_find_path_save(const char *leaf, const char *dir,
 gchar *choices_find_xdg_path_save(const char *leaf, const char *dir,
 				  const char *site, gboolean create)
 {
-	gchar	*path, *retval, *tmp;
+	gchar	*path, *target_path, *retval, *tmp;
+	char	*target;
 	
 	g_return_val_if_fail(xdg_dir_list != NULL, NULL);
 
@@ -309,12 +311,22 @@ gchar *choices_find_xdg_path_save(const char *leaf, const char *dir,
 	}
 	
 	path = g_build_filename(tmp, dir, NULL);
-	g_free(tmp);
 	if (create && !exists(path))
 	{
-		if (mkdir(path, 0777))
+		/* May be a symlink to a nonexistent directory. */
+		target = readlink_dup(path);
+		if (target)
+		{
+			target_path = g_build_filename(tmp, target, NULL);
+			if (mkdir(target_path, 0777))
+				g_warning("mkdir(%s): %s\n", target_path, g_strerror(errno));
+			g_free(target);
+			g_free(target_path);
+		}
+		else if (mkdir(path, 0777))
 			g_warning("mkdir(%s): %s\n", path, g_strerror(errno));
 	}
+	g_free(tmp);
 	
 	retval = g_build_filename(path, leaf, NULL);
 	g_free(path);
