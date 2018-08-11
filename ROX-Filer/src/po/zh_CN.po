@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-05 23:42-0500\n"
+"POT-Creation-Date: 2018-08-11 13:45-0500\n"
 "PO-Revision-Date: 2008-12-29 16:32+0100\n"
 "Last-Translator: Babyfai Cheung<babyfai1@yahoo.com.hk>\n"
 "Language-Team: none\n"
@@ -581,11 +581,11 @@ msgstr "挂载 / 解除挂载"
 msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr "ROX-Filer 对系统上的挂载点尚未支持"
 
-#: action.c:2213 menu.c:243 tips:196
+#: action.c:2213 menu.c:243 tips:194
 msgid "Delete"
 msgstr "删除"
 
-#: action.c:2227 tips:201
+#: action.c:2227 tips:199
 msgid "Force"
 msgstr "强制"
 
@@ -594,7 +594,7 @@ msgid "Don't confirm deletion of non-writeable items"
 msgstr "不可确认删除只读的项目"
 
 #: action.c:2230 action.c:2291 action.c:2356 action.c:2439 action.c:2489
-#: tips:203
+#: tips:201
 msgid "Brief"
 msgstr "简洁"
 
@@ -634,7 +634,7 @@ msgstr "权限"
 msgid "Don't list processed files"
 msgstr "不列出已处理的文件"
 
-#: action.c:2294 action.c:2359 tips:205
+#: action.c:2294 action.c:2359 tips:203
 msgid "Recurse"
 msgstr "包含"
 
@@ -662,33 +662,33 @@ msgstr "改变子目录的内容"
 msgid "Type:"
 msgstr "类型："
 
-#: action.c:2413 dnd.c:123 menu.c:238 tips:190
+#: action.c:2413 dnd.c:123 menu.c:238 tips:188
 msgid "Copy"
 msgstr "复制"
 
-#: action.c:2427 action.c:2477 tips:211
+#: action.c:2427 action.c:2477 tips:209
 msgid "Ignore Older"
 msgstr ""
 
-#: action.c:2428 action.c:2478 tips:212
+#: action.c:2428 action.c:2478 tips:210
 #, fuzzy
 msgid "Silently ignore if source is older than destination."
 msgstr "只覆盖旧版本的文件"
 
-#: action.c:2431 action.c:2481 tips:209
+#: action.c:2431 action.c:2481 tips:207
 msgid "Newer"
 msgstr "刷新"
 
-#: action.c:2432 action.c:2482 tips:210
+#: action.c:2432 action.c:2482 tips:208
 #, fuzzy
 msgid "Always over-write if source is newer than destination."
 msgstr "只覆盖旧版本的文件"
 
-#: action.c:2435 action.c:2485 tips:207
+#: action.c:2435 action.c:2485 tips:205
 msgid "Merge"
 msgstr ""
 
-#: action.c:2436 action.c:2486 tips:208
+#: action.c:2436 action.c:2486 tips:206
 #, fuzzy
 msgid "Always merge directories."
 msgstr "目录"
@@ -697,7 +697,7 @@ msgstr "目录"
 msgid "Only log directories as they are copied"
 msgstr "只记录已被复制的目录"
 
-#: action.c:2463 dnd.c:124 tips:192
+#: action.c:2463 dnd.c:124 tips:190
 msgid "Move"
 msgstr "移动"
 
@@ -705,7 +705,7 @@ msgstr "移动"
 msgid "Don't log each file as it is moved"
 msgstr "不记录每个移动的文件"
 
-#: action.c:2512 tips:194
+#: action.c:2512 tips:192
 msgid "Link"
 msgstr "链接"
 
@@ -925,12 +925,12 @@ msgstr ""
 msgid "None of the names have changed. Nothing to do!"
 msgstr "没有名称被改变！"
 
-#: choices.c:434
+#: choices.c:446
 #, c-format
 msgid "%d directories could not be migrated"
 msgstr "目录 %d 不能被迁移"
 
-#: choices.c:436
+#: choices.c:448
 #, c-format
 msgid ""
 "Choices have been moved from \n"
@@ -1748,7 +1748,7 @@ msgstr ""
 "%s\n"
 "(注意:旧的链接已被删除)"
 
-#: infobox.c:571 tips:272
+#: infobox.c:571 tips:270
 msgid "Error:"
 msgstr "错误："
 
@@ -2093,7 +2093,7 @@ msgstr "图标，并显示..."
 msgid "Sizes"
 msgstr "大小"
 
-#: menu.c:213 tips:256
+#: menu.c:213 tips:254
 msgid "Types"
 msgstr "类型"
 
@@ -3517,7 +3517,7 @@ msgstr ""
 msgid "Last _Accessed"
 msgstr ""
 
-#: xtypes.c:790 tips:300
+#: xtypes.c:790 tips:298
 msgid "Extended attributes"
 msgstr "扩展属性"
 
@@ -3728,11 +3728,11 @@ msgstr "缺省大小："
 msgid "Huge Icons"
 msgstr "巨图标"
 
-#: tips:50 tips:244
+#: tips:50 tips:242
 msgid "Large Icons"
 msgstr "大图标"
 
-#: tips:51 tips:243
+#: tips:51 tips:241
 msgid "Small Icons"
 msgstr "小图标"
 
@@ -4013,7 +4013,7 @@ msgid ""
 "background to create shortcuts to them."
 msgstr "当启用桌面时，您可拖放文件或程序到桌面上它们会以捷径型式出现. "
 
-#: tips:126 tips:240
+#: tips:126 tips:238
 msgid "Appearance"
 msgstr "外观"
 
@@ -4254,20 +4254,10 @@ msgid "Enter the name of the pinboard to show here."
 msgstr "在此输入桌面名称"
 
 #: tips:183
-msgid "Panel (obsolete)"
-msgstr "面板(废掉的)"
-
-#: tips:184
-msgid ""
-"Enter the name of the panel to show here. This option is now only used when "
-"upgrading from an old version."
-msgstr "键入面板的名称，此选项只适用於从旧有板本升级的 ROX-Filer"
-
-#: tips:185
 msgid "Changes here take effect the next time the filer is run."
 msgstr "改变会在下次 ROX-Filer 启动时生效"
 
-#: tips:186
+#: tips:184
 #, fuzzy
 msgid ""
 "The session manager activates these options by\n"
@@ -4276,103 +4266,103 @@ msgstr ""
 "Session 管理器，可在启动 rox 时加入 -S 或 --rox-session 这些参数来打开此功"
 "能。"
 
-#: tips:187
+#: tips:185
 msgid "Action windows"
 msgstr "程序诊断窗口"
 
-#: tips:188
+#: tips:186
 msgid ""
 "Action windows appear when you start a background\n"
 "operation, such as copying or deleting some files."
 msgstr "程序诊断窗口会在你执行一些程序，如复制或删除文件时，自动出现."
 
-#: tips:189
+#: tips:187
 msgid "Auto-start (Quiet) these actions"
 msgstr "自动打开 (关闭) 诊断这些程序"
 
-#: tips:191
+#: tips:189
 msgid "Copy files without confirming first."
 msgstr "复制文件而无须先被确认"
 
-#: tips:193
+#: tips:191
 msgid "Move files without confirming first."
 msgstr "移动文件而无须先被确认"
 
-#: tips:195
+#: tips:193
 msgid "Create links to files without confirming first."
 msgstr "链接文件而无须先被确认"
 
-#: tips:197
+#: tips:195
 msgid "Delete files without confirming first."
 msgstr "删除文件而无须先被确认"
 
-#: tips:198
+#: tips:196
 msgid "Mount"
 msgstr "挂载"
 
-#: tips:199
+#: tips:197
 msgid "Mount and unmount filesystems without confirming first."
 msgstr "挂载文件而无须先被确认"
 
-#: tips:200
+#: tips:198
 msgid "Default settings"
 msgstr "默认设定"
 
-#: tips:202
+#: tips:200
 msgid "Don't confirm deletion of non-writeable items."
 msgstr "不确认删除只读项目"
 
-#: tips:204
+#: tips:202
 msgid "Don't display so much information in the message area."
 msgstr "简化消息框内资料"
 
-#: tips:206
+#: tips:204
 msgid "Also change contents of subdirectories."
 msgstr "同样改变子目录内容"
 
-#: tips:213
+#: tips:211
 msgid "Mount commands"
 msgstr "挂载指令"
 
-#: tips:214
+#: tips:212
 msgid "Mount command"
 msgstr "挂载指令"
 
-#: tips:215
+#: tips:213
 msgid "The command used to mount a filesystem. If unsure, use \"mount\"."
 msgstr "用以挂载系统的指令，一般是 \"mount\"."
 
-#: tips:216
+#: tips:214
 msgid "Unmount command"
 msgstr "卸载指令"
 
-#: tips:217
+#: tips:215
 msgid ""
 "The command used to unmount a filesystem. If unsure, use \"umount\" (yes, "
 "without the first \"n\")."
 msgstr "用以卸载系统的指令，一般是 \"umount\"."
 
-#: tips:218
+#: tips:216
 msgid "Eject command"
 msgstr "褪出光碟指令"
 
-#: tips:219
+#: tips:217
 msgid "The command used to eject removable media. If unsure, use \"eject\"."
 msgstr "用以弹出可移动媒体的指令。一般为 \"eject\". "
 
-#: tips:220
+#: tips:218
 msgid "Drag and Drop"
 msgstr "鼠标拖放"
 
-#: tips:221
+#: tips:219
 msgid "Dragging to icons"
 msgstr "拖放图标"
 
-#: tips:222
+#: tips:220
 msgid "Allow dragging to icons in filer windows"
 msgstr "容许在窗口间拖放图标"
 
-#: tips:223
+#: tips:221
 msgid ""
 "When this is on you can drag a file over a sub-directory or program in a "
 "filer window. The item will highlight when you do this and dropping the file "
@@ -4381,11 +4371,11 @@ msgstr ""
 "选项开启后你可将文件在子目录或程序上拖放，该项目会被加亮并拖放进你指定的目录"
 "内，或在你拖进的程序内执行."
 
-#: tips:224
+#: tips:222
 msgid "Directories spring open"
 msgstr "目录弹出并打开"
 
-#: tips:225
+#: tips:223
 msgid ""
 "This option, which requires the above option to be turned on too, causes the "
 "highlighted directory to 'spring open' after the file is held over it for a "
@@ -4394,15 +4384,15 @@ msgstr ""
 "此选项必须连带上一个选项同时开启，在指向加亮的目录时，使它在按着鼠标一段短时"
 "间内自动打开."
 
-#: tips:226
+#: tips:224
 msgid "Spring delay:"
 msgstr "弹出延迟："
 
-#: tips:227
+#: tips:225
 msgid "ms"
 msgstr "微秒"
 
-#: tips:228
+#: tips:226
 msgid ""
 "This option sets how long, in ms, you must hold a file over a directory "
 "before it will spring open. The above option must be turned on for this to "
@@ -4411,43 +4401,43 @@ msgstr ""
 "此选项是用作是设定：你在加亮的目录上按着鼠标而引发该目录被自动打开的延迟时"
 "间，并会以 ms 微秒来计算"
 
-#: tips:229
+#: tips:227
 msgid "When dragging files with the left mouse button"
 msgstr "以鼠标左键拖放"
 
-#: tips:230 tips:234
+#: tips:228 tips:232
 msgid "Show a menu of possible actions"
 msgstr "显示一个可用动作的菜单"
 
-#: tips:231
+#: tips:229
 msgid "Copy the files"
 msgstr "复制文件"
 
-#: tips:232
+#: tips:230
 msgid ""
 "Note that you can still get the menu to appear, by dragging with Alt held "
 "down."
 msgstr "注意，如想菜单再出现，可按着左键并同时按下键盘上的 Alt 键"
 
-#: tips:233
+#: tips:231
 msgid "When dragging files with the middle mouse button"
 msgstr "当以鼠标中键拖放"
 
-#: tips:235
+#: tips:233
 msgid "Move the files"
 msgstr "移动文件"
 
-#: tips:236
+#: tips:234
 msgid ""
 "Note that you can still get the menu to appear, by dragging with the left "
 "button and holding down the Alt key."
 msgstr "注意，如想菜单再出现，可按着左键并同时按下键盘上的 Alt 键"
 
-#: tips:237
+#: tips:235
 msgid "Download handler"
 msgstr "下载处理员"
 
-#: tips:238
+#: tips:236
 msgid ""
 "When you drag a file from a web browser or other remote source, this program "
 "will be run to download it. $1 is the URI dragged to the filer, and the "
@@ -4459,72 +4449,72 @@ msgstr ""
 "如:\n"
 "xterm -e wget $1"
 
-#: tips:239
+#: tips:237
 msgid "Menus"
 msgstr "菜单"
 
-#: tips:241
+#: tips:239
 msgid "Size of icons in menus:"
 msgstr "菜单上的图标大小:"
 
-#: tips:242
+#: tips:240
 msgid "No Icons"
 msgstr "没有图标"
 
-#: tips:245
+#: tips:243
 msgid "Same as current window"
 msgstr "跟现行窗口相同"
 
-#: tips:246
+#: tips:244
 msgid "Same as default"
 msgstr "跟缺省值相同"
 
-#: tips:247
+#: tips:245
 msgid "Behaviour"
 msgstr "行为"
 
-#: tips:248
+#: tips:246
 msgid "File menu on right-click"
 msgstr "右击为文件菜单"
 
-#: tips:249
+#: tips:247
 msgid ""
 "Show the File menu instead of the main menu when right-clicking with files "
 "selected (the main menu can be accessed by holding down Control)."
 msgstr "当右击时以文件菜单代替主菜单显示，(如想显示主菜单请按下 Control 键)."
 
-#: tips:250
+#: tips:248
 msgid "Terminal emulator program"
 msgstr "“终端机”程序"
 
-#: tips:251
+#: tips:249
 msgid "The program to launch when you choose `Terminal Here' from the menu."
 msgstr "当你从菜单选择“终端机”这程序将被启动"
 
-#: tips:252
+#: tips:250
 msgid "Keyboard shortcuts"
 msgstr "热键"
 
-#: tips:253
+#: tips:251
 #, fuzzy
 msgid "Applications"
 msgstr "ROX 应用程序"
 
-#: tips:254
+#: tips:252
 msgid "Show .desktop applications in \"Send To\" menu."
 msgstr ""
 
-#: tips:255
+#: tips:253
 msgid ""
 "Show applications installed via .desktop files (usually in /usr/share/"
 "applications and ~/.local/share/applications) in \"Send To\" menus."
 msgstr ""
 
-#: tips:257
+#: tips:255
 msgid "MIME types"
 msgstr "MIME 类型"
 
-#: tips:258
+#: tips:256
 msgid ""
 "The filer uses a set of rules to work out the correct MIME type for each "
 "regular file, and then chooses a suitable icon for that type."
@@ -4532,23 +4522,23 @@ msgstr ""
 "ROX-Filer是以一众既定规则来对应正确 MIME 类型，并会为每一常规文件的类型，配置"
 "一个合适的图标。"
 
-#: tips:259
+#: tips:257
 msgid "Edit MIME rules"
 msgstr "编辑 MIME 规则"
 
-#: tips:260
+#: tips:258
 msgid "Themes"
 msgstr "布景"
 
-#: tips:261
+#: tips:259
 msgid "Icon theme"
 msgstr "图标布景"
 
-#: tips:262
+#: tips:260
 msgid "Themes should be placed inside the ~/.icons directory."
 msgstr "图标布景必须放进 ~/.icons 目录内."
 
-#: tips:263
+#: tips:261
 msgid ""
 "Use the 'Set Icon...' dialog box to set the icon for each MIME type. Note "
 "that icons set this way override those from the selected theme."
@@ -4556,95 +4546,95 @@ msgstr ""
 "请以“设定图标...”对话框来设定图标的 MIME 类型，注意，此设定会覆写图标布景的设"
 "定."
 
-#: tips:264
+#: tips:262
 msgid "Colours"
 msgstr "颜色"
 
-#: tips:265
+#: tips:263
 msgid "File type colours"
 msgstr "文件类型颜色"
 
-#: tips:266
+#: tips:264
 msgid "Colour files based on their types"
 msgstr "基于文件类型配色"
 
-#: tips:267
+#: tips:265
 msgid "Filenames (and details) are coloured according to the file's type."
 msgstr "文件名称(及详述)会根据它的类型而配色"
 
-#: tips:268
+#: tips:266
 msgid "Directory:"
 msgstr "目录："
 
-#: tips:269
+#: tips:267
 msgid "Regular file:"
 msgstr "常规档："
 
-#: tips:270
+#: tips:268
 msgid "Pipe:"
 msgstr "管导："
 
-#: tips:271
+#: tips:269
 msgid "Socket:"
 msgstr "套节："
 
-#: tips:273
+#: tips:271
 msgid ""
 "Error, such as a symlink which points to a non-existant file, or a file "
 "which the filer does not have permission to examine."
 msgstr "错误，此连结所指向的是一个不存在或你的权限不足以查看的文件."
 
-#: tips:274
+#: tips:272
 msgid "Character device:"
 msgstr "字符设备："
 
-#: tips:275
+#: tips:273
 msgid "Block device:"
 msgstr "区块设备："
 
-#: tips:276
+#: tips:274
 msgid "Door:"
 msgstr "入口："
 
-#: tips:277
+#: tips:275
 msgid ""
 "Door files are a bit like sockets or pipes, and have only been seen on "
 "Solaris."
 msgstr "类似套节或管导的单元文件，只会用于 Solaris."
 
-#: tips:278
+#: tips:276
 msgid "Executable file:"
 msgstr "可执行档："
 
-#: tips:279
+#: tips:277
 msgid "Application directory:"
 msgstr "应用程序目录："
 
-#: tips:280
+#: tips:278
 msgid "Unknown type:"
 msgstr "不明类型："
 
-#: tips:281
+#: tips:279
 msgid "Compatibility"
 msgstr "兼容性"
 
-#: tips:282
+#: tips:280
 msgid "Command line program"
 msgstr ""
 
-#: tips:283
+#: tips:281
 msgid "Make script"
 msgstr ""
 
-#: tips:284
+#: tips:282
 msgid "Window manager problems"
 msgstr "窗口管理员问题"
 
-#: tips:285
+#: tips:283
 msgid "Override window manager control of the pinboard and panels"
 msgstr "取代窗口管理员对桌面及面板的控制权"
 
-#: tips:286
+#: tips:284
 msgid ""
 "Some window managers don't support the new Extended Window Manager Hints "
 "system, and so treat the pinboard and panels like normal windows. Turn this "
@@ -4653,11 +4643,11 @@ msgid ""
 "them appear in window-select lists."
 msgstr "某些窗口管理员不支持伸延提示功能，此选项可解决相应问题"
 
-#: tips:287
+#: tips:285
 msgid "Pass all backdrop mouse clicks to window manager"
 msgstr "将桌面鼠标功能交给窗口管理员"
 
-#: tips:288
+#: tips:286
 msgid ""
 "Normally, right clicking on the desktop background will open the pinboard "
 "menu and left clicking will clear the selection. Turn this on to forward the "
@@ -4666,11 +4656,11 @@ msgstr ""
 "在桌面背景上，启用窗口管理员所附带之鼠标功能，但对桌面上的图标，仍由 ROX-"
 "Filer 管理. "
 
-#: tips:289
+#: tips:287
 msgid "Blackbox root menus hack"
 msgstr "Blackbox 根菜单改良"
 
-#: tips:290
+#: tips:288
 msgid ""
 "Blackbox, Fluxbox and similar window managers do not yet work well with the "
 "ROX-Filer pinboard. This option enables some workarounds. These window "
@@ -4680,11 +4670,11 @@ msgstr ""
 "Blackbox, Fluxbox 及某些窗口管理员不支持 ROX-Filer 桌面功能，点选此处可文件这"
 "些问题；但新版本的窗口管理员，已无须这个选项."
 
-#: tips:291
+#: tips:289
 msgid "Panel is a 'dock'"
 msgstr "面板是 'dock'"
 
-#: tips:292
+#: tips:290
 msgid ""
 "Makes sure panels stay against screen edges. Disable this option if the "
 "panel stays above other windows against your wishes. Requires a restart to "
@@ -4693,11 +4683,11 @@ msgstr ""
 "请先确认面板可置放在屏幕边沿。假如您不想面板盖在窗口的上层，关闭选项，并重新"
 "启动."
 
-#: tips:293
+#: tips:291
 msgid "Panel stays on top"
 msgstr "面板置顶"
 
-#: tips:294
+#: tips:292
 msgid ""
 "Keeps the panel above other windows. Enable this option to make sure the "
 "dock option works correctly in some versions of compiz. May require a "
@@ -4706,25 +4696,25 @@ msgstr ""
 "面板会覆盖在窗口上。但某些版本的 compiz 会对 dock 的功能出现错误，此选项须要"
 "重新启动。"
 
-#: tips:295
+#: tips:293
 msgid "Panel confined to work area"
 msgstr ""
 
-#: tips:296
+#: tips:294
 msgid ""
 "Keeps the panel confined to the work area specified by the Extended Window "
 "Manager Specification. Applies to new panels."
 msgstr ""
 
-#: tips:297
+#: tips:295
 msgid "Drag and drop"
 msgstr "鼠标拖放"
 
-#: tips:298
+#: tips:296
 msgid "Don't use hostnames"
 msgstr "不用主机名称"
 
-#: tips:299
+#: tips:297
 msgid ""
 "Some older applications don't support XDND fully and may need to have this "
 "option turned on. Use this if dragging files to an application shows a + "
@@ -4733,11 +4723,11 @@ msgstr ""
 "某些旧的应用程序不完全支持拖放来执行的功能，此选项便须要开启，以达致将文件拖"
 "到当鼠标出现 a + 符号的应用程序上."
 
-#: tips:301
+#: tips:299
 msgid "Don't use extended attributes"
 msgstr "不用扩展属性"
 
-#: tips:302
+#: tips:300
 msgid ""
 "This disables the use of extended attributes available in newer operating "
 "systems and file systems.  With this option set the 'Set Type' menu entry is "
@@ -4860,6 +4850,14 @@ msgstr "顶部边沿"
 #: ../Templates.ui.h:25
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
+
+#~ msgid "Panel (obsolete)"
+#~ msgstr "面板(废掉的)"
+
+#~ msgid ""
+#~ "Enter the name of the panel to show here. This option is now only used "
+#~ "when upgrading from an old version."
+#~ msgstr "键入面板的名称，此选项只适用於从旧有板本升级的 ROX-Filer"
 
 #~ msgid ""
 #~ "Error scanning '%s':\n"

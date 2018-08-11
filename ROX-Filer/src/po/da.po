@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-05 23:42-0500\n"
+"POT-Creation-Date: 2018-08-11 13:45-0500\n"
 "PO-Revision-Date: 2005-02-23 17:11+0100\n"
 "Last-Translator: Christan D. Storgaard <dannieglitter@gmail.com>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -592,11 +592,11 @@ msgstr ""
 "ROX-Filer understøtter desværre endnu ikke monterings-punkter under dit "
 "system."
 
-#: action.c:2213 menu.c:243 tips:196
+#: action.c:2213 menu.c:243 tips:194
 msgid "Delete"
 msgstr "Slet"
 
-#: action.c:2227 tips:201
+#: action.c:2227 tips:199
 msgid "Force"
 msgstr "Tving"
 
@@ -605,7 +605,7 @@ msgid "Don't confirm deletion of non-writeable items"
 msgstr "Spørg ikke igen omkring sletning af ikke-skrivbare objekter."
 
 #: action.c:2230 action.c:2291 action.c:2356 action.c:2439 action.c:2489
-#: tips:203
+#: tips:201
 msgid "Brief"
 msgstr "Kort"
 
@@ -645,7 +645,7 @@ msgstr "Tilladdelser"
 msgid "Don't list processed files"
 msgstr "Oprems ikke bearbejdede filer "
 
-#: action.c:2294 action.c:2359 tips:205
+#: action.c:2294 action.c:2359 tips:203
 msgid "Recurse"
 msgstr "Rekursivt"
 
@@ -673,33 +673,33 @@ msgstr "Ændr indholdet af undermapper"
 msgid "Type:"
 msgstr "Type:"
 
-#: action.c:2413 dnd.c:123 menu.c:238 tips:190
+#: action.c:2413 dnd.c:123 menu.c:238 tips:188
 msgid "Copy"
 msgstr "Kopier"
 
-#: action.c:2427 action.c:2477 tips:211
+#: action.c:2427 action.c:2477 tips:209
 msgid "Ignore Older"
 msgstr ""
 
-#: action.c:2428 action.c:2478 tips:212
+#: action.c:2428 action.c:2478 tips:210
 #, fuzzy
 msgid "Silently ignore if source is older than destination."
 msgstr "Overskriv kun hvis kilden er nyere end destinationen."
 
-#: action.c:2431 action.c:2481 tips:209
+#: action.c:2431 action.c:2481 tips:207
 msgid "Newer"
 msgstr "Nyere"
 
-#: action.c:2432 action.c:2482 tips:210
+#: action.c:2432 action.c:2482 tips:208
 #, fuzzy
 msgid "Always over-write if source is newer than destination."
 msgstr "Overskriv kun hvis kilden er nyere end destinationen."
 
-#: action.c:2435 action.c:2485 tips:207
+#: action.c:2435 action.c:2485 tips:205
 msgid "Merge"
 msgstr ""
 
-#: action.c:2436 action.c:2486 tips:208
+#: action.c:2436 action.c:2486 tips:206
 #, fuzzy
 msgid "Always merge directories."
 msgstr "mapper"
@@ -708,7 +708,7 @@ msgstr "mapper"
 msgid "Only log directories as they are copied"
 msgstr "Lav kun log over mapper efterhånden som de bliver kopieret"
 
-#: action.c:2463 dnd.c:124 tips:192
+#: action.c:2463 dnd.c:124 tips:190
 msgid "Move"
 msgstr "Flyt"
 
@@ -716,7 +716,7 @@ msgstr "Flyt"
 msgid "Don't log each file as it is moved"
 msgstr "Lav ikke log over filer der bliver flyttet"
 
-#: action.c:2512 tips:194
+#: action.c:2512 tips:192
 msgid "Link"
 msgstr "Lav Lænke"
 
@@ -936,12 +936,12 @@ msgstr ""
 msgid "None of the names have changed. Nothing to do!"
 msgstr ""
 
-#: choices.c:434
+#: choices.c:446
 #, c-format
 msgid "%d directories could not be migrated"
 msgstr ""
 
-#: choices.c:436
+#: choices.c:448
 #, c-format
 msgid ""
 "Choices have been moved from \n"
@@ -1778,7 +1778,7 @@ msgstr ""
 "%s\n"
 "(bemærk: den gamle lænke er blevet fjernet)"
 
-#: infobox.c:571 tips:272
+#: infobox.c:571 tips:270
 msgid "Error:"
 msgstr "Fejl:"
 
@@ -2166,7 +2166,7 @@ msgstr "Ikoner, Med..."
 msgid "Sizes"
 msgstr "Størrelser"
 
-#: menu.c:213 tips:256
+#: menu.c:213 tips:254
 msgid "Types"
 msgstr "Typer"
 
@@ -3637,7 +3637,7 @@ msgstr ""
 msgid "Last _Accessed"
 msgstr ""
 
-#: xtypes.c:790 tips:300
+#: xtypes.c:790 tips:298
 msgid "Extended attributes"
 msgstr ""
 
@@ -3877,11 +3877,11 @@ msgstr "Standard størrelse:"
 msgid "Huge Icons"
 msgstr "Kæmpe Ikoner"
 
-#: tips:50 tips:244
+#: tips:50 tips:242
 msgid "Large Icons"
 msgstr "Store Ikoner"
 
-#: tips:51 tips:243
+#: tips:51 tips:241
 msgid "Small Icons"
 msgstr "Små Ikoner"
 
@@ -4195,7 +4195,7 @@ msgstr ""
 "Når opslagstavlen er i brug kan du trække filer og programmer hen på "
 "skrivebords-baggrunden for at skabe genveje til dem."
 
-#: tips:126 tips:240
+#: tips:126 tips:238
 msgid "Appearance"
 msgstr "Udseende"
 
@@ -4456,31 +4456,20 @@ msgid "Enter the name of the pinboard to show here."
 msgstr ""
 
 #: tips:183
-#, fuzzy
-msgid "Panel (obsolete)"
-msgstr "Panel-stil"
-
-#: tips:184
-msgid ""
-"Enter the name of the panel to show here. This option is now only used when "
-"upgrading from an old version."
-msgstr ""
-
-#: tips:185
 msgid "Changes here take effect the next time the filer is run."
 msgstr ""
 
-#: tips:186
+#: tips:184
 msgid ""
 "The session manager activates these options by\n"
 "using the -S or --rox-session argument to rox."
 msgstr ""
 
-#: tips:187
+#: tips:185
 msgid "Action windows"
 msgstr "Handlings vinduer"
 
-#: tips:188
+#: tips:186
 msgid ""
 "Action windows appear when you start a background\n"
 "operation, such as copying or deleting some files."
@@ -4488,97 +4477,97 @@ msgstr ""
 "Handlings vinduer dukker op når du starter en baggrunds-\n"
 "handling, som f.eks. at kopiere eller slette nogle filer."
 
-#: tips:189
+#: tips:187
 msgid "Auto-start (Quiet) these actions"
 msgstr "Auto-start (Stille) disse handlinger"
 
-#: tips:191
+#: tips:189
 msgid "Copy files without confirming first."
 msgstr "Kopier filer uden at spørge igen først."
 
-#: tips:193
+#: tips:191
 msgid "Move files without confirming first."
 msgstr "Flyt filer uden at spørge igen først."
 
-#: tips:195
+#: tips:193
 msgid "Create links to files without confirming first."
 msgstr "Lav lænker til filer uden at spørge først."
 
-#: tips:197
+#: tips:195
 msgid "Delete files without confirming first."
 msgstr "Slet filer uden at spørge igen først."
 
-#: tips:198
+#: tips:196
 msgid "Mount"
 msgstr "Montér"
 
-#: tips:199
+#: tips:197
 msgid "Mount and unmount filesystems without confirming first."
 msgstr "Montér og afmontér filsystemer uden at spørge først."
 
-#: tips:200
+#: tips:198
 msgid "Default settings"
 msgstr "Standard-indstillinger"
 
-#: tips:202
+#: tips:200
 msgid "Don't confirm deletion of non-writeable items."
 msgstr "Spørg ikke igen omkring sletning af ikke-skrivbare objekter."
 
-#: tips:204
+#: tips:202
 msgid "Don't display so much information in the message area."
 msgstr "Vis ikke så meget information i besked området."
 
-#: tips:206
+#: tips:204
 msgid "Also change contents of subdirectories."
 msgstr "Indholdet af undermapper skal også ændres."
 
-#: tips:213
+#: tips:211
 #, fuzzy
 msgid "Mount commands"
 msgstr "Monterings-punkt"
 
-#: tips:214
+#: tips:212
 #, fuzzy
 msgid "Mount command"
 msgstr "Monterings-punkt"
 
-#: tips:215
+#: tips:213
 msgid "The command used to mount a filesystem. If unsure, use \"mount\"."
 msgstr ""
 
-#: tips:216
+#: tips:214
 #, fuzzy
 msgid "Unmount command"
 msgstr "Afmontér"
 
-#: tips:217
+#: tips:215
 msgid ""
 "The command used to unmount a filesystem. If unsure, use \"umount\" (yes, "
 "without the first \"n\")."
 msgstr ""
 
-#: tips:218
+#: tips:216
 #, fuzzy
 msgid "Eject command"
 msgstr "Kommando:"
 
-#: tips:219
+#: tips:217
 msgid "The command used to eject removable media. If unsure, use \"eject\"."
 msgstr ""
 
-#: tips:220
+#: tips:218
 msgid "Drag and Drop"
 msgstr "Træk og Slip"
 
-#: tips:221
+#: tips:219
 msgid "Dragging to icons"
 msgstr "Træk til ikoner"
 
-#: tips:222
+#: tips:220
 msgid "Allow dragging to icons in filer windows"
 msgstr "Tillad træk til ikoner i 'filer' vinduer"
 
-#: tips:223
+#: tips:221
 msgid ""
 "When this is on you can drag a file over a sub-directory or program in a "
 "filer window. The item will highlight when you do this and dropping the file "
@@ -4588,11 +4577,11 @@ msgstr ""
 "i et vindue. Objektet vil blive markeret nå du gør dette, og et slip af "
 "filen vil putte den i den mappe, eller hente det ind i programmet."
 
-#: tips:224
+#: tips:222
 msgid "Directories spring open"
 msgstr "Mapper springer åbne"
 
-#: tips:225
+#: tips:223
 msgid ""
 "This option, which requires the above option to be turned on too, causes the "
 "highlighted directory to 'spring open' after the file is held over it for a "
@@ -4602,15 +4591,15 @@ msgstr ""
 "markerede mappe til at 'springe' åben efter at filen har været holdt over "
 "den i et kort stykke tid."
 
-#: tips:226
+#: tips:224
 msgid "Spring delay:"
 msgstr "Spring forsinkelse:"
 
-#: tips:227
+#: tips:225
 msgid "ms"
 msgstr "ms"
 
-#: tips:228
+#: tips:226
 msgid ""
 "This option sets how long, in ms, you must hold a file over a directory "
 "before it will spring open. The above option must be turned on for this to "
@@ -4620,19 +4609,19 @@ msgstr ""
 "en fil over en mappe før den springer åben. Indstillingen ovenover skal slås "
 "til før denne har nogen effekt."
 
-#: tips:229
+#: tips:227
 msgid "When dragging files with the left mouse button"
 msgstr "Når man trækker filer med venstre muse-knap"
 
-#: tips:230 tips:234
+#: tips:228 tips:232
 msgid "Show a menu of possible actions"
 msgstr "Vis en menu over mulige handlinger"
 
-#: tips:231
+#: tips:229
 msgid "Copy the files"
 msgstr "Kopiér filerne"
 
-#: tips:232
+#: tips:230
 msgid ""
 "Note that you can still get the menu to appear, by dragging with Alt held "
 "down."
@@ -4640,15 +4629,15 @@ msgstr ""
 "Bemærk at du stadig kan få menuen frem ved at trække med Alt-knappen holdt "
 "nede."
 
-#: tips:233
+#: tips:231
 msgid "When dragging files with the middle mouse button"
 msgstr "Når man trækker filer med den midterste muse-knap"
 
-#: tips:235
+#: tips:233
 msgid "Move the files"
 msgstr "Flyt filerne"
 
-#: tips:236
+#: tips:234
 msgid ""
 "Note that you can still get the menu to appear, by dragging with the left "
 "button and holding down the Alt key."
@@ -4656,11 +4645,11 @@ msgstr ""
 "Bemærk at du stadig kan få menuen frem ved at trække med venstre museknap, "
 "mens du holder Alt-knappen nede."
 
-#: tips:237
+#: tips:235
 msgid "Download handler"
 msgstr "Hentnings-håndterer"
 
-#: tips:238
+#: tips:236
 msgid ""
 "When you drag a file from a web browser or other remote source, this program "
 "will be run to download it. $1 is the URI dragged to the filer, and the "
@@ -4672,35 +4661,35 @@ msgstr ""
 "'fileren', og den nuværende mappe er destinationen. F.eks.\n"
 "xterm -e wget $1"
 
-#: tips:239
+#: tips:237
 msgid "Menus"
 msgstr "Menuer"
 
-#: tips:241
+#: tips:239
 msgid "Size of icons in menus:"
 msgstr "Størrelsen af ikonerne i menuen:"
 
-#: tips:242
+#: tips:240
 msgid "No Icons"
 msgstr "Ingen ikoner"
 
-#: tips:245
+#: tips:243
 msgid "Same as current window"
 msgstr "Det samme som det nuværende vindue"
 
-#: tips:246
+#: tips:244
 msgid "Same as default"
 msgstr "Det samme som standard"
 
-#: tips:247
+#: tips:245
 msgid "Behaviour"
 msgstr "Opførsel"
 
-#: tips:248
+#: tips:246
 msgid "File menu on right-click"
 msgstr "Fil-menu ved højreklik"
 
-#: tips:249
+#: tips:247
 msgid ""
 "Show the File menu instead of the main menu when right-clicking with files "
 "selected (the main menu can be accessed by holding down Control)."
@@ -4708,40 +4697,40 @@ msgstr ""
 "Vis fil-menuen i stedet for hovedmenuen, ved højreklik, hvis der er valgte "
 "filer (hovedmenuen bliver vist hvis Control holdes nede)."
 
-#: tips:250
+#: tips:248
 #, fuzzy
 msgid "Terminal emulator program"
 msgstr "'Xterm Her' program"
 
-#: tips:251
+#: tips:249
 #, fuzzy
 msgid "The program to launch when you choose `Terminal Here' from the menu."
 msgstr "Programmet der bliver startet når du vælger 'Xterm Her' fra menuen."
 
-#: tips:252
+#: tips:250
 msgid "Keyboard shortcuts"
 msgstr "Tastatur-genveje"
 
-#: tips:253
+#: tips:251
 #, fuzzy
 msgid "Applications"
 msgstr "Program"
 
-#: tips:254
+#: tips:252
 msgid "Show .desktop applications in \"Send To\" menu."
 msgstr ""
 
-#: tips:255
+#: tips:253
 msgid ""
 "Show applications installed via .desktop files (usually in /usr/share/"
 "applications and ~/.local/share/applications) in \"Send To\" menus."
 msgstr ""
 
-#: tips:257
+#: tips:255
 msgid "MIME types"
 msgstr "MIME-typer"
 
-#: tips:258
+#: tips:256
 #, fuzzy
 msgid ""
 "The filer uses a set of rules to work out the correct MIME type for each "
@@ -4754,24 +4743,24 @@ msgstr ""
 "\n"
 "http://rox.sourceforge.net/mime_editor.html"
 
-#: tips:259
+#: tips:257
 msgid "Edit MIME rules"
 msgstr ""
 
-#: tips:260
+#: tips:258
 #, fuzzy
 msgid "Themes"
 msgstr "Tider"
 
-#: tips:261
+#: tips:259
 msgid "Icon theme"
 msgstr "Ikon-tema"
 
-#: tips:262
+#: tips:260
 msgid "Themes should be placed inside the ~/.icons directory."
 msgstr "Temaer bør placeres i mappen ~/.icons."
 
-#: tips:263
+#: tips:261
 msgid ""
 "Use the 'Set Icon...' dialog box to set the icon for each MIME type. Note "
 "that icons set this way override those from the selected theme."
@@ -4780,39 +4769,39 @@ msgstr ""
 "type.Bemærk at ikoner der er defineret på denne måde vil blive valgt fremfor "
 "det valgte temas ikoner."
 
-#: tips:264
+#: tips:262
 msgid "Colours"
 msgstr "Farver"
 
-#: tips:265
+#: tips:263
 msgid "File type colours"
 msgstr "Fil-type farver"
 
-#: tips:266
+#: tips:264
 msgid "Colour files based on their types"
 msgstr "Farv filer baseret på deres type"
 
-#: tips:267
+#: tips:265
 msgid "Filenames (and details) are coloured according to the file's type."
 msgstr "Filnavne (og detaljer) skal farves efter deres fils type."
 
-#: tips:268
+#: tips:266
 msgid "Directory:"
 msgstr "Mappe:"
 
-#: tips:269
+#: tips:267
 msgid "Regular file:"
 msgstr "Normal fil:"
 
-#: tips:270
+#: tips:268
 msgid "Pipe:"
 msgstr "Rør:"
 
-#: tips:271
+#: tips:269
 msgid "Socket:"
 msgstr "Stik:"
 
-#: tips:273
+#: tips:271
 msgid ""
 "Error, such as a symlink which points to a non-existant file, or a file "
 "which the filer does not have permission to examine."
@@ -4820,19 +4809,19 @@ msgstr ""
 "Fejl, som f.eks. en symbolsk lænke der peger mod en ikke-eksisterende fil, "
 "eller en fil som der er problemer med at undersøge."
 
-#: tips:274
+#: tips:272
 msgid "Character device:"
 msgstr "Karakter-enhed:"
 
-#: tips:275
+#: tips:273
 msgid "Block device:"
 msgstr "Blok-enhed:"
 
-#: tips:276
+#: tips:274
 msgid "Door:"
 msgstr "Dør:"
 
-#: tips:277
+#: tips:275
 msgid ""
 "Door files are a bit like sockets or pipes, and have only been seen on "
 "Solaris."
@@ -4840,39 +4829,39 @@ msgstr ""
 "Dør-filer er lidt ligesom stik eller rør, og findes (indtil videre) kun "
 "under Solaris."
 
-#: tips:278
+#: tips:276
 msgid "Executable file:"
 msgstr "Udførbar fil:"
 
-#: tips:279
+#: tips:277
 msgid "Application directory:"
 msgstr "Program-mappe:"
 
-#: tips:280
+#: tips:278
 msgid "Unknown type:"
 msgstr "Ukendt type:"
 
-#: tips:281
+#: tips:279
 msgid "Compatibility"
 msgstr "Kompatibilitet"
 
-#: tips:282
+#: tips:280
 msgid "Command line program"
 msgstr ""
 
-#: tips:283
+#: tips:281
 msgid "Make script"
 msgstr ""
 
-#: tips:284
+#: tips:282
 msgid "Window manager problems"
 msgstr "Vindues-håndterings-problemer"
 
-#: tips:285
+#: tips:283
 msgid "Override window manager control of the pinboard and panels"
 msgstr "Tilsidesæt vindues-behanderens kontrol af opslagstavlen og paneler"
 
-#: tips:286
+#: tips:284
 msgid ""
 "Some window managers don't support the new Extended Window Manager Hints "
 "system, and so treat the pinboard and panels like normal windows. Turn this "
@@ -4887,11 +4876,11 @@ msgstr ""
 "tittelbjælker og andre dekorationer på paneler, eller at begge dele er at "
 "finde i vindues-listen."
 
-#: tips:287
+#: tips:285
 msgid "Pass all backdrop mouse clicks to window manager"
 msgstr "Videresend alle museklik på baggrunden til vindues-håndteringen"
 
-#: tips:288
+#: tips:286
 msgid ""
 "Normally, right clicking on the desktop background will open the pinboard "
 "menu and left clicking will clear the selection. Turn this on to forward the "
@@ -4902,11 +4891,11 @@ msgstr ""
 "slået til, vil alle klik blive sendt videre til vindues-håndteringen i "
 "stedet. Klik på ikoner vil ikke blive videresendt."
 
-#: tips:289
+#: tips:287
 msgid "Blackbox root menus hack"
 msgstr "Blackbox rod-menu-rettelse"
 
-#: tips:290
+#: tips:288
 msgid ""
 "Blackbox, Fluxbox and similar window managers do not yet work well with the "
 "ROX-Filer pinboard. This option enables some workarounds. These window "
@@ -4918,11 +4907,11 @@ msgstr ""
 "lapninger for dette. Disse vindues-håndterere forventes at ændre deres "
 "opførsel i nyere udgaver, så dette ikke bliver nødvendigt."
 
-#: tips:291
+#: tips:289
 msgid "Panel is a 'dock'"
 msgstr "Panelet er en 'dok'"
 
-#: tips:292
+#: tips:290
 #, fuzzy
 msgid ""
 "Makes sure panels stay against screen edges. Disable this option if the "
@@ -4932,37 +4921,37 @@ msgstr ""
 "Slå denne funktion fra, hvis du ikke ønsker at paneler ligger ovenover andre "
 "vinduer. Dette kræver en genstart af programmet for at virke."
 
-#: tips:293
+#: tips:291
 #, fuzzy
 msgid "Panel stays on top"
 msgstr "Panel-stil"
 
-#: tips:294
+#: tips:292
 msgid ""
 "Keeps the panel above other windows. Enable this option to make sure the "
 "dock option works correctly in some versions of compiz. May require a "
 "restart to take effect."
 msgstr ""
 
-#: tips:295
+#: tips:293
 msgid "Panel confined to work area"
 msgstr ""
 
-#: tips:296
+#: tips:294
 msgid ""
 "Keeps the panel confined to the work area specified by the Extended Window "
 "Manager Specification. Applies to new panels."
 msgstr ""
 
-#: tips:297
+#: tips:295
 msgid "Drag and drop"
 msgstr "Træk og slip"
 
-#: tips:298
+#: tips:296
 msgid "Don't use hostnames"
 msgstr "Bug ikke værtsnavn"
 
-#: tips:299
+#: tips:297
 msgid ""
 "Some older applications don't support XDND fully and may need to have this "
 "option turned on. Use this if dragging files to an application shows a + "
@@ -4972,12 +4961,12 @@ msgstr ""
 "at denne indstilling er slået til. Slå denne til hvis træk af filer til et "
 "program viser et + tegn på muse-pointeren men trækket ikke virker."
 
-#: tips:301
+#: tips:299
 #, fuzzy
 msgid "Don't use extended attributes"
 msgstr "Bug ikke værtsnavn"
 
-#: tips:302
+#: tips:300
 msgid ""
 "This disables the use of extended attributes available in newer operating "
 "systems and file systems.  With this option set the 'Set Type' menu entry is "
@@ -5117,6 +5106,10 @@ msgstr ""
 #, fuzzy
 msgid "<b>Position</b>"
 msgstr "<b>Tilladdelser</b>"
+
+#, fuzzy
+#~ msgid "Panel (obsolete)"
+#~ msgstr "Panel-stil"
 
 #~ msgid ""
 #~ "Error scanning '%s':\n"

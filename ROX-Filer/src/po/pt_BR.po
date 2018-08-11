@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-05 23:42-0500\n"
+"POT-Creation-Date: 2018-08-11 13:45-0500\n"
 "PO-Revision-Date: 2009-11-27 18:58-0300\n"
 "Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
@@ -589,11 +589,11 @@ msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr ""
 "O ROX-Filer ainda não suporta pontos de montagem no seu sistema - desculpe."
 
-#: action.c:2213 menu.c:243 tips:196
+#: action.c:2213 menu.c:243 tips:194
 msgid "Delete"
 msgstr "Apagar"
 
-#: action.c:2227 tips:201
+#: action.c:2227 tips:199
 msgid "Force"
 msgstr "Forçar"
 
@@ -602,7 +602,7 @@ msgid "Don't confirm deletion of non-writeable items"
 msgstr "Não confirmar o apagamento de itens somente-leitura"
 
 #: action.c:2230 action.c:2291 action.c:2356 action.c:2439 action.c:2489
-#: tips:203
+#: tips:201
 msgid "Brief"
 msgstr "Breve"
 
@@ -642,7 +642,7 @@ msgstr "Permissões"
 msgid "Don't list processed files"
 msgstr "Não listar os arquivos processados"
 
-#: action.c:2294 action.c:2359 tips:205
+#: action.c:2294 action.c:2359 tips:203
 msgid "Recurse"
 msgstr "Recursivo"
 
@@ -670,33 +670,33 @@ msgstr "Modificar o conteúdo dos subdiretórios"
 msgid "Type:"
 msgstr "Tipo:"
 
-#: action.c:2413 dnd.c:123 menu.c:238 tips:190
+#: action.c:2413 dnd.c:123 menu.c:238 tips:188
 msgid "Copy"
 msgstr "Copiar"
 
-#: action.c:2427 action.c:2477 tips:211
+#: action.c:2427 action.c:2477 tips:209
 msgid "Ignore Older"
 msgstr ""
 
-#: action.c:2428 action.c:2478 tips:212
+#: action.c:2428 action.c:2478 tips:210
 #, fuzzy
 msgid "Silently ignore if source is older than destination."
 msgstr "Apenas sobrescrever se a origem é mais nova que o destino."
 
-#: action.c:2431 action.c:2481 tips:209
+#: action.c:2431 action.c:2481 tips:207
 msgid "Newer"
 msgstr "Mais recentes"
 
-#: action.c:2432 action.c:2482 tips:210
+#: action.c:2432 action.c:2482 tips:208
 #, fuzzy
 msgid "Always over-write if source is newer than destination."
 msgstr "Apenas sobrescrever se a origem é mais nova que o destino."
 
-#: action.c:2435 action.c:2485 tips:207
+#: action.c:2435 action.c:2485 tips:205
 msgid "Merge"
 msgstr ""
 
-#: action.c:2436 action.c:2486 tips:208
+#: action.c:2436 action.c:2486 tips:206
 #, fuzzy
 msgid "Always merge directories."
 msgstr "diretórios"
@@ -705,7 +705,7 @@ msgstr "diretórios"
 msgid "Only log directories as they are copied"
 msgstr "Apenas logar os diretórios enquanto são copiados"
 
-#: action.c:2463 dnd.c:124 tips:192
+#: action.c:2463 dnd.c:124 tips:190
 msgid "Move"
 msgstr "Mover"
 
@@ -713,7 +713,7 @@ msgstr "Mover"
 msgid "Don't log each file as it is moved"
 msgstr "Não logar cada arquivos ao ser movido"
 
-#: action.c:2512 tips:194
+#: action.c:2512 tips:192
 msgid "Link"
 msgstr "Ligar"
 
@@ -940,12 +940,12 @@ msgstr ""
 msgid "None of the names have changed. Nothing to do!"
 msgstr "Nenhum dos nomes foi modificado. Nada a fazer!"
 
-#: choices.c:434
+#: choices.c:446
 #, c-format
 msgid "%d directories could not be migrated"
 msgstr "Não pude migrar %d diretórios"
 
-#: choices.c:436
+#: choices.c:448
 #, c-format
 msgid ""
 "Choices have been moved from \n"
@@ -1802,7 +1802,7 @@ msgstr ""
 "%s\n"
 "(nota: a ligação antiga foi apagada)"
 
-#: infobox.c:571 tips:272
+#: infobox.c:571 tips:270
 msgid "Error:"
 msgstr "Erro:"
 
@@ -2186,7 +2186,7 @@ msgstr "Ícones, com..."
 msgid "Sizes"
 msgstr "Tamanho"
 
-#: menu.c:213 tips:256
+#: menu.c:213 tips:254
 msgid "Types"
 msgstr "Tipo"
 
@@ -3664,7 +3664,7 @@ msgstr ""
 msgid "Last _Accessed"
 msgstr ""
 
-#: xtypes.c:790 tips:300
+#: xtypes.c:790 tips:298
 msgid "Extended attributes"
 msgstr "Atributos estendidos"
 
@@ -3905,11 +3905,11 @@ msgstr "Tamanho padrão:"
 msgid "Huge Icons"
 msgstr "Ícones Enormes"
 
-#: tips:50 tips:244
+#: tips:50 tips:242
 msgid "Large Icons"
 msgstr "Ícones Grandes"
 
-#: tips:51 tips:243
+#: tips:51 tips:241
 msgid "Small Icons"
 msgstr "Ícones Pequenos"
 
@@ -4232,7 +4232,7 @@ msgstr ""
 "Ao usar um quadro você pode arrastar arquivos e aplicações para o fundo da "
 "área de trabalho criando assim atalhos para eles."
 
-#: tips:126 tips:240
+#: tips:126 tips:238
 msgid "Appearance"
 msgstr "Aparência"
 
@@ -4489,24 +4489,12 @@ msgid "Enter the name of the pinboard to show here."
 msgstr "Informe o nome do quadro a ser exibido."
 
 #: tips:183
-msgid "Panel (obsolete)"
-msgstr "Painel (obsoleto)"
-
-#: tips:184
-msgid ""
-"Enter the name of the panel to show here. This option is now only used when "
-"upgrading from an old version."
-msgstr ""
-"Informe o nome do painel a ser exibido. Esta opção atualmente só é usada ao "
-"atualizar de uma versão antiga."
-
-#: tips:185
 msgid "Changes here take effect the next time the filer is run."
 msgstr ""
 "As modificações aqui têm efeito da próxima vez que o gerente de arquivos for "
 "executado."
 
-#: tips:186
+#: tips:184
 #, fuzzy
 msgid ""
 "The session manager activates these options by\n"
@@ -4515,11 +4503,11 @@ msgstr ""
 "O gerente de sessões ativa estas opções usando os argumentos -S ou --rox-"
 "session para o rox."
 
-#: tips:187
+#: tips:185
 msgid "Action windows"
 msgstr "Janelas de ação"
 
-#: tips:188
+#: tips:186
 msgid ""
 "Action windows appear when you start a background\n"
 "operation, such as copying or deleting some files."
@@ -4527,68 +4515,68 @@ msgstr ""
 "Janelas de ação aparecem quando você inicia uma operação\n"
 "de fundo, como copiar ou apagar alguns arquivos."
 
-#: tips:189
+#: tips:187
 msgid "Auto-start (Quiet) these actions"
 msgstr "Auto-iniciar (Silencioso) estas ações"
 
-#: tips:191
+#: tips:189
 msgid "Copy files without confirming first."
 msgstr "Copiar arquivos sem primeiro confirmar."
 
-#: tips:193
+#: tips:191
 msgid "Move files without confirming first."
 msgstr "Mover arquivos sem primeiro confirmar."
 
-#: tips:195
+#: tips:193
 msgid "Create links to files without confirming first."
 msgstr "Criar ligações sem primeiro confirmar."
 
-#: tips:197
+#: tips:195
 msgid "Delete files without confirming first."
 msgstr "Apagar arquivos sem primeiro confirmar."
 
-#: tips:198
+#: tips:196
 msgid "Mount"
 msgstr "Montar"
 
-#: tips:199
+#: tips:197
 msgid "Mount and unmount filesystems without confirming first."
 msgstr "Montar e desmontar sistemas de arquivo sem primeiro confirmar."
 
-#: tips:200
+#: tips:198
 msgid "Default settings"
 msgstr "Configuração padrão"
 
-#: tips:202
+#: tips:200
 msgid "Don't confirm deletion of non-writeable items."
 msgstr "Não confirmar o apagamento de itens somente-leitura."
 
-#: tips:204
+#: tips:202
 msgid "Don't display so much information in the message area."
 msgstr "Não exibir tanta informação na área de mensagens."
 
-#: tips:206
+#: tips:204
 msgid "Also change contents of subdirectories."
 msgstr "Também modificar o conteúdo dos subdiretórios."
 
-#: tips:213
+#: tips:211
 msgid "Mount commands"
 msgstr "Comandos de montagem"
 
-#: tips:214
+#: tips:212
 msgid "Mount command"
 msgstr "Comando para montar"
 
-#: tips:215
+#: tips:213
 msgid "The command used to mount a filesystem. If unsure, use \"mount\"."
 msgstr ""
 "Comando usado para montar um sistema de arquivos. Na dúvida, use \"mount\"."
 
-#: tips:216
+#: tips:214
 msgid "Unmount command"
 msgstr "Comando para desmontar"
 
-#: tips:217
+#: tips:215
 msgid ""
 "The command used to unmount a filesystem. If unsure, use \"umount\" (yes, "
 "without the first \"n\")."
@@ -4596,28 +4584,28 @@ msgstr ""
 "Comando usado para desmontar um sistema de arquivos. Na dúvida, use \"umount"
 "\" (sim, sem o primeiro \"n\")."
 
-#: tips:218
+#: tips:216
 msgid "Eject command"
 msgstr "Comando para ejetar"
 
-#: tips:219
+#: tips:217
 msgid "The command used to eject removable media. If unsure, use \"eject\"."
 msgstr ""
 "Comando usado para ejetar uma mídia removível. Na dúvida, use \"eject\"."
 
-#: tips:220
+#: tips:218
 msgid "Drag and Drop"
 msgstr "Arrastar e Soltar"
 
-#: tips:221
+#: tips:219
 msgid "Dragging to icons"
 msgstr "Arrastar para ícones"
 
-#: tips:222
+#: tips:220
 msgid "Allow dragging to icons in filer windows"
 msgstr "Permite arrastar para ícones nas janelas do gerente de arquivos"
 
-#: tips:223
+#: tips:221
 msgid ""
 "When this is on you can drag a file over a sub-directory or program in a "
 "filer window. The item will highlight when you do this and dropping the file "
@@ -4628,11 +4616,11 @@ msgstr ""
 "realçado quando você fizer isso e ao soltar o arquivo ele será posto dentro "
 "daquele diretório ou será carregado pelo programa."
 
-#: tips:224
+#: tips:222
 msgid "Directories spring open"
 msgstr "Diretórios abrem num salto"
 
-#: tips:225
+#: tips:223
 msgid ""
 "This option, which requires the above option to be turned on too, causes the "
 "highlighted directory to 'spring open' after the file is held over it for a "
@@ -4642,15 +4630,15 @@ msgstr ""
 "que o diretório realçado 'abra num salto' após o arquivo ser seguro sobre "
 "ele por um pequeno espaço de tempo."
 
-#: tips:226
+#: tips:224
 msgid "Spring delay:"
 msgstr "Atraso do salto:"
 
-#: tips:227
+#: tips:225
 msgid "ms"
 msgstr "ms"
 
-#: tips:228
+#: tips:226
 msgid ""
 "This option sets how long, in ms, you must hold a file over a directory "
 "before it will spring open. The above option must be turned on for this to "
@@ -4660,19 +4648,19 @@ msgstr ""
 "sobre um diretório antes que ele abra num salto. A opção acima precisa estar "
 "habilitada para esta ter efeito."
 
-#: tips:229
+#: tips:227
 msgid "When dragging files with the left mouse button"
 msgstr "Ao arrastar arquivos com o botão-esquerdo"
 
-#: tips:230 tips:234
+#: tips:228 tips:232
 msgid "Show a menu of possible actions"
 msgstr "Mostrar um menu das ações possíveis"
 
-#: tips:231
+#: tips:229
 msgid "Copy the files"
 msgstr "Copiar os arquivos"
 
-#: tips:232
+#: tips:230
 msgid ""
 "Note that you can still get the menu to appear, by dragging with Alt held "
 "down."
@@ -4680,15 +4668,15 @@ msgstr ""
 "Note que você ainda pode fazer o menu aparecer ao arrastar pressionando a "
 "tecla Alt."
 
-#: tips:233
+#: tips:231
 msgid "When dragging files with the middle mouse button"
 msgstr "Ao arrastar arquivos com o botão-do-meio"
 
-#: tips:235
+#: tips:233
 msgid "Move the files"
 msgstr "Mover os arquivos"
 
-#: tips:236
+#: tips:234
 msgid ""
 "Note that you can still get the menu to appear, by dragging with the left "
 "button and holding down the Alt key."
@@ -4696,11 +4684,11 @@ msgstr ""
 "Note que você ainda pode fazer o menu aparecer ao arrastar com o botão-"
 "esquerdo e pressionando a tecla Alt."
 
-#: tips:237
+#: tips:235
 msgid "Download handler"
 msgstr "Manipulador de downloads"
 
-#: tips:238
+#: tips:236
 msgid ""
 "When you drag a file from a web browser or other remote source, this program "
 "will be run to download it. $1 is the URI dragged to the filer, and the "
@@ -4712,35 +4700,35 @@ msgstr ""
 "gerente de arquivos e o diretório atual é o destino. P.ex.:\n"
 "xterm -e wget $1"
 
-#: tips:239
+#: tips:237
 msgid "Menus"
 msgstr "Menus"
 
-#: tips:241
+#: tips:239
 msgid "Size of icons in menus:"
 msgstr "Tamanho dos ícones nos menus:"
 
-#: tips:242
+#: tips:240
 msgid "No Icons"
 msgstr "Sem Ícones"
 
-#: tips:245
+#: tips:243
 msgid "Same as current window"
 msgstr "O mesmo que a janela atual"
 
-#: tips:246
+#: tips:244
 msgid "Same as default"
 msgstr "O mesmo que o padrão"
 
-#: tips:247
+#: tips:245
 msgid "Behaviour"
 msgstr "Comportamento"
 
-#: tips:248
+#: tips:246
 msgid "File menu on right-click"
 msgstr "Menu do arquivo com o botão-direito"
 
-#: tips:249
+#: tips:247
 msgid ""
 "Show the File menu instead of the main menu when right-clicking with files "
 "selected (the main menu can be accessed by holding down Control)."
@@ -4749,39 +4737,39 @@ msgstr ""
 "direito com arquivos selecionados (o menu principal pode ser acessado "
 "mantendo pressionada a tecla Ctrl)."
 
-#: tips:250
+#: tips:248
 msgid "Terminal emulator program"
 msgstr "Programa emulador de terminal"
 
-#: tips:251
+#: tips:249
 msgid "The program to launch when you choose `Terminal Here' from the menu."
 msgstr ""
 "O programa a ser executado quando você escolher `Terminal Aqui' no menu."
 
-#: tips:252
+#: tips:250
 msgid "Keyboard shortcuts"
 msgstr "Atalhos de teclado"
 
-#: tips:253
+#: tips:251
 #, fuzzy
 msgid "Applications"
 msgstr "Aplicação ROX"
 
-#: tips:254
+#: tips:252
 msgid "Show .desktop applications in \"Send To\" menu."
 msgstr ""
 
-#: tips:255
+#: tips:253
 msgid ""
 "Show applications installed via .desktop files (usually in /usr/share/"
 "applications and ~/.local/share/applications) in \"Send To\" menus."
 msgstr ""
 
-#: tips:257
+#: tips:255
 msgid "MIME types"
 msgstr "Tipos MIME"
 
-#: tips:258
+#: tips:256
 msgid ""
 "The filer uses a set of rules to work out the correct MIME type for each "
 "regular file, and then chooses a suitable icon for that type."
@@ -4790,23 +4778,23 @@ msgstr ""
 "correto para cada aquivo regular e então escolhe o ícone apropriado para "
 "esse tipo."
 
-#: tips:259
+#: tips:257
 msgid "Edit MIME rules"
 msgstr "Editar as regras MIME"
 
-#: tips:260
+#: tips:258
 msgid "Themes"
 msgstr "Temas"
 
-#: tips:261
+#: tips:259
 msgid "Icon theme"
 msgstr "Tema de ícones"
 
-#: tips:262
+#: tips:260
 msgid "Themes should be placed inside the ~/.icons directory."
 msgstr "Os temas devem ser colocados no diretório ~/.icons"
 
-#: tips:263
+#: tips:261
 msgid ""
 "Use the 'Set Icon...' dialog box to set the icon for each MIME type. Note "
 "that icons set this way override those from the selected theme."
@@ -4815,41 +4803,41 @@ msgstr ""
 "tipo MIME. Note que ícones definidos desse modo prevalecem sobre os do tema "
 "selecionado."
 
-#: tips:264
+#: tips:262
 msgid "Colours"
 msgstr "Cores"
 
-#: tips:265
+#: tips:263
 msgid "File type colours"
 msgstr "Cores dos tipos de arquivo"
 
-#: tips:266
+#: tips:264
 msgid "Colour files based on their types"
 msgstr "Colorir os arquivos conforme o seu tipo"
 
-#: tips:267
+#: tips:265
 msgid "Filenames (and details) are coloured according to the file's type."
 msgstr ""
 "Os nomes (e detalhes) dos arquivos são coloridos de acordo com o tipo de "
 "arquivo."
 
-#: tips:268
+#: tips:266
 msgid "Directory:"
 msgstr "Diretório:"
 
-#: tips:269
+#: tips:267
 msgid "Regular file:"
 msgstr "Arquivo regular:"
 
-#: tips:270
+#: tips:268
 msgid "Pipe:"
 msgstr "Pipe:"
 
-#: tips:271
+#: tips:269
 msgid "Socket:"
 msgstr "Socket:"
 
-#: tips:273
+#: tips:271
 msgid ""
 "Error, such as a symlink which points to a non-existant file, or a file "
 "which the filer does not have permission to examine."
@@ -4857,19 +4845,19 @@ msgstr ""
 "Erro, como uma ligação simbólica que aponta para um arquivo inexistente ou "
 "um arquivo que o gerente de arquivos não tem permissão para examinar."
 
-#: tips:274
+#: tips:272
 msgid "Character device:"
 msgstr "Character device (dispositivo de caractere):"
 
-#: tips:275
+#: tips:273
 msgid "Block device:"
 msgstr "Block device (dispositivo de bloco):"
 
-#: tips:276
+#: tips:274
 msgid "Door:"
 msgstr "Door (porta):"
 
-#: tips:277
+#: tips:275
 msgid ""
 "Door files are a bit like sockets or pipes, and have only been seen on "
 "Solaris."
@@ -4877,40 +4865,40 @@ msgstr ""
 "Arquivos de porta (door) são um pouco como sockets ou pipes e só tem estado "
 "presentes no Solaris."
 
-#: tips:278
+#: tips:276
 msgid "Executable file:"
 msgstr "Arquivo executável:"
 
-#: tips:279
+#: tips:277
 msgid "Application directory:"
 msgstr "Diretório-aplicação:"
 
-#: tips:280
+#: tips:278
 msgid "Unknown type:"
 msgstr "Tipo desconhecido:"
 
-#: tips:281
+#: tips:279
 msgid "Compatibility"
 msgstr "Compatibilidade"
 
-#: tips:282
+#: tips:280
 msgid "Command line program"
 msgstr ""
 
-#: tips:283
+#: tips:281
 msgid "Make script"
 msgstr ""
 
-#: tips:284
+#: tips:282
 msgid "Window manager problems"
 msgstr "Problemas com o gerenciador de janelas"
 
-#: tips:285
+#: tips:283
 msgid "Override window manager control of the pinboard and panels"
 msgstr ""
 "Sobrepujar o controle do gerenciador de janelas sobre o quadro e painéis"
 
-#: tips:286
+#: tips:284
 msgid ""
 "Some window managers don't support the new Extended Window Manager Hints "
 "system, and so treat the pinboard and panels like normal windows. Turn this "
@@ -4924,13 +4912,13 @@ msgstr ""
 "quadro vir para a frente quando você o clica, barra de títulos e outras "
 "decorações aparecendo em volta das janelas ou na lista de seleção de janelas."
 
-#: tips:287
+#: tips:285
 msgid "Pass all backdrop mouse clicks to window manager"
 msgstr ""
 "Transmitir todos os cliques do mouse sobre o fundo para o gerenciador de "
 "janelas"
 
-#: tips:288
+#: tips:286
 msgid ""
 "Normally, right clicking on the desktop background will open the pinboard "
 "menu and left clicking will clear the selection. Turn this on to forward the "
@@ -4941,11 +4929,11 @@ msgstr ""
 "para, em vez disso, encaminhar os eventos para o seu gerenciador de janelas. "
 "Os cliques nos ícones não serão encaminhados."
 
-#: tips:289
+#: tips:287
 msgid "Blackbox root menus hack"
 msgstr "Hack para o menu do Blackbox"
 
-#: tips:290
+#: tips:288
 msgid ""
 "Blackbox, Fluxbox and similar window managers do not yet work well with the "
 "ROX-Filer pinboard. This option enables some workarounds. These window "
@@ -4957,11 +4945,11 @@ msgstr ""
 "correções. Esses gerenciadores de janela devem mudar nas novas versões, "
 "então isto não será mais necessário."
 
-#: tips:291
+#: tips:289
 msgid "Panel is a 'dock'"
 msgstr "Painel é um 'dock'"
 
-#: tips:292
+#: tips:290
 msgid ""
 "Makes sure panels stay against screen edges. Disable this option if the "
 "panel stays above other windows against your wishes. Requires a restart to "
@@ -4972,11 +4960,11 @@ msgstr ""
 "vontade. Requer um\n"
 "reinício para ter efeito."
 
-#: tips:293
+#: tips:291
 msgid "Panel stays on top"
 msgstr "Painel permanece por cima"
 
-#: tips:294
+#: tips:292
 msgid ""
 "Keeps the panel above other windows. Enable this option to make sure the "
 "dock option works correctly in some versions of compiz. May require a "
@@ -4986,25 +4974,25 @@ msgstr ""
 "opção de 'dock' funcione corretamente em algumas versões do compiz.\n"
 "Pode requerer um reinício para ter efeito."
 
-#: tips:295
+#: tips:293
 msgid "Panel confined to work area"
 msgstr ""
 
-#: tips:296
+#: tips:294
 msgid ""
 "Keeps the panel confined to the work area specified by the Extended Window "
 "Manager Specification. Applies to new panels."
 msgstr ""
 
-#: tips:297
+#: tips:295
 msgid "Drag and drop"
 msgstr "Arrastar e soltar"
 
-#: tips:298
+#: tips:296
 msgid "Don't use hostnames"
 msgstr "Não usar hostnames"
 
-#: tips:299
+#: tips:297
 msgid ""
 "Some older applications don't support XDND fully and may need to have this "
 "option turned on. Use this if dragging files to an application shows a + "
@@ -5014,11 +5002,11 @@ msgstr ""
 "desta opção habilitada para funcionar. Use-a se ao arrastar um arquivo para "
 "uma aplicação um sinal + no cursor é exibido e soltar não funciona"
 
-#: tips:301
+#: tips:299
 msgid "Don't use extended attributes"
 msgstr "Não usar atributos estendidos"
 
-#: tips:302
+#: tips:300
 msgid ""
 "This disables the use of extended attributes available in newer operating "
 "systems and file systems.  With this option set the 'Set Type' menu entry is "
@@ -5147,6 +5135,16 @@ msgstr "Extremidade superior"
 #: ../Templates.ui.h:25
 msgid "<b>Position</b>"
 msgstr "<b>Posição</b>"
+
+#~ msgid "Panel (obsolete)"
+#~ msgstr "Painel (obsoleto)"
+
+#~ msgid ""
+#~ "Enter the name of the panel to show here. This option is now only used "
+#~ "when upgrading from an old version."
+#~ msgstr ""
+#~ "Informe o nome do painel a ser exibido. Esta opção atualmente só é usada "
+#~ "ao atualizar de uma versão antiga."
 
 #~ msgid ""
 #~ "Error scanning '%s':\n"
