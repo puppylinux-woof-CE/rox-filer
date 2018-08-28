@@ -238,8 +238,7 @@
      If all else fails, try the Compatibility section of the Options window.
     </p></div></div><div class="sect1" lang="en" xml:lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="id2456955"></a>Running as root</h2></div></div></div><p>
 
-    If you run the filer as the `root' user then the filer will display
-    a message at the top of each window to remind you. The root user has
+    The root user has
     permission to access or change any file in the system, so be very
     careful when using the filer like this.
 
@@ -335,7 +334,10 @@
    and pressing a key. The key will appear in the menu and can be used from
    then on. Key bindings are automatically saved when the filer quits.
    You can use an XSettings manager, such as ROX-Session, to turn this feature
-   on for all Gtk+-2.0 applications.
+   on for all Gtk+-2.0 applications.  You can also manually edit your `<tt xmlns="" class="filename">~/.gtkrc-2.0</tt>'
+   file, or if that file is auto-generated, `<tt xmlns="" class="filename">~/.gtkrc.mine</tt>'
+   or `<tt xmlns="" class="filename">~/.gtkrc-2.0.mine</tt>' as appropriate,
+   adding the line: <pre class="programlisting">gtk_can_change_accels=1</pre>
   </p><div class="footnotes"><br /><hr width="100" align="left" /><div class="footnote"><p><sup>[<a id="ftn.id2457050" href="#id2457050">1</a>] </sup>This documentation assumes that button–1 is the left
        button, button–2 is the middle button and button–3 is the
        right button. This is not always the case — for example, in a
@@ -422,9 +424,17 @@
        Toggle the display of hidden files (those with names starting with a dot)</td><td>
        Toggle display of thumbnails for image files.
        </td></tr><tr><td>
+       Folder</td><td>
+       Toggle display of files (Show dirs only)</td><td>
+       Toggle display of directories (Show files only)
+       </td></tr><tr><td>
        List with selections</td><td>
        Select All.</td><td>
        Invert Selection.
+       </td></tr><tr><td>
+       Blue plus</td><td>
+       Add new directory.</td><td>
+       Show <a href="#id2503649">new menu</a>.  (Middle button new blank file)
        </td></tr><tr><td>
        Life-belt</td><td>
        Show <span class="application">ROX-Filer</span>'s help files</td><td>
@@ -585,7 +595,13 @@
     <span class="application">FreeFS</span> appear for mount points.
 
     </p><div class="informaltable"><table border="1"><colgroup><col /><col /></colgroup><thead><tr><th>Entry</th><th>Action</th></tr></thead><tbody><tr><td>
-         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Copy...</span></span></td><td>
+         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Copy</span></span></td><td>
+         Copy this object to the clipboard (It will not be copied until pasted).
+       </td></tr><tr><td>
+         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Cut</span></span></td><td>
+         Cut this object to the clipboard (It will not be removed until pasted).
+       </td></tr><tr><td>
+         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Duplicate...</span></span></td><td>
          Make a copy of this object.
        </td></tr><tr><td>
          <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Rename...</span></span></td><td>
@@ -601,7 +617,7 @@
          will have their contents deleted first. Deleting symlinks only removes
          the link, not the thing it points to.
        </td></tr><tr><td>
-         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Shift Open</span></span></td><td>
+         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Shift Open<br> (Look Inside, <br>Open As Text, <br>  Show Target, <br>etc...)</span></span></td><td>
 	 Opens applications as directories, files as text/plain, and
 	 symlinks by opening the directory containing the thing they point to.
 	 It also has interesting effects on mount points (see <a href="#media">Removable devices</a>).
@@ -609,7 +625,7 @@
 	 down. The text of the menu entry changes to show which action will be
 	 performed.
        </td></tr><tr><td>
-         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Send To...</span></span></td><td>
+         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Open With...</span></span></td><td>
          Opens the `Send To' menu, allowing you to send the selected files
          to one of a list of applications. See the
          <a href="#SendTo">Send To menu</a> section.
@@ -621,6 +637,10 @@
          <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Set Icon...</span></span></td><td>
          You can give each file or directory its own special icon using this
          feature — simply drag a suitable image onto <a href="#SetIcon">the Set Icon box</a>.
+       </td></tr><tr><td>
+         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Extended attributes...</span></span></td><td>
+         Display extended attributes of this object. You can also change user
+         attributes.
        </td></tr><tr><td>
          <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Properties</span></span></td><td>
          Display extra information about this object. You can also change
@@ -694,7 +714,7 @@
 
     </p><div class="informaltable"><table border="1"><colgroup><col /><col /></colgroup><thead><tr><th>Entry</th><th>Action</th></tr></thead><tbody><tr><td>Directory</td><td>
          Create a new directory.
-         </td></tr><tr><td>File</td><td>
+         </td></tr><tr><td>Blank file</td><td>
          Create a blank file.
          </td></tr><tr><td>Customise Menu</td><td>
          Open the `<tt xmlns="" class="filename">Templates</tt>' directory so that you can
@@ -746,6 +766,9 @@
          <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Show Bookmarks</span></span></td><td>
          Open the bookmarks menu (see <a href="#bookmarks">Bookmarks menu</a>).
        </td></tr><tr><td>
+         <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Show Log</span></span></td><td>
+         Show the log viewer.
+       </td></tr><tr><td>
          <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Follow Symbolic Links</span></span></td><td>
 	 Converts the path shown in the window's titlebar to its canonical form.
 	 For example, if `<tt xmlns="" class="filename">/home/fred/link</tt>' is a symlink
@@ -766,10 +789,10 @@
        </td></tr><tr><td>
          <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Shell Command...</span></span></td><td>
          Open the shell command box (see the <a href="#mini">Minibuffer</a> section).
-       </td></tr><tr><td><span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Xterm Here</span></span></td><td>
-        Open an xterm with its current directory set to this directory.
-      </td></tr><tr><td><span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Switch to xterm</span></span></td><td>
-        Open an xterm with its current directory set to this directory, and close the
+       </td></tr><tr><td><span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Terminal Here</span></span></td><td>
+        Open a terminal emulator with its current directory set to this directory.
+      </td></tr><tr><td><span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Switch to Terminal</span></span></td><td>
+        Open a terminal emulator with its current directory set to this directory, and close the
 	filer window at the same time.
       </td></tr></tbody></table></div><p>
 
@@ -917,7 +940,7 @@
       passed the XID of the panel socket window when the directory is dragged
       onto the panel. You can use this to create a GtkPlug widget. A
       tutorial is available at
-      <a href="http://rox.sourceforge.net/phpwiki/index.php/Tutorials/Applets" target="_top">http://rox.sourceforge.net/phpwiki/index.php/Tutorials/Applets</a>
+      <a href="http://rox.sourceforge.net/desktop/node/241.html" target="_top">http://rox.sourceforge.net/desktop/node/241.html</a>
     </p></li></ol></div></div><div class="sect1" lang="en" xml:lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="id2504540"></a><a id="iconify"></a>Iconified windows on the pinboard</h2></div></div></div><p>
     When the pinboard is in use, ROX-Filer can be used to display an icon for each iconified
     (or 'minimised') window. You can turn this on or off from the Options box. Iconified window icons
@@ -1192,7 +1215,7 @@ generated.
     which match a condition.
 
     </p><div class="orderedlist"><p class="title"><b>For example, to select all files larger than 5Mb:</b></p><ol type="1"><li><p>
-       Open the Select If minibuffer (bound to <span xmlns="" class="keycap">?</span> by dafault).
+       Open the Select If minibuffer (bound to <span xmlns="" class="keycap">?</span> by default).
      </p></li><li><p>
        Type <strong class="userinput"><code>Size &gt; 5Mb</code></strong> and press <span xmlns="" class="keycap">Return</span>.
      </p></li></ol></div><p>
@@ -1277,8 +1300,14 @@ generated.
        also do the same thing to all its contents, and the contents of any
        subdirectories, and so on.
      </p></li><li><p>
+       <span class="guilabel">Merge</span> means that directories will always
+       be merged without prompting.
+     </p></li><li><p>
        <span class="guilabel">Newer</span> will automatically copy a file over an existing one
        if the file is newer than the one it replaces (later modification time).
+     </p></li><li><p>
+       <span class="guilabel">Ignore Older</span> will automatically ignore a file
+       if the file is older than the one it would replace (earlier modification time).
      </p></li></ul></div><p>
    </p><p>
      You can set the defaults for these options from the Options box.
@@ -1703,6 +1732,11 @@ generated.
       is the image used to represent the directory (this works even if
       there is no `<tt xmlns="" class="filename">AppRun</tt>').
     </p></li><li><p>
+      `<tt xmlns="" class="filename">.&lt;filename&gt;.comment</tt>'
+      is a comment file for the file &lt;filename&gt; that will be used to show
+      a tooltip when the mouse is held over the file (this works even if
+      there is no `<tt xmlns="" class="filename">AppRun</tt>').
+    </p></li><li><p>
       `<tt xmlns="" class="filename">Help</tt>'
       is the directory to be opened when you choose <span xmlns="" class="guimenuitem"><span xmlns="http://www.w3.org/1999/xhtml" class="guimenuitem">Help</span></span>
       from the File menu.
@@ -2014,6 +2048,7 @@ $ rehash</pre><p>
       </p></dd><dt><span class="term"><code class="option">-S</code>, </span><span class="term"><code class="option">--rox-session</code></span></dt><dd><p>run under ROX-Session, open the default panel and pinboard (implies --new).
       </p></dd><dt><span class="term"><code class="option">-t</code>, </span><span class="term"><code class="option">--top=PANEL</code></span></dt><dd><p>open PANEL as a top-edge panel.
       </p></dd><dt><span class="term"><code class="option">-u</code>, </span><span class="term"><code class="option">--user</code></span></dt><dd><p>show user name in each window.
+      </p></dd><dt><span class="term"><code class="option">-U</code>, </span><span class="term"><code class="option">--url=URL</code></span></dt><dd><p>open file or directory in URI form.
       </p></dd><dt><span class="term"><code class="option">-v</code>, </span><span class="term"><code class="option">--version</code></span></dt><dd><p>display the version information and exit.
       </p></dd><dt><span class="term"><code class="option">-x</code>, </span><span class="term"><code class="option">--examine=FILE</code></span></dt><dd><p>FILE has changed; re-examine it.
       </p></dd></dl></div><p>
@@ -2213,13 +2248,13 @@ then this must match the label of the item.  If more than one item matches, only
     <a href="http://www.gnome.org" target="_top">http://www.gnome.org</a></em></span>
   </p></div><div class="bibliomixed" id="id2510506"><p class="bibliomixed">[<span class="abbrev">DND</span>] 
    <span class="citetitle"><em class="citetitle">The Drag and Drop protocol,
-    <a href="http://www.newplanetsoftware.com/xdnd/" target="_top">http://www.newplanetsoftware.com/xdnd/</a></em></span>
+    <a href="https://www.freedesktop.org/wiki/Specifications/XDND/" target="_top">https://www.freedesktop.org/wiki/Specifications/XDND/</a></em></span>
   </p></div><div class="bibliomixed" id="id2510519"><p class="bibliomixed">[<span class="abbrev">XDS</span>] 
    <span class="citetitle"><em class="citetitle">The X Direct Save protocol,
-    <a href="http://www.newplanetsoftware.com/xds/" target="_top">http://www.newplanetsoftware.com/xds/</a></em></span>
+    <a href="https://www.freedesktop.org/wiki/Specifications/XDS/" target="_top">https://www.freedesktop.org/wiki/Specifications/XDS/</a></em></span>
   </p></div><div class="bibliomixed" id="id2510532"><p class="bibliomixed">[<span class="abbrev">BaseDir</span>] 
    <span class="citetitle"><em class="citetitle">The freedesktop.org base directory system,
-    <a href="http://www.freedesktop.org/wiki/Standards_2fbasedir_2dspec" target="_top">http://www.freedesktop.org/wiki/Standards_2fbasedir_2dspec</a></em></span>
+    <a href="https://www.freedesktop.org/wiki/Specifications/basedir-spec/" target="_top">https://www.freedesktop.org/wiki/Specifications/basedir-spec/</a></em></span>
   </p></div><div class="bibliomixed" id="id2510546"><p class="bibliomixed">[<span class="abbrev">AVFS</span>] 
    <span class="citetitle"><em class="citetitle">AVFS - A Virtual File System,
     <a href="http://sourceforge.net/projects/avf/" target="_top">http://sourceforge.net/projects/avf/</a></em></span>
@@ -2228,14 +2263,14 @@ then this must match the label of the item.  If more than one item matches, only
     <a href="http://www.w3.org/TR/SOAP/" target="_top">http://www.w3.org/TR/SOAP/</a></em></span>
   </p></div><div class="bibliomixed" id="id2510572"><p class="bibliomixed">[<span class="abbrev">Thumbs</span>] 
    <span class="citetitle"><em class="citetitle">Thumbnail Managing Standard (Version 0.5)
-    <a href="http://triq.net/~jens/thumbnail-spec/" target="_top">http://triq.net/~jens/thumbnail-spec/</a></em></span>
+    <a href="https://www.freedesktop.org/wiki/Specifications/thumbnails/" target="_top">https://www.freedesktop.org/wiki/Specifications/thumbnails/</a></em></span>
   </p></div><div class="bibliomixed" id="id2510586"><p class="bibliomixed">[<span class="abbrev">Wallpaper</span>] 
    <span class="citetitle"><em class="citetitle">Wallpaper backdrop control application
-    <a href="http://rox.sourceforge.net/phpwiki/index.php/Wallpaper" target="_top">http://rox.sourceforge.net/phpwiki/index.php/Wallpaper</a></em></span>
+    <a href="http://rox.sourceforge.net/desktop/Wallpaper.html" target="_top">http://rox.sourceforge.net/desktop/Wallpaper.html</a></em></span>
   </p></div><div class="bibliomixed" id="id2510600"><p class="bibliomixed">[<span class="abbrev">SharedMIME</span>] 
    <span class="citetitle"><em class="citetitle">Shared MIME-info Database (Version 0.16)
-    <a href="http://www.freedesktop.org/wiki/Standards_2fshared_2dmime_2dinfo_2dspec" target="_top">http://www.freedesktop.org/wiki/Standards_2fshared_2dmime_2dinfo_2dspec</a></em></span>
+    <a href="https://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec/" target="_top">https://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec/</a></em></span>
   </p></div><div class="bibliomixed" id="id2510614"><p class="bibliomixed">[<span class="abbrev">IconTheme</span>] 
    <span class="citetitle"><em class="citetitle">The freedesktop.org Icon Theme specification
-    <a href="http://www.freedesktop.org/wiki/Standards_2ficon_2dtheme_2dspec" target="_top">http://www.freedesktop.org/wiki/Standards_2ficon_2dtheme_2dspec</a></em></span>
+    <a href="https://www.freedesktop.org/wiki/Specifications/icon-theme-spec/" target="_top">https://www.freedesktop.org/wiki/Specifications/icon-theme-spec/</a></em></span>
   </p></div></div></body></html>
