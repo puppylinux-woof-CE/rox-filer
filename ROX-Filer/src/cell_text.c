@@ -252,8 +252,7 @@ cell_text_render (GtkCellRenderer      *cell,
 	}
 
 /* my edits */
-	if ((gtkcelltext->background_set &&
-		(flags & GTK_CELL_RENDERER_SELECTED) == 0) ||
+	if ((flags & GTK_CELL_RENDERER_SELECTED) == 0 ||
 		(mycelltext->show_selection_state == FALSE &&
 		(flags & GTK_CELL_RENDERER_SELECTED) == GTK_CELL_RENDERER_SELECTED))
 	{
@@ -290,7 +289,7 @@ cell_text_render (GtkCellRenderer      *cell,
 			 */
 			const gchar *detail = NULL;
 			if ((flags & GTK_CELL_RENDERER_SORTED) == GTK_CELL_RENDERER_SORTED)
-				detail = "cell_sorted";
+				detail = "cell_even_sorted";
 			else
 				detail = "cell_even";
 
