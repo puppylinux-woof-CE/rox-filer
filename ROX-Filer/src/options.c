@@ -1366,6 +1366,7 @@ static GList *build_label(Option *option, xmlNode *node, guchar *label)
 
 		spacer = gtk_event_box_new();
 		gtk_widget_set_size_request(spacer, 6, 6);
+		gtk_event_box_set_visible_window(GTK_EVENT_BOX(spacer), FALSE);
 
 		return g_list_append(g_list_append(NULL, hbox), spacer);
 	}
@@ -1382,6 +1383,7 @@ static GList *build_spacer(Option *option, xmlNode *node, guchar *label)
 
 	eb = gtk_event_box_new();
 	gtk_widget_set_size_request(eb, 12, 12);
+	gtk_event_box_set_visible_window(GTK_EVENT_BOX(eb), FALSE);
 
 	return g_list_append(NULL, eb);
 }
