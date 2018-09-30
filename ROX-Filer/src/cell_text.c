@@ -180,6 +180,8 @@ static void cell_text_class_init(CellText *class)
 						"Render cell differently when selected.",
 						TRUE,
 						G_PARAM_WRITABLE));
+
+	g_type_class_add_private (class, sizeof (CellTextPrivate));
 }
 
 static void cell_text_set_property(GObject      *object,
