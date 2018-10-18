@@ -308,11 +308,13 @@ static void path_return_pressed(FilerWindow *filer_window, GdkEventKey *event)
 	int		flags = OPEN_FROM_MINI | OPEN_SAME_WINDOW;
 	ViewIter	iter;
 	DirItem		*item;
-	gchar *base;
 
 	path = gtk_entry_get_text(GTK_ENTRY(filer_window->minibuffer));
-	base = g_path_get_basename(path);
-	pattern = base;
+	pattern = strrchr(path, G_DIR_SEPARATOR);
+	if (pattern == NULL) /* No G_DIR_SEPARATOR found. */
+		pattern = path;
+	else
+		pattern++;
 
 	view_get_cursor(filer_window->view, &iter);
 
@@ -322,7 +324,6 @@ static void path_return_pressed(FilerWindow *filer_window, GdkEventKey *event)
 		gdk_beep();
 		return;
 	}
-	g_free(base);
 	
 	if ((event->state & GDK_SHIFT_MASK) != 0)
 		flags |= OPEN_SHIFT;
@@ -453,7 +454,6 @@ static void path_changed(FilerWindow *filer_window)
 	char		*path;
 	char		*new = NULL;
 	gboolean	error = FALSE;
-	gchar 		*base;
 
 	rawnew = gtk_entry_get_text(GTK_ENTRY(mini));
 	if (!*rawnew)
@@ -509,8 +509,12 @@ static void path_changed(FilerWindow *filer_window)
 	}
 		
 
-	base = g_path_get_basename(new);
-	leaf = base;
+	leaf = strrchr(new, G_DIR_SEPARATOR);
+	if (leaf == NULL) /* No G_DIR_SEPARATOR found. */
+		leaf = new;
+	else
+		leaf++;
+
 	if (leaf == new)
 		path = g_strdup("/");
 	else
@@ -544,7 +548,6 @@ static void path_changed(FilerWindow *filer_window)
 		
 	g_free(new);
 	g_free(path);
-	g_free(base);
 
 	entry_set_error(mini, error);
 }
@@ -631,18 +634,19 @@ static void search_in_dir(FilerWindow *filer_window, int dir)
 {
 	const char *path, *pattern;
 	ViewIter iter;
-	gchar *base;
 
 	path = gtk_entry_get_text(GTK_ENTRY(filer_window->minibuffer));
-	base = g_path_get_basename(path);
-	pattern = base;
+	pattern = strrchr(path, G_DIR_SEPARATOR);
+	if (pattern == NULL) /* No G_DIR_SEPARATOR found. */
+		pattern = path;
+	else
+		pattern++;
 	
 	view_get_cursor(filer_window->view, &iter);
 	view_set_base(filer_window->view, &iter);
 	find_next_match(filer_window, pattern, dir);
 	view_get_cursor(filer_window->view, &iter);
 	view_set_base(filer_window->view, &iter);
-	g_free(base);
 }
 
 /*			SHELL COMMANDS			*/
