@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-11 13:45-0500\n"
+"POT-Creation-Date: 2018-10-22 16:07-0500\n"
 "PO-Revision-Date: 2002-09-15 19:25+0200\n"
 "Last-Translator: Marcys Lundblad <ml@update.uu.se>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr "Bekräfta inte alla kommandon"
 msgid "Name"
 msgstr "Namn"
 
-#: abox.c:460 menu.c:270
+#: abox.c:460 menu.c:273
 msgid "Directory"
 msgstr "Katalog"
 
@@ -512,7 +512,7 @@ msgstr "!'%s' är en symbolsk genväg\n"
 msgid "You need to select some items to search through"
 msgstr "Du måste välja något/några objekt att genomsöka"
 
-#: action.c:2103 menu.c:258
+#: action.c:2103 menu.c:261
 msgid "Find"
 msgstr "Leta"
 
@@ -532,7 +532,7 @@ msgstr "Montera/avmontera"
 msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr "ROX-Filer stödjer tyvärr ännu inte monteringspunkter på ditt system."
 
-#: action.c:2213 menu.c:243 tips:194
+#: action.c:2213 menu.c:246 tips:194
 msgid "Delete"
 msgstr "Radera"
 
@@ -577,7 +577,7 @@ msgstr "go-rwx (Privat - endast ägaren har tillgång)"
 msgid "go=u-w (Public access, not write)"
 msgstr "go=u-w (Allmänn, ej skrivbar)"
 
-#: action.c:2276 menu.c:212 menu.c:256 tips:56 tips:86
+#: action.c:2276 menu.c:215 menu.c:259 tips:56 tips:86
 msgid "Permissions"
 msgstr "Rättigheter"
 
@@ -616,7 +616,7 @@ msgstr "Innehållet i underkataloger skall också ändras."
 msgid "Type:"
 msgstr "Typ:"
 
-#: action.c:2413 dnd.c:123 menu.c:238 tips:188
+#: action.c:2413 dnd.c:123 menu.c:241 tips:188
 msgid "Copy"
 msgstr "Kopiera"
 
@@ -708,12 +708,12 @@ msgid ""
 "menu for all items of this type (%s/%s)."
 msgstr ""
 
-#: appmenu.c:347 menu.c:272
+#: appmenu.c:347 menu.c:275
 #, fuzzy
 msgid "Customise Menu..."
 msgstr "Ställ in"
 
-#: appmenu.c:402 menu.c:290 toolbar.c:174
+#: appmenu.c:402 menu.c:293 toolbar.c:174
 msgid "Help"
 msgstr "Hjälp"
 
@@ -1001,14 +1001,14 @@ msgstr ""
 "Kan inte få data från den andra maskinen (application/octet-stream inte "
 "givet)"
 
-#: dnd.c:1017 menu.c:2321
+#: dnd.c:1017 menu.c:2395
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr ""
 "Någon av dessa filer finns på en annan maskin - dessa kommer hoppas över - "
 "tyvärr"
 
-#: dnd.c:1024 menu.c:2327
+#: dnd.c:1024 menu.c:2403
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1020,7 +1020,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "Okänd handling förfrågad"
 
-#: dnd.c:1045 menu.c:2341
+#: dnd.c:1045 menu.c:2418
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Fel vid hämtning av fillista: %s"
@@ -1087,7 +1087,7 @@ msgstr ""
 msgid "No change"
 msgstr "Inget"
 
-#: filer.c:673 infobox.c:1065 menu.c:942
+#: filer.c:673 infobox.c:1065 menu.c:956
 msgid "Unmount"
 msgstr "Avmontera"
 
@@ -1162,7 +1162,7 @@ msgstr "Symbolisk genväg till "
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "Detta filnamn är inte giltig UTF-8. Du måste ändra dess namn.\n"
 
-#: filer.c:2795 menu.c:2524
+#: filer.c:2795 menu.c:2603
 msgid "Item no longer exists!"
 msgstr "Objektet finns inte längre!"
 
@@ -1541,45 +1541,45 @@ msgstr ""
 msgid "ROX-Filer"
 msgstr "ROX-Filer"
 
-#: icon.c:132 menu.c:291
+#: icon.c:132 menu.c:294
 #, fuzzy
 msgid "About ROX-Filer..."
 msgstr "Om ROX-Filer"
 
-#: icon.c:133 menu.c:292
+#: icon.c:133 menu.c:295
 #, fuzzy
 msgid "Show Help Files"
 msgstr "Visa hjälpfiler"
 
-#: icon.c:134 menu.c:293
+#: icon.c:134 menu.c:296
 msgid "Manual"
 msgstr "Manual"
 
-#: icon.c:136 menu.c:265
+#: icon.c:136 menu.c:268
 msgid "Options..."
 msgstr "Inställningar..."
 
-#: icon.c:137 menu.c:277
+#: icon.c:137 menu.c:280
 msgid "Home Directory"
 msgstr "Hemkatalogen"
 
-#: icon.c:138 icon.c:1437 menu.c:237 type.c:224
+#: icon.c:138 icon.c:1437 menu.c:240 type.c:224
 msgid "File"
 msgstr "Fil"
 
-#: icon.c:139 menu.c:245 menu.c:955
+#: icon.c:139 menu.c:248 menu.c:969
 msgid "Shift Open"
 msgstr "Shift-öppna"
 
-#: icon.c:140 menu.c:253
+#: icon.c:140 menu.c:256
 msgid "Properties"
 msgstr ""
 
-#: icon.c:141 menu.c:248
+#: icon.c:141 menu.c:251
 msgid "Set Run Action..."
 msgstr "Sätt körhändelse..."
 
-#: icon.c:142 menu.c:249
+#: icon.c:142 menu.c:252
 msgid "Set Icon..."
 msgstr "Sätt ikon..."
 
@@ -1595,7 +1595,7 @@ msgstr "Visa plats"
 msgid "Remove Item(s)"
 msgstr "Ta bort objekt"
 
-#: icon.c:318 log.c:111 menu.c:837
+#: icon.c:318 log.c:111 menu.c:851
 #, c-format
 msgid "%s '%s'"
 msgstr ""
@@ -1625,7 +1625,7 @@ msgstr ""
 msgid "You must open the menu over an item"
 msgstr "Du måste öppna menyn över ett objekt"
 
-#: icon.c:740 menu.c:1357
+#: icon.c:740 menu.c:1371
 msgid "You can only set the run action for a regular file"
 msgstr "Du kan endast sätta körhändelsen för en vanlig fil"
 
@@ -1674,7 +1674,7 @@ msgstr "Är du säker på att du vill öppna %d fönster?"
 msgid "Show Info"
 msgstr "Visa information"
 
-#: infobox.c:136 menu.c:842
+#: infobox.c:136 menu.c:856
 msgid "(bad utf-8)"
 msgstr ""
 
@@ -1726,7 +1726,7 @@ msgid ""
 "(note: old link has been deleted)"
 msgstr "Mislykkedes i at skabe en børne-process"
 
-#: infobox.c:571 tips:270
+#: infobox.c:571 tips:272
 msgid "Error:"
 msgstr "Fel:"
 
@@ -2089,7 +2089,7 @@ msgid ""
 "Right-click for a list of versions."
 msgstr ""
 
-#: main.c:967 menu.c:1458 menu.c:1464
+#: main.c:967 menu.c:1472 menu.c:1478
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "Fel när '%s' skapades: %s"
@@ -2109,281 +2109,281 @@ msgid ""
 "If you are using Zero Install you should use 0alias instead."
 msgstr ""
 
-#: menu.c:208
+#: menu.c:211
 msgid "Display"
 msgstr "Visa"
 
-#: menu.c:209 tips:35
+#: menu.c:212 tips:35
 #, fuzzy
 msgid "Icons View"
 msgstr "Ikonstorlek"
 
-#: menu.c:210
+#: menu.c:213
 #, fuzzy
 msgid "Icons, With..."
 msgstr "Jättestora, med..."
 
-#: menu.c:211 tips:55
+#: menu.c:214 tips:55
 msgid "Sizes"
 msgstr "Storlekar"
 
-#: menu.c:213 tips:254
+#: menu.c:216 tips:256
 msgid "Types"
 msgstr "Typer"
 
-#: menu.c:214 tips:58
+#: menu.c:217 tips:58
 msgid "Times"
 msgstr "Tider"
 
-#: menu.c:215 tips:36 tips:73 tips:74
+#: menu.c:218 tips:36 tips:73 tips:74
 msgid "List View"
 msgstr ""
 
-#: menu.c:217
+#: menu.c:220
 #, fuzzy
 msgid "Bigger Icons"
 msgstr "Jättestora ikoner"
 
-#: menu.c:218
+#: menu.c:221
 #, fuzzy
 msgid "Smaller Icons"
 msgstr "Små ikoner"
 
-#: menu.c:219 tips:52
+#: menu.c:222 tips:52
 msgid "Automatic"
 msgstr ""
 
-#: menu.c:221
+#: menu.c:224
 msgid "Sort by Name"
 msgstr "Sortera efter mann"
 
-#: menu.c:222
+#: menu.c:225
 msgid "Sort by Type"
 msgstr "Sortera efter typ"
 
-#: menu.c:223
+#: menu.c:226
 #, fuzzy
 msgid "Sort by Date (atime)"
 msgstr "Sortera efter datum"
 
-#: menu.c:224
+#: menu.c:227
 #, fuzzy
 msgid "Sort by Date (ctime)"
 msgstr "Sortera efter datum"
 
-#: menu.c:225
+#: menu.c:228
 #, fuzzy
 msgid "Sort by Date (mtime)"
 msgstr "Sortera efter datum"
 
-#: menu.c:226
+#: menu.c:229
 msgid "Sort by Size"
 msgstr "Sortera efter storlek"
 
-#: menu.c:227
+#: menu.c:230
 #, fuzzy
 msgid "Sort by Owner"
 msgstr "Sortera efter storlek"
 
-#: menu.c:228
+#: menu.c:231
 #, fuzzy
 msgid "Sort by Group"
 msgstr "Sortera efter typ"
 
-#: menu.c:229
+#: menu.c:232
 #, fuzzy
 msgid "Reversed"
 msgstr "Ändra tillbaka"
 
-#: menu.c:231
+#: menu.c:234
 msgid "Show Hidden"
 msgstr "Visa gömda"
 
-#: menu.c:232
+#: menu.c:235
 #, fuzzy
 msgid "Filter Files..."
 msgstr "ROX-Filer: fil(1) siger..."
 
-#: menu.c:233
+#: menu.c:236
 msgid "Filter Directories With Files"
 msgstr ""
 
-#: menu.c:234
+#: menu.c:237
 msgid "Show Thumbnails"
 msgstr "Visa förhandsgranskningar"
 
-#: menu.c:235
+#: menu.c:238
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: menu.c:236
+#: menu.c:239
 #, fuzzy
 msgid "Save Current Display Settings..."
 msgstr "Vis meddelelser i..."
 
-#: menu.c:239
+#: menu.c:242
 #, fuzzy
 msgid "Cut"
 msgstr "Räkna"
 
-#: menu.c:240
+#: menu.c:243
 msgid "Duplicate..."
 msgstr ""
 
-#: menu.c:241
+#: menu.c:244
 msgid "Rename..."
 msgstr "Byt namn..."
 
-#: menu.c:242
+#: menu.c:245
 msgid "Link..."
 msgstr "Sätt genväg..."
 
-#: menu.c:246
+#: menu.c:249
 #, fuzzy
 msgid "Open With..."
 msgstr "Jättestora, med..."
 
-#: menu.c:251
+#: menu.c:254
 #, fuzzy
 msgid "Extended attributes..."
 msgstr "Använd inte maskinnamn"
 
-#: menu.c:254
+#: menu.c:257
 #, fuzzy
 msgid "Count"
 msgstr "Räkna"
 
-#: menu.c:255
+#: menu.c:258
 #, fuzzy
 msgid "Set Type..."
 msgstr "Sänd till..."
 
-#: menu.c:259 toolbar.c:164
+#: menu.c:262 toolbar.c:164
 msgid "Select"
 msgstr "Välj"
 
-#: menu.c:260
+#: menu.c:263
 msgid "Select All"
 msgstr "Välj alla"
 
-#: menu.c:261
+#: menu.c:264
 msgid "Clear Selection"
 msgstr "Välj ingen"
 
-#: menu.c:262
+#: menu.c:265
 msgid "Invert Selection"
 msgstr "Invertera val"
 
-#: menu.c:263
+#: menu.c:266
 #, fuzzy
 msgid "Select by Name..."
 msgstr "Sortera efter mann"
 
-#: menu.c:264
+#: menu.c:267
 msgid "Select If..."
 msgstr "Välj om..."
 
-#: menu.c:267
+#: menu.c:270
 msgid "Paste"
 msgstr ""
 
-#: menu.c:269 toolbar.c:168
+#: menu.c:272 toolbar.c:168
 msgid "New"
 msgstr "Ny"
 
-#: menu.c:271
+#: menu.c:274
 msgid "Blank file"
 msgstr "Tom fil"
 
-#: menu.c:273 tasklist.c:305
+#: menu.c:276 tasklist.c:305
 msgid "Window"
 msgstr "Fönster"
 
-#: menu.c:274
+#: menu.c:277
 msgid "Parent, New Window"
 msgstr "Förälder, nytt fönster"
 
-#: menu.c:275
+#: menu.c:278
 msgid "Parent, Same Window"
 msgstr "Förälder, samma fönster"
 
-#: menu.c:276 tips:30
+#: menu.c:279 tips:30
 msgid "New Window"
 msgstr "Nytt fönster"
 
-#: menu.c:278
+#: menu.c:281
 msgid "Show Bookmarks"
 msgstr ""
 
-#: menu.c:279
+#: menu.c:282
 #, fuzzy
 msgid "Show Log"
 msgstr "Visa information"
 
-#: menu.c:280
+#: menu.c:283
 #, fuzzy
 msgid "Follow Symbolic Links"
 msgstr "Symbolsk genväg"
 
-#: menu.c:281
+#: menu.c:284
 msgid "Resize Window"
 msgstr "Ändra storlek på fönster"
 
-#: menu.c:284
+#: menu.c:287
 msgid "Close Window"
 msgstr "Stäng fönster"
 
-#: menu.c:286
+#: menu.c:289
 msgid "Enter Path..."
 msgstr "Skriv in sökväg..."
 
-#: menu.c:287
+#: menu.c:290
 msgid "Shell Command..."
 msgstr "Shell-kommando..."
 
-#: menu.c:288
+#: menu.c:291
 #, fuzzy
 msgid "Terminal Here"
 msgstr "Terminalemulator i denna katalog"
 
-#: menu.c:289
+#: menu.c:292
 #, fuzzy
 msgid "Switch to Terminal"
 msgstr "Byt till terminalemulator"
 
-#: menu.c:789
+#: menu.c:803
 msgid "You should Shift+Menu click over a file to send it somewhere"
 msgstr ""
 "Du måste klicka med shift-tangenten nertryckt på en fil för att skicka den "
 "någonstans"
 
-#: menu.c:827
+#: menu.c:841
 msgid "Next Click"
 msgstr "Nästa klickning"
 
-#: menu.c:849
+#: menu.c:863
 #, c-format
 msgid "%d items"
 msgstr "%d objekt"
 
-#: menu.c:944
+#: menu.c:958
 #, fuzzy
 msgid "Open unmounted"
 msgstr "avmonterad"
 
-#: menu.c:947
+#: menu.c:961
 msgid "Show Target"
 msgstr "Visa destination"
 
-#: menu.c:949
+#: menu.c:963
 msgid "Look Inside"
 msgstr "Titta inuti"
 
-#: menu.c:951
+#: menu.c:965
 msgid "Open As Text"
 msgstr "Öppna som text"
 
-#: menu.c:1122
+#: menu.c:1136
 msgid ""
 "Extended attributes, used to store types, are not supported for this file or "
 "files.\n"
@@ -2392,16 +2392,16 @@ msgid ""
 "mount option ('user_xattr' on Linux)."
 msgstr ""
 
-#: menu.c:1128
+#: menu.c:1142
 msgid "Setting type not supported for some of these files"
 msgstr ""
 
-#: menu.c:1165
+#: menu.c:1179
 #, fuzzy
 msgid "_Relative link"
 msgstr "Relativ genväg"
 
-#: menu.c:1171
+#: menu.c:1185
 msgid ""
 "If on, the symlink will store the path from the symlink to the target file. "
 "Use this if the symlink and the target will be moved together.\n"
@@ -2415,38 +2415,38 @@ msgstr ""
 "detta om genvägen kan bli flyttad, men destinationsfilen alltid kommer "
 "finnas på samma ställe."
 
-#: menu.c:1243
+#: menu.c:1257
 msgid "New pathname is not absolute"
 msgstr "Nytt katalognamn är inte absolut"
 
-#: menu.c:1311
+#: menu.c:1325
 #, c-format
 msgid "Symlink from '%s' already exists. Replace it with a link to '%s'?"
 msgstr "Genväg från '%s' finns redan. Byt ut den mot en genväg till '%s'?"
 
-#: menu.c:1317
+#: menu.c:1331
 msgid "_Replace"
 msgstr "_Byt ut"
 
-#: menu.c:1443 menu.c:1490 menu.c:1558
+#: menu.c:1457 menu.c:1504 menu.c:1572
 #, fuzzy
 msgid "Create"
 msgstr "Skapa"
 
-#: menu.c:1444
+#: menu.c:1458
 msgid "NewDir"
 msgstr "Ny katalog"
 
-#: menu.c:1491
+#: menu.c:1505
 msgid "NewFile"
 msgstr "Ny fil"
 
-#: menu.c:1510
+#: menu.c:1524
 #, c-format
 msgid "Error creating file: could not find the template for %s"
 msgstr "Fel när fil skapades: kunde inte finna mall för %s"
 
-#: menu.c:1597
+#: menu.c:1611
 #, fuzzy, c-format
 msgid ""
 "The `Send To' menu provides a quick way to send some files to an "
@@ -2470,7 +2470,7 @@ msgstr ""
 "%s\n"
 "'Sänd till'-menyn kan öppnas genom att Shift-klicka på en fil."
 
-#: menu.c:1609
+#: menu.c:1623
 msgid ""
 "I'll show you your SendTo directory now; you should symlink (Ctrl+Shift "
 "drag) any applications you want into it."
@@ -2478,12 +2478,12 @@ msgstr ""
 "Jag visar dig nu din 'Send till'-katalog; du bör sätta symboliske genvägar "
 "(Ctrl+Shift-klicka) till varje program du vill ha i den."
 
-#: menu.c:1612 menu.c:1652
+#: menu.c:1626 menu.c:1666
 msgid "Your CHOICESPATH variable setting prevents customisations - sorry."
 msgstr ""
 "Din inställning av CHOICESPATH-variabeln omöjliggör ändringar - tyvärr."
 
-#: menu.c:1645
+#: menu.c:1659
 #, c-format
 msgid ""
 "Any files placed in your Templates directories will appear on the `New' "
@@ -2495,7 +2495,7 @@ msgid ""
 "%s\n"
 msgstr ""
 
-#: menu.c:1650
+#: menu.c:1664
 #, fuzzy
 msgid ""
 "I'll show you your Templates directory now; you should place any template "
@@ -2504,15 +2504,15 @@ msgstr ""
 "Jag visar dig nu din 'Send till'-katalog; du bör sätta symboliske genvägar "
 "(Ctrl+Shift-klicka) till varje program du vill ha i den."
 
-#: menu.c:1998
+#: menu.c:2012
 msgid "Customise"
 msgstr "Ställ in"
 
-#: menu.c:2071
+#: menu.c:2110
 msgid "This is already the canonical name for this directory."
 msgstr "Detta är redan ett entydigt naman för denna katalog"
 
-#: menu.c:2102
+#: menu.c:2141
 msgid ""
 "You can't open a second view onto this directory because the `Unique "
 "Windows' option is turned on in the Options window."
@@ -2520,95 +2520,105 @@ msgstr ""
 "Du kan inte öppna en till översikt av denna katalog därför att 'Unika "
 "fönster' är påslagen i inställingar."
 
-#: menu.c:2282
+#: menu.c:2324
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2368
+#: menu.c:2374
+#, fuzzy, c-format
+msgid "Copy of %s"
+msgstr "?Kopierar %s som %s?"
+
+#: menu.c:2379
+#, fuzzy, c-format
+msgid "Copy(%d) of %s"
+msgstr "?Kopierar %s som %s?"
+
+#: menu.c:2447
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2371
+#: menu.c:2450
 msgid "Rename ... ?"
 msgstr "Byt namn ... ?"
 
-#: menu.c:2374
+#: menu.c:2453
 msgid "Symlink ... ?"
 msgstr "Sätt symbolisk genväg ... ?"
 
-#: menu.c:2377
+#: menu.c:2456
 msgid "Shift Open ... ?"
 msgstr "Shift-öppna ... ?"
 
-#: menu.c:2380
+#: menu.c:2459
 #, fuzzy
 msgid "Properties of ... ?"
 msgstr "Räkna ut storleken av ... ?"
 
-#: menu.c:2384
+#: menu.c:2463
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Använd inte maskinnamn"
 
-#: menu.c:2388
+#: menu.c:2467
 #, fuzzy
 msgid "Set type of ... ?"
 msgstr "Sätt ikonen för ... ?"
 
-#: menu.c:2391
+#: menu.c:2470
 msgid "Set run action for ... ?"
 msgstr "Sätt körhändelsen för ... ?"
 
-#: menu.c:2394
+#: menu.c:2473
 msgid "Set icon for ... ?"
 msgstr "Sätt ikonen för ... ?"
 
-#: menu.c:2397
+#: menu.c:2476
 msgid "Send ... to ... ?"
 msgstr "Skicka ... till ... ?"
 
-#: menu.c:2400
+#: menu.c:2479
 msgid "DELETE ... ?"
 msgstr "RADERA ... ?"
 
-#: menu.c:2403
+#: menu.c:2482
 msgid "Count the size of ... ?"
 msgstr "Räkna ut storleken av ... ?"
 
-#: menu.c:2406
+#: menu.c:2485
 msgid "Set permissions on ... ?"
 msgstr "Sätt rättigheterna på ... ?"
 
-#: menu.c:2409
+#: menu.c:2488
 msgid "Search inside ... ?"
 msgstr "Sök inuti ... ?"
 
-#: menu.c:2412
+#: menu.c:2491
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Kopiera ... ?"
 
-#: menu.c:2415
+#: menu.c:2494
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2507
+#: menu.c:2586
 msgid "You cannot do this to more than one item at a time"
 msgstr "Du kan inte göra detta med mer än ett objekt åt gången"
 
-#: menu.c:2534
+#: menu.c:2613
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2539
+#: menu.c:2618
 msgid "Rename"
 msgstr "Ändra namn"
 
-#: menu.c:2544
+#: menu.c:2623
 msgid "Symlink"
 msgstr "Sätt symbolisk genväg"
 
-#: menu.c:2579
+#: menu.c:2658
 #, fuzzy
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
@@ -2628,7 +2638,7 @@ msgstr ""
 "2) lägga till denna rad i ~/.gtkrc-2.9:\n"
 "\tgtk-can-change-accels = 1"
 
-#: menu.c:2590
+#: menu.c:2669
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2648,7 +2658,7 @@ msgstr ""
 "Tangentan kommer visa sig vid sidan av funktionen och du kan nu trycka "
 "dennatangent för att använda funktionen."
 
-#: menu.c:2605
+#: menu.c:2684
 msgid "Set keyboard shortcuts"
 msgstr "Ställ in kortkommandon"
 
@@ -2705,7 +2715,7 @@ msgid ""
 "filter off."
 msgstr ""
 
-#: minibuffer.c:921
+#: minibuffer.c:925
 msgid "Invalid Find condition"
 msgstr "Ogiltigt sökvillkor"
 
@@ -2766,7 +2776,7 @@ msgstr "Sparande av inställingar är avslaget i CHOICESPATH-variablen"
 msgid "Error saving %s: %s"
 msgstr "Fel vid sparande av %s: %s"
 
-#: options.c:1793
+#: options.c:1795
 msgid "Missing '='"
 msgstr "Saknas '='"
 
@@ -3602,7 +3612,7 @@ msgstr ""
 msgid "Last _Accessed"
 msgstr ""
 
-#: xtypes.c:790 tips:298
+#: xtypes.c:790 tips:300
 msgid "Extended attributes"
 msgstr ""
 
@@ -4669,30 +4679,38 @@ msgid "The program to launch when you choose `Terminal Here' from the menu."
 msgstr "Programmet som körs när du väljer 'Terminalemulator här' från menyn."
 
 #: tips:250
+msgid "Open terminal with grave (`) key"
+msgstr ""
+
+#: tips:251
+msgid "Open terminal emulator when the backtick/tilde key is pressed."
+msgstr ""
+
+#: tips:252
 #, fuzzy
 msgid "Keyboard shortcuts"
 msgstr "Ställ in kortkommandon"
 
-#: tips:251
+#: tips:253
 #, fuzzy
 msgid "Applications"
 msgstr "Program"
 
-#: tips:252
+#: tips:254
 msgid "Show .desktop applications in \"Send To\" menu."
 msgstr ""
 
-#: tips:253
+#: tips:255
 msgid ""
 "Show applications installed via .desktop files (usually in /usr/share/"
 "applications and ~/.local/share/applications) in \"Send To\" menus."
 msgstr ""
 
-#: tips:255
+#: tips:257
 msgid "MIME types"
 msgstr "MIME-typer"
 
-#: tips:256
+#: tips:258
 #, fuzzy
 msgid ""
 "The filer uses a set of rules to work out the correct MIME type for each "
@@ -4703,71 +4721,71 @@ msgstr ""
 "typen. Efter att ha ändrat filer, tryck på knappen 'läs om' nedan eller\n"
 "starta om filhanteraren."
 
-#: tips:257
+#: tips:259
 msgid "Edit MIME rules"
 msgstr ""
 
-#: tips:258
+#: tips:260
 #, fuzzy
 msgid "Themes"
 msgstr "Tider"
 
-#: tips:259
+#: tips:261
 #, fuzzy
 msgid "Icon theme"
 msgstr "Minimera till"
 
-#: tips:260
+#: tips:262
 msgid "Themes should be placed inside the ~/.icons directory."
 msgstr ""
 
-#: tips:261
+#: tips:263
 #, fuzzy
 msgid ""
 "Use the 'Set Icon...' dialog box to set the icon for each MIME type. Note "
 "that icons set this way override those from the selected theme."
 msgstr "Använd 'Sätt ikon...'-dialogrutan för att sätta ikonen för varje typ."
 
-#: tips:262
+#: tips:264
 #, fuzzy
 msgid "Colours"
 msgstr "Färger"
 
-#: tips:263
+#: tips:265
 #, fuzzy
 msgid "File type colours"
 msgstr "Färger för filtyper"
 
-#: tips:264
+#: tips:266
 msgid "Colour files based on their types"
 msgstr "Färg för filer baserat på deras typ"
 
-#: tips:265
+#: tips:267
 msgid "Filenames (and details) are coloured according to the file's type."
 msgstr "Filnamn (och detaljer) visas med olika färg beroende på filtyp."
 
-#: tips:266
+#: tips:268
 #, fuzzy
 msgid "Directory:"
 msgstr "Katalog:"
 
-#: tips:267
+#: tips:269
 #, fuzzy
 msgid "Regular file:"
 msgstr "Vanlig fil:"
 
-#: tips:268
+#: tips:270
 #, fuzzy
 msgid "Pipe:"
 msgstr "Rör:"
 
 # Socket:
-#: tips:269
+#: tips:271
 #, fuzzy
 msgid "Socket:"
 msgstr "Socket:"
 
-#: tips:271
+#: tips:273
 msgid ""
 "Error, such as a symlink which points to a non-existant file, or a file "
 "which the filer does not have permission to examine."
@@ -4776,63 +4794,63 @@ msgstr ""
 "eller\n"
 "en fil som filhanteraren inte har tillåtelse att granska."
 
-#: tips:272
+#: tips:274
 #, fuzzy
 msgid "Character device:"
 msgstr "Character device"
 
-#: tips:273
+#: tips:275
 #, fuzzy
 msgid "Block device:"
 msgstr "Block device"
 
-#: tips:274
+#: tips:276
 #, fuzzy
 msgid "Door:"
 msgstr "Dörr:"
 
-#: tips:275
+#: tips:277
 msgid ""
 "Door files are a bit like sockets or pipes, and have only been seen on "
 "Solaris."
 msgstr "Dörrar är likanande socket eller rör och har bara setts på Solaris."
 
-#: tips:276
+#: tips:278
 #, fuzzy
 msgid "Executable file:"
 msgstr "Körbar fil"
 
-#: tips:277
+#: tips:279
 #, fuzzy
 msgid "Application directory:"
 msgstr "Programkatalog"
 
-#: tips:278
+#: tips:280
 #, fuzzy
 msgid "Unknown type:"
 msgstr "Okänd typ:"
 
-#: tips:279
+#: tips:281
 msgid "Compatibility"
 msgstr ""
 
-#: tips:280
+#: tips:282
 msgid "Command line program"
 msgstr ""
 
-#: tips:281
+#: tips:283
 msgid "Make script"
 msgstr ""
 
-#: tips:282
+#: tips:284
 msgid "Window manager problems"
 msgstr ""
 
-#: tips:283
+#: tips:285
 msgid "Override window manager control of the pinboard and panels"
 msgstr ""
 
-#: tips:284
+#: tips:286
 msgid ""
 "Some window managers don't support the new Extended Window Manager Hints "
 "system, and so treat the pinboard and panels like normal windows. Turn this "
@@ -4841,12 +4859,12 @@ msgid ""
 "them appear in window-select lists."
 msgstr ""
 
-#: tips:285
+#: tips:287
 #, fuzzy
 msgid "Pass all backdrop mouse clicks to window manager"
 msgstr "Skicka klick med musknapp 3 till fönsterhanteraren"
 
-#: tips:286
+#: tips:288
 #, fuzzy
 msgid ""
 "Normally, right clicking on the desktop background will open the pinboard "
@@ -4858,11 +4876,11 @@ msgstr ""
 "Slå på dette för att låta din fönsterhanterare ta hand om dessa klick.\n"
 "Klick på ikoner kommer inte att skickas vidare."
 
-#: tips:287
+#: tips:289
 msgid "Blackbox root menus hack"
 msgstr ""
 
-#: tips:288
+#: tips:290
 msgid ""
 "Blackbox, Fluxbox and similar window managers do not yet work well with the "
 "ROX-Filer pinboard. This option enables some workarounds. These window "
@@ -4870,49 +4888,49 @@ msgid ""
 "isn't necessary."
 msgstr ""
 
-#: tips:289
+#: tips:291
 msgid "Panel is a 'dock'"
 msgstr ""
 
-#: tips:290
+#: tips:292
 msgid ""
 "Makes sure panels stay against screen edges. Disable this option if the "
 "panel stays above other windows against your wishes. Requires a restart to "
 "take effect."
 msgstr ""
 
-#: tips:291
+#: tips:293
 #, fuzzy
 msgid "Panel stays on top"
 msgstr "Panelutseende"
 
-#: tips:292
+#: tips:294
 msgid ""
 "Keeps the panel above other windows. Enable this option to make sure the "
 "dock option works correctly in some versions of compiz. May require a "
 "restart to take effect."
 msgstr ""
 
-#: tips:293
+#: tips:295
 msgid "Panel confined to work area"
 msgstr ""
 
-#: tips:294
+#: tips:296
 msgid ""
 "Keeps the panel confined to the work area specified by the Extended Window "
 "Manager Specification. Applies to new panels."
 msgstr ""
 
-#: tips:295
+#: tips:297
 #, fuzzy
 msgid "Drag and drop"
 msgstr "Dra och släpp"
 
-#: tips:296
+#: tips:298
 msgid "Don't use hostnames"
 msgstr "Använd inte maskinnamn"
 
-#: tips:297
+#: tips:299
 msgid ""
 "Some older applications don't support XDND fully and may need to have this "
 "option turned on. Use this if dragging files to an application shows a + "
@@ -4922,12 +4940,12 @@ msgstr ""
 "inställning påslagen. Använd detta om ett +-tecken visas som pekera när du\n"
 "drar filer till ett visst program, men det inte fungerar att släppa."
 
-#: tips:299
+#: tips:301
 #, fuzzy
 msgid "Don't use extended attributes"
 msgstr "Använd inte maskinnamn"
 
-#: tips:300
+#: tips:302
 msgid ""
 "This disables the use of extended attributes available in newer operating "
 "systems and file systems.  With this option set the 'Set Type' menu entry is "

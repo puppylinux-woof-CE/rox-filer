@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-11 13:45-0500\n"
+"POT-Creation-Date: 2018-10-22 16:07-0500\n"
 "PO-Revision-Date: 2006-12-04 15:30+0200\n"
 "Last-Translator: Yury Bulka <jblk@icmail.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -31,7 +31,7 @@ msgstr "Не питати підтвердження для кожної дії"
 msgid "Name"
 msgstr "Назва"
 
-#: abox.c:460 menu.c:270
+#: abox.c:460 menu.c:273
 msgid "Directory"
 msgstr "Тека"
 
@@ -556,7 +556,7 @@ msgstr "!'%s' - символічне посилання\n"
 msgid "You need to select some items to search through"
 msgstr "Ви повинні вибрати де шукати"
 
-#: action.c:2103 menu.c:258
+#: action.c:2103 menu.c:261
 msgid "Find"
 msgstr "Шукати"
 
@@ -577,7 +577,7 @@ msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr ""
 "ROX-Filer поки що не підтримує точок монтування на вашій системі. Вибачте."
 
-#: action.c:2213 menu.c:243 tips:194
+#: action.c:2213 menu.c:246 tips:194
 msgid "Delete"
 msgstr "Викинути"
 
@@ -622,7 +622,7 @@ msgstr "go-rwx (Приватний - доступ тільки для власн
 msgid "go=u-w (Public access, not write)"
 msgstr "go=u-w (Публічний доступ, не для запису)"
 
-#: action.c:2276 menu.c:212 menu.c:256 tips:56 tips:86
+#: action.c:2276 menu.c:215 menu.c:259 tips:56 tips:86
 msgid "Permissions"
 msgstr "Права"
 
@@ -658,7 +658,7 @@ msgstr "Змінювати зміст підтек"
 msgid "Type:"
 msgstr "Тип:"
 
-#: action.c:2413 dnd.c:123 menu.c:238 tips:188
+#: action.c:2413 dnd.c:123 menu.c:241 tips:188
 msgid "Copy"
 msgstr "Копіювати"
 
@@ -746,11 +746,11 @@ msgstr ""
 "Створіть символічні посилання ні потрібні вам програми в цю теку. Вони "
 "з'являться в меню для всі предметів цього типу (%s/%s)."
 
-#: appmenu.c:347 menu.c:272
+#: appmenu.c:347 menu.c:275
 msgid "Customise Menu..."
 msgstr "Налаштувати меню..."
 
-#: appmenu.c:402 menu.c:290 toolbar.c:174
+#: appmenu.c:402 menu.c:293 toolbar.c:174
 msgid "Help"
 msgstr "Довідка"
 
@@ -1047,14 +1047,14 @@ msgid ""
 msgstr ""
 "Не можу дістати дані з віддаленої машини (application/octet-stream не надано)"
 
-#: dnd.c:1017 menu.c:2321
+#: dnd.c:1017 menu.c:2395
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr ""
 "Деякі з цих файлів знаходяться на іншій машині - вони будуть проігноровані, "
 "вибачте"
 
-#: dnd.c:1024 menu.c:2327
+#: dnd.c:1024 menu.c:2403
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1066,7 +1066,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "Задана невідома дія"
 
-#: dnd.c:1045 menu.c:2341
+#: dnd.c:1045 menu.c:2418
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Помилка добування списку файлу: %s"
@@ -1136,7 +1136,7 @@ msgstr ""
 msgid "No change"
 msgstr "Без змін"
 
-#: filer.c:673 infobox.c:1065 menu.c:942
+#: filer.c:673 infobox.c:1065 menu.c:956
 msgid "Unmount"
 msgstr "Відмонтувати"
 
@@ -1212,7 +1212,7 @@ msgstr "Символічне посилання до"
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "Назва цього файлу не є в UTF-8. Ви повинні переназвати його.\n"
 
-#: filer.c:2795 menu.c:2524
+#: filer.c:2795 menu.c:2603
 msgid "Item no longer exists!"
 msgstr "Предмет більше не існує!"
 
@@ -1590,43 +1590,43 @@ msgstr "(натисніть щоб призначити)"
 msgid "ROX-Filer"
 msgstr "ROX-Filer"
 
-#: icon.c:132 menu.c:291
+#: icon.c:132 menu.c:294
 msgid "About ROX-Filer..."
 msgstr "Про ROX-Filer..."
 
-#: icon.c:133 menu.c:292
+#: icon.c:133 menu.c:295
 msgid "Show Help Files"
 msgstr "Показати файли довідки"
 
-#: icon.c:134 menu.c:293
+#: icon.c:134 menu.c:296
 msgid "Manual"
 msgstr "Підручник"
 
-#: icon.c:136 menu.c:265
+#: icon.c:136 menu.c:268
 msgid "Options..."
 msgstr "Налаштування..."
 
-#: icon.c:137 menu.c:277
+#: icon.c:137 menu.c:280
 msgid "Home Directory"
 msgstr "Домашня тека"
 
-#: icon.c:138 icon.c:1437 menu.c:237 type.c:224
+#: icon.c:138 icon.c:1437 menu.c:240 type.c:224
 msgid "File"
 msgstr "Файл"
 
-#: icon.c:139 menu.c:245 menu.c:955
+#: icon.c:139 menu.c:248 menu.c:969
 msgid "Shift Open"
 msgstr "Відкрити 'напряму'"
 
-#: icon.c:140 menu.c:253
+#: icon.c:140 menu.c:256
 msgid "Properties"
 msgstr "Властивості"
 
-#: icon.c:141 menu.c:248
+#: icon.c:141 menu.c:251
 msgid "Set Run Action..."
 msgstr "Вказати дію"
 
-#: icon.c:142 menu.c:249
+#: icon.c:142 menu.c:252
 msgid "Set Icon..."
 msgstr "Призначити піктограму..."
 
@@ -1642,7 +1642,7 @@ msgstr "Показати місцезнаходження"
 msgid "Remove Item(s)"
 msgstr "Викинути предмет(и)"
 
-#: icon.c:318 log.c:111 menu.c:837
+#: icon.c:318 log.c:111 menu.c:851
 #, c-format
 msgid "%s '%s'"
 msgstr "%s '%s'"
@@ -1673,7 +1673,7 @@ msgstr ""
 msgid "You must open the menu over an item"
 msgstr "Ви повинні відкривати меню на предметі"
 
-#: icon.c:740 menu.c:1357
+#: icon.c:740 menu.c:1371
 msgid "You can only set the run action for a regular file"
 msgstr "Ви можете встановлювати дії тільки над звичайним файлами"
 
@@ -1719,7 +1719,7 @@ msgstr "Ви впевнені що хочете відкрити %d вікон?"
 msgid "Show Info"
 msgstr "Показати інфо?"
 
-#: infobox.c:136 menu.c:842
+#: infobox.c:136 menu.c:856
 msgid "(bad utf-8)"
 msgstr "(поганий utf-8)"
 
@@ -1773,7 +1773,7 @@ msgstr ""
 "%s\n"
 "(зауважте: старе посилання було викинуто)"
 
-#: infobox.c:571 tips:270
+#: infobox.c:571 tips:272
 msgid "Error:"
 msgstr "Помилка:"
 
@@ -2129,7 +2129,7 @@ msgstr ""
 "Ліва кнопка миші: запустити %s.\n"
 "Права кнопка миші: показати список версій."
 
-#: main.c:967 menu.c:1458 menu.c:1464
+#: main.c:967 menu.c:1472 menu.c:1478
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "Помилка створення '%s': %s"
@@ -2149,266 +2149,266 @@ msgid ""
 "If you are using Zero Install you should use 0alias instead."
 msgstr ""
 
-#: menu.c:208
+#: menu.c:211
 msgid "Display"
 msgstr "Вигляд"
 
-#: menu.c:209 tips:35
+#: menu.c:212 tips:35
 msgid "Icons View"
 msgstr "Піктограми"
 
-#: menu.c:210
+#: menu.c:213
 msgid "Icons, With..."
 msgstr "Піктограми, з..."
 
-#: menu.c:211 tips:55
+#: menu.c:214 tips:55
 msgid "Sizes"
 msgstr "Розмірами"
 
-#: menu.c:213 tips:254
+#: menu.c:216 tips:256
 msgid "Types"
 msgstr "Типи"
 
-#: menu.c:214 tips:58
+#: menu.c:217 tips:58
 msgid "Times"
 msgstr "Датами"
 
-#: menu.c:215 tips:36 tips:73 tips:74
+#: menu.c:218 tips:36 tips:73 tips:74
 msgid "List View"
 msgstr "Список"
 
-#: menu.c:217
+#: menu.c:220
 msgid "Bigger Icons"
 msgstr "Більші піктограми"
 
-#: menu.c:218
+#: menu.c:221
 msgid "Smaller Icons"
 msgstr "Менші піктограми"
 
-#: menu.c:219 tips:52
+#: menu.c:222 tips:52
 msgid "Automatic"
 msgstr "Автоматично"
 
-#: menu.c:221
+#: menu.c:224
 msgid "Sort by Name"
 msgstr "Сортувати за назвою"
 
-#: menu.c:222
+#: menu.c:225
 msgid "Sort by Type"
 msgstr "Сортувати за типом"
 
-#: menu.c:223
+#: menu.c:226
 #, fuzzy
 msgid "Sort by Date (atime)"
 msgstr "Сортувати за датою"
 
-#: menu.c:224
+#: menu.c:227
 #, fuzzy
 msgid "Sort by Date (ctime)"
 msgstr "Сортувати за датою"
 
-#: menu.c:225
+#: menu.c:228
 #, fuzzy
 msgid "Sort by Date (mtime)"
 msgstr "Сортувати за датою"
 
-#: menu.c:226
+#: menu.c:229
 msgid "Sort by Size"
 msgstr "Сортувати за розміром"
 
-#: menu.c:227
+#: menu.c:230
 msgid "Sort by Owner"
 msgstr "Сортувати за власником"
 
-#: menu.c:228
+#: menu.c:231
 msgid "Sort by Group"
 msgstr "Сортувати за ґрупою"
 
-#: menu.c:229
+#: menu.c:232
 msgid "Reversed"
 msgstr "Зарезервовано"
 
-#: menu.c:231
+#: menu.c:234
 msgid "Show Hidden"
 msgstr "Показувати приховане"
 
-#: menu.c:232
+#: menu.c:235
 msgid "Filter Files..."
 msgstr "Фільтрувати файли..."
 
-#: menu.c:233
+#: menu.c:236
 msgid "Filter Directories With Files"
 msgstr ""
 
-#: menu.c:234
+#: menu.c:237
 msgid "Show Thumbnails"
 msgstr "Показати міні-зображення"
 
-#: menu.c:235
+#: menu.c:238
 msgid "Refresh"
 msgstr "Освіжити"
 
-#: menu.c:236
+#: menu.c:239
 #, fuzzy
 msgid "Save Current Display Settings..."
 msgstr "Зберегти стандартні налаштування..."
 
-#: menu.c:239
+#: menu.c:242
 #, fuzzy
 msgid "Cut"
 msgstr "Рахувати розмір"
 
-#: menu.c:240
+#: menu.c:243
 msgid "Duplicate..."
 msgstr ""
 
-#: menu.c:241
+#: menu.c:244
 msgid "Rename..."
 msgstr "Переназвати..."
 
-#: menu.c:242
+#: menu.c:245
 msgid "Link..."
 msgstr "Посилання..."
 
-#: menu.c:246
+#: menu.c:249
 #, fuzzy
 msgid "Open With..."
 msgstr "Піктограми, з..."
 
-#: menu.c:251
+#: menu.c:254
 #, fuzzy
 msgid "Extended attributes..."
 msgstr "Розширені атрибути"
 
-#: menu.c:254
+#: menu.c:257
 msgid "Count"
 msgstr "Рахувати розмір"
 
-#: menu.c:255
+#: menu.c:258
 msgid "Set Type..."
 msgstr "Вказати тип..."
 
-#: menu.c:259 toolbar.c:164
+#: menu.c:262 toolbar.c:164
 msgid "Select"
 msgstr "Виділення"
 
-#: menu.c:260
+#: menu.c:263
 msgid "Select All"
 msgstr "Виділити все"
 
-#: menu.c:261
+#: menu.c:264
 msgid "Clear Selection"
 msgstr "Очистити виділення"
 
-#: menu.c:262
+#: menu.c:265
 msgid "Invert Selection"
 msgstr "Перевернути виділення"
 
-#: menu.c:263
+#: menu.c:266
 msgid "Select by Name..."
 msgstr "Виділити за назвою..."
 
-#: menu.c:264
+#: menu.c:267
 msgid "Select If..."
 msgstr "Виділити якщо..."
 
-#: menu.c:267
+#: menu.c:270
 msgid "Paste"
 msgstr ""
 
-#: menu.c:269 toolbar.c:168
+#: menu.c:272 toolbar.c:168
 msgid "New"
 msgstr "Новий"
 
-#: menu.c:271
+#: menu.c:274
 msgid "Blank file"
 msgstr "Чистий файл"
 
-#: menu.c:273 tasklist.c:305
+#: menu.c:276 tasklist.c:305
 msgid "Window"
 msgstr "Вікно"
 
-#: menu.c:274
+#: menu.c:277
 msgid "Parent, New Window"
 msgstr "Догори, нове вікно"
 
-#: menu.c:275
+#: menu.c:278
 msgid "Parent, Same Window"
 msgstr "Догори, це вікно"
 
-#: menu.c:276 tips:30
+#: menu.c:279 tips:30
 msgid "New Window"
 msgstr "Нове вікно"
 
-#: menu.c:278
+#: menu.c:281
 msgid "Show Bookmarks"
 msgstr "Показати закладки"
 
-#: menu.c:279
+#: menu.c:282
 #, fuzzy
 msgid "Show Log"
 msgstr "Показати інфо?"
 
-#: menu.c:280
+#: menu.c:283
 msgid "Follow Symbolic Links"
 msgstr "Іти за символічними посиланнями"
 
-#: menu.c:281
+#: menu.c:284
 msgid "Resize Window"
 msgstr "Адаптувати розмір вікна"
 
-#: menu.c:284
+#: menu.c:287
 msgid "Close Window"
 msgstr "Закрити вікно"
 
-#: menu.c:286
+#: menu.c:289
 msgid "Enter Path..."
 msgstr "Вказати шлях..."
 
-#: menu.c:287
+#: menu.c:290
 msgid "Shell Command..."
 msgstr "Команда"
 
-#: menu.c:288
+#: menu.c:291
 msgid "Terminal Here"
 msgstr "Термінал тут"
 
-#: menu.c:289
+#: menu.c:292
 msgid "Switch to Terminal"
 msgstr "Переключитися на термінал"
 
-#: menu.c:789
+#: menu.c:803
 msgid "You should Shift+Menu click over a file to send it somewhere"
 msgstr ""
 "Ви повинні кнопкою 2, тримаючи Shift, клацнути на файл, щоб відіслати його "
 "кудись"
 
-#: menu.c:827
+#: menu.c:841
 msgid "Next Click"
 msgstr "Наступний клік"
 
-#: menu.c:849
+#: menu.c:863
 #, c-format
 msgid "%d items"
 msgstr "%d предметів"
 
-#: menu.c:944
+#: menu.c:958
 msgid "Open unmounted"
 msgstr "Відкрити відмонтованим"
 
-#: menu.c:947
+#: menu.c:961
 msgid "Show Target"
 msgstr "Показати ціль"
 
-#: menu.c:949
+#: menu.c:963
 msgid "Look Inside"
 msgstr "Заглянути в середину"
 
-#: menu.c:951
+#: menu.c:965
 msgid "Open As Text"
 msgstr "Відкрити як текст"
 
-#: menu.c:1122
+#: menu.c:1136
 msgid ""
 "Extended attributes, used to store types, are not supported for this file or "
 "files.\n"
@@ -2422,15 +2422,15 @@ msgstr ""
 "бібліотеки Сі, або просто тому, що файлова система повинна бути змонтована з "
 "правильним параметром ('user_xattr' на Linux'і)."
 
-#: menu.c:1128
+#: menu.c:1142
 msgid "Setting type not supported for some of these files"
 msgstr "Призначення типу не підтримується для деяких з цих файлів"
 
-#: menu.c:1165
+#: menu.c:1179
 msgid "_Relative link"
 msgstr "_Відносне посилання"
 
-#: menu.c:1171
+#: menu.c:1185
 msgid ""
 "If on, the symlink will store the path from the symlink to the target file. "
 "Use this if the symlink and the target will be moved together.\n"
@@ -2442,38 +2442,38 @@ msgstr ""
 "вимкнено, посилання буде містити шлях від кореневої теки - використовуйте "
 "це, якщо посилання буде переміщуватися, але ціль - ні."
 
-#: menu.c:1243
+#: menu.c:1257
 msgid "New pathname is not absolute"
 msgstr "Новий шлях не є абсолютний"
 
-#: menu.c:1311
+#: menu.c:1325
 #, c-format
 msgid "Symlink from '%s' already exists. Replace it with a link to '%s'?"
 msgstr ""
 "Символічне посилання з '%s' вже існує. Замінити його на посилання до '%s'?"
 
-#: menu.c:1317
+#: menu.c:1331
 msgid "_Replace"
 msgstr "_Замінити"
 
-#: menu.c:1443 menu.c:1490 menu.c:1558
+#: menu.c:1457 menu.c:1504 menu.c:1572
 msgid "Create"
 msgstr "Створити"
 
-#: menu.c:1444
+#: menu.c:1458
 msgid "NewDir"
 msgstr "Нова тека"
 
-#: menu.c:1491
+#: menu.c:1505
 msgid "NewFile"
 msgstr "Новий файл"
 
-#: menu.c:1510
+#: menu.c:1524
 #, c-format
 msgid "Error creating file: could not find the template for %s"
 msgstr "Помилка створення нового файлу: не можу знайти заготовку для %s"
 
-#: menu.c:1597
+#: menu.c:1611
 #, fuzzy, c-format
 msgid ""
 "The `Send To' menu provides a quick way to send some files to an "
@@ -2502,7 +2502,7 @@ msgstr ""
 "будуть відкриватися тільки для файлів відповідного типу. `.group' "
 "використовуються тільки коли виділено багато файлів."
 
-#: menu.c:1609
+#: menu.c:1623
 msgid ""
 "I'll show you your SendTo directory now; you should symlink (Ctrl+Shift "
 "drag) any applications you want into it."
@@ -2511,12 +2511,12 @@ msgstr ""
 "посилання(Ctrl+Shift перетягування) на ті програми, які хочете бачити в меню "
 "'Відіслати До'."
 
-#: menu.c:1612 menu.c:1652
+#: menu.c:1626 menu.c:1666
 msgid "Your CHOICESPATH variable setting prevents customisations - sorry."
 msgstr ""
 "Значення змінної середовища CHOICESPATH забороняє налаштування - мені шкода."
 
-#: menu.c:1645
+#: menu.c:1659
 #, c-format
 msgid ""
 "Any files placed in your Templates directories will appear on the `New' "
@@ -2535,7 +2535,7 @@ msgstr ""
 "%s\n"
 "%s\n"
 
-#: menu.c:1650
+#: menu.c:1664
 msgid ""
 "I'll show you your Templates directory now; you should place any template "
 "files you want inside it."
@@ -2543,15 +2543,15 @@ msgstr ""
 "Я покажу вам вашу теку 'Заготовки'. Ви повинні помістити туди будь-яку "
 "заготовку, яку ви хочете використовувати у rox'і."
 
-#: menu.c:1998
+#: menu.c:2012
 msgid "Customise"
 msgstr "Налаштувати"
 
-#: menu.c:2071
+#: menu.c:2110
 msgid "This is already the canonical name for this directory."
 msgstr "Це вже є канонічною назвою для цієї теки."
 
-#: menu.c:2102
+#: menu.c:2141
 msgid ""
 "You can't open a second view onto this directory because the `Unique "
 "Windows' option is turned on in the Options window."
@@ -2559,93 +2559,103 @@ msgstr ""
 "Ви не можете відкрити друге вікно для цієї теки, бо параметр 'Унікальні "
 "вікна' увімкнено в вікні налаштувань."
 
-#: menu.c:2282
+#: menu.c:2324
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2368
+#: menu.c:2374
+#, fuzzy, c-format
+msgid "Copy of %s"
+msgstr "?Скопіювати %s як %s?"
+
+#: menu.c:2379
+#, fuzzy, c-format
+msgid "Copy(%d) of %s"
+msgstr "?Скопіювати %s як %s?"
+
+#: menu.c:2447
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2371
+#: menu.c:2450
 msgid "Rename ... ?"
 msgstr "Переназвати ... ?"
 
-#: menu.c:2374
+#: menu.c:2453
 msgid "Symlink ... ?"
 msgstr "Створити посилання ... ?"
 
-#: menu.c:2377
+#: menu.c:2456
 msgid "Shift Open ... ?"
 msgstr "Відкрити напряму ... ?"
 
-#: menu.c:2380
+#: menu.c:2459
 msgid "Properties of ... ?"
 msgstr "Властивості ... ?"
 
-#: menu.c:2384
+#: menu.c:2463
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Розширені атрибути"
 
-#: menu.c:2388
+#: menu.c:2467
 msgid "Set type of ... ?"
 msgstr "Вказати тип для ... ?"
 
-#: menu.c:2391
+#: menu.c:2470
 msgid "Set run action for ... ?"
 msgstr "Вказати дію для ... ?"
 
-#: menu.c:2394
+#: menu.c:2473
 msgid "Set icon for ... ?"
 msgstr "Призначити піктограму для ... ?"
 
-#: menu.c:2397
+#: menu.c:2476
 msgid "Send ... to ... ?"
 msgstr "Відіслати ... до ... ?"
 
-#: menu.c:2400
+#: menu.c:2479
 msgid "DELETE ... ?"
 msgstr "ВИДАЛИТИ ... ?"
 
-#: menu.c:2403
+#: menu.c:2482
 msgid "Count the size of ... ?"
 msgstr "Порахувати розмір для ... ?"
 
-#: menu.c:2406
+#: menu.c:2485
 msgid "Set permissions on ... ?"
 msgstr "Призначити права для ... ?"
 
-#: menu.c:2409
+#: menu.c:2488
 msgid "Search inside ... ?"
 msgstr "Шукати в середині ... ?"
 
-#: menu.c:2412
+#: menu.c:2491
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Копіювати ... ?"
 
-#: menu.c:2415
+#: menu.c:2494
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2507
+#: menu.c:2586
 msgid "You cannot do this to more than one item at a time"
 msgstr "Ви не можете робити це одночасно більше ніж над одним предметом"
 
-#: menu.c:2534
+#: menu.c:2613
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2539
+#: menu.c:2618
 msgid "Rename"
 msgstr "Переназвати"
 
-#: menu.c:2544
+#: menu.c:2623
 msgid "Symlink"
 msgstr "Створити посилання"
 
-#: menu.c:2579
+#: menu.c:2658
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2667,7 +2677,7 @@ msgstr ""
 "\tgtk-can-change-accels = 1\n"
 "\t(це працює тільки якщо НЕ використовується XSETTINGS)"
 
-#: menu.c:2590
+#: menu.c:2669
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2687,7 +2697,7 @@ msgstr ""
 "Ця комбінація клавіш з'явиться біля пункту меню, і його можна буде викликати "
 "за допомогою клавіатури."
 
-#: menu.c:2605
+#: menu.c:2684
 msgid "Set keyboard shortcuts"
 msgstr "Призначити комбінація клавіш"
 
@@ -2751,7 +2761,7 @@ msgid ""
 msgstr ""
 "Впишіть зразок назв файлів, які треба показати. Пустий буфер вимикає фільтр."
 
-#: minibuffer.c:921
+#: minibuffer.c:925
 msgid "Invalid Find condition"
 msgstr "Неправильний зразок пошуку"
 
@@ -2810,7 +2820,7 @@ msgstr "(збереження заборонене через CHOICESPATH)"
 msgid "Error saving %s: %s"
 msgstr "Помилка збереження %s: %s"
 
-#: options.c:1793
+#: options.c:1795
 msgid "Missing '='"
 msgstr "Відсутнє '='"
 
@@ -3648,7 +3658,7 @@ msgstr ""
 msgid "Last _Accessed"
 msgstr ""
 
-#: xtypes.c:790 tips:298
+#: xtypes.c:790 tips:300
 msgid "Extended attributes"
 msgstr "Розширені атрибути"
 
@@ -4725,29 +4735,37 @@ msgid "The program to launch when you choose `Terminal Here' from the menu."
 msgstr "Програма для запуску через пункт меню 'Термінал тут'."
 
 #: tips:250
+msgid "Open terminal with grave (`) key"
+msgstr ""
+
+#: tips:251
+msgid "Open terminal emulator when the backtick/tilde key is pressed."
+msgstr ""
+
+#: tips:252
 msgid "Keyboard shortcuts"
 msgstr "Комбінації клавіш"
 
-#: tips:251
+#: tips:253
 #, fuzzy
 msgid "Applications"
 msgstr "програма ROX"
 
-#: tips:252
+#: tips:254
 msgid "Show .desktop applications in \"Send To\" menu."
 msgstr ""
 
-#: tips:253
+#: tips:255
 msgid ""
 "Show applications installed via .desktop files (usually in /usr/share/"
 "applications and ~/.local/share/applications) in \"Send To\" menus."
 msgstr ""
 
-#: tips:255
+#: tips:257
 msgid "MIME types"
 msgstr "типи MIME"
 
-#: tips:256
+#: tips:258
 msgid ""
 "The filer uses a set of rules to work out the correct MIME type for each "
 "regular file, and then chooses a suitable icon for that type."
@@ -4755,23 +4773,23 @@ msgstr ""
 "Файлер використовує певні правила, щоб визначати MIME тип для кожного "
 "звичайного файла, і потім вибирає підходящу піктограму для цього типу."
 
-#: tips:257
+#: tips:259
 msgid "Edit MIME rules"
 msgstr "Редагувати правила MIME"
 
-#: tips:258
+#: tips:260
 msgid "Themes"
 msgstr "Теми"
 
-#: tips:259
+#: tips:261
 msgid "Icon theme"
 msgstr "Теми піктограм"
 
-#: tips:260
+#: tips:262
 msgid "Themes should be placed inside the ~/.icons directory."
 msgstr "Теми прийнято розміщувати в теці ~/.icons"
 
-#: tips:261
+#: tips:263
 msgid ""
 "Use the 'Set Icon...' dialog box to set the icon for each MIME type. Note "
 "that icons set this way override those from the selected theme."
@@ -4780,40 +4798,40 @@ msgstr ""
 "кожного типу MIME. Зауважте: піктограми, вибрані цим способом переважають "
 "піктограми теми."
 
-#: tips:262
+#: tips:264
 msgid "Colours"
 msgstr "Кольори"
 
-#: tips:263
+#: tips:265
 msgid "File type colours"
 msgstr "Кольори типів файлів"
 
-#: tips:264
+#: tips:266
 msgid "Colour files based on their types"
 msgstr "Кольорувати файли відносно їх типу"
 
-#: tips:265
+#: tips:267
 msgid "Filenames (and details) are coloured according to the file's type."
 msgstr ""
 "Назви файлів (і подробиці) кольоруються зважаючи на тип відповідних файлів."
 
-#: tips:266
+#: tips:268
 msgid "Directory:"
 msgstr "Тека:"
 
-#: tips:267
+#: tips:269
 msgid "Regular file:"
 msgstr "Звичайний файл:"
 
-#: tips:268
+#: tips:270
 msgid "Pipe:"
 msgstr "Труба:"
 
-#: tips:269
+#: tips:271
 msgid "Socket:"
 msgstr "Розетка:"
 
-#: tips:271
+#: tips:273
 msgid ""
 "Error, such as a symlink which points to a non-existant file, or a file "
 "which the filer does not have permission to examine."
@@ -4821,58 +4839,58 @@ msgstr ""
 "Помилка, така, як посилання до неіснуючого файлу, або файл, на оцінку якого "
 "файлер не має права."
 
-#: tips:272
+#: tips:274
 msgid "Character device:"
 msgstr "Байтові прилади:"
 
-#: tips:273
+#: tips:275
 msgid "Block device:"
 msgstr "Блокові прилади:"
 
-#: tips:274
+#: tips:276
 msgid "Door:"
 msgstr "Двері:"
 
-#: tips:275
+#: tips:277
 msgid ""
 "Door files are a bit like sockets or pipes, and have only been seen on "
 "Solaris."
 msgstr ""
 "Двері - це файли подібні на труби і розетки, і бувають тільки на Solaris."
 
-#: tips:276
+#: tips:278
 msgid "Executable file:"
 msgstr "Файли-програми:"
 
-#: tips:277
+#: tips:279
 msgid "Application directory:"
 msgstr "Тека програми:"
 
-#: tips:278
+#: tips:280
 msgid "Unknown type:"
 msgstr "Невідомий тип:"
 
-#: tips:279
+#: tips:281
 msgid "Compatibility"
 msgstr "Сумісність"
 
-#: tips:280
+#: tips:282
 msgid "Command line program"
 msgstr ""
 
-#: tips:281
+#: tips:283
 msgid "Make script"
 msgstr ""
 
-#: tips:282
+#: tips:284
 msgid "Window manager problems"
 msgstr "Проблеми з менеджерами вікон"
 
-#: tips:283
+#: tips:285
 msgid "Override window manager control of the pinboard and panels"
 msgstr "Не піддаватися на контроль менеджера вікон над стільницею і панелями"
 
-#: tips:284
+#: tips:286
 msgid ""
 "Some window managers don't support the new Extended Window Manager Hints "
 "system, and so treat the pinboard and panels like normal windows. Turn this "
@@ -4886,12 +4904,12 @@ msgstr ""
 "поверх інших вікон при клацанні на неї, або коли навколо стільниці і панелі "
 "з'являються різні віконні декорації, або коли ви бачите їх у списку вікон."
 
-#: tips:285
+#: tips:287
 msgid "Pass all backdrop mouse clicks to window manager"
 msgstr ""
 "Передавати всі кліки мишки, які попадають на тло стільниці, менеджеру вікон"
 
-#: tips:286
+#: tips:288
 msgid ""
 "Normally, right clicking on the desktop background will open the pinboard "
 "menu and left clicking will clear the selection. Turn this on to forward the "
@@ -4902,11 +4920,11 @@ msgstr ""
 "попадають на тло стільниці, менеджеру вікон. Клацання на піктограми "
 "залишаються в силі."
 
-#: tips:287
+#: tips:289
 msgid "Blackbox root menus hack"
 msgstr "Гек (hack), пов'язаний з використанням меню стільниці в Blackbox"
 
-#: tips:288
+#: tips:290
 msgid ""
 "Blackbox, Fluxbox and similar window managers do not yet work well with the "
 "ROX-Filer pinboard. This option enables some workarounds. These window "
@@ -4918,11 +4936,11 @@ msgstr ""
 "вікон змінюють свою поведінку в наступних версіях, тому це навряд чи вам "
 "пригодиться."
 
-#: tips:289
+#: tips:291
 msgid "Panel is a 'dock'"
 msgstr "Панель 'обрізає' розміри екрану"
 
-#: tips:290
+#: tips:292
 #, fuzzy
 msgid ""
 "Makes sure panels stay against screen edges. Disable this option if the "
@@ -4932,37 +4950,37 @@ msgstr ""
 "Вимкніть це, якщо панель заслоняє інші вікна проти вашої волі.Цей параметр "
 "вступить в силу тільки після перезавантаження."
 
-#: tips:291
+#: tips:293
 #, fuzzy
 msgid "Panel stays on top"
 msgstr "Стиль панелі"
 
-#: tips:292
+#: tips:294
 msgid ""
 "Keeps the panel above other windows. Enable this option to make sure the "
 "dock option works correctly in some versions of compiz. May require a "
 "restart to take effect."
 msgstr ""
 
-#: tips:293
+#: tips:295
 msgid "Panel confined to work area"
 msgstr ""
 
-#: tips:294
+#: tips:296
 msgid ""
 "Keeps the panel confined to the work area specified by the Extended Window "
 "Manager Specification. Applies to new panels."
 msgstr ""
 
-#: tips:295
+#: tips:297
 msgid "Drag and drop"
 msgstr "Дреґ-н-драп"
 
-#: tips:296
+#: tips:298
 msgid "Don't use hostnames"
 msgstr "Не використовувати імена комп'ютерів"
 
-#: tips:297
+#: tips:299
 msgid ""
 "Some older applications don't support XDND fully and may need to have this "
 "option turned on. Use this if dragging files to an application shows a + "
@@ -4973,11 +4991,11 @@ msgstr ""
 "файлів до програми, біля курсора мишки з'являється знак +, але результат "
 "відсутній."
 
-#: tips:299
+#: tips:301
 msgid "Don't use extended attributes"
 msgstr "Не використовувати розширені атрибути"
 
-#: tips:300
+#: tips:302
 msgid ""
 "This disables the use of extended attributes available in newer operating "
 "systems and file systems.  With this option set the 'Set Type' menu entry is "

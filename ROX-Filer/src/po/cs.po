@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-11 13:45-0500\n"
+"POT-Creation-Date: 2018-10-22 16:07-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jan 'jenik' Provaznik <xprovazn@fi.muni.cz>\n"
 "Language-Team:\n"
@@ -37,7 +37,7 @@ msgstr "Nepotvrzovat ka¾dou operaci"
 msgid "Name"
 msgstr "Jméno"
 
-#: abox.c:460 menu.c:270
+#: abox.c:460 menu.c:273
 msgid "Directory"
 msgstr "Adresáø"
 
@@ -552,7 +552,7 @@ msgstr "!'%s' je symbolický odkaz\n"
 msgid "You need to select some items to search through"
 msgstr "Musíte zvolit nìjaké polo¾ky ve kterých se má hledat"
 
-#: action.c:2103 menu.c:258
+#: action.c:2103 menu.c:261
 msgid "Find"
 msgstr "Najít"
 
@@ -573,7 +573,7 @@ msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr ""
 "ROX-Filer zatím nepodporuje pøipojovací body na Va¹em systému. Promiòte."
 
-#: action.c:2213 menu.c:243 tips:194
+#: action.c:2213 menu.c:246 tips:194
 msgid "Delete"
 msgstr "Smazat"
 
@@ -618,7 +618,7 @@ msgstr "go-rwx (Soukromé - pøístup povolen pouze vlastníkovi)"
 msgid "go=u-w (Public access, not write)"
 msgstr "go=u-w (Pøístup povolen v¹em, bez práva zápisu)"
 
-#: action.c:2276 menu.c:212 menu.c:256 tips:56 tips:86
+#: action.c:2276 menu.c:215 menu.c:259 tips:56 tips:86
 msgid "Permissions"
 msgstr "Pøístupová práva"
 
@@ -657,7 +657,7 @@ msgstr "Zmìnit i obsah podadresáøù"
 msgid "Type:"
 msgstr "Typ:"
 
-#: action.c:2413 dnd.c:123 menu.c:238 tips:188
+#: action.c:2413 dnd.c:123 menu.c:241 tips:188
 msgid "Copy"
 msgstr "Kopírovat"
 
@@ -744,12 +744,12 @@ msgid ""
 "menu for all items of this type (%s/%s)."
 msgstr ""
 
-#: appmenu.c:347 menu.c:272
+#: appmenu.c:347 menu.c:275
 #, fuzzy
 msgid "Customise Menu..."
 msgstr "Nastavit"
 
-#: appmenu.c:402 menu.c:290 toolbar.c:174
+#: appmenu.c:402 menu.c:293 toolbar.c:174
 msgid "Help"
 msgstr "Nápovìda"
 
@@ -1031,14 +1031,14 @@ msgstr ""
 "Nelze získat data ze vzdáleného poèítaèe (application/octet-stream není "
 "poskytován)"
 
-#: dnd.c:1017 menu.c:2321
+#: dnd.c:1017 menu.c:2395
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr ""
 "Nìkteré z tìchto souborù jsou na vzdáleném poèítaèi - tyto soubory budou "
 "ignorovány - sorry"
 
-#: dnd.c:1024 menu.c:2327
+#: dnd.c:1024 menu.c:2403
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1050,7 +1050,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "Po¾adována neznámá akce"
 
-#: dnd.c:1045 menu.c:2341
+#: dnd.c:1045 menu.c:2418
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Chyba pøi získání seznamu souborù: %s"
@@ -1121,7 +1121,7 @@ msgstr ""
 msgid "No change"
 msgstr "Nic"
 
-#: filer.c:673 infobox.c:1065 menu.c:942
+#: filer.c:673 infobox.c:1065 menu.c:956
 msgid "Unmount"
 msgstr "Odpojit"
 
@@ -1199,7 +1199,7 @@ msgstr ""
 "Toto není platné jméno souboru v kódování UTF-8. Mìli by jste jej "
 "pøejmenovat.\n"
 
-#: filer.c:2795 menu.c:2524
+#: filer.c:2795 menu.c:2603
 msgid "Item no longer exists!"
 msgstr "Polo¾ka u¾ neexistuje"
 
@@ -1576,43 +1576,43 @@ msgstr "(kliknìte pro nastavení)"
 msgid "ROX-Filer"
 msgstr "ROX-Filer"
 
-#: icon.c:132 menu.c:291
+#: icon.c:132 menu.c:294
 msgid "About ROX-Filer..."
 msgstr "O programu ROX-Filer..."
 
-#: icon.c:133 menu.c:292
+#: icon.c:133 menu.c:295
 msgid "Show Help Files"
 msgstr "Zobrazit Nápovìdu"
 
-#: icon.c:134 menu.c:293
+#: icon.c:134 menu.c:296
 msgid "Manual"
 msgstr "Manuál"
 
-#: icon.c:136 menu.c:265
+#: icon.c:136 menu.c:268
 msgid "Options..."
 msgstr "Mo¾nosti..."
 
-#: icon.c:137 menu.c:277
+#: icon.c:137 menu.c:280
 msgid "Home Directory"
 msgstr "Domovský adresáø"
 
-#: icon.c:138 icon.c:1437 menu.c:237 type.c:224
+#: icon.c:138 icon.c:1437 menu.c:240 type.c:224
 msgid "File"
 msgstr "Soubor"
 
-#: icon.c:139 menu.c:245 menu.c:955
+#: icon.c:139 menu.c:248 menu.c:969
 msgid "Shift Open"
 msgstr "Shift Otevøení"
 
-#: icon.c:140 menu.c:253
+#: icon.c:140 menu.c:256
 msgid "Properties"
 msgstr ""
 
-#: icon.c:141 menu.c:248
+#: icon.c:141 menu.c:251
 msgid "Set Run Action..."
 msgstr "Nastavit spou¹tìcí akci..."
 
-#: icon.c:142 menu.c:249
+#: icon.c:142 menu.c:252
 msgid "Set Icon..."
 msgstr "Nastavit ikonu..."
 
@@ -1628,7 +1628,7 @@ msgstr "Zobrazit umístìní"
 msgid "Remove Item(s)"
 msgstr "Odebrat polo¾ku(y)"
 
-#: icon.c:318 log.c:111 menu.c:837
+#: icon.c:318 log.c:111 menu.c:851
 #, c-format
 msgid "%s '%s'"
 msgstr ""
@@ -1658,7 +1658,7 @@ msgstr ""
 msgid "You must open the menu over an item"
 msgstr "Nabídku musíte otevøít nad polo¾kou"
 
-#: icon.c:740 menu.c:1357
+#: icon.c:740 menu.c:1371
 msgid "You can only set the run action for a regular file"
 msgstr "Spou¹tìcí akci mù¾ete nastavit jen pro bì¾né soubory"
 
@@ -1704,7 +1704,7 @@ msgstr "Opravdu otevøít %d oken?"
 msgid "Show Info"
 msgstr "Zobrazit Info"
 
-#: infobox.c:136 menu.c:842
+#: infobox.c:136 menu.c:856
 msgid "(bad utf-8)"
 msgstr "(¹patné utf-8)"
 
@@ -1761,7 +1761,7 @@ msgstr ""
 "!%s\n"
 "Kopírování '%s' selhalo\n"
 
-#: infobox.c:571 tips:270
+#: infobox.c:571 tips:272
 msgid "Error:"
 msgstr "Chyba:"
 
@@ -2124,7 +2124,7 @@ msgid ""
 "Right-click for a list of versions."
 msgstr ""
 
-#: main.c:967 menu.c:1458 menu.c:1464
+#: main.c:967 menu.c:1472 menu.c:1478
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "Chyba pøi vytváøení '%s': %s"
@@ -2144,269 +2144,269 @@ msgid ""
 "If you are using Zero Install you should use 0alias instead."
 msgstr ""
 
-#: menu.c:208
+#: menu.c:211
 msgid "Display"
 msgstr "Zobrazit"
 
-#: menu.c:209 tips:35
+#: menu.c:212 tips:35
 msgid "Icons View"
 msgstr "Ikonový pohled"
 
-#: menu.c:210
+#: menu.c:213
 msgid "Icons, With..."
 msgstr "Ikony, S..."
 
-#: menu.c:211 tips:55
+#: menu.c:214 tips:55
 msgid "Sizes"
 msgstr "Velikostmi"
 
-#: menu.c:213 tips:254
+#: menu.c:216 tips:256
 msgid "Types"
 msgstr "Typy"
 
-#: menu.c:214 tips:58
+#: menu.c:217 tips:58
 msgid "Times"
 msgstr "Èasy"
 
-#: menu.c:215 tips:36 tips:73 tips:74
+#: menu.c:218 tips:36 tips:73 tips:74
 msgid "List View"
 msgstr "Seznamový pohled"
 
-#: menu.c:217
+#: menu.c:220
 msgid "Bigger Icons"
 msgstr "Vìt¹í ikony"
 
-#: menu.c:218
+#: menu.c:221
 msgid "Smaller Icons"
 msgstr "Men¹í ikony"
 
-#: menu.c:219 tips:52
+#: menu.c:222 tips:52
 msgid "Automatic"
 msgstr "Automaticky"
 
-#: menu.c:221
+#: menu.c:224
 msgid "Sort by Name"
 msgstr "Tøídit podle jména"
 
-#: menu.c:222
+#: menu.c:225
 msgid "Sort by Type"
 msgstr "Tøídit podle typu"
 
-#: menu.c:223
+#: menu.c:226
 #, fuzzy
 msgid "Sort by Date (atime)"
 msgstr "Tøídit podle data"
 
-#: menu.c:224
+#: menu.c:227
 #, fuzzy
 msgid "Sort by Date (ctime)"
 msgstr "Tøídit podle data"
 
-#: menu.c:225
+#: menu.c:228
 #, fuzzy
 msgid "Sort by Date (mtime)"
 msgstr "Tøídit podle data"
 
-#: menu.c:226
+#: menu.c:229
 msgid "Sort by Size"
 msgstr "Tøídit podle velikosti"
 
-#: menu.c:227
+#: menu.c:230
 msgid "Sort by Owner"
 msgstr "Tøídit podle vlastníka"
 
-#: menu.c:228
+#: menu.c:231
 msgid "Sort by Group"
 msgstr "Tøídit podle skupiny"
 
-#: menu.c:229
+#: menu.c:232
 msgid "Reversed"
 msgstr "Opaènì"
 
-#: menu.c:231
+#: menu.c:234
 msgid "Show Hidden"
 msgstr "Zobrazit skryté"
 
-#: menu.c:232
+#: menu.c:235
 msgid "Filter Files..."
 msgstr ""
 
-#: menu.c:233
+#: menu.c:236
 msgid "Filter Directories With Files"
 msgstr ""
 
-#: menu.c:234
+#: menu.c:237
 msgid "Show Thumbnails"
 msgstr "Zobrazit náhledy"
 
-#: menu.c:235
+#: menu.c:238
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: menu.c:236
+#: menu.c:239
 msgid "Save Current Display Settings..."
 msgstr ""
 
-#: menu.c:239
+#: menu.c:242
 #, fuzzy
 msgid "Cut"
 msgstr "Poèet"
 
-#: menu.c:240
+#: menu.c:243
 msgid "Duplicate..."
 msgstr ""
 
-#: menu.c:241
+#: menu.c:244
 msgid "Rename..."
 msgstr "Pøejmenovat..."
 
-#: menu.c:242
+#: menu.c:245
 msgid "Link..."
 msgstr "Vytvoøit odkaz..."
 
-#: menu.c:246
+#: menu.c:249
 #, fuzzy
 msgid "Open With..."
 msgstr "Ikony, S..."
 
-#: menu.c:251
+#: menu.c:254
 #, fuzzy
 msgid "Extended attributes..."
 msgstr "Nepou¾ívat jména poèítaèù"
 
-#: menu.c:254
+#: menu.c:257
 msgid "Count"
 msgstr "Poèet"
 
-#: menu.c:255
+#: menu.c:258
 #, fuzzy
 msgid "Set Type..."
 msgstr "Poslat na..."
 
-#: menu.c:259 toolbar.c:164
+#: menu.c:262 toolbar.c:164
 msgid "Select"
 msgstr "Vybrat"
 
-#: menu.c:260
+#: menu.c:263
 msgid "Select All"
 msgstr "Vybrat v¹e"
 
-#: menu.c:261
+#: menu.c:264
 msgid "Clear Selection"
 msgstr "Odznaèit vybrané"
 
-#: menu.c:262
+#: menu.c:265
 msgid "Invert Selection"
 msgstr "Invertovat výbìr"
 
-#: menu.c:263
+#: menu.c:266
 #, fuzzy
 msgid "Select by Name..."
 msgstr "Tøídit podle jména"
 
-#: menu.c:264
+#: menu.c:267
 msgid "Select If..."
 msgstr "Vybrat pokud..."
 
-#: menu.c:267
+#: menu.c:270
 msgid "Paste"
 msgstr ""
 
-#: menu.c:269 toolbar.c:168
+#: menu.c:272 toolbar.c:168
 msgid "New"
 msgstr "Nový"
 
-#: menu.c:271
+#: menu.c:274
 msgid "Blank file"
 msgstr "Prázdný soubor"
 
-#: menu.c:273 tasklist.c:305
+#: menu.c:276 tasklist.c:305
 msgid "Window"
 msgstr "Okno"
 
-#: menu.c:274
+#: menu.c:277
 msgid "Parent, New Window"
 msgstr "Nadøazený adresáø, Nové okno"
 
-#: menu.c:275
+#: menu.c:278
 msgid "Parent, Same Window"
 msgstr "Nadøazený adresáø, Stejné okno"
 
-#: menu.c:276 tips:30
+#: menu.c:279 tips:30
 msgid "New Window"
 msgstr "Nové okno"
 
-#: menu.c:278
+#: menu.c:281
 msgid "Show Bookmarks"
 msgstr "Zobrazit zálo¾ky"
 
-#: menu.c:279
+#: menu.c:282
 #, fuzzy
 msgid "Show Log"
 msgstr "Zobrazit Info"
 
-#: menu.c:280
+#: menu.c:283
 msgid "Follow Symbolic Links"
 msgstr "Následovat symbolické odkazy"
 
-#: menu.c:281
+#: menu.c:284
 msgid "Resize Window"
 msgstr "Upravit velikost okna"
 
-#: menu.c:284
+#: menu.c:287
 msgid "Close Window"
 msgstr "Zavøít okno"
 
-#: menu.c:286
+#: menu.c:289
 msgid "Enter Path..."
 msgstr "Zadat cestu..."
 
-#: menu.c:287
+#: menu.c:290
 msgid "Shell Command..."
 msgstr "Shell pøíkaz"
 
-#: menu.c:288
+#: menu.c:291
 #, fuzzy
 msgid "Terminal Here"
 msgstr "Xterm v tomto adresáøi"
 
-#: menu.c:289
+#: menu.c:292
 #, fuzzy
 msgid "Switch to Terminal"
 msgstr "Pøepnout do xtermu"
 
-#: menu.c:789
+#: menu.c:803
 msgid "You should Shift+Menu click over a file to send it somewhere"
 msgstr ""
 "Mìli by jste stisknout Shift a menu tlaèítko nad souborem, abyste jej nìkam "
 "poslali"
 
-#: menu.c:827
+#: menu.c:841
 msgid "Next Click"
 msgstr "Dal¹í kliknutí"
 
-#: menu.c:849
+#: menu.c:863
 #, c-format
 msgid "%d items"
 msgstr "%d polo¾ek"
 
-#: menu.c:944
+#: menu.c:958
 msgid "Open unmounted"
 msgstr "Otevøít odpojené"
 
-#: menu.c:947
+#: menu.c:961
 msgid "Show Target"
 msgstr "Zobrazit cíl"
 
-#: menu.c:949
+#: menu.c:963
 msgid "Look Inside"
 msgstr "Podívat se dovnitø"
 
-#: menu.c:951
+#: menu.c:965
 msgid "Open As Text"
 msgstr "Otevøít jako text"
 
-#: menu.c:1122
+#: menu.c:1136
 msgid ""
 "Extended attributes, used to store types, are not supported for this file or "
 "files.\n"
@@ -2415,15 +2415,15 @@ msgid ""
 "mount option ('user_xattr' on Linux)."
 msgstr ""
 
-#: menu.c:1128
+#: menu.c:1142
 msgid "Setting type not supported for some of these files"
 msgstr ""
 
-#: menu.c:1165
+#: menu.c:1179
 msgid "_Relative link"
 msgstr "_Relativní odkaz"
 
-#: menu.c:1171
+#: menu.c:1185
 msgid ""
 "If on, the symlink will store the path from the symlink to the target file. "
 "Use this if the symlink and the target will be moved together.\n"
@@ -2435,37 +2435,37 @@ msgstr ""
 "Pokud je vypnuto, je ulo¾ena cesta z koøenového adresáøe - pu¾ijte, pokud se "
 "symb. odkaz mù¾e pøesunout, ale cíl ne."
 
-#: menu.c:1243
+#: menu.c:1257
 msgid "New pathname is not absolute"
 msgstr "Nová cesta není absolutní"
 
-#: menu.c:1311
+#: menu.c:1325
 #, c-format
 msgid "Symlink from '%s' already exists. Replace it with a link to '%s'?"
 msgstr "Symbolický odkaz  z '%s' u¾ existuje. Nahradit ho odkazem na '%s'?"
 
-#: menu.c:1317
+#: menu.c:1331
 msgid "_Replace"
 msgstr "_Nahradit"
 
-#: menu.c:1443 menu.c:1490 menu.c:1558
+#: menu.c:1457 menu.c:1504 menu.c:1572
 msgid "Create"
 msgstr "Vytvoøit"
 
-#: menu.c:1444
+#: menu.c:1458
 msgid "NewDir"
 msgstr "Nový adresáø"
 
-#: menu.c:1491
+#: menu.c:1505
 msgid "NewFile"
 msgstr "Nový soubor"
 
-#: menu.c:1510
+#: menu.c:1524
 #, c-format
 msgid "Error creating file: could not find the template for %s"
 msgstr "Chyba pøi vytváøení souboru: nemohu najít ¹ablonu pro %s"
 
-#: menu.c:1597
+#: menu.c:1611
 #, fuzzy, c-format
 msgid ""
 "The `Send To' menu provides a quick way to send some files to an "
@@ -2494,7 +2494,7 @@ msgstr ""
 "budou zobrazeny pouze pro daný typ. `.group' je zobrazeno jen kdy¾ je "
 "vybráno více souborù"
 
-#: menu.c:1609
+#: menu.c:1623
 msgid ""
 "I'll show you your SendTo directory now; you should symlink (Ctrl+Shift "
 "drag) any applications you want into it."
@@ -2502,11 +2502,11 @@ msgstr ""
 "Nyní zobrazím Vá¹ `Poslat na' adresáø; meli by jste vytvoøit symbolické "
 "odkazy (Ctrl+Shift pøetáhnutí) na aplikace, které tam chcete mít."
 
-#: menu.c:1612 menu.c:1652
+#: menu.c:1626 menu.c:1666
 msgid "Your CHOICESPATH variable setting prevents customisations - sorry."
 msgstr "Nastavení Va¹í promìnné CHOICESPATH znemo¾òuje zmìny - promiòte."
 
-#: menu.c:1645
+#: menu.c:1659
 #, c-format
 msgid ""
 "Any files placed in your Templates directories will appear on the `New' "
@@ -2518,7 +2518,7 @@ msgid ""
 "%s\n"
 msgstr ""
 
-#: menu.c:1650
+#: menu.c:1664
 #, fuzzy
 msgid ""
 "I'll show you your Templates directory now; you should place any template "
@@ -2527,15 +2527,15 @@ msgstr ""
 "Nyní zobrazím Vá¹ `Poslat na' adresáø; meli by jste vytvoøit symbolické "
 "odkazy (Ctrl+Shift pøetáhnutí) na aplikace, které tam chcete mít."
 
-#: menu.c:1998
+#: menu.c:2012
 msgid "Customise"
 msgstr "Nastavit"
 
-#: menu.c:2071
+#: menu.c:2110
 msgid "This is already the canonical name for this directory."
 msgstr "Toto u¾ je kanonické jméno pro tento adresáø."
 
-#: menu.c:2102
+#: menu.c:2141
 msgid ""
 "You can't open a second view onto this directory because the `Unique "
 "Windows' option is turned on in the Options window."
@@ -2543,95 +2543,105 @@ msgstr ""
 "Nemù¾ete otevøít druhý pohled na tento adresáø, proto¾e volba `Unikátní "
 "okna' je zapnuta v oknì Mo¾nosti."
 
-#: menu.c:2282
+#: menu.c:2324
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2368
+#: menu.c:2374
+#, fuzzy, c-format
+msgid "Copy of %s"
+msgstr "?Zkopírovat %s jako %s?"
+
+#: menu.c:2379
+#, fuzzy, c-format
+msgid "Copy(%d) of %s"
+msgstr "?Zkopírovat %s jako %s?"
+
+#: menu.c:2447
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2371
+#: menu.c:2450
 msgid "Rename ... ?"
 msgstr "Pøejmenovat ... ?"
 
-#: menu.c:2374
+#: menu.c:2453
 msgid "Symlink ... ?"
 msgstr "Symbolický odkaz ... ?"
 
-#: menu.c:2377
+#: menu.c:2456
 msgid "Shift Open ... ?"
 msgstr "Shift Otevøení ... ?"
 
-#: menu.c:2380
+#: menu.c:2459
 #, fuzzy
 msgid "Properties of ... ?"
 msgstr "Spoèítat velikost ... ?"
 
-#: menu.c:2384
+#: menu.c:2463
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Nepou¾ívat jména poèítaèù"
 
-#: menu.c:2388
+#: menu.c:2467
 #, fuzzy
 msgid "Set type of ... ?"
 msgstr "Nastavit ikonu pro ... ?"
 
-#: menu.c:2391
+#: menu.c:2470
 msgid "Set run action for ... ?"
 msgstr "Nastavit spou¹tìcí akci pro ... ?"
 
-#: menu.c:2394
+#: menu.c:2473
 msgid "Set icon for ... ?"
 msgstr "Nastavit ikonu pro ... ?"
 
-#: menu.c:2397
+#: menu.c:2476
 msgid "Send ... to ... ?"
 msgstr "Poslat ... na ... ?"
 
-#: menu.c:2400
+#: menu.c:2479
 msgid "DELETE ... ?"
 msgstr "SMAZAT ... ?"
 
-#: menu.c:2403
+#: menu.c:2482
 msgid "Count the size of ... ?"
 msgstr "Spoèítat velikost ... ?"
 
-#: menu.c:2406
+#: menu.c:2485
 msgid "Set permissions on ... ?"
 msgstr "Nastavit práva pro ... ?"
 
-#: menu.c:2409
+#: menu.c:2488
 msgid "Search inside ... ?"
 msgstr "Hledat uvnitø ... ?"
 
-#: menu.c:2412
+#: menu.c:2491
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Kopírovat ... ?"
 
-#: menu.c:2415
+#: menu.c:2494
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2507
+#: menu.c:2586
 msgid "You cannot do this to more than one item at a time"
 msgstr "Nemù¾ete pou¾ít souèasnì na více polo¾ek"
 
-#: menu.c:2534
+#: menu.c:2613
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2539
+#: menu.c:2618
 msgid "Rename"
 msgstr "Pøejmenovat"
 
-#: menu.c:2544
+#: menu.c:2623
 msgid "Symlink"
 msgstr "Symbolický odkaz"
 
-#: menu.c:2579
+#: menu.c:2658
 #, fuzzy
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
@@ -2651,7 +2661,7 @@ msgstr ""
 "2) pøidáním této øádky do ~/.gtkrc-2.0:\n"
 "\tgtk-can-change-accels = 1"
 
-#: menu.c:2590
+#: menu.c:2669
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2671,7 +2681,7 @@ msgstr ""
 "Zkratka se pøí¹tì objeví vedle polo¾ky nabídky a mù¾ete rovnou pou¾ívat "
 "zkratku bez otevírání nabídky."
 
-#: menu.c:2605
+#: menu.c:2684
 msgid "Set keyboard shortcuts"
 msgstr "Nastavit klávesovou zkratku"
 
@@ -2728,7 +2738,7 @@ msgid ""
 "filter off."
 msgstr ""
 
-#: minibuffer.c:921
+#: minibuffer.c:925
 msgid "Invalid Find condition"
 msgstr "Neplatná podmínka pro Hledání"
 
@@ -2785,7 +2795,7 @@ msgstr "(ulo¾ení není povoleno kvùli  CHOICESPATH)"
 msgid "Error saving %s: %s"
 msgstr "Chyba pøi ukládání %s: %s"
 
-#: options.c:1793
+#: options.c:1795
 msgid "Missing '='"
 msgstr "Chybí '='"
 
@@ -3627,7 +3637,7 @@ msgstr ""
 msgid "Last _Accessed"
 msgstr ""
 
-#: xtypes.c:790 tips:298
+#: xtypes.c:790 tips:300
 msgid "Extended attributes"
 msgstr ""
 
@@ -4675,29 +4685,37 @@ msgstr ""
 "Program, který je spu¹tìn, kdy¾ vyberete `Xterm v tomto adresáøi' z nabídky"
 
 #: tips:250
+msgid "Open terminal with grave (`) key"
+msgstr ""
+
+#: tips:251
+msgid "Open terminal emulator when the backtick/tilde key is pressed."
+msgstr ""
+
+#: tips:252
 msgid "Keyboard shortcuts"
 msgstr "Klávesové zkratky"
 
-#: tips:251
+#: tips:253
 #, fuzzy
 msgid "Applications"
 msgstr "ROX aplikace"
 
-#: tips:252
+#: tips:254
 msgid "Show .desktop applications in \"Send To\" menu."
 msgstr ""
 
-#: tips:253
+#: tips:255
 msgid ""
 "Show applications installed via .desktop files (usually in /usr/share/"
 "applications and ~/.local/share/applications) in \"Send To\" menus."
 msgstr ""
 
-#: tips:255
+#: tips:257
 msgid "MIME types"
 msgstr "MIME typy"
 
-#: tips:256
+#: tips:258
 #, fuzzy
 msgid ""
 "The filer uses a set of rules to work out the correct MIME type for each "
@@ -4709,25 +4727,25 @@ msgstr ""
 "\n"
 "http://rox.sourceforge.net/mime_editor.html"
 
-#: tips:257
+#: tips:259
 msgid "Edit MIME rules"
 msgstr ""
 
-#: tips:258
+#: tips:260
 #, fuzzy
 msgid "Themes"
 msgstr "Èasy"
 
-#: tips:259
+#: tips:261
 #, fuzzy
 msgid "Icon theme"
 msgstr "Ikonifikovat "
 
-#: tips:260
+#: tips:262
 msgid "Themes should be placed inside the ~/.icons directory."
 msgstr ""
 
-#: tips:261
+#: tips:263
 #, fuzzy
 msgid ""
 "Use the 'Set Icon...' dialog box to set the icon for each MIME type. Note "
@@ -4735,40 +4753,40 @@ msgid ""
 msgstr ""
 "Pou¾ijte dialogové okno 'Nastavit ikonu...' k nastavení pro ka¾dý MIME typ"
 
-#: tips:262
+#: tips:264
 msgid "Colours"
 msgstr "Barvy"
 
-#: tips:263
+#: tips:265
 msgid "File type colours"
 msgstr "Barvy typù souborù"
 
-#: tips:264
+#: tips:266
 msgid "Colour files based on their types"
 msgstr "Barvy souborù zavisí na jejich typech"
 
-#: tips:265
+#: tips:267
 msgid "Filenames (and details) are coloured according to the file's type."
 msgstr ""
 "Jména souborù (a podrobnosti) mají barvu, která patøí k danému typu souboru."
 
-#: tips:266
+#: tips:268
 msgid "Directory:"
 msgstr "Adresáø"
 
-#: tips:267
+#: tips:269
 msgid "Regular file:"
 msgstr "Bì¾ný soubor"
 
-#: tips:268
+#: tips:270
 msgid "Pipe:"
 msgstr "Roura"
 
-#: tips:269
+#: tips:271
 msgid "Socket:"
 msgstr "Soket"
 
-#: tips:271
+#: tips:273
 msgid ""
 "Error, such as a symlink which points to a non-existant file, or a file "
 "which the filer does not have permission to examine."
@@ -4776,58 +4794,58 @@ msgstr ""
 "Chyba, jako napøíklad symbolický odkaz na neexistující soubor nebo soubor "
 "nebo soubor u kterého nemá spravce souborù práva k prozkoumání."
 
-#: tips:272
+#: tips:274
 msgid "Character device:"
 msgstr "Znakové zaøízení:"
 
-#: tips:273
+#: tips:275
 msgid "Block device:"
 msgstr "Blokové zaøízení:"
 
-#: tips:274
+#: tips:276
 msgid "Door:"
 msgstr "DOOR:"
 
-#: tips:275
+#: tips:277
 msgid ""
 "Door files are a bit like sockets or pipes, and have only been seen on "
 "Solaris."
 msgstr ""
 "Door soubory jsou trochu jako sokety a roury a jsou pou69v8ny na Solarisu."
 
-#: tips:276
+#: tips:278
 msgid "Executable file:"
 msgstr "Spustitelný soubor:"
 
-#: tips:277
+#: tips:279
 msgid "Application directory:"
 msgstr "Aplikaèní adresáø:"
 
-#: tips:278
+#: tips:280
 msgid "Unknown type:"
 msgstr "Neznámý typ:"
 
-#: tips:279
+#: tips:281
 msgid "Compatibility"
 msgstr "Kompatibilita"
 
-#: tips:280
+#: tips:282
 msgid "Command line program"
 msgstr ""
 
-#: tips:281
+#: tips:283
 msgid "Make script"
 msgstr ""
 
-#: tips:282
+#: tips:284
 msgid "Window manager problems"
 msgstr "Problémy se správcem oken"
 
-#: tips:283
+#: tips:285
 msgid "Override window manager control of the pinboard and panels"
 msgstr "Pøebít kontrolu správce oken nad pozadím a panely "
 
-#: tips:284
+#: tips:286
 msgid ""
 "Some window managers don't support the new Extended Window Manager Hints "
 "system, and so treat the pinboard and panels like normal windows. Turn this "
@@ -4840,11 +4858,11 @@ msgstr ""
 "problémù jako: pozadí vyskoèí dopøedu pøi kliknutí na nìj, titulky a jiné "
 "dekorace se objevují u tìchto oken nebo se objevují v seznamu oken."
 
-#: tips:285
+#: tips:287
 msgid "Pass all backdrop mouse clicks to window manager"
 msgstr "Pøedat v¹echny kliknutí my¹í na pozadí správci oken"
 
-#: tips:286
+#: tips:288
 msgid ""
 "Normally, right clicking on the desktop background will open the pinboard "
 "menu and left clicking will clear the selection. Turn this on to forward the "
@@ -4854,11 +4872,11 @@ msgstr ""
 "vyma¾e výbìr. Pokud je zapnuto, pøedjí se v¹echny události správci oken. "
 "Kliknutí na ikony nebude pøedáno."
 
-#: tips:287
+#: tips:289
 msgid "Blackbox root menus hack"
 msgstr "Blackbox root menus hack"
 
-#: tips:288
+#: tips:290
 msgid ""
 "Blackbox, Fluxbox and similar window managers do not yet work well with the "
 "ROX-Filer pinboard. This option enables some workarounds. These window "
@@ -4869,48 +4887,48 @@ msgstr ""
 "Fileru. Tato volba èásteènì øe¹í problémy. Tito správcioken pravdìpodbnì "
 "opraví chování ve svých nových verzích, tak¾e toto není nutné."
 
-#: tips:289
+#: tips:291
 msgid "Panel is a 'dock'"
 msgstr ""
 
-#: tips:290
+#: tips:292
 msgid ""
 "Makes sure panels stay against screen edges. Disable this option if the "
 "panel stays above other windows against your wishes. Requires a restart to "
 "take effect."
 msgstr ""
 
-#: tips:291
+#: tips:293
 #, fuzzy
 msgid "Panel stays on top"
 msgstr "Styl panelu"
 
-#: tips:292
+#: tips:294
 msgid ""
 "Keeps the panel above other windows. Enable this option to make sure the "
 "dock option works correctly in some versions of compiz. May require a "
 "restart to take effect."
 msgstr ""
 
-#: tips:293
+#: tips:295
 msgid "Panel confined to work area"
 msgstr ""
 
-#: tips:294
+#: tips:296
 msgid ""
 "Keeps the panel confined to the work area specified by the Extended Window "
 "Manager Specification. Applies to new panels."
 msgstr ""
 
-#: tips:295
+#: tips:297
 msgid "Drag and drop"
 msgstr "Táhni a pus»"
 
-#: tips:296
+#: tips:298
 msgid "Don't use hostnames"
 msgstr "Nepou¾ívat jména poèítaèù"
 
-#: tips:297
+#: tips:299
 msgid ""
 "Some older applications don't support XDND fully and may need to have this "
 "option turned on. Use this if dragging files to an application shows a + "
@@ -4920,12 +4938,12 @@ msgstr ""
 "zapnutoututo volbu. Pou¾ijte, pokud pøetáhnutí souborù na aplikaci zobrazí "
 "znak +, ale pu¹tìní souborù nefunguje."
 
-#: tips:299
+#: tips:301
 #, fuzzy
 msgid "Don't use extended attributes"
 msgstr "Nepou¾ívat jména poèítaèù"
 
-#: tips:300
+#: tips:302
 msgid ""
 "This disables the use of extended attributes available in newer operating "
 "systems and file systems.  With this option set the 'Set Type' menu entry is "

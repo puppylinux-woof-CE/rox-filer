@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rox 2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-11 13:45-0500\n"
+"POT-Creation-Date: 2018-10-22 16:07-0500\n"
 "PO-Revision-Date: 2003-02-23 16:34--100\n"
 "Last-Translator: Wit Wiliński <madman@berlios.de>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -31,7 +31,7 @@ msgstr "Bez potwierdzania każdej operacji"
 msgid "Name"
 msgstr "Nazwa"
 
-#: abox.c:460 menu.c:270
+#: abox.c:460 menu.c:273
 msgid "Directory"
 msgstr "Katalog"
 
@@ -553,7 +553,7 @@ msgstr "!'%s' jest dowiązaniem symbolicznym\n"
 msgid "You need to select some items to search through"
 msgstr "Należy wybrać elementy, wśród których wyszukiwać"
 
-#: action.c:2103 menu.c:258
+#: action.c:2103 menu.c:261
 msgid "Find"
 msgstr "Znajdź"
 
@@ -573,7 +573,7 @@ msgstr "Zamontuj / Odmontuj"
 msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr "ROX-Filer nie obsługuje punktów montowania w tym systemie."
 
-#: action.c:2213 menu.c:243 tips:194
+#: action.c:2213 menu.c:246 tips:194
 msgid "Delete"
 msgstr "Usuń"
 
@@ -618,7 +618,7 @@ msgstr "go-rwx (prywatne - tylko dla właściciela)"
 msgid "go=u-w (Public access, not write)"
 msgstr "go=u-w (publiczne bez prawa zapisu)"
 
-#: action.c:2276 menu.c:212 menu.c:256 tips:56 tips:86
+#: action.c:2276 menu.c:215 menu.c:259 tips:56 tips:86
 msgid "Permissions"
 msgstr "Uprawnienia"
 
@@ -654,7 +654,7 @@ msgstr "Zmień zawartość podkatalogów"
 msgid "Type:"
 msgstr "Typ:"
 
-#: action.c:2413 dnd.c:123 menu.c:238 tips:188
+#: action.c:2413 dnd.c:123 menu.c:241 tips:188
 msgid "Copy"
 msgstr "Skopiuj"
 
@@ -741,11 +741,11 @@ msgid ""
 "menu for all items of this type (%s/%s)."
 msgstr ""
 
-#: appmenu.c:347 menu.c:272
+#: appmenu.c:347 menu.c:275
 msgid "Customise Menu..."
 msgstr "Dostosuj menu..."
 
-#: appmenu.c:402 menu.c:290 toolbar.c:174
+#: appmenu.c:402 menu.c:293 toolbar.c:174
 msgid "Help"
 msgstr "Pomoc"
 
@@ -1027,14 +1027,14 @@ msgstr ""
 "Nie można otrzymać danych ze zdalnego komputera (nie podano application/"
 "octet-stream)"
 
-#: dnd.c:1017 menu.c:2321
+#: dnd.c:1017 menu.c:2395
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr ""
 "Niektóre z tych plików znajdują się na innym komputerze - zostaną one "
 "zignorowane"
 
-#: dnd.c:1024 menu.c:2327
+#: dnd.c:1024 menu.c:2403
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1046,7 +1046,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "Zażądano nieznanej akcji"
 
-#: dnd.c:1045 menu.c:2341
+#: dnd.c:1045 menu.c:2418
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Błąd pobierania listy plików: %s"
@@ -1115,7 +1115,7 @@ msgstr ""
 msgid "No change"
 msgstr "Nic"
 
-#: filer.c:673 infobox.c:1065 menu.c:942
+#: filer.c:673 infobox.c:1065 menu.c:956
 msgid "Unmount"
 msgstr "Odmontuj"
 
@@ -1194,7 +1194,7 @@ msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "Nazwa elementu nie jest w formacie UTF-8. Należy ją zmienić.\n"
 
 # ##
-#: filer.c:2795 menu.c:2524
+#: filer.c:2795 menu.c:2603
 msgid "Item no longer exists!"
 msgstr "Element już nie istnieje!"
 
@@ -1574,43 +1574,43 @@ msgstr "(kliknij by ustawić)"
 msgid "ROX-Filer"
 msgstr "ROX-Filer"
 
-#: icon.c:132 menu.c:291
+#: icon.c:132 menu.c:294
 msgid "About ROX-Filer..."
 msgstr "O ROX-Filerze..."
 
-#: icon.c:133 menu.c:292
+#: icon.c:133 menu.c:295
 msgid "Show Help Files"
 msgstr "Wyświetl pliki z dokumentacją"
 
-#: icon.c:134 menu.c:293
+#: icon.c:134 menu.c:296
 msgid "Manual"
 msgstr "Dokumentacja"
 
-#: icon.c:136 menu.c:265
+#: icon.c:136 menu.c:268
 msgid "Options..."
 msgstr "Ustawienia..."
 
-#: icon.c:137 menu.c:277
+#: icon.c:137 menu.c:280
 msgid "Home Directory"
 msgstr "Katalog domowy"
 
-#: icon.c:138 icon.c:1437 menu.c:237 type.c:224
+#: icon.c:138 icon.c:1437 menu.c:240 type.c:224
 msgid "File"
 msgstr "Plik"
 
-#: icon.c:139 menu.c:245 menu.c:955
+#: icon.c:139 menu.c:248 menu.c:969
 msgid "Shift Open"
 msgstr "Otwórz (shift)"
 
-#: icon.c:140 menu.c:253
+#: icon.c:140 menu.c:256
 msgid "Properties"
 msgstr "Właściwości"
 
-#: icon.c:141 menu.c:248
+#: icon.c:141 menu.c:251
 msgid "Set Run Action..."
 msgstr "Określ akcję..."
 
-#: icon.c:142 menu.c:249
+#: icon.c:142 menu.c:252
 msgid "Set Icon..."
 msgstr "Określ ikonę..."
 
@@ -1626,7 +1626,7 @@ msgstr "Pokaż lokalizację"
 msgid "Remove Item(s)"
 msgstr "Usuń element(y)"
 
-#: icon.c:318 log.c:111 menu.c:837
+#: icon.c:318 log.c:111 menu.c:851
 #, c-format
 msgid "%s '%s'"
 msgstr "%s '%s'"
@@ -1656,7 +1656,7 @@ msgstr ""
 msgid "You must open the menu over an item"
 msgstr "Należy otworzyć menu nad elementem"
 
-#: icon.c:740 menu.c:1357
+#: icon.c:740 menu.c:1371
 msgid "You can only set the run action for a regular file"
 msgstr "Można określić akcję jedynie dla zwykłego pliku"
 
@@ -1702,7 +1702,7 @@ msgstr "Czy na pewno chcesz otworzyć %d okien?"
 msgid "Show Info"
 msgstr "Informacje"
 
-#: infobox.c:136 menu.c:842
+#: infobox.c:136 menu.c:856
 msgid "(bad utf-8)"
 msgstr "(zły UTF-8)"
 
@@ -1758,7 +1758,7 @@ msgstr ""
 "!%s\n"
 "Kopiowanie \"%s\" nie powiodło się\n"
 
-#: infobox.c:571 tips:270
+#: infobox.c:571 tips:272
 msgid "Error:"
 msgstr "Błąd:"
 
@@ -2113,7 +2113,7 @@ msgid ""
 "Right-click for a list of versions."
 msgstr ""
 
-#: main.c:967 menu.c:1458 menu.c:1464
+#: main.c:967 menu.c:1472 menu.c:1478
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "Błąd przy tworzeniu \"%s\": %s"
@@ -2133,267 +2133,267 @@ msgid ""
 "If you are using Zero Install you should use 0alias instead."
 msgstr ""
 
-#: menu.c:208
+#: menu.c:211
 msgid "Display"
 msgstr "Wyświetlanie"
 
-#: menu.c:209 tips:35
+#: menu.c:212 tips:35
 msgid "Icons View"
 msgstr "Widok ikon"
 
-#: menu.c:210
+#: menu.c:213
 msgid "Icons, With..."
 msgstr "Ikony oraz..."
 
-#: menu.c:211 tips:55
+#: menu.c:214 tips:55
 msgid "Sizes"
 msgstr "Rozmiar"
 
-#: menu.c:213 tips:254
+#: menu.c:216 tips:256
 msgid "Types"
 msgstr "Typy"
 
-#: menu.c:214 tips:58
+#: menu.c:217 tips:58
 msgid "Times"
 msgstr "Czas"
 
-#: menu.c:215 tips:36 tips:73 tips:74
+#: menu.c:218 tips:36 tips:73 tips:74
 msgid "List View"
 msgstr "Widok listy"
 
-#: menu.c:217
+#: menu.c:220
 msgid "Bigger Icons"
 msgstr "Większe ikony"
 
-#: menu.c:218
+#: menu.c:221
 msgid "Smaller Icons"
 msgstr "Mniejsze ikony"
 
-#: menu.c:219 tips:52
+#: menu.c:222 tips:52
 msgid "Automatic"
 msgstr "Automatycznie"
 
-#: menu.c:221
+#: menu.c:224
 msgid "Sort by Name"
 msgstr "Posortowane wg nazw"
 
-#: menu.c:222
+#: menu.c:225
 msgid "Sort by Type"
 msgstr "Posortowane wg typów"
 
-#: menu.c:223
+#: menu.c:226
 #, fuzzy
 msgid "Sort by Date (atime)"
 msgstr "Posortowane wg dat"
 
-#: menu.c:224
+#: menu.c:227
 #, fuzzy
 msgid "Sort by Date (ctime)"
 msgstr "Posortowane wg dat"
 
-#: menu.c:225
+#: menu.c:228
 #, fuzzy
 msgid "Sort by Date (mtime)"
 msgstr "Posortowane wg dat"
 
-#: menu.c:226
+#: menu.c:229
 msgid "Sort by Size"
 msgstr "Posortowane wg rozmiaru"
 
-#: menu.c:227
+#: menu.c:230
 msgid "Sort by Owner"
 msgstr "Posortowane wg właściciela"
 
-#: menu.c:228
+#: menu.c:231
 msgid "Sort by Group"
 msgstr "Posortowane wg grup"
 
-#: menu.c:229
+#: menu.c:232
 msgid "Reversed"
 msgstr "Odwrotnie"
 
-#: menu.c:231
+#: menu.c:234
 msgid "Show Hidden"
 msgstr "Pokaż ukryte"
 
-#: menu.c:232
+#: menu.c:235
 msgid "Filter Files..."
 msgstr "Filtruj pliki..."
 
-#: menu.c:233
+#: menu.c:236
 msgid "Filter Directories With Files"
 msgstr ""
 
-#: menu.c:234
+#: menu.c:237
 msgid "Show Thumbnails"
 msgstr "Pokaż miniaturki"
 
-#: menu.c:235
+#: menu.c:238
 msgid "Refresh"
 msgstr "Odśwież"
 
-#: menu.c:236
+#: menu.c:239
 #, fuzzy
 msgid "Save Current Display Settings..."
 msgstr "Zapisz ustawienia..."
 
-#: menu.c:239
+#: menu.c:242
 #, fuzzy
 msgid "Cut"
 msgstr "Zlicz"
 
-#: menu.c:240
+#: menu.c:243
 msgid "Duplicate..."
 msgstr ""
 
-#: menu.c:241
+#: menu.c:244
 msgid "Rename..."
 msgstr "Zmień nazwę..."
 
-#: menu.c:242
+#: menu.c:245
 msgid "Link..."
 msgstr "Dowiąż..."
 
-#: menu.c:246
+#: menu.c:249
 #, fuzzy
 msgid "Open With..."
 msgstr "Ikony oraz..."
 
-#: menu.c:251
+#: menu.c:254
 #, fuzzy
 msgid "Extended attributes..."
 msgstr "Rozszerzone atrybuty"
 
-#: menu.c:254
+#: menu.c:257
 msgid "Count"
 msgstr "Zlicz"
 
-#: menu.c:255
+#: menu.c:258
 msgid "Set Type..."
 msgstr "Ustaw typ..."
 
-#: menu.c:259 toolbar.c:164
+#: menu.c:262 toolbar.c:164
 msgid "Select"
 msgstr "Wybierz"
 
-#: menu.c:260
+#: menu.c:263
 msgid "Select All"
 msgstr "Wybierz wszystkie"
 
-#: menu.c:261
+#: menu.c:264
 msgid "Clear Selection"
 msgstr "Wyczyść wybór"
 
-#: menu.c:262
+#: menu.c:265
 msgid "Invert Selection"
 msgstr "Odwróć wybór"
 
-#: menu.c:263
+#: menu.c:266
 #, fuzzy
 msgid "Select by Name..."
 msgstr "Posortowane wg nazw"
 
-#: menu.c:264
+#: menu.c:267
 msgid "Select If..."
 msgstr "Zaznacz gdy..."
 
-#: menu.c:267
+#: menu.c:270
 msgid "Paste"
 msgstr ""
 
-#: menu.c:269 toolbar.c:168
+#: menu.c:272 toolbar.c:168
 msgid "New"
 msgstr "Nowy"
 
-#: menu.c:271
+#: menu.c:274
 msgid "Blank file"
 msgstr "Pusty plik"
 
-#: menu.c:273 tasklist.c:305
+#: menu.c:276 tasklist.c:305
 msgid "Window"
 msgstr "Okno"
 
-#: menu.c:274
+#: menu.c:277
 msgid "Parent, New Window"
 msgstr "Katalog nadrzędny w nowym oknie"
 
-#: menu.c:275
+#: menu.c:278
 msgid "Parent, Same Window"
 msgstr "Katalog nadrzędny w tym oknie"
 
-#: menu.c:276 tips:30
+#: menu.c:279 tips:30
 msgid "New Window"
 msgstr "Nowe okno"
 
-#: menu.c:278
+#: menu.c:281
 msgid "Show Bookmarks"
 msgstr "Pokaż zakładki"
 
-#: menu.c:279
+#: menu.c:282
 #, fuzzy
 msgid "Show Log"
 msgstr "Informacje"
 
-#: menu.c:280
+#: menu.c:283
 msgid "Follow Symbolic Links"
 msgstr "Podąż za dowiązaniem symbolicznym"
 
-#: menu.c:281
+#: menu.c:284
 msgid "Resize Window"
 msgstr "Zmień rozmiar okna"
 
-#: menu.c:284
+#: menu.c:287
 msgid "Close Window"
 msgstr "Zamknij okno"
 
-#: menu.c:286
+#: menu.c:289
 msgid "Enter Path..."
 msgstr "Podaj Scieżkę..."
 
-#: menu.c:287
+#: menu.c:290
 msgid "Shell Command..."
 msgstr "Polecenie..."
 
-#: menu.c:288
+#: menu.c:291
 #, fuzzy
 msgid "Terminal Here"
 msgstr "Terminal w tym katalogu"
 
-#: menu.c:289
+#: menu.c:292
 #, fuzzy
 msgid "Switch to Terminal"
 msgstr "Przełącz do terminala"
 
-#: menu.c:789
+#: menu.c:803
 msgid "You should Shift+Menu click over a file to send it somewhere"
 msgstr "Aby wysłać gdziekolwiek plik, należy użyć Shift+Menu nad plikiem"
 
-#: menu.c:827
+#: menu.c:841
 msgid "Next Click"
 msgstr "Następne kliknięcie"
 
-#: menu.c:849
+#: menu.c:863
 #, c-format
 msgid "%d items"
 msgstr "%d plików"
 
-#: menu.c:944
+#: menu.c:958
 msgid "Open unmounted"
 msgstr "Otwórz bez montowania"
 
-#: menu.c:947
+#: menu.c:961
 msgid "Show Target"
 msgstr "Pokaż cel"
 
-#: menu.c:949
+#: menu.c:963
 msgid "Look Inside"
 msgstr "Zajrzyj do środka"
 
-#: menu.c:951
+#: menu.c:965
 msgid "Open As Text"
 msgstr "Otwórz jako tekst"
 
-#: menu.c:1122
+#: menu.c:1136
 msgid ""
 "Extended attributes, used to store types, are not supported for this file or "
 "files.\n"
@@ -2402,15 +2402,15 @@ msgid ""
 "mount option ('user_xattr' on Linux)."
 msgstr ""
 
-#: menu.c:1128
+#: menu.c:1142
 msgid "Setting type not supported for some of these files"
 msgstr ""
 
-#: menu.c:1165
+#: menu.c:1179
 msgid "_Relative link"
 msgstr "dowiązanie _relatywne"
 
-#: menu.c:1171
+#: menu.c:1185
 msgid ""
 "If on, the symlink will store the path from the symlink to the target file. "
 "Use this if the symlink and the target will be moved together.\n"
@@ -2424,37 +2424,37 @@ msgstr ""
 "Użyj tego, jeśli dowiązanie symboliczne może być przeniesione, ale plik "
 "dowiązany ma zostać na miejscu."
 
-#: menu.c:1243
+#: menu.c:1257
 msgid "New pathname is not absolute"
 msgstr "Nowa ścieżka nie jest absolutna"
 
-#: menu.c:1311
+#: menu.c:1325
 #, c-format
 msgid "Symlink from '%s' already exists. Replace it with a link to '%s'?"
 msgstr "Dowiązanie z \"%s\" już istnieje. Zamienić je dowiązaniem do \"%s\"?"
 
-#: menu.c:1317
+#: menu.c:1331
 msgid "_Replace"
 msgstr "_Zamień"
 
-#: menu.c:1443 menu.c:1490 menu.c:1558
+#: menu.c:1457 menu.c:1504 menu.c:1572
 msgid "Create"
 msgstr "Utwórz"
 
-#: menu.c:1444
+#: menu.c:1458
 msgid "NewDir"
 msgstr "NowyKatalog"
 
-#: menu.c:1491
+#: menu.c:1505
 msgid "NewFile"
 msgstr "NowyPlik"
 
-#: menu.c:1510
+#: menu.c:1524
 #, c-format
 msgid "Error creating file: could not find the template for %s"
 msgstr "Błąd tworzenia pliku: nie można znaleźć szablonu dla %s"
 
-#: menu.c:1597
+#: menu.c:1611
 #, fuzzy, c-format
 msgid ""
 "The `Send To' menu provides a quick way to send some files to an "
@@ -2484,7 +2484,7 @@ msgstr ""
 "które zostaną użyte tylko dla plików tego typu. \".grupa\" będzie "
 "wyświetlona tylko jeśli zaznaczonych będzie kilka plików."
 
-#: menu.c:1609
+#: menu.c:1623
 msgid ""
 "I'll show you your SendTo directory now; you should symlink (Ctrl+Shift "
 "drag) any applications you want into it."
@@ -2492,12 +2492,12 @@ msgstr ""
 "Zostanie otwarty katalog SendTo. Można w nim tworzyć odnośniki (np. "
 "przezprzeciąganie z jednoczesnym wciśnięciem Ctrl+Shift)."
 
-#: menu.c:1612 menu.c:1652
+#: menu.c:1626 menu.c:1666
 msgid "Your CHOICESPATH variable setting prevents customisations - sorry."
 msgstr ""
 "Ustawienie zmiennej CHOICESPATH wyłącza możliwość dostosowywania ustawień."
 
-#: menu.c:1645
+#: menu.c:1659
 #, c-format
 msgid ""
 "Any files placed in your Templates directories will appear on the `New' "
@@ -2509,7 +2509,7 @@ msgid ""
 "%s\n"
 msgstr ""
 
-#: menu.c:1650
+#: menu.c:1664
 #, fuzzy
 msgid ""
 "I'll show you your Templates directory now; you should place any template "
@@ -2518,15 +2518,15 @@ msgstr ""
 "Zostanie otwarty katalog SendTo. Można w nim tworzyć odnośniki (np. "
 "przezprzeciąganie z jednoczesnym wciśnięciem Ctrl+Shift)."
 
-#: menu.c:1998
+#: menu.c:2012
 msgid "Customise"
 msgstr "Dostosuj"
 
-#: menu.c:2071
+#: menu.c:2110
 msgid "This is already the canonical name for this directory."
 msgstr "To już jest nazwa kanoniczna dla tego katalogu."
 
-#: menu.c:2102
+#: menu.c:2141
 msgid ""
 "You can't open a second view onto this directory because the `Unique "
 "Windows' option is turned on in the Options window."
@@ -2534,94 +2534,104 @@ msgstr ""
 "Nie można otworzyć drugiego okna dla tego katalogu, ponieważ jest włączona "
 "opcja \"unikalnych okien\" w konfiguracji."
 
-#: menu.c:2282
+#: menu.c:2324
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2368
+#: menu.c:2374
+#, fuzzy, c-format
+msgid "Copy of %s"
+msgstr "?Skopiować %s jako %s?"
+
+#: menu.c:2379
+#, fuzzy, c-format
+msgid "Copy(%d) of %s"
+msgstr "?Skopiować %s jako %s?"
+
+#: menu.c:2447
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2371
+#: menu.c:2450
 msgid "Rename ... ?"
 msgstr "Przenieść ... ?"
 
-#: menu.c:2374
+#: menu.c:2453
 msgid "Symlink ... ?"
 msgstr "Dowiązać ... ?"
 
-#: menu.c:2377
+#: menu.c:2456
 msgid "Shift Open ... ?"
 msgstr "Otwórz (shift) .. ?"
 
-#: menu.c:2380
+#: menu.c:2459
 msgid "Properties of ... ?"
 msgstr "Właściwości ... ?"
 
-#: menu.c:2384
+#: menu.c:2463
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Rozszerzone atrybuty"
 
-#: menu.c:2388
+#: menu.c:2467
 msgid "Set type of ... ?"
 msgstr "Określ typ dla ... ?"
 
-#: menu.c:2391
+#: menu.c:2470
 msgid "Set run action for ... ?"
 msgstr "Określ akcję dla ... ?"
 
-#: menu.c:2394
+#: menu.c:2473
 msgid "Set icon for ... ?"
 msgstr "Określ ikonę dla ... ?"
 
-#: menu.c:2397
+#: menu.c:2476
 msgid "Send ... to ... ?"
 msgstr "Wyślij do ... ?"
 
-#: menu.c:2400
+#: menu.c:2479
 msgid "DELETE ... ?"
 msgstr "SKASOWAĆ ... ?"
 
-#: menu.c:2403
+#: menu.c:2482
 msgid "Count the size of ... ?"
 msgstr "Zlicz rozmiar ... ?"
 
-#: menu.c:2406
+#: menu.c:2485
 msgid "Set permissions on ... ?"
 msgstr "Ustaw uprawnienia ... ?"
 
-#: menu.c:2409
+#: menu.c:2488
 msgid "Search inside ... ?"
 msgstr "Szukać wewnątrz ... ?"
 
-#: menu.c:2412
+#: menu.c:2491
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Skopiować ... ?"
 
-#: menu.c:2415
+#: menu.c:2494
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
 # ##
-#: menu.c:2507
+#: menu.c:2586
 msgid "You cannot do this to more than one item at a time"
 msgstr "Nie można tego zrobić dla więcej niż jednego elementu"
 
-#: menu.c:2534
+#: menu.c:2613
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2539
+#: menu.c:2618
 msgid "Rename"
 msgstr "Przenieś"
 
-#: menu.c:2544
+#: menu.c:2623
 msgid "Symlink"
 msgstr "Dowiąż"
 
-#: menu.c:2579
+#: menu.c:2658
 #, fuzzy
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
@@ -2641,7 +2651,7 @@ msgstr ""
 "2) dodając następującą linię do ~/.gtkrc-2.0:\n"
 "\tgtk-can-change-accels = 1"
 
-#: menu.c:2590
+#: menu.c:2669
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2661,7 +2671,7 @@ msgstr ""
 "Zdefiniowana kombinacja pokaże się w menu. Od tej chwili wystarczy nacisnąć "
 "tę kombinacje, aby wybrać funkcję bez korzystania z menu."
 
-#: menu.c:2605
+#: menu.c:2684
 msgid "Set keyboard shortcuts"
 msgstr "Ustaw skróty klawiszowe"
 
@@ -2717,7 +2727,7 @@ msgid ""
 "filter off."
 msgstr ""
 
-#: minibuffer.c:921
+#: minibuffer.c:925
 msgid "Invalid Find condition"
 msgstr "Nieprawidłowe wyrażenie"
 
@@ -2776,7 +2786,7 @@ msgstr "(zapis wyłączony przez zmienną CHOICESPATH)"
 msgid "Error saving %s: %s"
 msgstr "Błąd przy zapisywaniu %s: %s"
 
-#: options.c:1793
+#: options.c:1795
 msgid "Missing '='"
 msgstr "Brakuje \"=\""
 
@@ -3610,7 +3620,7 @@ msgstr ""
 msgid "Last _Accessed"
 msgstr ""
 
-#: xtypes.c:790 tips:298
+#: xtypes.c:790 tips:300
 msgid "Extended attributes"
 msgstr "Rozszerzone atrybuty"
 
@@ -4662,29 +4672,37 @@ msgstr ""
 "Program który ma zostać uruchomiony po wybraniu z menu polecenia \"Terminal\""
 
 #: tips:250
+msgid "Open terminal with grave (`) key"
+msgstr ""
+
+#: tips:251
+msgid "Open terminal emulator when the backtick/tilde key is pressed."
+msgstr ""
+
+#: tips:252
 msgid "Keyboard shortcuts"
 msgstr "Skróty klawiszowe"
 
-#: tips:251
+#: tips:253
 #, fuzzy
 msgid "Applications"
 msgstr "Aplikacja ROXa"
 
-#: tips:252
+#: tips:254
 msgid "Show .desktop applications in \"Send To\" menu."
 msgstr ""
 
-#: tips:253
+#: tips:255
 msgid ""
 "Show applications installed via .desktop files (usually in /usr/share/"
 "applications and ~/.local/share/applications) in \"Send To\" menus."
 msgstr ""
 
-#: tips:255
+#: tips:257
 msgid "MIME types"
 msgstr "Typy MIME"
 
-#: tips:256
+#: tips:258
 #, fuzzy
 msgid ""
 "The filer uses a set of rules to work out the correct MIME type for each "
@@ -4695,23 +4713,23 @@ msgstr ""
 "należy uruchomić \"update-mime-database\". Naciśnięcie przycisku \"Odśwież\" "
 "przeładuje już nowe typy."
 
-#: tips:257
+#: tips:259
 msgid "Edit MIME rules"
 msgstr ""
 
-#: tips:258
+#: tips:260
 msgid "Themes"
 msgstr "Style"
 
-#: tips:259
+#: tips:261
 msgid "Icon theme"
 msgstr "Styl "
 
-#: tips:260
+#: tips:262
 msgid "Themes should be placed inside the ~/.icons directory."
 msgstr ""
 
-#: tips:261
+#: tips:263
 #, fuzzy
 msgid ""
 "Use the 'Set Icon...' dialog box to set the icon for each MIME type. Note "
@@ -4720,39 +4738,39 @@ msgstr ""
 "Użyj okna dialogowego \"Ustaw ikonę...\" aby określić ikonę dla każdego typu "
 "MIME."
 
-#: tips:262
+#: tips:264
 msgid "Colours"
 msgstr "Kolory"
 
-#: tips:263
+#: tips:265
 msgid "File type colours"
 msgstr "Kolory typów"
 
-#: tips:264
+#: tips:266
 msgid "Colour files based on their types"
 msgstr "Kolory elementów bazują na ich typach"
 
-#: tips:265
+#: tips:267
 msgid "Filenames (and details) are coloured according to the file's type."
 msgstr "Nazwy elementów (oraz szczegółów) są kolorowane według ich typów."
 
-#: tips:266
+#: tips:268
 msgid "Directory:"
 msgstr "Katalog:"
 
-#: tips:267
+#: tips:269
 msgid "Regular file:"
 msgstr "Zwykły plik:"
 
-#: tips:268
+#: tips:270
 msgid "Pipe:"
 msgstr "Potok:"
 
-#: tips:269
+#: tips:271
 msgid "Socket:"
 msgstr "Gniazdo:"
 
-#: tips:271
+#: tips:273
 msgid ""
 "Error, such as a symlink which points to a non-existant file, or a file "
 "which the filer does not have permission to examine."
@@ -4760,19 +4778,19 @@ msgstr ""
 "Dowiązanie symboliczne prowadzące do nieistniejącego pliku lub element do "
 "którego nie posiadamy uprawnień."
 
-#: tips:272
+#: tips:274
 msgid "Character device:"
 msgstr "Urządzenie znakowe:"
 
-#: tips:273
+#: tips:275
 msgid "Block device:"
 msgstr "Urządzenie blokowe:"
 
-#: tips:274
+#: tips:276
 msgid "Door:"
 msgstr "Drzwi:"
 
-#: tips:275
+#: tips:277
 msgid ""
 "Door files are a bit like sockets or pipes, and have only been seen on "
 "Solaris."
@@ -4780,39 +4798,39 @@ msgstr ""
 "Drzwi przypominają w działaniu Gniazdka lub Potoki, występują one wyłącznie "
 "w systemie Solaris"
 
-#: tips:276
+#: tips:278
 msgid "Executable file:"
 msgstr "Plik wykonywalny:"
 
-#: tips:277
+#: tips:279
 msgid "Application directory:"
 msgstr "Katalog aplikacji:"
 
-#: tips:278
+#: tips:280
 msgid "Unknown type:"
 msgstr "Nieznany typ:"
 
-#: tips:279
+#: tips:281
 msgid "Compatibility"
 msgstr "Zgodność"
 
-#: tips:280
+#: tips:282
 msgid "Command line program"
 msgstr ""
 
-#: tips:281
+#: tips:283
 msgid "Make script"
 msgstr ""
 
-#: tips:282
+#: tips:284
 msgid "Window manager problems"
 msgstr "Problemy z menedżerem okien"
 
-#: tips:283
+#: tips:285
 msgid "Override window manager control of the pinboard and panels"
 msgstr "Przejmij kontrolę nad biurkiem i panelami"
 
-#: tips:284
+#: tips:286
 msgid ""
 "Some window managers don't support the new Extended Window Manager Hints "
 "system, and so treat the pinboard and panels like normal windows. Turn this "
@@ -4827,11 +4845,11 @@ msgstr ""
 "biurko i panele pojawiają się na liście okien lub mają dodane dekoracje od "
 "od menedżera okien."
 
-#: tips:285
+#: tips:287
 msgid "Pass all backdrop mouse clicks to window manager"
 msgstr "Przekaż wszystkie kliknięcia myszki do menedżera okien."
 
-#: tips:286
+#: tips:288
 msgid ""
 "Normally, right clicking on the desktop background will open the pinboard "
 "menu and left clicking will clear the selection. Turn this on to forward the "
@@ -4841,11 +4859,11 @@ msgstr ""
 "wyłącza zaznaczenie. Włączenie tej opcji przekazuje te zdarzenia do "
 "menedżera okien. Kliknięcia na ikony nie są przekazywane."
 
-#: tips:287
+#: tips:289
 msgid "Blackbox root menus hack"
 msgstr ""
 
-#: tips:288
+#: tips:290
 msgid ""
 "Blackbox, Fluxbox and similar window managers do not yet work well with the "
 "ROX-Filer pinboard. This option enables some workarounds. These window "
@@ -4853,48 +4871,48 @@ msgid ""
 "isn't necessary."
 msgstr ""
 
-#: tips:289
+#: tips:291
 msgid "Panel is a 'dock'"
 msgstr "Panel jest warstwą 'dock'"
 
-#: tips:290
+#: tips:292
 msgid ""
 "Makes sure panels stay against screen edges. Disable this option if the "
 "panel stays above other windows against your wishes. Requires a restart to "
 "take effect."
 msgstr ""
 
-#: tips:291
+#: tips:293
 #, fuzzy
 msgid "Panel stays on top"
 msgstr "Styl panelu"
 
-#: tips:292
+#: tips:294
 msgid ""
 "Keeps the panel above other windows. Enable this option to make sure the "
 "dock option works correctly in some versions of compiz. May require a "
 "restart to take effect."
 msgstr ""
 
-#: tips:293
+#: tips:295
 msgid "Panel confined to work area"
 msgstr ""
 
-#: tips:294
+#: tips:296
 msgid ""
 "Keeps the panel confined to the work area specified by the Extended Window "
 "Manager Specification. Applies to new panels."
 msgstr ""
 
-#: tips:295
+#: tips:297
 msgid "Drag and drop"
 msgstr "Przeciągnij i Upuść"
 
-#: tips:296
+#: tips:298
 msgid "Don't use hostnames"
 msgstr "Nie używaj nazwy hosta"
 
-#: tips:297
+#: tips:299
 msgid ""
 "Some older applications don't support XDND fully and may need to have this "
 "option turned on. Use this if dragging files to an application shows a + "
@@ -4905,11 +4923,11 @@ msgstr ""
 "wskaźniku myszy pokazuje znak '+' lecz funkcja \"przeciągnij i upuść\" nie "
 "działa poprawnie."
 
-#: tips:299
+#: tips:301
 msgid "Don't use extended attributes"
 msgstr "Nie używaj rozszerzonych atrybutów"
 
-#: tips:300
+#: tips:302
 msgid ""
 "This disables the use of extended attributes available in newer operating "
 "systems and file systems.  With this option set the 'Set Type' menu entry is "
