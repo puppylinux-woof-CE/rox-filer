@@ -2304,8 +2304,11 @@ static void paste_from_clipboard(gpointer data, guint action, GtkWidget *unused)
 	gchar **uri_list;
 	const gchar *error = NULL;
 	const gchar *dest_path = (gchar *)window_with_focus->sym_path;
+	const gchar *dest_real_path = (gchar *)window_with_focus->real_path;
 	gchar *string_data = NULL;
 	gboolean are_copying = TRUE;
+	gboolean ignore_no_local_paths = FALSE;
+	struct stat dest_info;
 
 	clipboard_selection =
 				gtk_clipboard_wait_for_contents(clipboard, gnome_copied_files);
@@ -2355,7 +2358,39 @@ static void paste_from_clipboard(gpointer data, guint action, GtkWidget *unused)
 			path = get_local_path((EscapedPath *) *uri_iter);
 
 			if (path)
-				local_paths = g_list_append(local_paths, path);
+			{
+				gchar *source_real_path = pathdup(path);
+				gchar *source_dirname = g_path_get_dirname(source_real_path);
+				if (strcmp(source_dirname, dest_real_path) == 0 &&
+					are_copying == TRUE)
+				{
+					gchar *source_basename = g_path_get_basename(path);
+					gchar *new_name = NULL;
+					GList *one_path = NULL;
+
+					ignore_no_local_paths = TRUE;
+					one_path = g_list_append(one_path, path);
+
+					new_name = g_strdup_printf(_("Copy of %s"), source_basename);
+					int i = 2;
+					while (mc_lstat(make_path(source_dirname, new_name), &dest_info) == 0)
+					{
+						g_free(new_name);
+						new_name = g_strdup_printf(_("Copy(%d) of %s"), i, source_basename);
+						i++;
+					}
+					action_copy(one_path, dest_path, new_name, -1);
+
+					g_free(new_name);
+					g_free(source_basename);
+					destroy_glist(&one_path);
+				}
+				else
+					local_paths = g_list_append(local_paths, path);
+
+				g_free(source_real_path);
+				g_free(source_dirname);
+			}
 			else
 				error = _("Some of these files are on a "
 						"different machine - they will be "
@@ -2363,9 +2398,12 @@ static void paste_from_clipboard(gpointer data, guint action, GtkWidget *unused)
 		}
 
 		if (!local_paths)
-			error = _("None of these files are on the local "
+		{
+			if (ignore_no_local_paths == FALSE)
+				error = _("None of these files are on the local "
 					"machine - I can't operate on multiple "
 					"remote files - sorry.");
+		}
 		else
 		{
 			if (are_copying == TRUE)
@@ -2380,9 +2418,11 @@ static void paste_from_clipboard(gpointer data, guint action, GtkWidget *unused)
 			delayed_error(_("Error getting file list: %s"), error);
 
 		g_strfreev(uri_list);
-		gtk_selection_data_free (clipboard_selection);
-
-		gtk_clipboard_clear(clipboard);
+		if (are_copying == FALSE)
+		{
+			gtk_selection_data_free (clipboard_selection);
+			gtk_clipboard_clear(clipboard);
+		}
 	}
 }
 
