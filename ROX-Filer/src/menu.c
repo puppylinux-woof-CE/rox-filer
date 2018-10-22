@@ -96,6 +96,7 @@ typedef void MenuCallback(GtkWidget *widget, gpointer data);
 typedef gboolean (*SaveCb)(GObject *savebox,
 			   const gchar *current, const gchar *new);
 
+GClosure	*new_xterm_here_closure = NULL;
 GtkAccelGroup	*filer_keys = NULL;
 static gboolean filer_keys_need_init = TRUE;
 
@@ -104,7 +105,7 @@ static GtkWidget *popup_menu = NULL;	/* Currently open menu */
 static gint updating_menu = 0;		/* Non-zero => ignore activations */
 static GList *send_to_paths = NULL;
 
-static Option o_menu_iconsize, o_menu_xterm, o_menu_quick, o_menu_xdg_apps;
+static Option o_menu_iconsize, o_menu_xterm, o_menu_xterm_grave, o_menu_quick, o_menu_xdg_apps;
 
 /* clipboard targets */
 static const GtkTargetEntry clipboard_targets[] = {
@@ -162,6 +163,8 @@ static void new_directory(gpointer data, guint action, GtkWidget *widget);
 static void new_file(gpointer data, guint action, GtkWidget *widget);
 static void customise_new(gpointer data);
 static void xterm_here(gpointer data, guint action, GtkWidget *widget);
+static void new_xterm_here(void);
+static void menu_options_changed(void);
 
 static void open_parent_same(gpointer data, guint action, GtkWidget *widget);
 static void open_parent(gpointer data, guint action, GtkWidget *widget);
@@ -238,7 +241,7 @@ static GtkItemFactoryEntry filer_menu_def[] = {
 {">" N_("Copy"),		"<Ctrl>C", file_op, FILE_COPY_TO_CLIPBOARD, "<StockItem>", GTK_STOCK_COPY},
 {">" N_("Cut"),		"<Ctrl>X", file_op, FILE_CUT_TO_CLIPBOARD, "<StockItem>", GTK_STOCK_CUT},
 {">" N_("Duplicate..."),	"<Ctrl>D", file_op, FILE_DUPLICATE_ITEM, "<StockItem>", GTK_STOCK_COPY},
-{">" N_("Rename..."),		NULL, file_op, FILE_RENAME_ITEM, NULL},
+{">" N_("Rename..."),		"F2", file_op, FILE_RENAME_ITEM, NULL},
 {">" N_("Link..."),		NULL, file_op, FILE_LINK_ITEM, NULL},
 {">" N_("Delete"),		"Delete", file_op, FILE_DELETE, "<StockItem>", GTK_STOCK_DELETE},
 {">",				NULL, NULL, 0, "<Separator>"},
@@ -285,7 +288,7 @@ static GtkItemFactoryEntry filer_menu_def[] = {
 {">",				NULL, NULL, 0, "<Separator>"},
 {">" N_("Enter Path..."),	"slash", mini_buffer, MINI_PATH, NULL},
 {">" N_("Shell Command..."),	"<Shift>exclam", mini_buffer, MINI_SHELL, NULL},
-{">" N_("Terminal Here"),	"grave", xterm_here, FALSE, NULL},
+{">" N_("Terminal Here"),	"F4", xterm_here, FALSE, NULL},
 {">" N_("Switch to Terminal"),	NULL, xterm_here, TRUE, NULL},
 {N_("Help"),			NULL, NULL, 0, "<Branch>"},
 {">" N_("About ROX-Filer..."),	NULL, menu_rox_help, HELP_ABOUT, NULL},
@@ -365,6 +368,14 @@ gboolean ensure_filer_menu(void)
 	g_signal_connect(filer_file_menu, "selection-done",
 			G_CALLBACK(menu_closed), NULL);
 
+	if (o_menu_xterm_grave.int_value)
+	{
+		new_xterm_here_closure = g_cclosure_new(G_CALLBACK(new_xterm_here),
+												FALSE, NULL);
+		gtk_accel_group_connect(filer_keys, gdk_keyval_from_name("grave"),
+			0, 0, new_xterm_here_closure);
+	}
+
 	g_signal_connect(filer_keys, "accel_changed",
 			G_CALLBACK(save_menus), NULL);
 
@@ -383,6 +394,7 @@ void menu_init(void)
 	}
 
 	option_add_string(&o_menu_xterm, "menu_xterm", "xterm");
+	option_add_int(&o_menu_xterm_grave, "menu_xterm_grave", TRUE);
 	option_add_int(&o_menu_iconsize, "menu_iconsize", MIS_SMALL);
 	option_add_int(&o_menu_quick, "menu_quick", FALSE);
 	option_add_int(&o_menu_xdg_apps, "menu_xdg_apps", TRUE);
@@ -391,6 +403,8 @@ void menu_init(void)
 	option_register_widget("menu-set-keys", set_keys_button);
 
 	filer_keys = gtk_accel_group_new();
+
+	option_add_notify(menu_options_changed);
 
 	clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
 }
@@ -2024,6 +2038,31 @@ static void send_to(FilerWindow *filer_window)
 
 	if (event)
 		gdk_event_free(event);
+}
+
+static void menu_options_changed(void)
+{
+	if (o_menu_xterm_grave.has_changed)
+	{
+		if (o_menu_xterm_grave.int_value)
+		{
+			new_xterm_here_closure = g_cclosure_new(G_CALLBACK(new_xterm_here),
+													FALSE, NULL);
+			gtk_accel_group_connect(filer_keys,
+				gdk_keyval_from_name("grave"),
+				0, 0,
+				new_xterm_here_closure);
+		}
+		else
+		{
+			gtk_accel_group_disconnect(filer_keys, new_xterm_here_closure);
+		}
+	}
+}
+
+static void new_xterm_here()
+{
+	xterm_here(NULL, FALSE, NULL);
 }
 
 static void xterm_here(gpointer data, guint action, GtkWidget *widget)
