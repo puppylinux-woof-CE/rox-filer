@@ -705,20 +705,6 @@ static void show_features(void)
 		_("No")
 #endif
 		);
-	g_print("%s... %s\n", _("Inotify support"),
-#ifdef USE_INOTIFY
-		_("Yes")
-#else
-		_("No")
-#endif
-	       );
-	g_print("%s... %s\n", _("Dnotify support"),
-#ifdef USE_DNOTIFY
-		_("Yes")
-#else
-		_("No")
-#endif
-	       );
 	g_print("%s... %s\n", _("Binary compatibility"),
 #if defined(HAVE_APSYMBOLS_H) || defined(HAVE_APBUILD_APSYMBOLS_H)
 		_("Yes (can run with older glibc versions)")
@@ -829,10 +815,6 @@ static void wake_up_cb(gpointer data, gint source, GdkInputCondition condition)
 	
 	if (child_died_flag)
 		child_died_callback();
-#ifdef USE_DNOTIFY
-	if (dnotify_wakeup_flag)
-		dnotify_wakeup();
-#endif
 }
 
 static void xrandr_size_change(GdkScreen *screen, gpointer user_data)
