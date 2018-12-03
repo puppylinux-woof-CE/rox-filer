@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-22 16:07-0500\n"
+"POT-Creation-Date: 2018-12-02 18:43-0600\n"
 "PO-Revision-Date: 2011-10-12 01:30+0900\n"
 "Last-Translator: team OKATANA<mkato@par.odn.ne.jp,mosaicist@par.odn.ne.jp> "
 "<>\n"
@@ -288,11 +288,11 @@ msgstr ""
 msgid "ERROR"
 msgstr "エラー"
 
-#: action.c:732 main.c:703 main.c:710 main.c:717 main.c:731
+#: action.c:732 main.c:703 main.c:717
 msgid "Yes"
 msgstr "はい"
 
-#: action.c:735 main.c:705 main.c:712 main.c:719 main.c:731
+#: action.c:735 main.c:705 main.c:717
 msgid "No"
 msgstr "いいえ"
 
@@ -999,12 +999,12 @@ msgstr ""
 "に移動されました\n"
 "%s"
 
-#: dir.c:1098
+#: dir.c:918
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "ディレクトリの情報が得られません: %s"
 
-#: dir.c:1109
+#: dir.c:929
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "ディレクトリを開けません: %s"
@@ -2138,35 +2138,27 @@ msgid "Large File Support"
 msgstr "Large File サポート"
 
 #: main.c:708
-msgid "Inotify support"
-msgstr "Inotify(ファイルシステム監視機能)サポート"
-
-#: main.c:715
-msgid "Dnotify support"
-msgstr "Dnotify(ディレクトリ通知機能)サポート"
-
-#: main.c:722
 msgid "Binary compatibility"
 msgstr "バイナリ互換性"
 
-#: main.c:724
+#: main.c:710
 msgid "Yes (can run with older glibc versions)"
 msgstr "はい (より古いバージョンの glibc で実行可能)"
 
-#: main.c:726
+#: main.c:712
 msgid "No (apsymbols.h not found)"
 msgstr "いいえ (apsymbols.h がみつかりません)"
 
-#: main.c:730
+#: main.c:716
 msgid "Extended attribute support"
 msgstr "拡張属性サポート"
 
-#: main.c:881
+#: main.c:863
 #, c-format
 msgid "Unable to read '%s': %s"
 msgstr "'%s'を読み込めませんでした : %s"
 
-#: main.c:920
+#: main.c:902
 #, c-format
 msgid ""
 "Left-click to run %s.\n"
@@ -2175,20 +2167,20 @@ msgstr ""
 "左クリックで %s を実行。\n"
 "右クリックでバージョン一覧を表示。"
 
-#: main.c:967 menu.c:1472 menu.c:1478
+#: main.c:949 menu.c:1472 menu.c:1478
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "作成失敗 '%s': %s"
 
-#: main.c:998
+#: main.c:980
 msgid "Save"
 msgstr "保存"
 
-#: main.c:1003
+#: main.c:985
 msgid "Start script"
 msgstr "起動スクリプト"
 
-#: main.c:1028
+#: main.c:1010
 msgid ""
 "Click to save a script to run ROX-Filer.\n"
 "If you are using Zero Install you should use 0alias instead."
@@ -5159,6 +5151,12 @@ msgstr "上端"
 #: ../Templates.ui.h:25
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
+
+#~ msgid "Inotify support"
+#~ msgstr "Inotify(ファイルシステム監視機能)サポート"
+
+#~ msgid "Dnotify support"
+#~ msgstr "Dnotify(ディレクトリ通知機能)サポート"
 
 #~ msgid "Panel (obsolete)"
 #~ msgstr "パネル (廃止)"

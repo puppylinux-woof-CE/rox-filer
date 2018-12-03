@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-22 16:07-0500\n"
+"POT-Creation-Date: 2018-12-02 18:43-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jan 'jenik' Provaznik <xprovazn@fi.muni.cz>\n"
 "Language-Team:\n"
@@ -258,11 +258,11 @@ msgstr ""
 msgid "ERROR"
 msgstr "CHYBA"
 
-#: action.c:732 main.c:703 main.c:710 main.c:717 main.c:731
+#: action.c:732 main.c:703 main.c:717
 msgid "Yes"
 msgstr "Ano"
 
-#: action.c:735 main.c:705 main.c:712 main.c:719 main.c:731
+#: action.c:735 main.c:705 main.c:717
 msgid "No"
 msgstr "Ne"
 
@@ -931,12 +931,12 @@ msgid ""
 "%s"
 msgstr ""
 
-#: dir.c:1098
+#: dir.c:918
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "Can't stat directory: %s"
 
-#: dir.c:1109
+#: dir.c:929
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "Nelze otevøít adresáø: %s"
@@ -2085,60 +2085,51 @@ msgstr "Podpora velkých souborù"
 
 #: main.c:708
 #, fuzzy
-msgid "Inotify support"
-msgstr "Dnotify support"
-
-#: main.c:715
-msgid "Dnotify support"
-msgstr "Dnotify support"
-
-#: main.c:722
-#, fuzzy
 msgid "Binary compatibility"
 msgstr "Kompatibilita"
 
-#: main.c:724
+#: main.c:710
 msgid "Yes (can run with older glibc versions)"
 msgstr ""
 
-#: main.c:726
+#: main.c:712
 msgid "No (apsymbols.h not found)"
 msgstr ""
 
-#: main.c:730
+#: main.c:716
 #, fuzzy
 msgid "Extended attribute support"
 msgstr "Nepou¾ívat jména poèítaèù"
 
-#: main.c:881
+#: main.c:863
 #, fuzzy, c-format
 msgid "Unable to read '%s': %s"
 msgstr ""
 "!%s\n"
 "Kopírování '%s' selhalo\n"
 
-#: main.c:920
+#: main.c:902
 #, c-format
 msgid ""
 "Left-click to run %s.\n"
 "Right-click for a list of versions."
 msgstr ""
 
-#: main.c:967 menu.c:1472 menu.c:1478
+#: main.c:949 menu.c:1472 menu.c:1478
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "Chyba pøi vytváøení '%s': %s"
 
-#: main.c:998
+#: main.c:980
 #, fuzzy
 msgid "Save"
 msgstr "Ulo¾ jako:"
 
-#: main.c:1003
+#: main.c:985
 msgid "Start script"
 msgstr ""
 
-#: main.c:1028
+#: main.c:1010
 msgid ""
 "Click to save a script to run ROX-Filer.\n"
 "If you are using Zero Install you should use 0alias instead."
@@ -5071,6 +5062,13 @@ msgstr ""
 #, fuzzy
 msgid "<b>Position</b>"
 msgstr "Pøístupová práva"
+
+#, fuzzy
+#~ msgid "Inotify support"
+#~ msgstr "Dnotify support"
+
+#~ msgid "Dnotify support"
+#~ msgstr "Dnotify support"
 
 #, fuzzy
 #~ msgid "Panel (obsolete)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.5-20070224\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-22 16:07-0500\n"
+"POT-Creation-Date: 2018-12-02 18:43-0600\n"
 "PO-Revision-Date: 2007-02-24 22:40+0100\n"
 "Last-Translator: Vincent Lefevre <vincent@vinc17.org>\n"
 "Language-Team: ROX Mailing List <rox-devel@lists.sourceforge.net>\n"
@@ -278,11 +278,11 @@ msgstr ""
 msgid "ERROR"
 msgstr "ERREUR"
 
-#: action.c:732 main.c:703 main.c:710 main.c:717 main.c:731
+#: action.c:732 main.c:703 main.c:717
 msgid "Yes"
 msgstr "Oui"
 
-#: action.c:735 main.c:705 main.c:712 main.c:719 main.c:731
+#: action.c:735 main.c:705 main.c:717
 msgid "No"
 msgstr "Non"
 
@@ -972,12 +972,12 @@ msgstr ""
 "%s\n"
 "%s"
 
-#: dir.c:1098
+#: dir.c:918
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "Impossible de faire un stat du répertoire : %s"
 
-#: dir.c:1109
+#: dir.c:929
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "Impossible d'ouvrir le répertoire : %s"
@@ -2129,36 +2129,27 @@ msgid "Large File Support"
 msgstr "Support des fichiers longs"
 
 #: main.c:708
-#, fuzzy
-msgid "Inotify support"
-msgstr "Support dnotify"
-
-#: main.c:715
-msgid "Dnotify support"
-msgstr "Support dnotify"
-
-#: main.c:722
 msgid "Binary compatibility"
 msgstr "Compatibilité binaire"
 
-#: main.c:724
+#: main.c:710
 msgid "Yes (can run with older glibc versions)"
 msgstr "Oui (peut tourner avec des versions plus anciennes de la glibc)"
 
-#: main.c:726
+#: main.c:712
 msgid "No (apsymbols.h not found)"
 msgstr "Non (apsymbols.h non trouvé)"
 
-#: main.c:730
+#: main.c:716
 msgid "Extended attribute support"
 msgstr "Support des attributs étendus"
 
-#: main.c:881
+#: main.c:863
 #, fuzzy, c-format
 msgid "Unable to read '%s': %s"
 msgstr "Impossible d'ouvrir le fichier '%s' : %s"
 
-#: main.c:920
+#: main.c:902
 #, c-format
 msgid ""
 "Left-click to run %s.\n"
@@ -2167,21 +2158,21 @@ msgstr ""
 "Cliquer avec le bouton gauche pour lancer %s.\n"
 "Cliquer avec le bouton droit pour obtenir une liste de versions."
 
-#: main.c:967 menu.c:1472 menu.c:1478
+#: main.c:949 menu.c:1472 menu.c:1478
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "Erreur lors de la création de '%s' : %s"
 
-#: main.c:998
+#: main.c:980
 #, fuzzy
 msgid "Save"
 msgstr "Sauver sous :"
 
-#: main.c:1003
+#: main.c:985
 msgid "Start script"
 msgstr ""
 
-#: main.c:1028
+#: main.c:1010
 msgid ""
 "Click to save a script to run ROX-Filer.\n"
 "If you are using Zero Install you should use 0alias instead."
@@ -5212,6 +5203,13 @@ msgstr "En haut"
 #, fuzzy
 msgid "<b>Position</b>"
 msgstr "<b>Permissions</b>"
+
+#, fuzzy
+#~ msgid "Inotify support"
+#~ msgstr "Support dnotify"
+
+#~ msgid "Dnotify support"
+#~ msgstr "Support dnotify"
 
 #, fuzzy
 #~ msgid "Panel (obsolete)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-22 16:07-0500\n"
+"POT-Creation-Date: 2018-12-02 18:43-0600\n"
 "PO-Revision-Date: 2004-07-03 16:03+0300\n"
 "Last-Translator: Florin Cosma <cosma_florin@yahoo.com>\n"
 "Language-Team: Romanian <cosma_florin@yahoo.com>\n"
@@ -273,11 +273,11 @@ msgstr ""
 msgid "ERROR"
 msgstr "Eroare"
 
-#: action.c:732 main.c:703 main.c:710 main.c:717 main.c:731
+#: action.c:732 main.c:703 main.c:717
 msgid "Yes"
 msgstr "Da"
 
-#: action.c:735 main.c:705 main.c:712 main.c:719 main.c:731
+#: action.c:735 main.c:705 main.c:717
 msgid "No"
 msgstr "Nu"
 
@@ -949,12 +949,12 @@ msgid ""
 "%s"
 msgstr ""
 
-#: dir.c:1098
+#: dir.c:918
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "Nu se poate afla starea directorului: %s"
 
-#: dir.c:1109
+#: dir.c:929
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "Nu pot deschide directorul: %s"
@@ -2087,60 +2087,51 @@ msgid "Large File Support"
 msgstr "Suport pentru fiºiere mari"
 
 #: main.c:708
-#, fuzzy
-msgid "Inotify support"
-msgstr "Suport dnotify"
-
-#: main.c:715
-msgid "Dnotify support"
-msgstr "Suport dnotify"
-
-#: main.c:722
 msgid "Binary compatibility"
 msgstr "Compatibilitate binara"
 
-#: main.c:724
+#: main.c:710
 msgid "Yes (can run with older glibc versions)"
 msgstr "Da (poate rula cu versiuni mai vechi ale glibc)"
 
-#: main.c:726
+#: main.c:712
 msgid "No (apsymbols.h not found)"
 msgstr "Nu (apsymbols.h nu este gasit)"
 
-#: main.c:730
+#: main.c:716
 #, fuzzy
 msgid "Extended attribute support"
 msgstr "Nu utiliza numele gazdei"
 
-#: main.c:881
+#: main.c:863
 #, fuzzy, c-format
 msgid "Unable to read '%s': %s"
 msgstr ""
 "Imposibil de a desface legatura '%s' :\n"
 "%s"
 
-#: main.c:920
+#: main.c:902
 #, c-format
 msgid ""
 "Left-click to run %s.\n"
 "Right-click for a list of versions."
 msgstr ""
 
-#: main.c:967 menu.c:1472 menu.c:1478
+#: main.c:949 menu.c:1472 menu.c:1478
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "Eroare la crearea '%s' : %s"
 
-#: main.c:998
+#: main.c:980
 #, fuzzy
 msgid "Save"
 msgstr "Salveaza ca:"
 
-#: main.c:1003
+#: main.c:985
 msgid "Start script"
 msgstr ""
 
-#: main.c:1028
+#: main.c:1010
 msgid ""
 "Click to save a script to run ROX-Filer.\n"
 "If you are using Zero Install you should use 0alias instead."
@@ -5129,6 +5120,13 @@ msgstr ""
 #, fuzzy
 msgid "<b>Position</b>"
 msgstr "<b>Drepturi</b>"
+
+#, fuzzy
+#~ msgid "Inotify support"
+#~ msgstr "Suport dnotify"
+
+#~ msgid "Dnotify support"
+#~ msgstr "Suport dnotify"
 
 #, fuzzy
 #~ msgid "Panel (obsolete)"

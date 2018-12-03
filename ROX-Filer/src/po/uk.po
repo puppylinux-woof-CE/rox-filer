@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-22 16:07-0500\n"
+"POT-Creation-Date: 2018-12-02 18:43-0600\n"
 "PO-Revision-Date: 2006-12-04 15:30+0200\n"
 "Last-Translator: Yury Bulka <jblk@icmail.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -263,11 +263,11 @@ msgstr ""
 msgid "ERROR"
 msgstr "ПОМИЛКА"
 
-#: action.c:732 main.c:703 main.c:710 main.c:717 main.c:731
+#: action.c:732 main.c:703 main.c:717
 msgid "Yes"
 msgstr "Так"
 
-#: action.c:735 main.c:705 main.c:712 main.c:719 main.c:731
+#: action.c:735 main.c:705 main.c:717
 msgid "No"
 msgstr "Ні"
 
@@ -946,12 +946,12 @@ msgstr ""
 " в нове місце \n"
 "<b>%s</b>\n"
 
-#: dir.c:1098
+#: dir.c:918
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "Не можу описати теку: %s"
 
-#: dir.c:1109
+#: dir.c:929
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "Не можу відкрити теку: %s"
@@ -2091,36 +2091,27 @@ msgid "Large File Support"
 msgstr "Підтримка великих файлів"
 
 #: main.c:708
-#, fuzzy
-msgid "Inotify support"
-msgstr "Підтримка Dnotify"
-
-#: main.c:715
-msgid "Dnotify support"
-msgstr "Підтримка Dnotify"
-
-#: main.c:722
 msgid "Binary compatibility"
 msgstr "Бінарна сумісність"
 
-#: main.c:724
+#: main.c:710
 msgid "Yes (can run with older glibc versions)"
 msgstr "Так (можу працювати з старшими версіями glibc)"
 
-#: main.c:726
+#: main.c:712
 msgid "No (apsymbols.h not found)"
 msgstr "Ні (apsymbols.h не знайдено)"
 
-#: main.c:730
+#: main.c:716
 msgid "Extended attribute support"
 msgstr "Підтримка розширених атрибутів"
 
-#: main.c:881
+#: main.c:863
 #, fuzzy, c-format
 msgid "Unable to read '%s': %s"
 msgstr "Неможливо відкрити файл '%s': %s"
 
-#: main.c:920
+#: main.c:902
 #, c-format
 msgid ""
 "Left-click to run %s.\n"
@@ -2129,21 +2120,21 @@ msgstr ""
 "Ліва кнопка миші: запустити %s.\n"
 "Права кнопка миші: показати список версій."
 
-#: main.c:967 menu.c:1472 menu.c:1478
+#: main.c:949 menu.c:1472 menu.c:1478
 #, c-format
 msgid "Error creating '%s': %s"
 msgstr "Помилка створення '%s': %s"
 
-#: main.c:998
+#: main.c:980
 #, fuzzy
 msgid "Save"
 msgstr "Зберегти як:"
 
-#: main.c:1003
+#: main.c:985
 msgid "Start script"
 msgstr ""
 
-#: main.c:1028
+#: main.c:1010
 msgid ""
 "Click to save a script to run ROX-Filer.\n"
 "If you are using Zero Install you should use 0alias instead."
@@ -5137,6 +5128,13 @@ msgstr "Верхній край"
 #, fuzzy
 msgid "<b>Position</b>"
 msgstr "<b>Права</b>"
+
+#, fuzzy
+#~ msgid "Inotify support"
+#~ msgstr "Підтримка Dnotify"
+
+#~ msgid "Dnotify support"
+#~ msgstr "Підтримка Dnotify"
 
 #, fuzzy
 #~ msgid "Panel (obsolete)"
