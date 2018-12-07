@@ -4082,9 +4082,8 @@ msgstr ""
 "Wenn aktiviert, werden in der Listenansicht Spaltenüberschriften angezeigt"
 
 #: tips:96
-#, fuzzy
 msgid "Last Accessed"
-msgstr "Kann auf %s nicht zugreifen"
+msgstr "Letzter Zugriff"
 
 #: tips:97
 #, fuzzy
