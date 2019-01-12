@@ -68,7 +68,10 @@ void diritem_init(void)
 /* Bring this item's structure uptodate.
  * 'parent' is optional; it saves one stat() for directories.
  */
-void diritem_restat(const guchar *path, DirItem *item, struct stat *parent)
+void diritem_restat(
+		const guchar *path,
+		DirItem *item,
+		struct stat *parent)
 {
 	struct stat	info;
 
@@ -166,7 +169,7 @@ void diritem_restat(const guchar *path, DirItem *item, struct stat *parent)
 		}
 		else
 			item->mime_type = type_from_path(path);
-	
+
 		/* Note: for symlinks we need the mode of the target */
 		if (info.st_mode & (S_IXUSR | S_IXGRP | S_IXOTH))
 		{
@@ -186,7 +189,7 @@ void diritem_restat(const guchar *path, DirItem *item, struct stat *parent)
 			{
 				item->mime_type = application_x_shellscript;
 			}
-		}		
+		}
 		else if (item->mime_type == application_x_desktop)
 		{
 			item->flags |= ITEM_FLAG_EXEC_FILE;
@@ -324,7 +327,7 @@ no_diricon:
 
 	if (mc_lstat(tmp->str, &info) != 0 || info.st_uid != uid)
 		goto out;	/* Missing, or wrong owner */
-		
+
 	if (!(info.st_mode & (S_IXUSR | S_IXGRP | S_IXOTH)))
 		goto out;	/* Not executable */
 

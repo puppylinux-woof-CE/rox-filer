@@ -482,7 +482,7 @@ void position_menu(GtkMenu *menu, gint *x, gint *y,
 		next = next->next;
 		item--;
 	}
-	
+
 	g_list_free(items);
 
 	gtk_widget_size_request(GTK_WIDGET(menu), &requisition);
@@ -500,7 +500,7 @@ static GtkWidget *make_send_to_item(DirItem *ditem, const char *label,
 				MenuIconStyle style)
 {
 	GtkWidget *item;
-	
+
 	if (style != MIS_NONE && di_image(ditem))
 	{
 		GdkPixbuf *pixbuf;
@@ -630,7 +630,7 @@ static void update_new_files_menu(MenuIconStyle style)
 	if (widgets)
 	{
 		GList	*next;
-		
+
 		for (next = widgets; next; next = next->next)
 			gtk_widget_destroy((GtkWidget *) next->data);
 
@@ -891,17 +891,17 @@ void show_filer_menu(FilerWindow *filer_window, GdkEvent *event, ViewIter *iter)
 						file_item->leafname), R_OK) : 0) == 0);
 #endif
 
-	if (n_selected && o_menu_quick.int_value) 
+	if (n_selected && o_menu_quick.int_value)
 		popup_menu = (state & GDK_CONTROL_MASK)
 					? filer_menu
 					: filer_file_menu;
-	else 
+	else
 		popup_menu = (state & GDK_CONTROL_MASK)
 					? filer_file_menu
 					: filer_menu;
 
 	updating_menu--;
-	
+
 	show_popup_menu(popup_menu, event,
 			popup_menu == filer_file_menu ? n_added : 1);
 }
@@ -929,10 +929,10 @@ static void target_callback(FilerWindow *filer_window,
 	g_return_if_fail(filer_window != NULL);
 
 	window_with_focus = filer_window;
-	
+
 	/* Don't grab the primary selection */
 	filer_window->temp_item_selected = TRUE;
-	
+
 	view_wink_item(filer_window->view, iter);
 	view_select_only(filer_window->view, iter);
 	file_op(NULL, GPOINTER_TO_INT(action), NULL);
@@ -1037,7 +1037,7 @@ static void reverse_sort(gpointer data, guint action, GtkWidget *widget)
 
 	if (updating_menu)
 		return;
-	
+
 	g_return_if_fail(window_with_focus != NULL);
 
 	order = window_with_focus->sort_order;
@@ -1065,7 +1065,7 @@ static void filter_directories(gpointer data, guint action, GtkWidget *widget)
 {
 	if (updating_menu)
 		return;
-	
+
 	g_return_if_fail(window_with_focus != NULL);
 
 	display_set_filter_directories(window_with_focus,
@@ -1124,7 +1124,7 @@ static void set_type_items(FilerWindow *filer_window)
 {
 	GList *paths, *p;
 	int npass=0, nfail=0;
-	
+
 	paths = filer_selected_items(filer_window);
 	for(p=paths; p; p=g_list_next(p)) {
 		if(xattr_supported((const char *) p->data))
@@ -1132,7 +1132,7 @@ static void set_type_items(FilerWindow *filer_window)
 		else
 			nfail++;
 	}
-	if(npass==0) 
+	if(npass==0)
 		report_error(_("Extended attributes, used to store types, are not supported for this "
 				"file or files.\n"
 				"This may be due to lack of support from the filesystem or the C library, "
@@ -1165,11 +1165,11 @@ static void savebox_show(const gchar *action, const gchar *path,
 			 MaskedPixmap *image, SaveCb callback,
 			 GdkDragAction dnd_action)
 {
-	GtkWidget	*savebox = NULL;	
-	GtkWidget	*check_relative = NULL;	
+	GtkWidget *savebox = NULL;
+	GtkWidget *check_relative = NULL;
 
 	g_return_if_fail(image != NULL);
-	
+
 	savebox = gtk_savebox_new(action);
 	gtk_savebox_set_action(GTK_SAVEBOX(savebox), dnd_action);
 
@@ -1219,7 +1219,7 @@ static void savebox_show(const gchar *action, const gchar *path,
 	}
 	gtk_savebox_set_icon(GTK_SAVEBOX(savebox), image->pixbuf);
 	g_object_unref(image);
-				
+
 	gtk_widget_show(savebox);
 }
 
@@ -1228,7 +1228,7 @@ static gint save_to_file(GObject *savebox,
 {
 	SaveCb		callback;
 	const gchar	*current_path;
-	
+
 	callback = g_object_get_data(savebox, "action_callback");
 	current_path = g_object_get_data(savebox, "current_path");
 
@@ -1266,7 +1266,7 @@ static gboolean action_with_leaf(ActionFn action,
 	else
 	{
 		const gchar *slash;
-		
+
 		slash = strrchr(new, '/');
 		new_dir = g_strndup(new, slash - new);
 		leaf = slash + 1;
@@ -1327,7 +1327,7 @@ static gboolean link_cb(GObject *savebox,
 				path, link_path);
 
 		gtk_window_set_position(GTK_WINDOW(box), GTK_WIN_POS_MOUSE);
-		
+
 		button = button_new_mixed(GTK_STOCK_YES, _("_Replace"));
 		gtk_widget_show(button);
 		GTK_WIDGET_SET_FLAGS(button, GTK_CAN_DEFAULT);
@@ -1338,7 +1338,7 @@ static gboolean link_cb(GObject *savebox,
 
 		ans = gtk_dialog_run(GTK_DIALOG(box));
 		gtk_widget_destroy(box);
-		
+
 		if (ans != GTK_RESPONSE_OK)
 		{
 			g_free(link_path);
@@ -1350,7 +1350,7 @@ static gboolean link_cb(GObject *savebox,
 
 	err = symlink(link_path, path);
 	g_free(link_path);
-			
+
 	if (err)
 	{
 		report_error("symlink: %s", g_strerror(errno));
@@ -1440,7 +1440,7 @@ static gboolean new_directory_cb(GObject *savebox,
 		if (leaf)
 			display_set_autoselect(window_with_focus, leaf + 1);
 	}
-	
+
 	return TRUE;
 }
 
@@ -1500,7 +1500,7 @@ void show_new_file(FilerWindow *filer_window)
 static void new_file(gpointer data, guint action, GtkWidget *widget)
 {
 	g_return_if_fail(window_with_focus != NULL);
-	
+
 	savebox_show(_("Create"),
 		make_path(window_with_focus->sym_path, _("NewFile")),
 		type_to_icon(text_plain),
@@ -1564,7 +1564,7 @@ static void new_file_type(gchar *templ)
 	gchar *base;
 
 	g_return_if_fail(window_with_focus != NULL);
-	
+
 	base = g_path_get_basename(templ);
 	leaf = base;
 	type = type_get_type(templ);
@@ -1627,7 +1627,7 @@ static void customise_send_to(gpointer data)
 			 "customisations - sorry."));
 
 	g_string_free(dirs, TRUE);
-	
+
 	if (save)
 		filer_opendir(save, NULL, NULL);
 }
@@ -1667,12 +1667,12 @@ static void customise_new(gpointer data)
 			 "customisations - sorry."));
 
 	g_string_free(dirs, TRUE);
-	
+
 	if (save)
 		filer_opendir(save, NULL, NULL);
 }
 
-/* Add everything in the directory <Choices>/SendTo/[.type[_subtype]] 
+/* Add everything in the directory <Choices>/SendTo/[.type[_subtype]]
  * to the menu.
  */
 static void add_sendto(GtkWidget *menu, const gchar *type, const gchar *subtype)
@@ -1703,7 +1703,7 @@ GList *add_sendto_shared(GtkWidget *menu,
 		searchdir = g_strdup("SendTo");
 
 	paths = choices_list_xdg_dirs(searchdir, SITE);
-	g_free(searchdir);	
+	g_free(searchdir);
 
 	for (i = 0; i < paths->len; i++)
 	{
@@ -1950,11 +1950,11 @@ static void show_send_to_menu(GList *paths, GdkEvent *event)
 	GtkWidget	*menu, *item;
 
 	menu = gtk_menu_new();
-	
+
 	if (g_list_length(paths) == 1)
 	{
 		DirItem	*item;
-		
+
 		item = diritem_new("");
 		diritem_restat(paths->data, item, NULL);
 
@@ -1963,7 +1963,7 @@ static void show_send_to_menu(GList *paths, GdkEvent *event)
 			   item->mime_type->subtype);
 
 		add_sendto(menu, item->mime_type->media_type, NULL);
-		
+
 		diritem_free(item);
 	}
 	else
@@ -1972,7 +1972,7 @@ static void show_send_to_menu(GList *paths, GdkEvent *event)
 		gboolean same=TRUE, same_media=TRUE;
 		MIME_type *type=NULL;
 		DirItem	*item;
-		
+
 		item = diritem_new("");
 		for(rover=paths; rover; rover=g_list_next(rover))
 		{
@@ -2003,10 +2003,10 @@ static void show_send_to_menu(GList *paths, GdkEvent *event)
 			if(same_media)
 				add_sendto(menu, type->media_type, NULL);
 		}
-		
+
 		add_sendto(menu, "group", NULL);
 	}
-	
+
 	add_sendto(menu, NULL, NULL);
 
 	item = gtk_menu_item_new_with_label(_("Customise"));
@@ -2194,7 +2194,7 @@ void menu_rox_help(gpointer data, guint action, GtkWidget *widget)
 		if (!manual)
 			manual = g_strconcat(app_dir,
 						"/Help/Manual.html", NULL);
-		
+
 		run_by_path(manual);
 
 		g_free(manual);
@@ -2547,6 +2547,7 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 				return;
 			}
 			break;	/* Not a bulk rename... see below */
+
 		case FILE_COPY_TO_CLIPBOARD:
 		{
 			gtk_clipboard_clear(clipboard);
@@ -2589,7 +2590,7 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 	}
 
 	view_get_iter(window_with_focus->view, &iter, VIEW_ITER_SELECTED);
-		
+
 	item = iter.next(&iter);
 	g_return_if_fail(item != NULL);
 	/* iter may be passed to filer_openitem... */
@@ -2648,7 +2649,7 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 static void show_key_help(GtkWidget *button, gpointer data)
 {
 	gboolean can_change_accels;
-	
+
 	g_object_get(G_OBJECT(gtk_settings_get_default()),
 		     "gtk-can-change-accels", &can_change_accels,
 		     NULL);
@@ -2679,7 +2680,7 @@ static GList *set_keys_button(Option *option, xmlNode *node, guchar *label)
 	GtkWidget *button, *align;
 
 	g_return_val_if_fail(option == NULL, NULL);
-	
+
 	align = gtk_alignment_new(0, 0.5, 0, 0);
 	button = gtk_button_new_with_label(_("Set keyboard shortcuts"));
 	gtk_container_add(GTK_CONTAINER(align), button);

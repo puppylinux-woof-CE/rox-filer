@@ -96,7 +96,7 @@ void mount_init(void)
 
 	} else {
 		fstab_time = 0;
-		
+
 #if defined(HAVE_MNTENT_H) || defined(HAVE_SYS_MNTENT_H)
 		/* We need THE_FSTAB for these implementations, but
 		 * it is missing */
@@ -171,7 +171,7 @@ gboolean mount_is_mounted(const guchar *path, struct stat *info,
 
 	if (info->st_ino == parent->st_ino)
 		return TRUE;	/* Same device and inode */
-		
+
 	return FALSE;
 }
 
@@ -365,7 +365,7 @@ gchar *mount_get_fs_size(const gchar *dir)
     gdouble fused;
     gchar *str;
     gchar *tmp1, *tmp2;
-    
+
 #if defined(HAVE_STATVFS)
     ok=statvfs(dir, &buf)==0;
 #elif defined(HAVE_STATFS)
@@ -373,7 +373,7 @@ gchar *mount_get_fs_size(const gchar *dir)
 #endif
     if(!ok)
 	    return NULL;
-    
+
 #if defined(HAVE_STATVFS)
     total=buf.f_frsize*(unsigned long long) buf.f_blocks;
     used=buf.f_frsize*(unsigned long long) (buf.f_blocks-buf.f_bfree);

@@ -187,7 +187,7 @@ gboolean remote_init(xmlDocPtr rpc, gboolean new_copy)
 
 		xmlDocDumpMemory(rpc, &mem, &size);
 		g_return_val_if_fail(size > 0, FALSE);
-		
+
 		/* Since Gtk might have selected this already, we'd
 		 * better do it BEFORE changing the property.
 		 */
@@ -206,7 +206,7 @@ gboolean remote_init(xmlDocPtr rpc, gboolean new_copy)
 	}
 
 	xwindow = GDK_WINDOW_XWINDOW(ipc_window->window);
-	
+
 	/* Make the IPC window contain a property pointing to
 	 * itself - this can then be used to check that it really
 	 * is an IPC window.
@@ -290,7 +290,7 @@ xmlDocPtr run_soap(xmlDocPtr soap)
 						 : (xmlChar *) "(none)");
 			continue;
 		}
-		
+
 		reply = soap_invoke(node);
 
 		if (reply)
@@ -321,7 +321,7 @@ gchar **extract_soap_errors(xmlDocPtr reply)
 	gchar **errs;
 	GSList *errlist=NULL, *tmp;
 	int i, n;
-	
+
 	xmlNodePtr root, node;
 
 	if(!reply)
@@ -338,7 +338,7 @@ gchar **extract_soap_errors(xmlDocPtr reply)
 					continue;
 				if(strcmp(sub->name, "env:Fault")!=0)
 					continue;
-				
+
 				/*if (sub->ns == NULL)
 				  continue;
 
@@ -354,7 +354,7 @@ gchar **extract_soap_errors(xmlDocPtr reply)
 					if(txt) {
 						errlist=g_slist_append(errlist,
 								       g_strdup(txt));
-								       
+
 						xmlFree(txt);
 					}
 				}
@@ -425,7 +425,7 @@ static gboolean get_ipc_property(GdkWindow *window, Window *r_xid)
 	guchar		*data;
 	gint		format, length;
 	gboolean	retval = FALSE;
-	
+
 	if (gdk_property_get(window, filer_atom,
 			gdk_x11_xatom_to_atom(XA_WINDOW), 0, 4,
 			FALSE, NULL, &format, &length, &data) && data)
@@ -581,7 +581,7 @@ static char *string_value(xmlNode *arg)
 
 	if (!arg)
 		return NULL;
-	
+
 	retval = xmlNodeGetContent(arg);
 
 	return retval ? retval : g_strdup("");
@@ -597,7 +597,7 @@ static int int_value(xmlNode *arg, int def)
 
 	if (!arg)
 		return def;
-	
+
 	str = xmlNodeGetContent(arg);
 	if (!str || !str[0])
 		return def;
@@ -636,7 +636,7 @@ static GList *list_value(xmlNode *arg)
 static xmlNodePtr rpc_SetIcon(GList *args)
 {
 	char	   *path, *icon;
-	
+
 	path = string_value(ARG(0));
 	icon = string_value(ARG(1));
 
@@ -651,7 +651,7 @@ static xmlNodePtr rpc_SetIcon(GList *args)
 static xmlNodePtr rpc_UnsetIcon(GList *args)
 {
 	char	   *path;
-	
+
 	path = string_value(ARG(0));
 
 	delete_globicon(path);
@@ -684,7 +684,7 @@ static xmlNodePtr rpc_OpenDir(GList *args)
 	path = string_value(ARG(0));
 	class = string_value(ARG(4));
 	window = string_value(ARG(5));
-	
+
 	if (window)
 		fwin = filer_get_by_id(window);
 
@@ -692,7 +692,7 @@ static xmlNodePtr rpc_OpenDir(GList *args)
 	{
 		fwin = filer_opendir(path, NULL, class);
 		if (window)
-			filer_set_id(fwin, window); 
+			filer_set_id(fwin, window);
 	}
 	else
 		filer_change_to(fwin, path, NULL);
@@ -730,7 +730,7 @@ static xmlNodePtr rpc_OpenDir(GList *args)
 	{
 		DetailsType dt;
 		ViewType view_type;
-		
+
 		dt = !g_ascii_strcasecmp(details, "None") ? DETAILS_NONE :
 		     !g_ascii_strcasecmp(details, "ListView") ? DETAILS_NONE :
 		     !g_ascii_strcasecmp(details, "Size") ? DETAILS_SIZE :
@@ -753,7 +753,7 @@ static xmlNodePtr rpc_OpenDir(GList *args)
 
 		if (view_type != fwin->view_type)
 			filer_set_view_type(fwin, view_type);
-		
+
 		g_free(details);
 	}
 
@@ -807,7 +807,7 @@ static xmlNodePtr rpc_RunURI(GList *args)
 	uri = string_value(ARG(0));
 	run_by_uri(uri, &errmsg);
 	g_free(uri);
-	
+
 	if(errmsg)
 	{
 		reply = xmlNewNode(NULL, "env:Fault");
@@ -842,7 +842,7 @@ static xmlNodePtr rpc_Examine(GList *args)
 static xmlNodePtr rpc_Show(GList *args)
 {
 	char	   *dir, *leaf;
-	
+
 	dir = string_value(ARG(0));
 	leaf = string_value(ARG(1));
 
@@ -854,7 +854,7 @@ static xmlNodePtr rpc_Show(GList *args)
 
 	return NULL;
 }
-		
+
 static xmlNodePtr rpc_Pinboard(GList *args)
 {
 	char *name = NULL;
@@ -924,8 +924,8 @@ static xmlNodePtr rpc_PinboardAdd(GList *args)
 	locked = bool_value(ARG(6));
 	update = bool_value(ARG(7));
 
-	pinboard_pin_with_args(path, name, x, y, shortcut, xargs, 
-						(locked==-1) ? FALSE : locked, 
+	pinboard_pin_with_args(path, name, x, y, shortcut, xargs,
+						(locked==-1) ? FALSE : locked,
 						(update==-1) ? FALSE : update);
 
 	g_free(path);
@@ -944,7 +944,7 @@ static xmlNodePtr rpc_PinboardRemove(GList *args)
 
 	path = string_value(ARG(0));
 	name = string_value(ARG(1));
-	
+
 	pinboard_remove(path, name);
 
 	g_free(path);
@@ -1116,7 +1116,7 @@ static xmlNodePtr rpc_FileType(GList *args)
 	path = string_value(ARG(0));
 	type = type_get_type(path);
 	g_free(path);
-	
+
 	reply = xmlNewNode(NULL, "rox:FileTypeResponse");
 	tname = g_strconcat(type->media_type, "/", type->subtype, NULL);
 
@@ -1212,12 +1212,12 @@ static void soap_send(GtkWidget *from, GdkAtom prop, GdkWindow *dest)
 	event.data.l[1] = gdk_x11_atom_to_xatom(prop);
 	event.data_format = 32;
 	event.message_type = xsoap;
-	
+
 	gdk_event_send_client_message((GdkEvent *) &event,
 				      GDK_WINDOW_XWINDOW(dest));
 
 	g_timeout_add(10000, too_slow, NULL);
-			
+
 	gtk_main();
 }
 

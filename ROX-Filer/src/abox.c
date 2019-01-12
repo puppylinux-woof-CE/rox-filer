@@ -77,7 +77,7 @@ GtkWidget* abox_new(const gchar *title, gboolean quiet)
 {
 	GtkWidget *widget;
 	ABox	  *abox;
-	
+
 	widget = GTK_WIDGET(gtk_widget_new(abox_get_type(), NULL));
 	abox = (ABox *) widget;
 
@@ -139,7 +139,7 @@ static void abox_init(GTypeInstance *object, gpointer gclass)
 
 	frame = gtk_frame_new(NULL);
 	gtk_box_pack_start_defaults(GTK_BOX(abox->log_hbox), frame);
-	
+
 	text = gtk_text_view_new();
 	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_IN);
 	gtk_container_add(GTK_CONTAINER(frame), text);
@@ -178,7 +178,7 @@ static void abox_init(GTypeInstance *object, gpointer gclass)
 
 	for (i = 0; i < 2; i++)
 	{
-	
+
 		abox->cmp_icon[i] = gtk_image_new();
 		gtk_table_attach(GTK_TABLE(abox->cmp_area),
 				abox->cmp_icon[i],
@@ -236,11 +236,12 @@ static void flag_toggled(GtkToggleButton *toggle, ABox *abox)
 
 	code = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(toggle),
 						 "abox-response"));
+
 	if (code == 'Q')
 		shade(abox);
-	
+
 	g_signal_emit_by_name(abox, "flag_toggled", code);
-			
+
 }
 
 GtkWidget *abox_add_flag(ABox *abox, const gchar *label, const gchar *tip,
@@ -268,8 +269,7 @@ static void response(GtkDialog *dialog, gint response_id)
 		g_signal_emit_by_name(abox, "abort_operation");
 	else if (response_id == RESPONSE_QUIET)
 	{
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(abox->quiet),
-					     TRUE);
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(abox->quiet), TRUE);
 		gtk_dialog_response(dialog, GTK_RESPONSE_YES);
 	}
 	else if (response_id == GTK_RESPONSE_YES ||
@@ -352,7 +352,7 @@ static gboolean show_next_dir(gpointer data)
 
 	gtk_label_set_text(GTK_LABEL(abox->dir_label), abox->next_dir);
 	null_g_free(&abox->next_dir);
-	
+
 	return FALSE;
 }
 
@@ -473,7 +473,7 @@ void abox_add_results(ABox *abox)
 }
 
 void abox_add_filename(ABox *abox, const gchar *path)
-{	
+{
 	GtkTreeModel *model;
 	GtkTreeIter iter;
 	gchar	*dir;
@@ -495,7 +495,7 @@ void abox_add_filename(ABox *abox, const gchar *path)
 void abox_clear_results(ABox *abox)
 {
 	GtkTreeModel *model;
-	
+
 	g_return_if_fail(abox != NULL);
 	g_return_if_fail(IS_ABOX(abox));
 
@@ -519,21 +519,20 @@ void abox_add_combo(ABox *abox, const gchar *tlabel, GList *presets,
 		label = gtk_label_new(tlabel);
 		gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, TRUE, 4);
 	}
-	
+
 	combo = gtk_combo_new();
 	gtk_combo_disable_activate(GTK_COMBO(combo));
 	gtk_combo_set_use_arrows_always(GTK_COMBO(combo), TRUE);
 	gtk_combo_set_popdown_strings(GTK_COMBO(combo), presets);
 	abox->entry = GTK_COMBO(combo)->entry;
 	gtk_entry_set_activates_default(GTK_ENTRY(abox->entry), TRUE);
-
 	gtk_entry_set_text(GTK_ENTRY(abox->entry), text);
 	gtk_box_pack_start(GTK_BOX(hbox), combo, TRUE, TRUE, 4);
 
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(abox)->vbox), hbox,
 				FALSE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(hbox), help_button, FALSE, TRUE, 4);
-	
+
 	gtk_widget_show_all(hbox);
 
 	shade(abox);
@@ -575,12 +574,11 @@ static void shade(ABox *abox)
 
 	gtk_dialog_set_response_sensitive(dialog, GTK_RESPONSE_YES, on);
 	gtk_dialog_set_response_sensitive(dialog, GTK_RESPONSE_NO, on);
-	
+
 	if (on && !quiet)
 		gtk_dialog_set_response_sensitive(dialog, RESPONSE_QUIET, TRUE);
 	else
-		gtk_dialog_set_response_sensitive(dialog,
-						  RESPONSE_QUIET, FALSE);
+		gtk_dialog_set_response_sensitive(dialog, RESPONSE_QUIET, FALSE);
 
 	/* Unsetting the focus means that set_default will put it in the
 	 * right place...
@@ -646,7 +644,7 @@ void abox_set_file(ABox *abox, int i, const gchar *path)
 	gtk_label_set_text(GTK_LABEL(abox->cmp_name[i]), item->leafname);
 	gtk_widget_show(abox->cmp_name[i]);
 	gtk_widget_show(abox->cmp_arrow);
-	
+
 	if (item->lstat_errno)
 	{
 		gtk_label_set_text(GTK_LABEL(abox->cmp_size[i]), "Error");
@@ -656,10 +654,10 @@ void abox_set_file(ABox *abox, int i, const gchar *path)
 	else
 	{
 		gchar *str;
-		
+
 		gtk_label_set_text(GTK_LABEL(abox->cmp_size[i]),
 				format_size_aligned(item->size));
-		
+
 		str = pretty_time(&item->mtime);
 		gtk_label_set_text(GTK_LABEL(abox->cmp_date[i]), str);
 		g_free(str);
@@ -675,7 +673,7 @@ void    abox_set_percentage(ABox *abox, int per)
 {
 	if(!abox->progress) {
 		GtkDialog *dialog = GTK_DIALOG(abox);
-		
+
 		abox->progress=gtk_progress_bar_new ();
 		gtk_box_pack_start(GTK_BOX(dialog->vbox),
 				abox->progress, FALSE, FALSE, 2);

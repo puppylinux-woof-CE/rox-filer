@@ -77,7 +77,7 @@ int save_xml_file(xmlDocPtr doc, const gchar *filename)
 		return 1;
 #else
 	FILE *out;
-	
+
 	out = fopen(filename, "w");
 	if (!out)
 		return 1;
@@ -103,7 +103,7 @@ xmlDocPtr soap_new(xmlNodePtr *ret_body)
 	doc = xmlNewDoc("1.0");
 	root = xmlNewDocNode(doc, NULL, "Envelope", NULL);
 	xmlDocSetRootElement(doc, root);
-	
+
 	env_ns = xmlNewNs(root, SOAP_ENV_NS, "env");
 	xmlSetNs(root, env_ns);
 
@@ -197,7 +197,7 @@ void debug_free_string(void *data)
 const char *user_name(uid_t uid)
 {
 	const char *retval;
-	
+
 	if (!uid_hash)
 		uid_hash = g_hash_table_new(NULL, NULL);
 
@@ -220,7 +220,7 @@ const char *user_name(uid_t uid)
 const char *group_name(gid_t gid)
 {
 	const char *retval;
-	
+
 	if (!gid_hash)
 		gid_hash = g_hash_table_new(NULL, NULL);
 
@@ -247,7 +247,7 @@ const char *format_size(off_t size)
 {
 	static	char *buffer = NULL;
 	const char	*units;
-	
+
 	if (size >= PRETTY_SIZE_LIMIT)
 	{
 		size += 1023;
@@ -284,7 +284,7 @@ const char *format_size_aligned(off_t size)
 {
 	static	char *buffer = NULL;
 	char	units;
-	
+
 	if (size >= PRETTY_SIZE_LIMIT)
 	{
 		size += 1023;
@@ -310,7 +310,7 @@ const char *format_size_aligned(off_t size)
 
 	g_free(buffer);
 	buffer = g_strdup_printf("%4" SIZE_FMT "%c", size, units);
-	
+
 	return buffer;
 }
 
@@ -485,7 +485,7 @@ char *get_local_path(const EscapedPath *escaped_uri)
 		/* Just a local path - no host part */
 		if (uri[1] != '/')
 			return unescape_uri((EscapedPath *) uri);
-		                    
+
 		path = strchr(uri + 2, '/');
 		if (!path)
 			return NULL;	    /* //something */
@@ -495,7 +495,7 @@ char *get_local_path(const EscapedPath *escaped_uri)
 			/* ///path */
 			return unescape_uri((EscapedPath *) path);
 		}
-		
+
 		uri_host = g_strndup(uri + 2, path - uri - 2);
 		if (is_local_address(uri_host))
 		{
@@ -529,7 +529,7 @@ gchar *get_uri_scheme(const EscapedPath *uri)
 {
 	const gchar *start=(const gchar *) uri;
 	const gchar *p=start;
-	
+
 	if(!g_ascii_isalpha(p[0]))
 		return NULL;
 
@@ -652,17 +652,17 @@ gboolean is_sub_dir(const char *sub_obj, const char *parent)
 	 * (the destination), since copying into a symlink is the same as
 	 * copying into the thing it points to. Don't realpath 'parent' though;
 	 * copying a symlink just makes a new symlink.
-	 * 
+	 *
 	 * When checking if an icon depends on a file (parent), use realpath on
 	 * sub (the icon) too.
 	 */
 	sub = pathdup(sub_obj);
-	
+
 	while (1)
 	{
 		char	    *slash;
 		struct stat info;
-		
+
 		if (mc_lstat(sub, &info) == 0)
 		{
 			if (info.st_dev == parent_info.st_dev &&
@@ -672,7 +672,7 @@ gboolean is_sub_dir(const char *sub_obj, const char *parent)
 				return TRUE;
 			}
 		}
-		
+
 		slash = strrchr(sub, '/');
 		if (!slash)
 			break;
@@ -700,7 +700,7 @@ gboolean in_list(const guchar *item, const guchar *list)
 	int	len;
 
 	len = strlen(item);
-	
+
 	while (*list)
 	{
 		if (strncmp(item, list, len) == 0 &&
@@ -739,7 +739,7 @@ GPtrArray *split_path(const guchar *path)
 			path++;
 		if (path[0] == '\0')
 			break;
-		
+
 		slash = strchr(path, '/');
 		if (slash)
 		{
@@ -857,7 +857,7 @@ char *readlink_dup(const char *source)
  * This code implements the MD5 message-digest algorithm.
  * The algorithm is due to Ron Rivest. The original code was
  * written by Colin Plumb in 1993, and put in the public domain.
- * 
+ *
  * Modified to use glib datatypes. Put under GPL to simplify
  * licensing for ROX-Filer. Taken from Debian's dpkg package.
  */
@@ -942,7 +942,7 @@ static void MD5Update(MD5Context *ctx, md5byte const *buf, unsigned len)
 }
 
 /*
- * Final wrapup - pad to 64-byte boundary with the bit pattern 
+ * Final wrapup - pad to 64-byte boundary with the bit pattern
  * 1 0* (64-bit count of bits processed, MSB-first)
  * Returns the newly allocated string of the hash.
  */
@@ -982,7 +982,7 @@ static char *MD5Final(MD5Context *ctx)
 	for (i = 0; i < 16; i++)
 		sprintf(retval + (i * 2), "%02x", bytes[i]);
 	retval[32] = '\0';
-	
+
 	return retval;
 }
 
@@ -1142,7 +1142,7 @@ gchar *expand_path(const gchar *path)
 	path_len = strlen(path);
 	while (path_len > 1 && path[path_len - 1] == '/')
 		path_len--;
-	
+
 	retval = g_strndup(path, path_len);
 
 	if (path[0] == '~' && (path[1] == '\0' || path[1] == '/'))
@@ -1226,7 +1226,7 @@ CollateKey *collate_key_new(const guchar *name)
 		if (first_char >= '0' && first_char <= '9')
 		{
 			char *endp;
-			
+
 			/* i -> first digit character */
 			tmp = g_utf8_strdown(name, i - name);
 			new.text = g_utf8_collate_key(tmp, -1);
@@ -1356,7 +1356,7 @@ gchar *unescape_uri(const EscapedPath *uri)
 	const gchar *s;
 	gchar *d;
 	gchar *tmp;
-	
+
 	tmp = g_malloc(strlen(uri_string) + 1);
 	for (s = uri_string, d = tmp; *s; s++, d++)
 	{
@@ -1401,7 +1401,7 @@ GPtrArray *list_dir(const guchar *path)
 	GError *error = NULL;
 	const char *leaf;
 	GPtrArray *names;
-	
+
 	dir = g_dir_open(path, 0, &error);
 	if (error)
 	{
@@ -1688,7 +1688,7 @@ gboolean get_values_from_desktop_file(const char *path,
 		key=va_arg(list, const char *);
 		value=va_arg(list, char **);
 	}
-		
+
 err:
 	if (fd != -1)
 		close(fd);
@@ -1754,7 +1754,7 @@ gchar *find_app(const char *appname)
   else
   {
 	  gchar *tmp;
-	  
+
 	  tmp=g_strdup_printf("%s/Apps:/usr/local/apps:/usr/apps",
 			       g_get_home_dir());
 	  search=g_strsplit(tmp, ":", 0);

@@ -228,8 +228,8 @@ static int rox_x_error(Display *display, XErrorEvent *error)
 			"   backtrace from your debugger.)",
 			g_get_prgname (),
 			buf,
-			error->serial, 
-			error->error_code, 
+			error->serial,
+			error->error_code,
 			error->request_code,
 			error->minor_code);
 
@@ -296,7 +296,7 @@ int main(int argc, char **argv)
 			"Use the AppRun script to invoke ROX-Filer...\n");
 		app_dir = g_get_current_dir();
 	}
-#ifdef HAVE_UNSETENV 
+#ifdef HAVE_UNSETENV
 	else
 	{
 		/* Don't pass it on to our child processes... */
@@ -391,7 +391,7 @@ int main(int argc, char **argv)
 
 		if (c == EOF)
 			break;		/* No more options */
-		
+
 		switch (c)
 		{
 			case 'n':
@@ -430,7 +430,7 @@ int main(int argc, char **argv)
 				break;
 			case 's':
 				tmp = g_path_get_dirname(VALUE);
-				
+
 				if (tmp[0] == '/')
 					dir = NULL;
 				else
@@ -506,7 +506,7 @@ int main(int argc, char **argv)
 				}
 				/* Want to print return uninterpreted */
 				rpc_mode=TRUE;
-				
+
 				break;
 
 			case 'S':
@@ -529,9 +529,9 @@ int main(int argc, char **argv)
 	tooltips = gtk_tooltips_new();
 
 	if (show_user)
-		show_user_message = g_strdup_printf(_("Running as user '%s'"), 
+		show_user_message = g_strdup_printf(_("Running as user '%s'"),
 						    user_name(euid));
-	
+
 	/* Add each remaining (non-option) argument to the list of files
 	 * to run.
 	 */
@@ -726,7 +726,7 @@ static void soap_add(xmlNodePtr body,
 	xmlNs *rox;
 
 	rox = xmlSearchNsByHref(body->doc, body, ROX_NS);
-	
+
 	node = xmlNewChild(body, rox, function, NULL);
 
 	if (arg1_name)
@@ -749,7 +749,7 @@ static void soap_reply(xmlDocPtr reply, gboolean rpc_mode)
 
 		if(errs) {
 			int i;
-			
+
 			print=FALSE;
 
 			for(i=0; errs[i]; i++)
@@ -812,7 +812,7 @@ static void wake_up_cb(gpointer data, gint source, GdkInputCondition condition)
 	char buf[BUFLEN];
 
 	read(source, buf, BUFLEN);
-	
+
 	if (child_died_flag)
 		child_died_callback();
 }
@@ -836,7 +836,7 @@ static void add_default_panel_and_pinboard(xmlNodePtr body)
 			name="Default";
 		soap_add(body, "Pinboard","Name", name, NULL, NULL);
 	}
-					
+
 	if (o_session_panel_or_pin.int_value != SESSION_PINBOARD_ONLY)
 	{
 		gboolean use_old_option = TRUE;
@@ -892,7 +892,7 @@ static GtkWidget *launch_button_new(const char *label, const char *uri,
 				       g_strdup(appname),
 				       (GDestroyNotify) g_free);
 	}
-	
+
 	allow_right_click(button);
 
 	slash = strrchr(uri, '/');
@@ -987,7 +987,7 @@ static void make_script_clicked(GtkWidget *button, gpointer udata)
 	gtk_savebox_set_pathname(GTK_SAVEBOX(savebox), filename);
 	gtk_savebox_set_icon(GTK_SAVEBOX(savebox), image->pixbuf);
 	g_object_unref(image);
-				
+
 	gtk_widget_show(savebox);
 }
 
@@ -1006,7 +1006,7 @@ static GList *build_make_script(Option *option, xmlNode *node, guchar *label)
 	button = gtk_button_new_with_label(_(label));
 	g_signal_connect(button, "clicked", G_CALLBACK(make_script_clicked),
 			 NULL);
-	
+
 	tip = _("Click to save a script to run ROX-Filer.\n"
 		"If you are using Zero Install you should use 0alias "
 		"instead.");

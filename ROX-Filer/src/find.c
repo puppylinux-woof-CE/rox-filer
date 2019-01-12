@@ -242,7 +242,7 @@ static gchar *get_bracketed_string(const gchar **expression)
 
 		g_string_append_c(str, c);
 	}
-	
+
 	g_string_free(str, TRUE);
 
 	return NULL;
@@ -284,7 +284,7 @@ static gboolean test_system(FindCondition *condition, FindInfo *info)
 
 		while (command < perc)
 			g_string_append_c(to_sys, *(command++));
-		
+
 		if (*perc == '%')
 			g_string_append(to_sys, info->fullpath);
 		else
@@ -292,7 +292,7 @@ static gboolean test_system(FindCondition *condition, FindInfo *info)
 			g_string_append_c(to_sys, '%');
 			perc++;
 		}
-		
+
 		command = perc + 1;
 	}
 
@@ -301,7 +301,7 @@ static gboolean test_system(FindCondition *condition, FindInfo *info)
 	retcode = system(to_sys->str);
 
 	g_string_free(to_sys, TRUE);
-	
+
 	return retcode == 0;
 }
 
@@ -556,7 +556,7 @@ static FindCondition *parse_condition(const gchar **expression)
 	if (NEXT == '!' || MATCH(_("Not")))
 	{
 		FindCondition *operand;
-		
+
 		EAT;
 
 		operand = parse_condition(expression);
@@ -589,7 +589,7 @@ static FindCondition *parse_condition(const gchar **expression)
 		EAT;
 		return subcond;
 	}
-	
+
 	if (NEXT == '\'')
 	{
 		EAT;
@@ -634,7 +634,7 @@ static FindCondition *parse_condition(const gchar **expression)
 
 /* Call this when you've just eaten 'system(' */
 static FindCondition *parse_system(const gchar **expression)
-{	
+{
 	FindCondition	*cond = NULL;
 	gchar		*command_string;
 
@@ -663,7 +663,7 @@ static FindCondition *parse_comparison(const gchar **expression)
 	first = parse_eval(expression);
 	if (!first)
 		return NULL;
-	
+
 	SKIP;
 	if (NEXT == '=')
 	{
@@ -859,7 +859,7 @@ static FindCondition *parse_match(const gchar **expression)
 		if (c == '\0')
 			goto out;
 		EAT;
-		
+
 		if (c == '\\' && NEXT == '\'')
 		{
 			c = NEXT;
@@ -872,7 +872,7 @@ static FindCondition *parse_match(const gchar **expression)
 		g_string_append_c(str, c);
 	}
 	EAT;
-	
+
 	cond = g_new(FindCondition, 1);
 	cond->test = test;
 	cond->free = &free_simple;
@@ -953,7 +953,7 @@ static double get_constant(Eval *eval, FindInfo *info)
 		value = info->now - value;
 	else if (flags & FLAG_HENCE)
 		value = info->now + value;
-	
+
 	return value;
 }
 
@@ -1005,7 +1005,7 @@ static Eval *parse_eval(const gchar **expression)
 	double	value;
 	Eval	*eval;
 	gint	flags = 0;
-	
+
 	SKIP;
 	start = *expression;
 	value = strtol(start, &end, 0);

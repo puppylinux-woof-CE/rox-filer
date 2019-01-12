@@ -102,9 +102,9 @@ static gboolean test_point(Collection *collection,
 				int width, int height,
 				gpointer user_data);
 static void draw_string(GtkWidget *widget,
-		PangoLayout *layout,
-		GdkRectangle *area,	/* Area available on screen */
-		int 	width,		/* Width of the full string */
+		PangoLayout  *layout,
+		GdkRectangle *area,  /* Area available on screen */
+		int          width,  /* Width of the full string */
 		GtkStateType selection_state,
 		gboolean box);
 static void view_collection_iface_init(gpointer giface, gpointer iface_data);
@@ -191,7 +191,7 @@ GtkWidget *view_collection_new(FilerWindow *filer_window)
 	 */
 	gtk_viewport_set_vadjustment(GTK_VIEWPORT(view_collection),
 				 view_collection->collection->vadj);
-				 
+
 	gtk_range_set_adjustment(GTK_RANGE(filer_window->scrollbar),
 				 view_collection->collection->vadj);
 
@@ -237,7 +237,7 @@ static void view_collection_destroy(GtkObject *view_collection)
 {
 	VIEW_COLLECTION(view_collection)->filer_window = NULL;
 
-    (*GTK_OBJECT_CLASS(parent_class)->destroy)(view_collection);
+	(*GTK_OBJECT_CLASS(parent_class)->destroy)(view_collection);
 }
 
 static void view_collection_finialize(GObject *object)
@@ -351,10 +351,10 @@ static void draw_item(GtkWidget *widget,
 			GdkRectangle *area,
 			gpointer user_data)
 {
-	DirItem		*item = (DirItem *) colitem->data;
+	DirItem        *item = (DirItem *) colitem->data;
 	gboolean	selected = colitem->selected;
-	Template	template;
-	ViewData *view = (ViewData *) colitem->view_data;
+	Template       template;
+	ViewData       *view = (ViewData *) colitem->view_data;
 	ViewCollection	*view_collection = (ViewCollection *) user_data;
 	FilerWindow	*filer_window = view_collection->filer_window;
 	GtkStateType	selection_state;
@@ -368,9 +368,9 @@ static void draw_item(GtkWidget *widget,
 		selection_state = GTK_STATE_NORMAL;
 
 	color = &widget->style->base[selection_state];
-	
+
 	fill_template(area, colitem, view_collection, &template);
-		
+
 	/* Set up GC for coloured file types */
 	if (!type_gc)
 		type_gc = gdk_gc_new(widget->window);
@@ -395,7 +395,7 @@ static void draw_item(GtkWidget *widget,
 		draw_huge_icon(widget->window, widget->style, &template.icon,
 				item, view->image, selected, color);
 	}
-	
+
 	draw_string(widget, view->layout,
 			&template.leafname,
 			view->name_width,
@@ -416,8 +416,8 @@ static void draw_item(GtkWidget *widget,
 static void fill_template(GdkRectangle *area, CollectionItem *colitem,
 			ViewCollection *view_collection, Template *template)
 {
-	DisplayStyle	style = view_collection->filer_window->display_style;
-	ViewData 	*view = (ViewData *) colitem->view_data;
+	DisplayStyle style = view_collection->filer_window->display_style;
+	ViewData     *view = (ViewData *) colitem->view_data;
 
 	if (view->details)
 	{
@@ -451,10 +451,10 @@ static void fill_template(GdkRectangle *area, CollectionItem *colitem,
 static void huge_template(GdkRectangle *area, CollectionItem *colitem,
 			   ViewCollection *view_collection, Template *template)
 {
-	int	col_width = view_collection->collection->item_width;
-	int		text_x, text_y;
-	ViewData	*view = (ViewData *) colitem->view_data;
-	MaskedPixmap	*image = view->image;
+	ViewData *view = (ViewData *) colitem->view_data;
+	MaskedPixmap *image = view->image;
+	int col_width = view_collection->collection->item_width;
+	int text_x, text_y;
 
 	if (image)
 	{
@@ -485,15 +485,15 @@ static void huge_template(GdkRectangle *area, CollectionItem *colitem,
 static void large_template(GdkRectangle *area, CollectionItem *colitem,
 			   ViewCollection *view_collection, Template *template)
 {
-	int	col_width = view_collection->collection->item_width;
+	int col_width = view_collection->collection->item_width;
 	int		iwidth, iheight;
 	int		image_x;
 	int		image_y;
-	ViewData	*view = (ViewData *) colitem->view_data;
-	MaskedPixmap	*image = view->image;
-	
+	ViewData *view = (ViewData *) colitem->view_data;
+	MaskedPixmap *image = view->image;
+
 	int		text_x, text_y;
-	
+
 	if (image)
 	{
 		iwidth = MIN(image->width, ICON_WIDTH);
@@ -517,7 +517,7 @@ static void large_template(GdkRectangle *area, CollectionItem *colitem,
 
 	image_y = text_y - iheight;
 	image_y = MAX(area->y, image_y);
-	
+
 	template->icon.x = image_x;
 	template->icon.y = image_y;
 	template->icon.width = iwidth;
@@ -538,7 +538,7 @@ static void small_template(GdkRectangle *area, CollectionItem *colitem,
 	template->leafname.y = low_text_y;
 	template->leafname.width = MIN(max_text_width, view->name_width);
 	template->leafname.height = view->name_height;
-	
+
 	template->icon.x = area->x;
 	template->icon.y = area->y + 1;
 	template->icon.width = SMALL_WIDTH;
@@ -661,18 +661,18 @@ static gboolean test_point(Collection *collection,
 
 /* 'box' renders a background box if the string is also selected */
 static void draw_string(GtkWidget *widget,
-		PangoLayout *layout,
-		GdkRectangle *area,	/* Area available on screen */
-		int 	width,		/* Width of the full string */
+		PangoLayout  *layout,
+		GdkRectangle *area,  /* Area available on screen */
+		int          width,  /* Width of the full string */
 		GtkStateType selection_state,
 		gboolean box)
 {
 	GdkGC	*gc = selection_state == GTK_STATE_NORMAL
 			? type_gc
 			: widget->style->text_gc[selection_state];
-	
+
 	if (selection_state != GTK_STATE_NORMAL && box)
-		gtk_paint_flat_box(widget->style, widget->window, 
+		gtk_paint_flat_box(widget->style, widget->window,
 				selection_state, GTK_SHADOW_NONE,
 				NULL, widget, "text",
 				area->x, area->y,
@@ -756,7 +756,7 @@ static void view_collection_extend_tip(ViewIface *view, ViewIter *iter,
 	ViewData *view_data = (ViewData *) colitem->view_data;
 	GdkRectangle area;
 	int row,col;
-	
+
 	collection_item_to_rowcol(collection, i, &row, &col);
 
 	g_return_if_fail(iter->view == (ViewIface *) view_collection);
@@ -814,9 +814,11 @@ static gint coll_button_release(GtkWidget *widget,
 		{
 			filer_set_autoscroll(view_collection->filer_window,
 					     FALSE);
+
 			collection_end_lasso(view_collection->collection,
 				event->button == 1 ? GDK_SET : GDK_INVERT);
 		}
+
 		return FALSE;
 	}
 
@@ -874,7 +876,7 @@ static void display_free_colitem(Collection *collection,
 
 	if (view->image)
 		g_object_unref(view->image);
-	
+
 	g_free(view);
 }
 
@@ -885,11 +887,11 @@ static void add_item(ViewCollection *view_collection, DirItem *item)
 	int		old_w = collection->item_width;
 	int		old_h = collection->item_height;
 	int		w, h, i;
-	
+
 	i = collection_insert(collection, item,
 				display_create_viewdata(filer_window, item));
 
-	calc_size(filer_window, &collection->items[i], &w, &h); 
+	calc_size(filer_window, &collection->items[i], &w, &h);
 
 	if (w > old_w || h > old_h)
 		collection_set_item_size(collection,
@@ -912,7 +914,7 @@ static void calc_size(FilerWindow *filer_window, CollectionItem *colitem,
 	int		pix_width, pix_height;
 	int		w;
 	DisplayStyle	style = filer_window->display_style;
-	ViewData	*view = (ViewData *) colitem->view_data;
+	ViewData     *view = (ViewData *) colitem->view_data;
 
 	if (filer_window->details_type == DETAILS_NONE)
 	{
@@ -972,7 +974,7 @@ static void calc_size(FilerWindow *filer_window, CollectionItem *colitem,
                         *width = ICON_WIDTH + 12 + MAX(w, view->name_width);
 			*height = ICON_HEIGHT;
 		}
-        }
+	}
 }
 
 static void update_item(ViewCollection *view_collection, int i)
@@ -985,15 +987,14 @@ static void update_item(ViewCollection *view_collection, int i)
 	FilerWindow *filer_window = view_collection->filer_window;
 
 	g_return_if_fail(i >= 0 && i < collection->number_of_items);
-	
 	colitem = &collection->items[i];
 
 	display_update_view(filer_window,
 			(DirItem *) colitem->data,
 			(ViewData *) colitem->view_data,
 			FALSE);
-	
-	calc_size(filer_window, colitem, &w, &h); 
+
+	calc_size(filer_window, colitem, &w, &h);
 	if (w > old_w || h > old_h)
 		collection_set_item_size(collection,
 					 MAX(old_w, w),
@@ -1018,15 +1019,12 @@ static void view_collection_style_changed(ViewIface *view, int flags)
 		height = ICON_HEIGHT;
 
 	view_collection->collection->vertical_order = FALSE;
-	if (filer_window->display_style == SMALL_ICONS && 
+	if (filer_window->display_style == SMALL_ICONS &&
 	    o_vertical_order_small.int_value)
 	  view_collection->collection->vertical_order = TRUE;
-	if (filer_window->display_style != SMALL_ICONS && 
+	if (filer_window->display_style != SMALL_ICONS &&
 	    o_vertical_order_large.int_value)
 	  view_collection->collection->vertical_order = TRUE;
-
-
-	
 
 	/* Recalculate all the ViewData structs for this window
 	 * (needed if the text or image has changed in any way) and
@@ -1051,7 +1049,7 @@ static void view_collection_style_changed(ViewIface *view, int flags)
 	}
 
 	collection_set_item_size(col, width, height);
-	
+
 	gtk_widget_queue_draw(GTK_WIDGET(view_collection));
 }
 
@@ -1096,7 +1094,6 @@ static void view_collection_add_items(ViewIface *view, GPtrArray *items)
 	for (i = 0; i < items->len; i++)
 	{
 		DirItem *item = (DirItem *) items->pdata[i];
-
 		if (!filer_match_filter(filer_window, item))
 			continue;
 
@@ -1109,13 +1106,13 @@ static void view_collection_add_items(ViewIface *view, GPtrArray *items)
 
 static void view_collection_update_items(ViewIface *view, GPtrArray *items)
 {
-	ViewCollection	*view_collection = VIEW_COLLECTION(view);
-	Collection	*collection = view_collection->collection;
-	FilerWindow	*filer_window = view_collection->filer_window;
-	int		i;
+	ViewCollection *view_collection = VIEW_COLLECTION(view);
+	Collection     *collection = view_collection->collection;
+	FilerWindow    *filer_window = view_collection->filer_window;
+	int      i;
 
 	g_return_if_fail(items->len > 0);
-	
+
 	/* The item data has already been modified, so this gives the
 	 * final sort order...
 	 */
@@ -1156,7 +1153,7 @@ static void view_collection_clear(ViewIface *view)
 {
 	ViewCollection	*view_collection = VIEW_COLLECTION(view);
 	Collection	*collection = view_collection->collection;
-	
+
 	collection_clear(collection);
 }
 
@@ -1164,7 +1161,7 @@ static void view_collection_select_all(ViewIface *view)
 {
 	ViewCollection	*view_collection = VIEW_COLLECTION(view);
 	Collection	*collection = view_collection->collection;
-	
+
 	collection_select_all(collection);
 }
 
@@ -1172,7 +1169,7 @@ static void view_collection_clear_selection(ViewIface *view)
 {
 	ViewCollection	*view_collection = VIEW_COLLECTION(view);
 	Collection	*collection = view_collection->collection;
-	
+
 	collection_clear_selection(collection);
 }
 
@@ -1180,7 +1177,7 @@ static int view_collection_count_items(ViewIface *view)
 {
 	ViewCollection	*view_collection = VIEW_COLLECTION(view);
 	Collection	*collection = view_collection->collection;
-	
+
 	return collection->number_of_items;
 }
 
@@ -1188,7 +1185,7 @@ static int view_collection_count_selected(ViewIface *view)
 {
 	ViewCollection	*view_collection = VIEW_COLLECTION(view);
 	Collection	*collection = view_collection->collection;
-	
+
 	return collection->number_selected;
 }
 
@@ -1222,7 +1219,7 @@ static DirItem *iter_init(ViewIter *iter)
 	}
 	else if (flags & VIEW_ITER_FROM_BASE)
 		i = view_collection->cursor_base;
-	
+
 	if (i < 0 || i >= n)
 	{
 		/* Either a normal iteration, or an iteration from an
@@ -1259,7 +1256,7 @@ static DirItem *iter_next(ViewIter *iter)
 	/* i is the last item returned (always valid) */
 
 	g_return_val_if_fail(i >= 0 && i < n, NULL);
-	
+
 	while (iter->n_remaining)
 	{
 		i++;
@@ -1277,7 +1274,7 @@ static DirItem *iter_next(ViewIter *iter)
 		iter->i = i;
 		return collection->items[i].data;
 	}
-	
+
 	iter->i = -1;
 	return NULL;
 }
@@ -1312,7 +1309,7 @@ static DirItem *iter_prev(ViewIter *iter)
 		iter->i = i;
 		return collection->items[i].data;
 	}
-	
+
 	iter->i = -1;
 	return NULL;
 }
@@ -1324,7 +1321,7 @@ static DirItem *iter_peek(ViewIter *iter)
 
 	if (i == -1)
 		return NULL;
-	
+
 	g_return_val_if_fail(i >= 0 && i < collection->number_of_items, NULL);
 
 	return collection->items[i].data;
@@ -1397,7 +1394,7 @@ static void view_collection_cursor_to_iter(ViewIface *view, ViewIter *iter)
 	ViewCollection	*view_collection = VIEW_COLLECTION(view);
 	Collection	*collection = view_collection->collection;
 	FilerWindow	*filer_window = view_collection->filer_window;
-	
+
 	g_return_if_fail(iter == NULL ||
 			 iter->view == (ViewIface *) view_collection);
 
@@ -1411,7 +1408,7 @@ static void view_collection_set_selected(ViewIface *view,
 {
 	ViewCollection	*view_collection = VIEW_COLLECTION(view);
 	Collection	*collection = view_collection->collection;
-	
+
 	g_return_if_fail(iter != NULL &&
 			 iter->view == (ViewIface *) view_collection);
 	g_return_if_fail(iter->i >= 0 && iter->i < collection->number_of_items);
@@ -1431,7 +1428,7 @@ static gboolean view_collection_get_selected(ViewIface *view, ViewIter *iter)
 			iter->view == (ViewIface *) view_collection, FALSE);
 	g_return_val_if_fail(iter->i >= 0 &&
 				iter->i < collection->number_of_items, FALSE);
-	
+
 	return collection->items[iter->i].selected;
 }
 
@@ -1535,7 +1532,7 @@ static void view_collection_autosize(ViewIface *view)
 	 * 	   sqrt(rt.rt + ...) > rt
 	 *
 	 * So, the +/- must be +:
-	 * 	
+	 *
 	 *	=> x = (rt + sqrt(rt.rt + 4hr(nw - 1))) / 2
 	 *
 	 * ( + w - 1 to round up)

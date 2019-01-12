@@ -169,7 +169,7 @@ void bulk_rename(const char *dir, GList *items)
 
 		items = items->next;
 	}
-	
+
 	gtk_widget_show_all(tree);
 	gtk_widget_size_request(tree, &req);
 	req.width = MIN(req.width + 50, screen_width - 50);
@@ -337,7 +337,7 @@ static gboolean apply_replace(GtkWidget *box)
 
 		size = regerror(error, &compiled, NULL, 0);
 		g_return_val_if_fail(size > 0, TRUE);
-		
+
 		message = g_malloc(size);
 		regerror(error, &compiled, message, size);
 

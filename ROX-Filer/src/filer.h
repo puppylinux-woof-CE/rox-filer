@@ -111,7 +111,7 @@ struct _FilerWindow
 	gint		open_timeout;	/* Will resize and show window... */
 
 	GtkStateType	selection_state;	/* for drawing selection */
-	
+
 	gboolean	show_thumbs;
 	GList		*thumb_queue;		/* paths to thumbnail */
 	GtkWidget	*thumb_bar, *thumb_progress;

@@ -83,9 +83,9 @@ static void toolbar_autosize_clicked(GtkWidget *widget, FilerWindow *filer_windo
 static void toolbar_details_clicked(GtkWidget *widget,
 				    FilerWindow *filer_window);
 static void toolbar_hidden_clicked(GtkWidget *widget,
-					FilerWindow *filer_window);
-static void toolbar_dirs_clicked(GtkWidget* widget,
-					FilerWindow *filer_window);
+				   FilerWindow *filer_window);
+static void toolbar_dirs_clicked(GtkWidget *widget,
+				   FilerWindow *filer_window);
 static void toolbar_select_clicked(GtkWidget *widget,
 				   FilerWindow *filer_window);
 static void toolbar_new_clicked(GtkWidget *widget,
@@ -117,15 +117,15 @@ static Tool all_tools[] = {
 	{N_("Close"), GTK_STOCK_CLOSE, N_("Close filer window"),
 	 toolbar_close_clicked, DROP_NONE, FALSE,
 	 FALSE},
-	 
+
 	{N_("Up"), GTK_STOCK_GO_UP, N_("Change to parent directory"),
 	 toolbar_up_clicked, DROP_TO_PARENT, TRUE,
 	 FALSE},
-	 
+
 	{N_("Home"), GTK_STOCK_HOME, N_("Change to home directory"),
 	 toolbar_home_clicked, DROP_TO_HOME, TRUE,
 	 FALSE},
-	
+
 	{N_("Bookmarks"), ROX_STOCK_BOOKMARKS, N_("Bookmarks menu"),
 	 toolbar_bookmarks_clicked, DROP_BOOKMARK, FALSE,
 	 TRUE},
@@ -133,34 +133,34 @@ static Tool all_tools[] = {
 	{N_("Scan"), GTK_STOCK_REFRESH, N_("Rescan directory contents"),
 	 toolbar_refresh_clicked, DROP_NONE, TRUE,
 	 FALSE},
-	
+
 	{N_("Size"), GTK_STOCK_ZOOM_IN, N_("Change icon size"),
 	 toolbar_size_clicked, DROP_NONE, TRUE,
 	 FALSE},
-	
+
 	{N_("Size"), GTK_STOCK_ZOOM_FIT, N_("Automatic size mode"),
 	 toolbar_autosize_clicked, DROP_NONE, TRUE,
 	 FALSE},
-	
+
 	{N_("Details"), ROX_STOCK_SHOW_DETAILS, N_("Show extra details"),
 	 toolbar_details_clicked, DROP_NONE, TRUE,
 	 FALSE},
-	
+
 	{N_("Sort"), GTK_STOCK_SORT_ASCENDING, N_("Change sort criteria"),
 	 toolbar_sort_clicked, DROP_NONE, FALSE,
 	 FALSE},
-	
+
 	{N_("Hidden"), ROX_STOCK_SHOW_HIDDEN, N_("Left: Show/hide hidden files\n"
-											 "Center: Reset to defaults\n"
-						 					 "Right: Show/hide thumbnails"),
+						 "Center: Reset to defaults\n"
+						 "Right: Show/hide thumbnails"),
 	 toolbar_hidden_clicked, DROP_NONE, TRUE,
 	 FALSE},
 
 	{N_("Dirs"), GTK_STOCK_DIRECTORY, N_("Left: Show dirs only\n"
 										 "Right: Show files only"),
-	toolbar_dirs_clicked, DROP_NONE, FALSE,
-	FALSE},
-	
+	 toolbar_dirs_clicked, DROP_NONE, FALSE,
+	 FALSE},
+
 	{N_("Select"), ROX_STOCK_SELECT, N_("Select all/invert selection"),
 	 toolbar_select_clicked, DROP_NONE, FALSE,
 	 FALSE},
@@ -189,7 +189,7 @@ void toolbar_init(void)
 					GTK_STOCK_CLOSE);
 	option_add_int(&o_toolbar_min_width, "toolbar_min_width", 1);
 	option_add_notify(option_notify);
-	
+
 	option_register_widget("tool-options", build_tool_options);
 }
 
@@ -269,6 +269,7 @@ void toolbar_update_info(FilerWindow *filer_window)
 	}
 
 	gtk_label_set_text(GTK_LABEL(filer_window->toolbar_text), label);
+
 	g_free(label);
 }
 
@@ -455,11 +456,11 @@ static void toolbar_sort_clicked(GtkWidget *widget,
 
 	static const SortType sorts[]={
 		SORT_NAME, SORT_TYPE, SORT_DATEC, SORT_SIZE,
-		SORT_OWNER, SORT_GROUP, 
+		SORT_OWNER, SORT_GROUP,
 	};
 	static const char *sort_names[] = {
-		N_("Sort by name"), N_("Sort by type"), N_("Sort by date"), 
-		N_("Sort by size"), N_("Sort by owner"), N_("Sort by group"), 
+		N_("Sort by name"), N_("Sort by type"), N_("Sort by date"),
+		N_("Sort by size"), N_("Sort by owner"), N_("Sort by group"),
 	};
 
 	bev = (GdkEventButton *) get_current_event(GDK_BUTTON_RELEASE);
@@ -492,7 +493,7 @@ static void toolbar_sort_clicked(GtkWidget *widget,
 
 	display_set_sort_type(filer_window, sorts[next_wrapped], dir);
  	tip = g_strconcat(_(sort_names[next_wrapped]), ", ",
-			dir == GTK_SORT_ASCENDING 
+			dir == GTK_SORT_ASCENDING
 				? _("ascending") : _("descending"),
 			NULL);
 	tooltip_show(tip);
@@ -541,7 +542,7 @@ static void toolbar_details_clicked(GtkWidget *widget,
 				default:
 					action = DETAILS_NONE;
 					break;
-			}	
+			}
 
 		if (filer_window->view_type != VIEW_TYPE_COLLECTION)
 			filer_set_view_type(filer_window, VIEW_TYPE_COLLECTION);
@@ -574,7 +575,7 @@ static void toolbar_hidden_clicked(GtkWidget *widget,
 }
 
 static void toolbar_dirs_clicked(GtkWidget *widget,
-		FilerWindow *filer_window)
+				   FilerWindow *filer_window)
 {
 	GdkEvent *event = get_current_event(GDK_BUTTON_RELEASE);
 	if (event->type == GDK_BUTTON_RELEASE)
@@ -642,8 +643,8 @@ static GtkWidget *create_toolbar(FilerWindow *filer_window)
 {
 	GtkWidget	*bar;
 	GtkWidget	*b;
-	int		i;
-	int		width;
+	int i;
+	int width;
 
 	bar = gtk_toolbar_new();
 
@@ -664,10 +665,10 @@ static GtkWidget *create_toolbar(FilerWindow *filer_window)
 			continue;
 
 		b = add_button(bar, tool, filer_window);
-		
+
 		gtk_widget_size_request(b, &req);
 		width+=req.width;
-		
+
 		if (filer_window && tool->drop_action != DROP_NONE)
 			handle_drops(filer_window, b, tool->drop_action);
 	}
@@ -683,7 +684,7 @@ static GtkWidget *create_toolbar(FilerWindow *filer_window)
 		} else {
 			gtk_widget_set_size_request(bar, 100, -1);
 		}
-		
+
 		filer_window->toolbar_text = gtk_label_new("");
 		gtk_misc_set_alignment(GTK_MISC(filer_window->toolbar_text),
 					0, 0.5);
@@ -761,7 +762,7 @@ static GtkWidget *add_button(GtkWidget *bar, Tool *tool,
 			   NULL, NULL,	/* CB, userdata */
 			   GTK_TOOLBAR(bar)->num_children);
 	GTK_WIDGET_UNSET_FLAGS(button, GTK_CAN_FOCUS);
-	
+
 	if (o_toolbar.int_value == TOOLBAR_HORIZONTAL)
 	{
 		GtkWidget *hbox, *label;
@@ -770,7 +771,7 @@ static GtkWidget *add_button(GtkWidget *bar, Tool *tool,
 		kids = gtk_container_get_children(GTK_CONTAINER(hbox));
 		label = g_list_nth_data(kids, 1);
 		g_list_free(kids);
-		
+
 		if (label)
 		{
 			gtk_box_set_child_packing(GTK_BOX(hbox), label,
@@ -785,6 +786,7 @@ static GtkWidget *add_button(GtkWidget *bar, Tool *tool,
 	{
 		g_signal_connect(button, "clicked",
 			G_CALLBACK(tool->clicked), filer_window);
+
 		g_signal_connect(button, "button_press_event",
 			G_CALLBACK(toolbar_button_pressed), filer_window);
 		g_signal_connect(button, "button_release_event",
@@ -840,10 +842,10 @@ static gboolean drag_motion(GtkWidget		*widget,
 		g_dataset_set_data_full(context, "drop_dest_path",
 				g_path_get_dirname(filer_window->sym_path),
 				g_free);
-	
+
 	g_dataset_set_data(context, "drop_dest_type", type);
 	gdk_drag_status(context, action, time);
-	
+
 	dnd_spring_load(context, filer_window);
 	gtk_button_set_relief(GTK_BUTTON(widget), GTK_RELIEF_NORMAL);
 
@@ -904,7 +906,7 @@ static void option_notify(void)
 		for (next = all_filer_windows; next; next = next->next)
 		{
 			FilerWindow *filer_window = (FilerWindow *) next->data;
-			
+
 			toolbar_update_toolbar(filer_window);
 		}
 	}
@@ -924,7 +926,7 @@ static void update_tools(Option *option)
 		name = g_object_get_data(G_OBJECT(kid), "tool_name");
 
 		g_return_if_fail(name != NULL);
-		
+
 		gtk_toggle_button_set_active(kid,
 					 !in_list(name, option->value));
 	}

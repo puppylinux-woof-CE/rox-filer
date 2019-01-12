@@ -18,7 +18,7 @@
  */
 
 /* modechange.c -- file mode manipulation
- * 
+ *
  * This rest of this file was taken from GNU FileUtils, with minor
  * modifications (eg changing the memory handling to use GLib).
  */

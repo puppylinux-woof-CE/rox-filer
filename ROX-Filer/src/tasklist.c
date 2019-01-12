@@ -117,7 +117,7 @@ void tasklist_set_active(gboolean active)
 		return;
 	}
 	tasklist_active = active;
-	
+
 	if (need_init)
 	{
 		GdkWindow *root;
@@ -152,7 +152,7 @@ void tasklist_set_active(gboolean active)
 					GDK_PROPERTY_CHANGE_MASK);
 		need_init = FALSE;
 	}
-	
+
 	if (active)
 	{
 		update_current_desktop();
@@ -230,7 +230,7 @@ static GArray *get_window_list(Window xwindow, GdkAtom atom)
 	int i;
 
 	array = g_array_new(FALSE, FALSE, sizeof(Window));
-	
+
 	gdk_error_trap_push();
 	type = None;
 	result = XGetWindowProperty(gdk_display,
@@ -238,7 +238,7 @@ static GArray *get_window_list(Window xwindow, GdkAtom atom)
 			gdk_x11_atom_to_xatom(atom),
 			0, G_MAXLONG,
 			False, XA_WINDOW, &type, &format, &nitems,
-			&bytes_after, &data);  
+			&bytes_after, &data);
 	err = gdk_error_trap_pop();
 
 	if (err != Success || result != Success)
@@ -255,7 +255,7 @@ static GArray *get_window_list(Window xwindow, GdkAtom atom)
 
 	XFree(data);
 
-	return array;  
+	return array;
 }
 
 static guchar *get_str(IconWindow *win, GdkAtom atom)
@@ -277,7 +277,7 @@ static guchar *get_str(IconWindow *win, GdkAtom atom)
 			&bytes_after, &data);
 
 	err = gdk_error_trap_pop();
-	
+
 	if (err == Success && result == Success && data)
 	{
 		if (*data)
@@ -369,7 +369,7 @@ static void window_check_status(IconWindow *win)
 	{
 		GdkAtom state;
 		int i;
-			
+
 		for (i = 0; i < nitems; i++)
 		{
 			state = gdk_x11_xatom_to_atom(((Atom *) data)[i]);
@@ -393,7 +393,7 @@ static void window_check_status(IconWindow *win)
 	}
 	else
 		iconic = FALSE;
-	
+
 	/* Iconified windows on another desktops are not shown */
 	if (o_pinboard_tasklist_per_workspace.int_value &&
 	    XGetWindowProperty(gdk_display, win->xwindow,
@@ -465,7 +465,7 @@ static GdkFilterReturn window_filter(GdkXEvent *xevent,
 		if (atom == xa_WM_STATE || atom == xa__NET_WM_STATE)
 		{
 			w = g_hash_table_lookup(known, &win);
-			
+
 			if (w)
 			{
 				gdk_error_trap_push();
@@ -514,7 +514,7 @@ static void add_window(Window win)
 	if (!w)
 	{
 		XWindowAttributes attr;
-		
+
 		gdk_error_trap_push();
 
 		XGetWindowAttributes(gdk_display, win, &attr);
@@ -887,7 +887,7 @@ static GdkPixbuf *get_image_for(IconWindow *win)
 	if (pixmap != None)
 	{
 		GdkPixbuf *mask_pb = NULL;
-		
+
 		retval = pixbuf_from_pixmap(pixmap);
 
 		if (retval && mask != None)
@@ -911,7 +911,7 @@ static GdkPixbuf *get_image_for(IconWindow *win)
 	gdk_flush();
 
 	gdk_error_trap_pop();
-	
+
 	if (!retval)
 	{
 		if (!default_icon)
@@ -999,7 +999,7 @@ static void show_icon(IconWindow *win)
 			G_CALLBACK(icon_motion_notify), win);
 	g_signal_connect(win->widget, "button-release-event",
 			G_CALLBACK(button_released), win);
-	
+
 	gtk_widget_show_all(vbox);	/* So the size comes out right */
 	pinboard_add_widget(win->widget, win->text);
 	gtk_widget_show(win->widget);
@@ -1081,7 +1081,7 @@ static void update_supported(void)
 			gdk_x11_atom_to_xatom(xa__NET_SUPPORTED),
 			0, G_MAXLONG,
 			False, XA_ATOM, &type, &format, &nitems,
-			&bytes_after, &data);  
+			&bytes_after, &data);
 	err = gdk_error_trap_pop();
 
 	if (err != Success || result != Success)

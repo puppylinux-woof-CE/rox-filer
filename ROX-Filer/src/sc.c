@@ -20,7 +20,7 @@
 /* sc.c - XSMP client support */
 
 #include <stdlib.h>
-#include <fcntl.h> 
+#include <fcntl.h>
 #include <gtk/gtk.h>
 #include <X11/Xlib.h>
 #include <X11/SM/SMlib.h>
@@ -33,7 +33,7 @@ static SmPropValue *make_list_of_array_value(const gchar *vals[], gint nvals)
 {
 	SmPropValue *values = g_new(SmPropValue, nvals);
 	gint i;
-	
+
 	for(i = 0; i < nvals; i++)
 	{
 		values[i].value = g_strdup(vals[i]);
@@ -45,7 +45,7 @@ static SmPropValue *make_list_of_array_value(const gchar *vals[], gint nvals)
 static SmPropValue *make_array_value(const gchar *val)
 {
 	SmPropValue *value = g_new(SmPropValue, 1);
-	
+
 	value->value = g_strdup(val);
 	value->length = strlen(val);
 
@@ -55,10 +55,10 @@ static SmPropValue *make_array_value(const gchar *val)
 static SmPropValue *make_card_value(gchar val)
 {
 	SmPropValue *value = g_new(SmPropValue, 1);
-	
+
 	value->value = g_memdup(&val, sizeof(gchar));
 	value->length = 1;
-	
+
 	return value;
 }
 
@@ -73,7 +73,7 @@ static SmProperty *find_property(SmClient *client, const gchar *name)
 		if (strcmp(prop->prop.name, name) == 0)
 			return prop;
 	}
-	return NULL;		
+	return NULL;
 }
 
 static SmProperty *new_property(SmClient *client,
@@ -97,9 +97,9 @@ static SmProperty *new_property(SmClient *client,
 static gint close_connection(gpointer data)
 {
 	SmClient *client = (SmClient *)data;
-	
+
 	SmcCloseConnection(client->conn, 0, NULL);
-	
+
 	return 0;
 }
 
@@ -124,7 +124,7 @@ static void ice_watch_fn(IceConn conn, IcePointer client_data,
                 			Bool opening, IcePointer *watch_data)
 {
 	SmClient *client = (SmClient *)client_data;
-	
+
 	if(opening)
 	{
 #ifdef DEBUG
@@ -154,7 +154,7 @@ static void sc_save_yourself(SmcConn conn, SmPointer client_data, int save_type,
 {
 	SmClient *client = (SmClient *)client_data;
 	gboolean success = TRUE;
-#ifdef DEBUG	
+#ifdef DEBUG
 	g_printerr("%s saving state\n", client->id);
 #endif
 	if(client->save_yourself_fn)
@@ -167,7 +167,7 @@ static void sc_save_yourself(SmcConn conn, SmPointer client_data, int save_type,
 static void sc_shutdown_cancelled(SmcConn conn, SmPointer client_data)
 {
 	SmClient *client = (SmClient *)client_data;
-#ifdef DEBUG	
+#ifdef DEBUG
 	g_printerr("%s shutdown cancelled\n", client->id);
 #endif
 	if(client->shutdown_cancelled_fn)
@@ -177,7 +177,7 @@ static void sc_shutdown_cancelled(SmcConn conn, SmPointer client_data)
 static void sc_save_complete(SmcConn conn, SmPointer client_data)
 {
 	SmClient *client = (SmClient *)client_data;
-#ifdef DEBUG	
+#ifdef DEBUG
 	g_printerr("%s save complete\n", client->id);
 #endif
 	if(client->save_complete_fn)
@@ -187,7 +187,7 @@ static void sc_save_complete(SmcConn conn, SmPointer client_data)
 static void sc_die(SmcConn conn, SmPointer client_data)
 {
 	SmClient *client = (SmClient *)client_data;
-#ifdef DEBUG	
+#ifdef DEBUG
 	g_printerr("%s dying\n", client->id);
 #endif
 	if(client->die_fn)
@@ -204,17 +204,17 @@ gboolean sc_session_up()
 SmClient *sc_new(const gchar *client_id)
 {
 	SmClient *client;
-	
+
 #ifdef DEBUG
 	g_printerr("Creating new sm-client\n");
-#endif	
+#endif
 	client = g_new(SmClient, 1);
 	client->id = g_strdup(client_id);
 	client->props = NULL;
 	client->conn = NULL;
 	client->ice_conn = NULL;
 	client->fd = -1;
-	
+
 	return client;
 }
 
@@ -222,10 +222,10 @@ void sc_destroy(SmClient *client)
 {
 	GSList *list = client->props;
 	SmProperty *prop;
-	
+
 #ifdef DEBUG
 	g_printerr("destroying client\n");
-#endif	
+#endif
 	for (; list; list = list->next)
 	{
 		prop = (SmProperty *)list->data;
@@ -241,21 +241,21 @@ void sc_destroy(SmClient *client)
 }
 
 /* Set a property with a SmLISTofARRAY8 value as in SmRestartCommand,
-   SmCloneCommand and SmDiscardCommand */ 
+   SmCloneCommand and SmDiscardCommand */
 
 void sc_set_list_of_array_prop(SmClient *client,
-			const gchar *name, 
+			const gchar *name,
 			const char *vals[], gint nvals)
 {
 	SmProperty *prop = find_property(client, name);
 	SmPropValue *value = make_list_of_array_value(vals, nvals);
-		
+
 	if(prop == NULL)
 		prop = new_property(client, name, SmLISTofARRAY8);
-	
+
 	else
 		g_free(prop->prop.vals);
-	
+
 	prop->prop.vals = value;
 	prop->prop.num_vals = nvals;
 	prop->set = TRUE;
@@ -268,13 +268,13 @@ void sc_set_array_prop(SmClient *client, const gchar *name, const gchar *vals)
 {
 	SmProperty *prop = find_property(client, name);
 	SmPropValue *value = make_array_value(vals);
-		
+
 	if(prop == NULL)
 		prop = new_property(client, name, SmARRAY8);
-	
+
 	else
 		g_free(prop->prop.vals);
-	
+
 	prop->prop.vals = value;
 	prop->prop.num_vals = 1;
 	prop->set = TRUE;
@@ -286,19 +286,19 @@ void sc_set_card_prop(SmClient *client, const gchar *name, const gchar val)
 {
 	SmProperty *prop = find_property(client, name);
 	SmPropValue *value = make_card_value(val);
-		
+
 	if(prop == NULL)
 		prop = new_property(client, name, SmCARD8);
-	
+
 	else
 		g_free(prop->prop.vals);
-	
+
 	prop->prop.vals = value;
 	prop->prop.num_vals = 1;
 	prop->set = TRUE;
 }
 
-/* Puts a pointer to a SmPropValue in val_ret and 
+/* Puts a pointer to a SmPropValue in val_ret and
   the number of values in nvals_ret (they are in an array ).
   It looks like this:
   typedef struct {
@@ -312,7 +312,7 @@ void sc_get_prop_value(SmClient *client, const gchar *name,
 			SmPropValue **val_ret, gint *nvals_ret)
 {
 	SmProperty *prop = find_property(client, name);
-	
+
 	if(!prop)
 	{
 		*val_ret = NULL;
@@ -326,7 +326,7 @@ void sc_get_prop_value(SmClient *client, const gchar *name,
 }
 
 /* Stores set properties in the session manager */
-	
+
 void sc_register_properties(SmClient *client)
 {
 	GPtrArray *set_props= g_ptr_array_new();
@@ -335,7 +335,7 @@ void sc_register_properties(SmClient *client)
 #ifdef DEBUG
 	gint i;
 #endif
-	
+
 	for (; list; list = list->next)
 	{
 		prop = (SmProperty *)list->data;
@@ -353,9 +353,9 @@ void sc_register_properties(SmClient *client)
 		g_printerr("%s\n", prop->prop.name);
 	}
 #endif
-	if(set_props->len > 0)	
+	if(set_props->len > 0)
 		SmcSetProperties(client->conn, set_props->len, (SmProp **)set_props->pdata);
-	
+
 	g_ptr_array_free(set_props, TRUE);
 }
 
@@ -376,7 +376,7 @@ gboolean sc_connect(SmClient *client)
 	callbacks.save_complete.client_data = (SmPointer)client;
 	callbacks.shutdown_cancelled.callback = &sc_shutdown_cancelled;
 	callbacks.shutdown_cancelled.client_data = (SmPointer)client;
-	
+
 	if(IceAddConnectionWatch(&ice_watch_fn, client) == 0)
 	{
         	g_printerr("Session Manager: IceAddConnectionWatch failed\n");
@@ -397,15 +397,15 @@ gboolean sc_connect(SmClient *client)
         	g_printerr("Session Manager: Init error\n");
 		return FALSE;
 	}
-		
+
 	client->id = g_strdup(client_id_ret);
 	client->conn = conn;
 	client->ice_conn = SmcGetIceConnection(conn);
 	gdk_set_sm_client_id(client->id);
 	XFree(client_id_ret);
-	
+
 	gtk_quit_add(0, &close_connection, client);
-	
+
 	return TRUE;
 }
-	
+

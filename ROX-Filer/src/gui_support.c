@@ -93,9 +93,9 @@ void gui_store_screen_geometry(GdkScreen *screen)
 			gdk_screen_get_monitor_geometry(screen, mon,
 					&monitor_geom[mon]);
 			if (monitor_geom[mon].width < monitor_width)
-				monitor_width = monitor_geom[mon].width; 
+				monitor_width = monitor_geom[mon].width;
 			if (monitor_geom[mon].height < monitor_height)
-				monitor_height = monitor_geom[mon].height; 
+				monitor_height = monitor_geom[mon].height;
 		}
 		monitor_adjacent = g_new(MonitorAdjacent, n_monitors);
 		for (mon = 0; mon < n_monitors; ++mon)
@@ -117,7 +117,7 @@ void gui_store_screen_geometry(GdkScreen *screen)
 void gui_support_init()
 {
 	gpointer klass;
-	
+
 	xa_cardinal = gdk_atom_intern("CARDINAL", FALSE);
         xa__NET_WORKAREA = gdk_atom_intern("_NET_WORKAREA", FALSE);
         xa__NET_WM_DESKTOP = gdk_atom_intern("_NET_WM_DESKTOP", FALSE);
@@ -318,7 +318,7 @@ void get_work_area(int *x, int *y, int *width, int *height)
         ndesk=get_number_of_desktops();
         nval=4*ndesk;
         work_area=g_new(gulong, nval);
-                        
+
         if(get_cardinal_property(gdk_root, xa__NET_WORKAREA, nval,
                                          work_area, &act_len) &&
            act_len==nval)
@@ -375,7 +375,7 @@ void make_panel_window(GtkWidget *widget)
 
 		need_init = FALSE;
 	}
-	
+
 	gdk_window_set_decorations(window, 0);
 	gdk_window_set_functions(window, 0);
 	gtk_window_set_resizable(GTK_WINDOW(widget), FALSE);
@@ -423,7 +423,7 @@ void make_panel_window(GtkWidget *widget)
 static gboolean error_idle_cb(gpointer data)
 {
 	char	**error = (char **) data;
-	
+
 	report_error("%s", *error);
 	null_g_free(error);
 
@@ -474,14 +474,14 @@ gboolean load_file(const char *pathname, char **data_out, long *length_out)
 {
 	gsize len;
 	GError *error = NULL;
-	
+
 	if (!g_file_get_contents(pathname, data_out, &len, &error))
 	{
 		delayed_error("%s", error->message);
 		g_error_free(error);
 		return FALSE;
 	}
-		
+
 	if (length_out)
 		*length_out = len;
 	return TRUE;
@@ -490,7 +490,7 @@ gboolean load_file(const char *pathname, char **data_out, long *length_out)
 GtkWidget *new_help_button(HelpFunc show_help, gpointer data)
 {
 	GtkWidget	*b, *icon;
-	
+
 	b = gtk_button_new();
 	gtk_button_set_relief(GTK_BUTTON(b), GTK_RELIEF_NONE);
 	icon = gtk_image_new_from_stock(GTK_STOCK_HELP,
@@ -593,16 +593,16 @@ void centre_window(GdkWindow *window, int x, int y)
 	m = gdk_screen_get_monitor_at_point(gdk_screen_get_default(), x, y);
 
 	gdk_drawable_get_size(window, &w, &h);
-	
+
 	x -= w / 2;
 	y -= h / 2;
 
 	gdk_window_move(window,
 		CLAMP(x, DECOR_BORDER + monitor_geom[m].x,
-			monitor_geom[m].x + monitor_geom[m].width 
+			monitor_geom[m].x + monitor_geom[m].width
 			- w - DECOR_BORDER),
 		CLAMP(y, DECOR_BORDER + monitor_geom[m].y,
-			monitor_geom[m].y + monitor_geom[m].height 
+			monitor_geom[m].y + monitor_geom[m].height
 			- h - DECOR_BORDER));
 }
 
@@ -663,13 +663,13 @@ static void wink_widget_died(gpointer data)
 void wink_widget(GtkWidget *widget)
 {
 	g_return_if_fail(widget != NULL);
-	
+
 	if (current_wink_widget)
 		cancel_wink();
 
 	current_wink_widget = widget;
 	gtk_drag_highlight(current_wink_widget);
-	
+
 	wink_timeout = g_timeout_add(300, (GSourceFunc) end_wink, NULL);
 
 	wink_destroy = g_signal_connect_swapped(widget, "destroy",
@@ -718,7 +718,7 @@ gint rox_spawn(const gchar *dir, const gchar **argv)
 GtkWidget *button_new_image_text(GtkWidget *image, const char *message)
 {
 	GtkWidget *button, *align, *hbox, *label;
-	
+
 	button = gtk_button_new();
 	label = gtk_label_new_with_mnemonic(message);
 	gtk_label_set_mnemonic_widget(GTK_LABEL(label), button);
@@ -764,7 +764,7 @@ void window_put_just_above(GdkWindow *higher, GdkWindow *lower)
 		XWindowChanges restack;
 
 		gdk_error_trap_push();
-		
+
 		restack.stack_mode = Above;
 
 		restack.sibling = GDK_WINDOW_XWINDOW(lower);
@@ -900,7 +900,7 @@ void tooltip_show(guchar *text)
 	gdk_window_get_pointer(NULL, &x, &py, NULL);
 
 	m = gdk_screen_get_monitor_at_point(gdk_screen_get_default(), x, py);
-	
+
 	x -= w / 2;
 	y = py + 12; /* I don't know the pointer height so I use a constant */
 
@@ -930,7 +930,7 @@ void tooltip_prime(GtkFunction callback, GObject *object)
 	int	delay;
 
 	g_return_if_fail(tip_timeout == 0);
-	
+
 	time(&now);
 	delay = now - tip_time > 2 ? 1000 : 200;
 
@@ -949,7 +949,7 @@ void widget_modify_font(GtkWidget *widget, PangoFontDescription *font_desc)
 
 	g_return_if_fail(GTK_IS_WIDGET(widget));
 
-	rc_style = gtk_widget_get_modifier_style(widget);  
+	rc_style = gtk_widget_get_modifier_style(widget);
 
 	if (rc_style->font_desc)
 		pango_font_description_free(rc_style->font_desc);
@@ -1081,7 +1081,7 @@ void radios_set_value(Radios *radios, gint value)
 
 		radio_value = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(radio),
 						"rox-radios-value"));
-		
+
 		if (radio_value == value)
 		{
 			gtk_toggle_button_set_active(radio, TRUE);
@@ -1198,16 +1198,16 @@ static gint simple_image_expose(GtkWidget *widget, GdkEventExpose *event)
 {
 	SimpleImage *image = (SimpleImage *) widget;
 	int x;
-	
+
 	gdk_gc_set_clip_region(widget->style->black_gc, event->region);
 
 	x = widget->allocation.x +
 		(widget->allocation.width - image->width) / 2;
-	
+
 	render_pixbuf(image->pixbuf, widget->window, widget->style->black_gc,
 			x, widget->allocation.y,
 			image->width, image->height);
-			
+
 	gdk_gc_set_clip_region(widget->style->black_gc, NULL);
 	return FALSE;
 }
@@ -1324,10 +1324,10 @@ static void rox_wmspec_change_state(gboolean add, GdkWindow *window,
 {
 	GdkDisplay *display = gdk_drawable_get_display(GDK_DRAWABLE(window));
 	XEvent xev;
-	
+
 #define _NET_WM_STATE_REMOVE        0    /* remove/unset property */
 #define _NET_WM_STATE_ADD           1    /* add/set property */
-#define _NET_WM_STATE_TOGGLE        2    /* toggle property  */  
+#define _NET_WM_STATE_TOGGLE        2    /* toggle property  */
 
 	xev.xclient.type = ClientMessage;
 	xev.xclient.serial = 0;
@@ -1343,7 +1343,7 @@ static void rox_wmspec_change_state(gboolean add, GdkWindow *window,
 			state2);
 	xev.xclient.data.l[3] = 0;
 	xev.xclient.data.l[4] = 0;
-	
+
 	XSendEvent(GDK_DISPLAY_XDISPLAY(display),
 		   GDK_WINDOW_XID(
 			gdk_screen_get_root_window(
@@ -1387,7 +1387,7 @@ void keep_below(GdkWindow *window, gboolean setting)
 }
 
 static void
-size_prepared_cb (GdkPixbufLoader *loader, 
+size_prepared_cb (GdkPixbufLoader *loader,
 		  int              width,
 		  int              height,
 		  gpointer         data)
@@ -1413,7 +1413,7 @@ size_prepared_cb (GdkPixbufLoader *loader,
 		width = info->width;
 		height = info->height;
 	}
-	
+
 	gdk_pixbuf_loader_set_size (loader, width, height);
 }
 
@@ -1431,7 +1431,7 @@ size_prepared_cb (GdkPixbufLoader *loader,
  * The image will be scaled to fit in the requested size, optionally preserving
  * the image's aspect ratio.
  *
- * Return value: A newly-created pixbuf with a reference count of 1, or %NULL 
+ * Return value: A newly-created pixbuf with a reference count of 1, or %NULL
  * if any of several error conditions occurred:  the file could not be opened,
  * there was no loader for the file's format, there was not enough memory to
  * allocate the image buffer, or the image file contained invalid data.
@@ -1440,7 +1440,7 @@ size_prepared_cb (GdkPixbufLoader *loader,
  **/
 GdkPixbuf *
 rox_pixbuf_new_from_file_at_scale (const char *filename,
-				   int         width, 
+				   int         width,
 				   int         height,
 				   gboolean    preserve_aspect_ratio,
 				   GError    **error)
@@ -1577,7 +1577,7 @@ void launch_uri(GObject *button, const char *uri)
 					return;
 				}
 			}
-			
+
 			delayed_error(_("This program (%s) cannot be run, "
 				"as the 0launch command is not available. "
 				"It can be downloaded from here:\n\n"
@@ -1727,7 +1727,7 @@ GtkBuilder *get_gtk_builder(gchar **ids)
 	GError	*error = NULL;
 	char *path;
 	GtkBuilder *builder = NULL;
-	
+
 	builder = gtk_builder_new();
 	gtk_builder_set_translation_domain(builder, "ROX-Filer");
 

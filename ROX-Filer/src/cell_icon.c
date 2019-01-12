@@ -156,7 +156,7 @@ static void cell_icon_class_init(CellIconClass *class)
 				"Background color",
 				"Background color as a GdkColor",
 				GDK_TYPE_COLOR,
-				G_PARAM_WRITABLE));  
+				G_PARAM_WRITABLE));
 }
 
 static void cell_icon_set_property(GObject *object, guint param_id,
@@ -218,7 +218,7 @@ static DisplayStyle get_style(GtkCellRenderer *cell)
 				g_object_ref(view_item->image);
 		}
 	}
-	
+
 	size = icon->view_details->filer_window->display_style_wanted;
 
 	if (size == AUTO_SIZE_ICONS)
@@ -311,7 +311,7 @@ static void cell_icon_render(GtkCellRenderer    *cell,
 	DisplayStyle size;
 	gboolean selected = (flags & GTK_CELL_RENDERER_SELECTED) != 0;
 	GdkColor *color;
-	
+
 	g_return_if_fail(view_item != NULL);
 
 	item = view_item->item;

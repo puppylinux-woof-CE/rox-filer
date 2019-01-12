@@ -79,7 +79,7 @@ void run_app(const char *path)
 	argv[0] = g_string_append(apprun, "/AppRun")->str;
 
 	rox_spawn(home_dir, argv);
-	
+
 	g_string_free(apprun, TRUE);
 }
 
@@ -106,20 +106,20 @@ void run_with_files(const char *path, GList *uri_list)
 		argv[argc++] = make_path(path, "AppRun");
 	else
 		argv[argc++] = path;
-	
+
 	while (uri_list)
 	{
 		const EscapedPath *uri = uri_list->data;
 		char *local;
 
 		local = get_local_path(uri);
-		if (local) 
+		if (local)
 			argv[argc++] = local;
 		else
 			argv[argc++] = unescape_uri(uri);
 		uri_list = uri_list->next;
 	}
-	
+
 	argv[argc++] = NULL;
 
 	type = type_from_path(argv[0]);
@@ -157,7 +157,7 @@ void run_with_data(const char *path, gpointer data, gulong length)
 		argv[0] = make_path(path, "AppRun");
 	else
 		argv[0] = path;
-	
+
 	if (pipe(fds))
 	{
 		delayed_error("pipe: %s", g_strerror(errno));
@@ -320,7 +320,7 @@ gboolean run_by_path(const guchar *full_path)
 	diritem_restat(full_path, item, NULL);
 	retval = run_diritem(full_path, item, NULL, NULL, FALSE);
 	diritem_free(item);
-	
+
 	return retval;
 }
 
@@ -348,7 +348,7 @@ gboolean run_by_uri(const gchar *uri, gchar **errmsg)
 			if(!retval)
 				*errmsg=g_strdup_printf(_("%s not accessable"),
 							tmp);
-		
+
 			g_free(tmp2);
 			g_free(tmp);
 
@@ -368,13 +368,13 @@ gboolean run_by_uri(const gchar *uri, gchar **errmsg)
 
 		diritem_free(item);
 		g_free(cmd);
-		
+
 	} else {
 		retval=FALSE;
 		*errmsg=g_strdup_printf(_("%s: no handler for %s"),
 					uri, scheme);
 	}
-	
+
 	g_free(scheme);
 
 	return retval;
@@ -464,7 +464,7 @@ void examine(const guchar *path)
 static void write_data(gpointer data, gint fd, GdkInputCondition cond)
 {
 	PipedData *pd = (PipedData *) data;
-	
+
 	while (pd->sent < pd->length)
 	{
 		int	sent;
@@ -550,7 +550,7 @@ static gboolean follow_symlink(const char *full_path,
 	else
 	{
 		FilerWindow *new;
-		
+
 		new = filer_opendir(new_dir, src_window, NULL);
 		if (new)
 			display_set_autoselect(new, slash + 1);
@@ -790,7 +790,7 @@ static gboolean type_open(const char *path, MIME_type *type)
 		g_free(argv[0]);
 
 	g_free(open);
-	
+
 	return TRUE;
 }
 

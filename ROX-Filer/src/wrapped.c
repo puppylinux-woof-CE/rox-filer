@@ -50,7 +50,7 @@ GtkWidget *wrapped_label_new(const char *text, gint width)
 
 	wl = g_object_new(wrapped_label_get_type(), NULL);
 	wl->width = width;
-	
+
 	wrapped_label_set_text(wl, text);
 
 	return GTK_WIDGET(wl);
@@ -149,7 +149,7 @@ static void wrapped_label_size_request(GtkWidget *widget,
 	WrappedLabel *wl = (WrappedLabel *) widget;
 
 	g_return_if_fail(wl->layout != NULL);
-	
+
 	pango_layout_get_extents(wl->layout, NULL, &logical_rect);
 
 	wl->x_off = PANGO_PIXELS(logical_rect.x);

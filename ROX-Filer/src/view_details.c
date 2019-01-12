@@ -325,7 +325,7 @@ static void details_get_value(GtkTreeModel *tree_model,
 			g_value_set_int(value, PANGO_WEIGHT_NORMAL);
 		else
 			g_value_set_object(value, NULL);
-			     
+
 		return;
 	}
 	m = item->mode;
@@ -398,11 +398,11 @@ static void details_get_value(GtkTreeModel *tree_model,
 		case COL_TYPE:
 			g_value_init(value, G_TYPE_STRING);
 			if(o_display_show_full_type.int_value)
-				g_value_set_string(value, 
+				g_value_set_string(value,
 						   item->flags & ITEM_FLAG_APPDIR? "Application" :
 						   mime_type_comment(item->mime_type));
 			else
-				g_value_set_string(value, 
+				g_value_set_string(value,
 						   item->flags & ITEM_FLAG_APPDIR? "App" :
 						   S_ISDIR(m) ? "Dir" :
 						   S_ISCHR(m) ? "Char" :
@@ -412,7 +412,7 @@ static void details_get_value(GtkTreeModel *tree_model,
 						   S_ISFIFO(m) ? "Pipe" :
 						   S_ISDOOR(m) ? "Door" :
 						   "File");
-			
+
 			break;
 		case COL_WEIGHT:
 			g_value_init(value, G_TYPE_INT);
@@ -792,7 +792,7 @@ static gboolean view_details_button_release(GtkWidget *widget,
 		select_lasso(view_details,
 				bev->button == 1 ? GDK_SET : GDK_INVERT);
 		filer_set_autoscroll(filer_window, FALSE);
-		set_lasso(view_details, 
+		set_lasso(view_details,
 			  view_details->drag_box_x[0],
 			  view_details->drag_box_y[0]);
 		view_details->lasso_box = FALSE;
@@ -830,7 +830,7 @@ static gboolean view_details_expose(GtkWidget *widget, GdkEventExpose *event)
 	gboolean    had_cursor;
 
 	had_cursor = (GTK_WIDGET_FLAGS(widget) & GTK_HAS_FOCUS) != 0;
-	
+
 	if (view_details->filer_window->selection_state == GTK_STATE_SELECTED)
 		GTK_WIDGET_SET_FLAGS(widget, GTK_HAS_FOCUS);
 	else
@@ -939,7 +939,7 @@ static void view_details_size_request(GtkWidget *widget,
 	(*GTK_WIDGET_CLASS(parent_class)->size_request)(widget, requisition);
 
 	view_details->desired_size = *requisition;
-	
+
 	requisition->height = 50;
 	requisition->width = 50;
 }
@@ -958,14 +958,14 @@ static void view_details_destroy(GtkObject *obj)
 	view_details->filer_window = NULL;
 	cancel_wink(view_details);
 
-    (*GTK_OBJECT_CLASS(parent_class)->destroy)(obj);
+	(*GTK_OBJECT_CLASS(parent_class)->destroy)(obj);
 }
 
 static void view_details_finialize(GObject *object)
 {
 	ViewDetails *view_details = (ViewDetails *) object;
 
-    int i = view_details->items->len;
+	int i = view_details->items->len;
 	while (i--)
 		free_view_item(view_details->items->pdata[i]);
 
@@ -1011,7 +1011,8 @@ static void view_details_class_init(gpointer gclass, gpointer data)
 					   _("Font for displaying mono-spaced text"),
 					   "monospace",
 					   G_PARAM_READABLE));
-								    
+
+
 }
 
 static gboolean block_focus(GtkWidget *button, GtkDirectionType dir,
@@ -1030,7 +1031,7 @@ static gboolean test_can_change_selection(GtkTreeSelection *sel,
 	ViewDetails *view_details;
 
 	view_details = VIEW_DETAILS(gtk_tree_selection_get_tree_view(sel));
-	
+
 	return view_details->can_change_selection != 0;
 }
 
@@ -1046,6 +1047,7 @@ static void selection_changed(GtkTreeSelection *selection,
 		filer_lost_selection(view_details->filer_window,
 				gtk_get_current_event_time());
 }
+
 
 /*
  * Set the font used for a treeview column to that given for the
@@ -1098,6 +1100,7 @@ static void view_details_init(GTypeInstance *object, gpointer gclass)
 	view_details->sort_fn = NULL;
 
 	gtk_tree_view_set_model(treeview, GTK_TREE_MODEL(view_details));
+
 	/* Do this after set_model, because that can generate this
 	 * signal...
 	 */
@@ -1240,8 +1243,8 @@ static void view_details_iface_init(gpointer giface, gpointer iface_data)
 	iface->auto_scroll_callback = view_details_auto_scroll_callback;
 }
 
-/* Implementations of the View interface. See view_iface.c for comments. */
 
+/* Implementations of the View interface. See view_iface.c for comments. */
 static void view_details_style_changed(ViewIface *view, int flags)
 {
 	ViewDetails *view_details = (ViewDetails *) view;
@@ -1352,7 +1355,7 @@ static void resort(ViewDetails *view_details)
 		default:
 			g_assert_not_reached();
 	}
-	
+
 	g_ptr_array_sort_with_data(view_details->items,
 				   (GCompareDataFunc) wrap_sort,
 				   view_details);
@@ -1418,7 +1421,7 @@ static void view_details_add_items(ViewIface *view, GPtrArray *new_items)
 			vitem->utf8_name = to_utf8(leafname);
 		else
 			vitem->utf8_name = NULL;
-		
+
 		g_ptr_array_add(items, vitem);
 
 		iter.user_data = GINT_TO_POINTER(items->len - 1);
@@ -1478,7 +1481,7 @@ static void view_details_update_items(ViewIface *view, GPtrArray *items)
 	GtkTreeModel	*model = (GtkTreeModel *) view_details;
 
 	g_return_if_fail(items->len > 0);
-	
+
 	/* The item data has already been modified, so this gives the
 	 * final sort order...
 	 */
@@ -1607,7 +1610,7 @@ static int view_details_count_selected(ViewIface *view)
 	return gtk_tree_selection_count_selected_rows(view_details->selection);
 #else
 	int count = 0;
-	
+
 	gtk_tree_selection_selected_foreach(view_details->selection,
 					    view_details_count_inc, &count);
 	return count;
@@ -1922,7 +1925,7 @@ static DirItem *iter_init(ViewIter *iter)
 	}
 	else if (flags & VIEW_ITER_FROM_BASE)
 		i = view_details->cursor_base;
-	
+
 	if (i < 0 || i >= n)
 	{
 		/* Either a normal iteration, or an iteration from an
@@ -1975,7 +1978,7 @@ static DirItem *iter_prev(ViewIter *iter)
 		iter->i = i;
 		return ((ViewItem *) view_details->items->pdata[i])->item;
 	}
-	
+
 	iter->i = -1;
 	return NULL;
 }
@@ -1991,7 +1994,7 @@ static DirItem *iter_next(ViewIter *iter)
 	/* i is the last item returned (always valid) */
 
 	g_return_val_if_fail(i >= 0 && i < n, NULL);
-	
+
 	while (iter->n_remaining)
 	{
 		i++;
@@ -2009,7 +2012,7 @@ static DirItem *iter_next(ViewIter *iter)
 		iter->i = i;
 		return ((ViewItem *) view_details->items->pdata[i])->item;
 	}
-	
+
 	iter->i = -1;
 	return NULL;
 }
@@ -2022,7 +2025,7 @@ static DirItem *iter_peek(ViewIter *iter)
 
 	if (i == -1)
 		return NULL;
-	
+
 	g_return_val_if_fail(i >= 0 && i < n, NULL);
 
 	return ((ViewItem *) view_details->items->pdata[i])->item;

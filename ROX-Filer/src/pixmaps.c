@@ -128,7 +128,7 @@ void pixmaps_init(void)
 {
 	GtkIconFactory *factory;
 	int i;
-	
+
 	gtk_widget_push_colormap(gdk_rgb_get_colormap());
 
 	pixmap_cache = g_fscache_new((GFSLoadFunc) image_from_file, NULL, NULL);
@@ -176,7 +176,7 @@ MaskedPixmap *load_pixmap(const char *name)
 {
 	guchar *path;
 	MaskedPixmap *retval;
-	
+
 	path = g_strconcat(app_dir, "/images/", name, ".png", NULL);
 	retval = image_from_file(path);
 	g_free(path);
@@ -201,7 +201,7 @@ static MaskedPixmap *mp_from_stock(const char *stock_id, int size)
 					     stock_id);
 	if (!icon_set)
 		return get_bad_image();
-	
+
 	pixbuf = gtk_icon_set_render_icon(icon_set,
                                      gtk_widget_get_default_style(), /* Gtk bug */
                                      GTK_TEXT_DIR_LTR,
@@ -315,7 +315,6 @@ void pixmap_background_thumb(const gchar *path, GFunc callback, gpointer data)
 	}
 
 	child = fork();
-
 	if (child == -1)
 	{
 		g_free(thumb_prog);
@@ -327,24 +326,24 @@ void pixmap_background_thumb(const gchar *path, GFunc callback, gpointer data)
 	if (child == 0)
 	{
 		/* We are the child process.  (We are sloppy with freeing
-		 memory, but since we go away very quickly, that's ok.) */
+		   memory, but since we go away very quickly, that's ok.) */
 		if (thumb_prog)
 		{
 			DirItem *item;
-			
+
 			base = g_path_get_basename(thumb_prog);
 			item = diritem_new(base);
 			g_free(base);
-
 			diritem_restat(thumb_prog, item, NULL);
 			if (item->flags & ITEM_FLAG_APPDIR)
 				thumb_prog = g_strconcat(thumb_prog, "/AppRun",
-						       NULL);
+						NULL);
 
 			execl(thumb_prog, thumb_prog, path,
-			      thumbnail_path(path),
-			      g_strdup_printf("%d", PIXMAP_THUMB_SIZE),
-			      NULL);
+					thumbnail_path(path),
+					g_strdup_printf("%d", PIXMAP_THUMB_SIZE),
+					NULL);
+
 			_exit(1);
 		}
 
@@ -368,10 +367,10 @@ void pixmap_background_thumb(const gchar *path, GFunc callback, gpointer data)
  */
 MaskedPixmap *pixmap_try_thumb(const gchar *path, gboolean can_load)
 {
-	gboolean	found;
-	MaskedPixmap	*image;
-	GdkPixbuf	*pixbuf;
-  
+	gboolean  found;
+	MaskedPixmap *image;
+	GdkPixbuf *pixbuf;
+
 	image = g_fscache_lookup_full(pixmap_cache, path,
 					FSCACHE_LOOKUP_ONLY_NEW, &found);
 
@@ -384,14 +383,14 @@ MaskedPixmap *pixmap_try_thumb(const gchar *path, gboolean can_load)
 
 	if(!can_load)
 		return NULL;
-	
+
 	pixbuf = get_thumbnail_for(path);
-	
+
 	if (!pixbuf)
 	{
 		struct stat info1, info2;
 		char *dir;
-		
+
 		/* Skip zero-byte files. They're either empty, or
 		 * special (may cause us to hang, e.g. /proc/kmsg). */
 		if (mc_stat(path, &info1) == 0 && info1.st_size == 0) {
@@ -399,7 +398,7 @@ MaskedPixmap *pixmap_try_thumb(const gchar *path, gboolean can_load)
 		}
 
 		dir = g_path_get_dirname(path);
-		
+
 		/* If the image itself is in ~/.thumbnails, load it now
 		 * (ie, don't create thumbnails for thumbnails!).
 		 */
@@ -473,7 +472,7 @@ static void save_thumbnail(const char *pathname, GdkPixbuf *full)
 	        uri = g_strconcat("file://", path, NULL);
 	md5 = md5_hash(uri);
 	g_free(path);
-		
+
 	to = g_string_new(home_dir);
 	g_string_append(to, "/.thumbnails");
 	mkdir(to->str, 0700);
@@ -523,12 +522,12 @@ static gchar *thumbnail_path(const char *path)
 	gchar *uri, *md5;
 	GString *to;
 	gchar *ans;
-	
+
 	uri = g_filename_to_uri(path, NULL, NULL);
 	if(!uri)
 	       uri = g_strconcat("file://", path, NULL);
 	md5 = md5_hash(uri);
-		
+
 	to = g_string_new(home_dir);
 	g_string_append(to, "/.thumbnails");
 	mkdir(to->str, 0700);
@@ -618,6 +617,7 @@ static void thumbnail_child_done(ChildThumbnail *info)
 	g_free(info);
 }
 
+
 /* Check if we have an up-to-date thumbnail for this image.
  * If so, return it. Otherwise, returns NULL.
  */
@@ -635,7 +635,7 @@ static GdkPixbuf *get_thumbnail_for(const char *pathname)
 	        uri = g_strconcat("file://", path, NULL);
 	md5 = md5_hash(uri);
 	g_free(uri);
-	
+
 	thumb_path = g_strdup_printf("%s/.thumbnails/normal/%s.png",
 					home_dir, md5);
 	g_free(md5);
@@ -651,7 +651,7 @@ static GdkPixbuf *get_thumbnail_for(const char *pathname)
 	smtime = gdk_pixbuf_get_option(thumb, "tEXt::Thumb::MTime");
 	if (!smtime)
 		goto err;
-	
+
 	if (mc_stat(path, &info) != 0)
 		goto err;
 
@@ -683,7 +683,7 @@ static MaskedPixmap *image_from_file(const char *path)
 	GdkPixbuf	*pixbuf;
 	MaskedPixmap	*image;
 	GError		*error = NULL;
-	
+
 	pixbuf = gdk_pixbuf_new_from_file(path, &error);
 	if (!pixbuf)
 	{
@@ -731,7 +731,7 @@ static MaskedPixmap *image_from_desktop_file(const char *path)
 		 * Remove them.
 		 */
 		extension = strrchr(icon, '.');
-		if (extension && (strcmp(extension, ".png") == 0 
+		if (extension && (strcmp(extension, ".png") == 0
 						|| strcmp(extension, ".xpm") == 0
 						|| strcmp(extension, ".svg") == 0))
 		{
@@ -781,7 +781,7 @@ GdkPixbuf *scale_pixbuf(GdkPixbuf *src, int max_w, int max_h)
 		float scale = MAX(scale_x, scale_y);
 		int dest_w = w / scale;
 		int dest_h = h / scale;
-		
+
 		return gdk_pixbuf_scale_simple(src,
 						MAX(dest_w, 1),
 						MAX(dest_h, 1),
@@ -809,7 +809,7 @@ static GdkPixbuf *scale_pixbuf_up(GdkPixbuf *src, int max_w, int max_h)
 		float scale_x = max_w / ((float) w);
 		float scale_y = max_h / ((float) h);
 		float scale = MIN(scale_x, scale_y);
-		
+
 		return gdk_pixbuf_scale_simple(src,
 						w * scale,
 						h * scale,
@@ -824,7 +824,7 @@ static MaskedPixmap *get_bad_image(void)
 {
 	GdkPixbuf *bad;
 	MaskedPixmap *mp;
-	
+
 	bad = gdk_pixbuf_new_from_xpm_data(bad_xpm);
 	mp = masked_pixmap_new(bad);
 	g_object_unref(bad);
@@ -960,7 +960,7 @@ static void load_default_pixmaps(void)
 				 GTK_ICON_SIZE_DIALOG);
 	im_unknown = mp_from_stock(GTK_STOCK_DIALOG_QUESTION,
 				   GTK_ICON_SIZE_DIALOG);
-	
+
 	im_dirs = load_pixmap("dirs");
 	im_appdir = load_pixmap("application");
 
@@ -1029,7 +1029,7 @@ static GList *thumbs_purge_cache(Option *option, xmlNode *node, guchar *label)
 	GtkWidget *button, *align;
 
 	g_return_val_if_fail(option == NULL, NULL);
-	
+
 	align = gtk_alignment_new(0, 0.5, 0, 0);
 	button = button_new_mixed(GTK_STOCK_CLEAR,
 				  _("Purge thumbnails disk cache"));
@@ -1067,7 +1067,7 @@ static inline long long s2n_intel(const unsigned char *p, int len)
 {
     long long a=0;
     int i;
-  
+
     for(i=0; i<len; i++)
         a=a | (((int) p[i]) << (i*8));
 

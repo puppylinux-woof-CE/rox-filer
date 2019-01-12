@@ -100,7 +100,7 @@ struct PurgeInfo
  * update() will be called to update an object which is cached, but
  * out of date. If NULL, the object will be unref'd and load() used
  * to make a new one.
- * 
+ *
  * 'user_data' will be passed to all of the above functions.
  */
 GFSCache *g_fscache_new(GFSLoadFunc load,
@@ -182,7 +182,7 @@ gpointer g_fscache_lookup_full(GFSCache *cache, const char *pathname,
 	GFSCacheData *data;
 
 	g_return_val_if_fail(lookup_type != FSCACHE_LOOKUP_INIT, NULL);
-	
+
 	data = lookup_internal(cache, pathname, lookup_type);
 
 	if (!data)
@@ -267,7 +267,7 @@ void g_fscache_update(GFSCache *cache, const char *pathname)
 void g_fscache_purge(GFSCache *cache, gint age)
 {
 	struct PurgeInfo info;
-	
+
 	g_return_if_fail(cache != NULL);
 
 	info.age = age;
@@ -288,7 +288,7 @@ void g_fscache_purge(GFSCache *cache, gint age)
 static guint hash_key(gconstpointer key)
 {
 	GFSCacheKey *stats = (GFSCacheKey *) key;
-	
+
 	return stats->inode;
 }
 
@@ -304,7 +304,7 @@ static gint cmp_stats(gconstpointer a, gconstpointer b)
 static void destroy_hash_entry(gpointer key, gpointer data, gpointer user_data)
 {
 	GFSCacheData *cache_data = (GFSCacheData *) data;
-	
+
 	if (cache_data->data)
 		g_object_unref(cache_data->data);
 
@@ -371,7 +371,7 @@ static GFSCacheData *lookup_internal(GFSCache *cache, const char *pathname,
 
 		if (UPTODATE(data, info))
 			goto out;
-		
+
 		if (lookup_type == FSCACHE_LOOKUP_ONLY_NEW)
 			return NULL;
 
@@ -392,7 +392,7 @@ static GFSCacheData *lookup_internal(GFSCache *cache, const char *pathname,
 		if (lookup_type != FSCACHE_LOOKUP_CREATE &&
 		    lookup_type != FSCACHE_LOOKUP_INIT)
 			return NULL;
-		
+
 		new_key = g_memdup(&key, sizeof(key));
 
 		data = g_new(GFSCacheData, 1);

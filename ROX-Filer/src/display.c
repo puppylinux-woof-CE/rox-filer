@@ -100,15 +100,27 @@ void display_init()
 {
 	option_add_int(&o_display_caps_first, "display_caps_first", FALSE);
 	option_add_int(&o_display_dirs_first, "display_dirs_first", FALSE);
+
+	option_add_int(&o_display_inherit_options,
+		       "display_inherit_options", FALSE);
+	option_add_int(&o_display_sort_by, "display_sort_by", SORT_NAME);
+	option_add_int(&o_display_show_hidden, "display_show_hidden", FALSE);
+	option_add_int(&o_xattr_show, "xattr_show", TRUE);
+
 	option_add_int(&o_display_size, "display_icon_size", AUTO_SIZE_ICONS);
 	option_add_int(&o_display_details, "display_details", DETAILS_NONE);
-	option_add_int(&o_display_sort_by, "display_sort_by", SORT_NAME);
+	option_add_int(&o_filer_change_size_num, "filer_change_size_num", 30);
+
 	option_add_int(&o_large_width, "display_large_width", 155);
 	option_add_int(&o_small_width, "display_small_width", 250);
-	option_add_int(&o_display_show_hidden, "display_show_hidden", FALSE);
-	option_add_int(&o_display_show_thumbs, "display_show_thumbs", FALSE);
+
+	option_add_int(&o_vertical_order_small, "vertical_order_small", FALSE);
+	option_add_int(&o_vertical_order_large, "vertical_order_large", FALSE);
 	option_add_int(&o_display_show_headers, "display_show_headers", TRUE);
 	option_add_int(&o_display_show_full_type, "display_show_full_type", TRUE);
+
+	option_add_int(&o_display_show_thumbs, "display_show_thumbs", FALSE);
+
 	option_add_int(&o_display_show_name, "display_show_name", TRUE);
 	option_add_int(&o_display_show_type, "display_show_type", TRUE);
 	option_add_int(&o_display_show_size, "display_show_size", TRUE);
@@ -118,12 +130,6 @@ void display_init()
 	option_add_int(&o_display_show_mtime, "display_show_mtime", TRUE);
 	option_add_int(&o_display_show_ctime, "display_show_ctime", FALSE);
 	option_add_int(&o_display_show_atime, "display_show_atime", FALSE);
-	option_add_int(&o_display_inherit_options,
-		       "display_inherit_options", FALSE); 
-	option_add_int(&o_filer_change_size_num, "filer_change_size_num", 30); 
-	option_add_int(&o_vertical_order_small, "vertical_order_small", FALSE);
-	option_add_int(&o_vertical_order_large, "vertical_order_large", FALSE);
-	option_add_int(&o_xattr_show, "xattr_show", TRUE);
 
 	option_add_notify(options_changed);
 }
@@ -152,7 +158,7 @@ void draw_emblem_on_icon(GdkWindow *window, GtkStyle   *style,
 		pixbuf=im_unknown->pixbuf;
 		g_object_ref(pixbuf);
 	}
-	
+
 	gdk_pixbuf_render_to_drawable_alpha(pixbuf,
 				window,
 				0, 0, 				/* src */
@@ -160,7 +166,7 @@ void draw_emblem_on_icon(GdkWindow *window, GtkStyle   *style,
 				-1, -1,
 				GDK_PIXBUF_ALPHA_FULL, 128,	/* (unused) */
 				GDK_RGB_DITHER_NORMAL, 0, 0);
-	
+
 	*x+=gdk_pixbuf_get_width(pixbuf)+1;
 	g_object_unref(pixbuf);
 }
@@ -304,7 +310,7 @@ void draw_small_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
 {
 	int		width, height, image_x, image_y;
 	GdkPixbuf	*pixbuf, *tmp;
-	
+
 	if (!image)
 		return;
 
@@ -406,7 +412,7 @@ int sort_by_type(const void *item1, const void *item2)
 
 	m1 = i1->mime_type;
 	m2 = i2->mime_type;
-	
+
 	if (m1 && m2)
 	{
 		diff = strcmp(m1->media_type, m2->media_type);
@@ -420,7 +426,7 @@ int sort_by_type(const void *item1, const void *item2)
 
 	if (diff)
 		return diff > 0 ? 1 : -1;
-	
+
 	return sort_by_name(item1, item2);
 }
 
@@ -529,12 +535,12 @@ void display_set_layout(FilerWindow  *filer_window,
 
 	g_return_if_fail(filer_window != NULL);
 
-	if (filer_window->display_style_wanted != style 
+	if (filer_window->display_style_wanted != style
 	    || filer_window->details_type != details)
 	{
 		style_changed = TRUE;
 	}
-	  
+
 	display_style_set(filer_window, style);
 	display_details_set(filer_window, details);
 
@@ -616,7 +622,7 @@ void display_set_filter(FilerWindow *filer_window, FilterType type,
 void display_set_autoselect(FilerWindow *filer_window, const gchar *leaf)
 {
 	gchar *new;
-	
+
 	g_return_if_fail(filer_window != NULL);
 	g_return_if_fail(leaf != NULL);
 
@@ -740,11 +746,11 @@ static char *details(FilerWindow *filer_window, DirItem *item)
 	else if (filer_window->details_type == DETAILS_TIMES)
 	{
 		guchar	*ctime, *mtime, *atime;
-		
+
 		ctime = pretty_time(&item->ctime);
 		mtime = pretty_time(&item->mtime);
 		atime = pretty_time(&item->atime);
-		
+
 		buf = g_strdup_printf("a[%s] c[%s] m[%s]", atime, ctime, mtime);
 		g_free(ctime);
 		g_free(mtime);
@@ -784,7 +790,7 @@ static char *details(FilerWindow *filer_window, DirItem *item)
 		else
 			buf = g_strdup("-");
 	}
-		
+
 	return buf;
 }
 
@@ -819,7 +825,7 @@ void display_update_view(FilerWindow *filer_window,
 
 	if (!monospace)
 		monospace = pango_font_description_from_string("monospace");
-	
+
 	if (view->details)
 	{
 		g_object_unref(G_OBJECT(view->details));
@@ -831,7 +837,7 @@ void display_update_view(FilerWindow *filer_window,
 	{
 		PangoAttrList	*details_list;
 		int	perm_offset = -1;
-		
+
 		view->details = gtk_widget_create_pango_layout(
 					filer_window->window, str);
 		g_free(str);
@@ -931,10 +937,10 @@ void display_update_view(FilerWindow *filer_window,
 	}
 
 	if (list)
-    {
+	{
 		pango_layout_set_attributes(view->layout, list);
-        pango_attr_list_unref(list);
-    }
+		pango_attr_list_unref(list);
+	}
 
 	if (filer_window->details_type == DETAILS_NONE)
 	{
@@ -962,7 +968,7 @@ static void display_set_actual_size_real(FilerWindow *filer_window)
 {
 	DisplayStyle size = filer_window->display_style_wanted;
 	int n;
-	
+
 	g_return_if_fail(filer_window != NULL);
 
 	if (size == AUTO_SIZE_ICONS)
@@ -974,6 +980,6 @@ static void display_set_actual_size_real(FilerWindow *filer_window)
 		else
 			size = LARGE_ICONS;
 	}
-	
+
 	filer_window->display_style = size;
 }

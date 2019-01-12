@@ -39,7 +39,7 @@
  * pointers. Each class that implements the View interface creates its
  * own ViewIfaceClass with pointers to its implementation. This is stored
  * with the class.
- * 
+ *
  * When you want to call a method (eg, sort()) on a View, you call
  * view_sort(object) here, which gets the class of object and then looks
  * for that class's implementation of the View interface, and then calls
@@ -50,7 +50,7 @@
  *
  * A ViewIter is used to index items. They are usually allocated
  * on the stack and then initialised using view_get_iter().
- * 
+ *
  * Normally, an iterator starts off not pointing at any item, but
  * each call to iter->next(iter) returns the next item, and leaves
  * the iterator pointing at the returned item. If you like the item,
@@ -114,7 +114,7 @@ void view_sort(ViewIface *obj)
 void view_style_changed(ViewIface *obj, int flags)
 {
 	g_return_if_fail(VIEW_IS_IFACE(obj));
-	
+
 	VIEW_IFACE_GET_CLASS(obj)->style_changed(obj, flags);
 }
 
@@ -342,7 +342,7 @@ void view_thaw(ViewIface *obj)
 /* Resize the filer window to a sensible size.
  * v_border is the height of the toolbar + the minibuffer (if visible).
  * space is
- * If allow_shrink is 
+ * If allow_shrink is
  */
 void view_autosize(ViewIface *obj)
 {

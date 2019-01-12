@@ -152,7 +152,7 @@ GtkItemFactoryEntry *translate_entries(GtkItemFactoryEntry *entries, gint n)
 		ret[i].item_type = entries[i].item_type;
 		ret[i].extra_data = entries[i].extra_data;
 	}
-	
+
 	g_free(first);
 	g_free(second);
 

@@ -29,7 +29,7 @@
  * added and existing items are updated if they've changed.
  *
  * When a whole directory is to be rescanned:
- * 
+ *
  * - A list of all filenames in the directory is fetched, without any
  *   of the extra details.
  * - This list is compared to the current DirItems, removing any that are now
@@ -100,6 +100,7 @@ void dir_init(void)
 	dir_cache = g_fscache_new((GFSLoadFunc) dir_new,
 				(GFSUpdateFunc) update, NULL);
 }
+
 
 static gint rescan_timeout_cb(gpointer data)
 {
@@ -246,7 +247,7 @@ void dir_check_this(const guchar *path)
 		g_free(base);
 		g_object_unref(dir);
 	}
-	
+
 	g_free(real_path);
 }
 
@@ -280,7 +281,7 @@ void dir_force_update_path(const gchar *path)
 		g_free(base);
 		g_object_unref(dir);
 	}
-	
+
 	g_free(dir_path);
 }
 
@@ -290,7 +291,7 @@ void dir_force_update_path(const gchar *path)
 DirItem *dir_update_item(Directory *dir, const gchar *leafname)
 {
 	DirItem *item;
-	
+
 	time(&diritem_recent_time);
 	item = insert_item(dir, leafname);
 	dir_merge_new(dir);
@@ -376,7 +377,7 @@ static gboolean recheck_callback(gpointer data)
 	Directory *dir = (Directory *) data;
 	GList	*next;
 	guchar	*leaf;
-	
+
 	g_return_val_if_fail(dir != NULL, FALSE);
 	g_return_val_if_fail(dir->recheck_list != NULL, FALSE);
 
@@ -400,7 +401,7 @@ static gboolean recheck_callback(gpointer data)
 	 */
 
 	dir_merge_new(dir);
-	
+
 	dir->have_scanned = TRUE;
 	dir_set_scanning(dir, FALSE);
 	g_source_remove(dir->idle_callback);
@@ -422,7 +423,7 @@ void dir_merge_new(Directory *dir)
 	GPtrArray *gone = dir->gone_items;
 	GList	  *list;
 	guint	  i;
-	
+
 	in_callback++;
 
 	for (list = dir->users; list; list = list->next)
@@ -452,7 +453,7 @@ void dir_merge_new(Directory *dir)
 
 		diritem_free(item);
 	}
-	
+
 	g_ptr_array_set_size(gone, 0);
 	g_ptr_array_set_size(new, 0);
 	g_ptr_array_set_size(up, 0);
@@ -481,7 +482,7 @@ static void free_items_array(GPtrArray *array)
 static void notify_deleted(Directory *dir, GPtrArray *deleted)
 {
 	GList	*next;
-	
+
 	if (!deleted->len)
 		return;
 
@@ -699,6 +700,7 @@ static void set_idle_callback(Directory *dir)
 		dir_set_scanning(dir, TRUE);
 		if (dir->idle_callback)
 			return;
+
 		time(&diritem_recent_time);
 		dir->idle_callback = g_idle_add(recheck_callback, dir);
 		/* Do the first call now (will remove the callback itself) */
@@ -804,7 +806,7 @@ static void dir_finialize(GObject *object)
 	items = hash_to_array(dir->known_items);
 	free_items_array(items);
 	g_hash_table_destroy(dir->known_items);
-	
+
 	g_free(dir->error);
 	g_free(dir->pathname);
 
@@ -829,7 +831,7 @@ static void directory_init(GTypeInstance *object, gpointer gclass)
 	dir->idle_callback = 0;
 	dir->scanning = FALSE;
 	dir->have_scanned = FALSE;
-	
+
 	dir->users = NULL;
 	dir->needs_update = TRUE;
 	dir->notify_active = FALSE;
@@ -875,7 +877,7 @@ Directory *dir_new(const char *pathname)
 	dir = g_object_new(dir_get_type(), NULL);
 
 	dir->pathname = g_strdup(pathname);
-	
+
 	return dir;
 }
 
@@ -967,7 +969,7 @@ static void dir_rescan(Directory *dir)
 		DirItem *old;
 		guchar *name = names->pdata[i];
 
-		old = g_hash_table_lookup(dir->known_items, name); 
+		old = g_hash_table_lookup(dir->known_items, name);
 		if (old)
 		{
 			/* This flag is cleared when the item is added
@@ -986,7 +988,7 @@ static void dir_rescan(Directory *dir)
 	}
 
 	dir_merge_new(dir);
-	
+
 	/* Ask everyone which items they need to display, and add them to
 	 * the recheck list. Typically, this means we don't waste time
 	 * scanning hidden items.
@@ -1002,7 +1004,7 @@ static void dir_rescan(Directory *dir)
 	in_callback--;
 
 	g_ptr_array_free(names, TRUE);
-		
+
 	set_idle_callback(dir);
 	dir_merge_new(dir);
 }

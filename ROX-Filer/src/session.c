@@ -49,7 +49,7 @@ static void save_state(SmClient *client)
 	SmPropValue *program;
 	gchar *types[] = { "-t", "-B", "-l", "-r" };
 	gint i, nvals;
-	
+
 	if (use_0launch)
 	{
 		g_ptr_array_add(restart_cmd, "0launch");
@@ -60,10 +60,10 @@ static void save_state(SmClient *client)
 		sc_get_prop_value(client, SmProgram, &program, &nvals);
 		g_ptr_array_add(restart_cmd, program->value);
 	}
-	
+
 	g_ptr_array_add(restart_cmd, "-c");
 	g_ptr_array_add(restart_cmd, client->id);
-	
+
 	for (list = all_filer_windows; list; list = list->next)
 	{
 		filer_window = (FilerWindow *)list->data;
@@ -72,7 +72,7 @@ static void save_state(SmClient *client)
 		g_ptr_array_add(restart_cmd, "-d");
 		g_ptr_array_add(restart_cmd, filer_window->sym_path);
 	}
-	
+
 	if (session_auto_respawn)
 	{
 		for(i = 0; i < PANEL_NUMBER_OF_SIDES; i++)
@@ -83,7 +83,7 @@ static void save_state(SmClient *client)
 			g_ptr_array_add(restart_cmd, types[panel->side]);
 			g_ptr_array_add(restart_cmd, panel->name);
 		}
-		
+
 		if (pinboard)
 		{
 			g_ptr_array_add(restart_cmd, "-p");
@@ -94,8 +94,8 @@ static void save_state(SmClient *client)
 	{
 		g_ptr_array_add(restart_cmd, "-S");
 	}
-	
-	sc_set_list_of_array_prop(client, SmRestartCommand, 
+
+	sc_set_list_of_array_prop(client, SmRestartCommand,
 			(const gchar **) restart_cmd->pdata, restart_cmd->len);
 
 	g_ptr_array_free(restart_cmd, TRUE);
@@ -147,13 +147,13 @@ void session_init(const gchar *client_id)
 	}
 
 	client = sc_new(client_id);
-	
+
 	if (!sc_connect(client))
 	{
 		sc_destroy(client);
 		return;
 	}
-	
+
 	sc_set_array_prop(client, SmProgram, bin_path);
 	sc_set_array_prop(client, SmUserID, pw->pw_name);
 	sc_set_list_of_array_prop(client, SmCloneCommand,
@@ -161,7 +161,7 @@ void session_init(const gchar *client_id)
 			clone_cmd[2] == NULL ? 2 : 3);
 	sc_set_card_prop(client, SmRestartStyleHint,
 			session_auto_respawn ? SmRestartImmediately : SmRestartIfRunning);
-	
+
 	client->save_yourself_fn = &save_yourself;
 	client->shutdown_cancelled_fn = NULL;
 	client->save_complete_fn = NULL;

@@ -195,7 +195,7 @@ static void drop_box_class_init(gpointer gclass, gpointer data)
 
 	drop_box->path_dropped = NULL;
 	drop_box->clear = NULL;
-	
+
 	widget->drag_data_received = drop_box_drag_data_received;
 
 	g_signal_new("path_dropped",
@@ -262,7 +262,7 @@ static void drop_box_drag_data_received(GtkWidget *drop_box,
 				"onto the drop area."));
 		goto err;
 	}
-		
+
 	path = get_local_path((EscapedPath *) uris->data);
 
 	if (!path)
@@ -286,7 +286,7 @@ static void drop_box_drag_data_received(GtkWidget *drop_box,
 err:
 	if (path)
 		g_free(path);
-	
+
 	if (uris)
 		g_list_free(uris);
 	gtk_drag_finish(context, success, FALSE, time);	/* Failure */

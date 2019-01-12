@@ -103,9 +103,9 @@ void read_globicons()
 	{
 		xmlNodePtr node, icon, root;
 		char	   *match;
-		
+
 		root = xmlDocGetRootElement(doc);
-		
+
 		/* Handle the new XML file format */
 		for (node = root->xmlChildrenNode; node; node = node->next)
 		{
@@ -222,7 +222,7 @@ static void clear_icon(DropBox *drop_box, GObject *dialog)
 
 	pathname = g_object_get_data(G_OBJECT(dialog), "pathname");
 	g_return_if_fail(pathname != NULL);
-	
+
 	radios = g_object_get_data(G_OBJECT(dialog), "radios");
 	g_return_if_fail(radios != NULL);
 
@@ -270,7 +270,7 @@ void icon_set_handler_dialog(DirItem *item, const guchar *path)
 	GtkDialog	*dialog;
 	GtkWidget	*frame;
 	Radios		*radios;
-	
+
 	g_return_if_fail(item != NULL && path != NULL);
 
 	dialog = GTK_DIALOG(gtk_dialog_new());
@@ -293,7 +293,7 @@ void icon_set_handler_dialog(DirItem *item, const guchar *path)
 			_("Set icon for all `%s/<anything>'"),
 			item->mime_type->media_type);
 #endif
-	
+
 	radios_add(radios,
 			_("Use a copy of the image for all files of this MIME "
 			  "type."), SET_TYPE,
@@ -369,7 +369,7 @@ static void radios_changed(Radios *radios, gpointer data)
 	g_return_if_fail(path != NULL);
 	g_return_if_fail(drop_box != NULL);
 	g_return_if_fail(mime_type != NULL);
-	
+
 	switch (radios_get_value(radios))
 	{
 		case SET_MEDIA:
@@ -479,14 +479,14 @@ static void write_globicons(void)
 static const char *process_globicons_line(gchar *line)
 {
 	guchar *pattern, *iconpath;
-	
+
 	pattern = strtok(line, " \t");
 	/* We ignore empty lines, but they are no cause for a message */
 	if (pattern == NULL)
 		return NULL;
-	
+
 	iconpath = strtok(NULL, " \t");
-	
+
 	/* If there is no icon, then we worry */
 	g_return_val_if_fail(iconpath != NULL,
 			"Invalid line in globicons: no icon specified");
@@ -558,7 +558,7 @@ static void do_set_icon(GtkWidget *dialog, const gchar *icon)
 	{
 		gboolean just_media = (op == SET_MEDIA);
 		MIME_type *type;
-		
+
 		type = g_object_get_data(G_OBJECT(dialog), "mime-type");
 
 		if (!set_icon_for_type(type, icon, just_media))

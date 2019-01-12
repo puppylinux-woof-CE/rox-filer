@@ -92,7 +92,7 @@ xmlNode *get_subnode(xmlNode *node, const char *namespaceURI, const char *name)
 				return best_lang(node);
 			continue;
 		}
-		
+
 		if (strcmp(node->ns->href, namespaceURI) == 0)
 			return best_lang(node);
 	}
@@ -114,7 +114,7 @@ static xmlNode *best_lang(xmlNode *first)
 	xmlNode *fallback = NULL, *fallback2 = NULL;
 	const char *target_lang = current_lang ? current_lang : "en";
 	char *territory;
-	
+
 	g_return_val_if_fail(first != NULL, NULL);
 
 	territory = strchr(target_lang, '_');
@@ -139,7 +139,7 @@ static xmlNode *best_lang(xmlNode *first)
 				break;
 
 		lang = xmlNodeGetLang(node);
-		
+
 		if (!lang)
 			continue;
 		if (strcmp(lang, target_lang) == 0)

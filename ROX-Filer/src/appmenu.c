@@ -148,7 +148,7 @@ static GtkWidget *appmenu_add_submenu(xmlNode *subm_node)
 
         /* Create the new submenu */
 	sub_menu = gtk_menu_new();
-	
+
 	/* Add the menu entries */
 	for (node = subm_node->xmlChildrenNode; node; node = node->next)
 	{
@@ -183,7 +183,7 @@ static GtkWidget *create_menu_item(xmlNode *node)
 		is_submenu = TRUE;
 	else
 		return NULL;
-			
+
 	/* Create the item */
 	label_node = get_subnode(node, NULL, "Label");
 	if (label_node)
@@ -198,7 +198,7 @@ static GtkWidget *create_menu_item(xmlNode *node)
 			label = g_strdup(_("<missing label>"));
 	}
 	item = gtk_image_menu_item_new_with_label(label);
-	
+
 	icon_name = xmlGetProp(node, "icon");
 	if (icon_name)
 	{
@@ -225,7 +225,7 @@ static GtkWidget *create_menu_item(xmlNode *node)
 	}
 
 	gtk_widget_set_accel_path(item, NULL, NULL);	/* XXX */
-	
+
 	g_free(label);
 
 	if (is_submenu)
@@ -277,7 +277,7 @@ static void apprun_menu(GtkWidget *item, gpointer data)
 	g_return_if_fail(current_app_path != NULL);
 
 	option = g_object_get_data(G_OBJECT(item), "option");
-	
+
 	argv[0] = g_strconcat(current_app_path, "/AppRun", NULL);
 	argv[1] = option;	/* (may be NULL) */
 	argv[2] = NULL;
@@ -343,10 +343,11 @@ static void build_menu_for_type(MIME_type *type)
 
 	widgets = g_list_reverse(widgets);
 	current_items = g_list_concat(widgets, current_items);
-	
+
 	item = gtk_menu_item_new_with_label(_("Customise Menu..."));
 	current_items = g_list_prepend(current_items, item);
 	g_signal_connect(item, "activate", G_CALLBACK(customise_type), type);
+
 	gtk_widget_show(item);
 }
 

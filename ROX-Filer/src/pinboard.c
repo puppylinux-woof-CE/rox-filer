@@ -168,7 +168,7 @@ static gint leave_notify(GtkWidget *widget,
 static gboolean button_press_event(GtkWidget *widget,
 			    GdkEventButton *event,
                             PinIcon *pi);
-static gboolean scroll_event(GtkWidget *widget, 
+static gboolean scroll_event(GtkWidget *widget,
                              GdkEventScroll *event);
 static gint icon_motion_notify(GtkWidget *widget,
 			       GdkEventMotion *event,
@@ -304,7 +304,7 @@ void pinboard_activate(const gchar *name)
 	}
 
 	number_of_windows++;
-	
+
 	slash = strchr(name, '/');
 	if (slash)
 	{
@@ -418,11 +418,11 @@ void pinboard_add_widget(GtkWidget *widget, const gchar *name)
 	}
 	/*printf("%s at %d,%d %d\n", name? name: "(nil)", rect->x,
 	  rect->y, found);*/
-	find_free_rect(current_pinboard, rect, found, 
+	find_free_rect(current_pinboard, rect, found,
 			o_iconify_start.int_value, o_iconify_dir.int_value);
 	/*printf("%s at %d,%d %d\n", name? name: "(nil)", rect->x,
 	  rect->y, found);*/
-	
+
 	gtk_fixed_move(GTK_FIXED(current_pinboard->fixed),
 			widget, rect->x, rect->y);
 
@@ -450,10 +450,10 @@ void pinboard_moved_widget(GtkWidget *widget, const gchar *name,
 /* Add a new icon to the background.
  * 'path' should be an absolute pathname.
  * 'x' and 'y' are the coordinates of the point in the middle of the text.
- *   If they are negative, the icon is placed automatically. 
+ *   If they are negative, the icon is placed automatically.
  *   The values then indicate where they should be added.
  *   x: -1 means left, -2 means right
- *   y: -1 means top, -2 means bottom  
+ *   y: -1 means top, -2 means bottom
  * 'name' is the name to use. If NULL then the leafname of path is used.
  * If update is TRUE and there's already an icon for that path, it is updated.
  */
@@ -474,7 +474,7 @@ void pinboard_pin_with_args(const gchar *path, const gchar *name,
 	if (update)
 	{
 		GList		*iter;
-		
+
 		for (iter = current_pinboard->icons; iter; iter = iter->next)
 		{
 			icon = (Icon *) iter->data;
@@ -499,7 +499,7 @@ void pinboard_pin_with_args(const gchar *path, const gchar *name,
 	icon = (Icon *) pi;
 
 	/* This is a bit complicated...
-	 * 
+	 *
 	 * An icon needs to be a NO_WINDOW widget so that the image can
 	 * blend with the background (A ParentRelative window also works, but
 	 * is slow, causes the xfree86's memory consumption to grow without
@@ -599,7 +599,7 @@ void pinboard_pin_with_args(const gchar *path, const gchar *name,
 			G_CALLBACK(pin_icon_destroyed), pi);
 
 	current_pinboard->icons = g_list_prepend(current_pinboard->icons, pi);
-	
+
 out:
 	snap_to_grid(&x, &y);
 
@@ -647,10 +647,10 @@ gboolean pinboard_remove(const gchar *path, const gchar *name)
 
 		if(name && strcmp(name, icon->item->leafname)!=0)
 			continue;
-	
+
 		icon->locked = FALSE;
 		icon_destroy(icon);
-	
+
 		pinboard_save();
 
 		return TRUE;
@@ -716,7 +716,7 @@ void pinboard_set_backdrop_app(const gchar *app)
 		diritem_free(item);
 		return;
 	}
-	
+
 	ai = appinfo_get(app, item);
 	diritem_free(item);
 
@@ -785,7 +785,7 @@ static void pinboard_set_backdrop_box(void)
 			BACKDROP_TILE, _("Tile"));
 
 	update_radios(dialog);
-	
+
 	/* The drop area... */
 	frame = drop_box_new(_("Drop an image here"));
 	g_object_set_data(G_OBJECT(dialog), "rox-dropbox", frame);
@@ -867,7 +867,7 @@ void pinboard_set_backdrop(const gchar *path, BackdropStyle style)
 	reload_backdrop(current_pinboard,
 			current_pinboard->backdrop,
 			current_pinboard->backdrop_style);
-	
+
 	pinboard_save();
 
 	if (set_backdrop_dialog)
@@ -890,7 +890,7 @@ void pinboard_update_size(void)
 
 	gtk_window_get_size(GTK_WINDOW(current_pinboard->window),
 			&width, &height);
-	
+
 	/* Only update the pinboard's size if the screen gets bigger,
 	 * not smaller. Not sure what to do about icons that end up
 	 * offscreen if the screen shrinks, but perhaps a good policy
@@ -898,7 +898,7 @@ void pinboard_update_size(void)
 	 * again rather than mess them around. */
 	width = MAX(width, screen_width);
 	height = MAX(height, screen_height);
-	
+
 	gtk_widget_set_size_request(current_pinboard->window, width, height);
 }
 
@@ -1003,7 +1003,7 @@ static void pinboard_check_options(void)
 			reload_backdrop(current_pinboard,
 					current_pinboard->backdrop,
 					current_pinboard->backdrop_style);
-			
+
 			reshape_all();
 		}
 
@@ -1043,7 +1043,7 @@ static GdkPixbuf *get_stock_icon(GtkWidget *widget,
 {
 	GtkIconSet      *icon_set;
 	GdkPixbuf	*pixbuf;
-	
+
 	icon_set = gtk_style_lookup_icon_set(widget->style,
 					     stock_id);
 	if (icon_set)
@@ -1075,7 +1075,7 @@ static gint draw_icon(GtkWidget *widget, GdkEventExpose *event, PinIcon *pi)
 	int		iheight = image->height;
 	int		x, y;
 	GdkPixbuf	*pixbuf;
-	
+
 	if (!parent_class)
 	{
 		gpointer c = ((GTypeInstance *) widget)->g_class;
@@ -1115,7 +1115,7 @@ static gint draw_icon(GtkWidget *widget, GdkEventExpose *event, PinIcon *pi)
 					     item->flags & ITEM_FLAG_MOUNTED
 						   ? ROX_STOCK_MOUNTED
 						   : ROX_STOCK_MOUNT);
-					
+
 		render_pixbuf(emblem, pi->widget->window,
 				pi->widget->style->black_gc,
 				x, y, -1, -1);
@@ -1196,7 +1196,7 @@ static void select_lasso(void)
 	int minx, miny, maxx, maxy;
 
 	g_return_if_fail(lasso_in_progress == TRUE);
-	
+
 	minx = MIN(lasso_rect_x1, lasso_rect_x2);
 	miny = MIN(lasso_rect_y1, lasso_rect_y2);
 	maxx = MAX(lasso_rect_x1, lasso_rect_x2);
@@ -1251,7 +1251,7 @@ static gint lasso_motion(GtkWidget *widget, GdkEventMotion *event, gpointer d)
 static void draw_lasso(void)
 {
 	GdkRectangle area, edge;
-	
+
 	if (!lasso_in_progress)
 		return;
 
@@ -1263,21 +1263,21 @@ static void draw_lasso(void)
 	edge.x = area.x;
 	edge.y = area.y;
 	edge.width = area.width;
-	
+
 	edge.height = 2;		/* Top */
 	gdk_window_invalidate_rect(current_pinboard->window->window,
 				   &edge, TRUE);
-	
+
 	edge.y += area.height - 2;	/* Bottom */
 	gdk_window_invalidate_rect(current_pinboard->window->window,
 				   &edge, TRUE);
-	
+
 	edge.y = area.y;
 	edge.height = area.height;
 	edge.width = 2;			/* Left */
 	gdk_window_invalidate_rect(current_pinboard->window->window,
 				   &edge, TRUE);
-	
+
 	edge.x += area.width - 2;	/* Right */
 	gdk_window_invalidate_rect(current_pinboard->window->window,
 				   &edge, TRUE);
@@ -1287,7 +1287,7 @@ static void perform_action(PinIcon *pi, GdkEventButton *event)
 {
 	BindAction	action;
 	Icon		*icon = (Icon *) pi;
-	
+
 	action = bind_lookup_bev(pi ? BIND_PINBOARD_ICON : BIND_PINBOARD,
 				 event);
 
@@ -1408,7 +1408,7 @@ static gboolean button_release_event(GtkWidget *widget,
 	}
 
 	perform_action(pi, event);
-	
+
 	return TRUE;
 }
 
@@ -1419,7 +1419,7 @@ static gboolean button_press_event(GtkWidget *widget,
 {
 	/* Just in case we've jumped in front of everything... */
 	gdk_window_lower(current_pinboard->window->window);
-	
+
 	if (FORWARDED_BUTTON(pi, event->button))
 		forward_to_root(event);
 	else if (dnd_motion_press(widget, event))
@@ -1470,9 +1470,9 @@ static void start_drag(PinIcon *pi, GdkEventMotion *event)
 		tmp_icon_selected = TRUE;
 		icon_select_only(icon);
 	}
-	
+
 	g_return_if_fail(icon_selection != NULL);
-	
+
 	pinboard_drag_in_progress = icon;
 
 	if (icon_selection->next == NULL)
@@ -1569,7 +1569,7 @@ static void pinboard_load_from_xml(xmlDocPtr doc)
 			path = g_strdup("<missing path>");
 		shortcut = xmlGetProp(node, "shortcut");
 		args = xmlGetProp(node, "args");
-		
+
 		tmp = xmlGetProp(node, "locked");
 		if (tmp)
 		{
@@ -1683,7 +1683,7 @@ static void pinboard_save(void)
 		tmp = g_strdup_printf("%d", pi->x);
 		xmlSetProp(tree, "x", tmp);
 		g_free(tmp);
-		
+
 		tmp = g_strdup_printf("%d", pi->y);
 		xmlSetProp(tree, "y", tmp);
 		g_free(tmp);
@@ -1836,7 +1836,7 @@ static gboolean bg_expose(GtkWidget *widget,
 	{
 		GtkStyle *style = current_pinboard->window->style;
 		GdkGC *gc = style->bg_gc[GTK_STATE_NORMAL];
-		
+
 		gdk_gc_set_clip_region(gc, event->region);
 		if (style->bg_pixmap[GTK_STATE_NORMAL])
 		{
@@ -1845,7 +1845,7 @@ static gboolean bg_expose(GtkWidget *widget,
 			gdk_gc_set_tile(gc, style->bg_pixmap[GTK_STATE_NORMAL]);
 		}
 
-		gdk_draw_rectangle(current_pinboard->window->window, gc, TRUE, 
+		gdk_draw_rectangle(current_pinboard->window->window, gc, TRUE,
 				   clipbox.x, clipbox.y,
 				   clipbox.width, clipbox.height);
 		if (style->bg_pixmap[GTK_STATE_NORMAL])
@@ -1869,7 +1869,7 @@ static gboolean bg_expose(GtkWidget *widget,
 	if (lasso_in_progress)
 	{
 		GdkRectangle area;
-		
+
 		area.x = MIN(lasso_rect_x1, lasso_rect_x2);
 		area.y = MIN(lasso_rect_y1, lasso_rect_y2);
 		area.width = ABS(lasso_rect_x1 - lasso_rect_x2);
@@ -1905,7 +1905,7 @@ static gboolean bg_expose(GtkWidget *widget,
 static void pinboard_set_shadow(gboolean on)
 {
 	GdkRectangle area;
-	
+
 	if (pinboard_shadow)
 	{
 		area.x = shadow_x;
@@ -2023,7 +2023,7 @@ static gboolean bg_drag_motion(GtkWidget	*widget,
 		return FALSE;
 
 	pinboard_set_shadow(TRUE);
-	
+
 	gdk_drag_status(context,
 			context->suggested_action == GDK_ACTION_ASK
 				? GDK_ACTION_LINK : context->suggested_action,
@@ -2081,7 +2081,7 @@ static void pinboard_clear(void)
 	gtk_widget_destroy(current_pinboard->window);
 
 	abandon_backdrop_app(current_pinboard);
-	
+
 	g_object_unref(current_pinboard->shadow_gc);
 	current_pinboard->shadow_gc = NULL;
 
@@ -2134,7 +2134,7 @@ static void pin_icon_class_init(gpointer gclass, gpointer data)
 	IconClass *icon = (IconClass *) gclass;
 
 	parent_class = g_type_class_peek_parent(gclass);
-	
+
 	icon->destroy = pin_icon_destroy;
 	icon->redraw = pinboard_reshape_icon;
 	icon->update = pin_icon_update;
@@ -2182,7 +2182,7 @@ static PinIcon *pin_icon_new(const char *pathname, const char *name)
 	icon = (Icon *) pi;
 
 	icon_set_path(icon, pathname, name);
-	
+
 	return pi;
 }
 
@@ -2300,7 +2300,7 @@ static void create_pinboard_window(Pinboard *pinboard)
 	gtk_widget_add_events(win,
 			GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
 			GDK_EXPOSURE_MASK |
-			GDK_BUTTON1_MOTION_MASK | 
+			GDK_BUTTON1_MOTION_MASK |
 			GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK);
 	g_signal_connect(win, "button-press-event",
 			G_CALLBACK(button_press_event), NULL);
@@ -2501,7 +2501,7 @@ static void command_from_backdrop_app(Pinboard *pinboard, const gchar *command)
 	while (*ok)
 	{
 		int sent;
-		
+
 		sent = write(pinboard->to_backdrop_app, ok, strlen(ok));
 		if (sent <= 0)
 		{
@@ -2569,7 +2569,7 @@ static void reload_backdrop(Pinboard *pinboard,
 
 		argv[0] = make_path(backdrop, "AppRun");
 
-		/* Run the program. It'll send us a SOAP message and we'll 
+		/* Run the program. It'll send us a SOAP message and we'll
 		 * get back here with a different style and image.
 		 */
 
@@ -2599,7 +2599,7 @@ static void reload_backdrop(Pinboard *pinboard,
 	}
 
 	/* Note: Copying a style does not ref the pixmaps! */
-	
+
 	style = gtk_style_copy(gtk_widget_get_style(pinboard->window));
 	style->bg_pixmap[GTK_STATE_NORMAL] = NULL;
 
@@ -2712,7 +2712,7 @@ static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
 	GList *next;
 	GdkRectangle used_rect;
 	int dx = SEARCH_STEP, dy = SEARCH_STEP;
-	
+
 	used = gdk_region_new();
 
 	panel_mark_used(used);
@@ -2748,7 +2748,7 @@ static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
 
 	if (o_right_margin.int_value > 0)
 	{
-		used_rect.x = gdk_screen_width() - o_right_margin.int_value; 
+		used_rect.x = gdk_screen_width() - o_right_margin.int_value;
 		used_rect.y = 0;
 		used_rect.width = o_right_margin.int_value;
 		used_rect.height = gdk_screen_height();
@@ -2801,7 +2801,7 @@ static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
 		search_free_area(rect, used, direction, dx, dy,
 			0, 0, screen_width - rect->width, screen_height - rect->height);
 	}
-	
+
 	gdk_region_destroy(used);
 
 	if (rect->x == -1)

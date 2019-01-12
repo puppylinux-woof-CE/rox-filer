@@ -11,7 +11,7 @@
 /* Public interface */
 void read_globicons(void);
 void check_globicon(const guchar *path, DirItem *item);
-MaskedPixmap* get_globicon(const guchar *path);
+MaskedPixmap *get_globicon(const guchar *path);
 void icon_set_handler_dialog(DirItem *item, const guchar *path);
 void add_globicon(const gchar *path, const gchar *icon);
 void delete_globicon(const gchar *path);

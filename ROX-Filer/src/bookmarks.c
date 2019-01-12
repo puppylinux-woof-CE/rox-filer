@@ -138,7 +138,7 @@ void bookmarks_edit(void)
 	model = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
 
 	list = gtk_tree_view_new_with_model(GTK_TREE_MODEL(model));
-	
+
 	cell = gtk_cell_renderer_text_new();
 	g_signal_connect(G_OBJECT(cell), "edited",
 		    G_CALLBACK(cell_edited), model);
@@ -146,7 +146,7 @@ void bookmarks_edit(void)
 	g_object_set_data(G_OBJECT(cell), "column", GINT_TO_POINTER(0));
 	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(list), -1,
 		_("Path"), cell, "text", 0, NULL);
-	
+
 	cell = gtk_cell_renderer_text_new();
 	g_signal_connect(G_OBJECT(cell), "edited",
 		    G_CALLBACK(cell_edited), model);
@@ -154,7 +154,7 @@ void bookmarks_edit(void)
 	g_object_set_data(G_OBJECT(cell), "column", GINT_TO_POINTER(1));
 	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(list), -1,
 		_("Title"), cell, "text", 1, NULL);
-	
+
 	gtk_tree_view_set_reorderable(GTK_TREE_VIEW(list), TRUE);
 	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(list), TRUE);
 
@@ -173,7 +173,7 @@ void bookmarks_edit(void)
 					    node->xmlChildrenNode, 1);
 		if (!mark)
 			continue;
-		
+
 		title=xmlGetProp(node, "title");
 		if(!title)
 			title=mark;
@@ -182,10 +182,10 @@ void bookmarks_edit(void)
 		gtk_list_store_set(model, &iter, 0, mark, 1, title, -1);
 		if(title!=mark)
 			xmlFree(title);
-		
+
 		xmlFree(mark);
 	}
-	
+
 	gtk_widget_set_size_request(list, 300, 300);
 	gtk_container_add(GTK_CONTAINER(swin), list);
 
@@ -267,7 +267,7 @@ void bookmarks_add_history(const gchar *path)
 
 	new = g_strdup(path);
 	ensure_utf8(&new);
-	
+
 	if (!history_hash)
 		history_hash = g_hash_table_new(g_str_hash, g_str_equal);
 
@@ -333,7 +333,7 @@ static void position_menu(GtkMenu *menu, gint *x, gint *y,
 		   	  gboolean *push_in, gpointer data)
 {
 	FilerWindow *filer_window = (FilerWindow *) data;
-	
+
 	gdk_window_get_origin(GTK_WIDGET(filer_window->view)->window, x, y);
 }
 
@@ -607,7 +607,7 @@ static gboolean dir_dropped(GtkWidget *window, GdkDragContext *context,
 	}
 
 	model = GTK_LIST_STORE(gtk_tree_view_get_model(view));
-	
+
 	uris = uri_list_to_glist(selection_data->data);
 
 	for (next = uris; next; next = next->next)
@@ -620,7 +620,7 @@ static gboolean dir_dropped(GtkWidget *window, GdkDragContext *context,
 		{
 			GtkTreeIter iter;
 			struct stat info;
-			
+
 			if (mc_stat(path, &info) == 0 && S_ISDIR(info.st_mode))
 			{
 				gtk_list_store_append(model, &iter);
@@ -713,6 +713,7 @@ static void free_path_for_item(GtkWidget *widget, gpointer udata)
 	g_free(path);
 }
 
+
 static GtkWidget *build_history_menu(FilerWindow *filer_window)
 {
 	GtkWidget *menu;
@@ -727,7 +728,7 @@ static GtkWidget *build_history_menu(FilerWindow *filer_window)
 
 	g_return_val_if_fail(history_hash != NULL, menu);
 	g_return_val_if_fail(history_tail != NULL, menu);
-	
+
 	items = g_ptr_array_new();
 
 	for (next = history; next; next = next->next)
@@ -814,13 +815,13 @@ static GtkWidget *bookmarks_build_menu(FilerWindow *filer_window)
 		if (!mark)
 			continue;
 		path=g_strdup(mark);
-		
+
 		title=xmlGetProp(node, "title");
 		if(!title)
 			title=mark;
-		
+
 		item = gtk_menu_item_new_with_label(title);
-		
+
 		g_object_set_data(G_OBJECT(item), "bookmark-path", path);
 		g_signal_connect(item, "destroy",
 				 G_CALLBACK(free_path_for_item), path);

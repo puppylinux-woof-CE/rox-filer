@@ -52,14 +52,14 @@
 #include "support.h"
 #include "gui_support.h"
 
-/* 
+/*
  * Behaviour:
  *
  * - Clicking Save or pressing Return:
  * 	- Emits 'save_to_file',
  * 	- Emits 'saved_to_uri' (with the same pathname),
  * 	- Destroys the widget.
- *   
+ *
  * - Clicking Cancel or pressing Escape:
  * 	- Destroys the widget.
  *
@@ -80,10 +80,10 @@
  * Discard is a bit like a successful save to a null device. The data should
  * be discarded when saved_to_uri is called, whatever URI is set to.
  *
- * 
+ *
  * Signals:
- * 
- * gint save_to_file (GtkSavebox *savebox, const gchar *pathname) 
+ *
+ * gint save_to_file (GtkSavebox *savebox, const gchar *pathname)
  * 	Save the data to disk using this pathname. Return GTK_XDS_SAVED
  * 	on success, or GTK_XDS_SAVE_ERROR on failure (and report the error
  * 	to the user somehow). DO NOT mark the data unmodified or change
@@ -187,7 +187,7 @@ gtk_savebox_class_init (GtkSaveboxClass *class)
 {
   GObjectClass	 *object_class;
   GtkDialogClass *dialog = (GtkDialogClass *) class;
-  
+
   XdndDirectSave = gdk_atom_intern ("XdndDirectSave0", FALSE);
   text_plain = gdk_atom_intern ("text/plain", FALSE);
   xa_string = gdk_atom_intern ("STRING", FALSE);
@@ -268,12 +268,12 @@ gtk_savebox_init (GtkSavebox *savebox)
   g_signal_connect_swapped (savebox->entry, "activate",
 			     G_CALLBACK (do_save), savebox);
   gtk_box_pack_start (GTK_BOX (dialog->vbox), savebox->entry, FALSE, TRUE, 4);
-  
+
   gtk_widget_show_all (dialog->vbox);
   gtk_widget_grab_focus (savebox->entry);
 
   savebox->discard_area = gtk_hbutton_box_new();
-  
+
   button = button_new_mixed (GTK_STOCK_DELETE, "_Discard");
   gtk_box_pack_start (GTK_BOX (savebox->discard_area), button, FALSE, TRUE, 2);
   g_signal_connect (button, "clicked", G_CALLBACK (discard_clicked), savebox);
@@ -292,7 +292,7 @@ gtk_savebox_set_action (GtkSavebox *savebox, GdkDragAction action)
 {
   g_return_if_fail (savebox != NULL);
   g_return_if_fail (GTK_IS_SAVEBOX (savebox));
-  
+
   savebox->dnd_action = action;
 }
 
@@ -302,7 +302,7 @@ gtk_savebox_new (const gchar *action)
   GtkWidget *button;
   GtkDialog *dialog;
   GList	    *list, *next;
-  
+
   dialog = GTK_DIALOG (gtk_widget_new (gtk_savebox_get_type(), NULL));
 
   gtk_dialog_add_button (dialog, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL);
@@ -344,7 +344,7 @@ gtk_savebox_set_pathname (GtkSavebox *savebox, const gchar *pathname)
 {
   const gchar *slash, *dot;
   gint	leaf;
-  
+
   g_return_if_fail (savebox != NULL);
   g_return_if_fail (GTK_IS_SAVEBOX (savebox));
   g_return_if_fail (pathname != NULL);
@@ -352,10 +352,10 @@ gtk_savebox_set_pathname (GtkSavebox *savebox, const gchar *pathname)
   gtk_entry_set_text (GTK_ENTRY (savebox->entry), pathname);
 
   slash = strrchr (pathname, '/');
-  
+
   leaf = slash ? g_utf8_pointer_to_offset(pathname, slash) + 1 : 0;
   dot = strrchr(pathname + leaf, '.');
-  
+
   gtk_editable_select_region (GTK_EDITABLE (savebox->entry), leaf,
 			      dot ? g_utf8_pointer_to_offset (pathname, dot)
 			      	  : -1);
@@ -396,7 +396,7 @@ button_press_over_icon (GtkWidget *drag_box, GdkEventButton *event,
   }
   else
     leafname = _("Unnamed");
-  
+
   write_xds_property (context, leafname);
   g_free(base);
   gtk_drag_set_icon_pixbuf (context,
@@ -440,7 +440,7 @@ drag_data_get (GtkWidget	*widget,
   {
     gint result = GTK_XDS_NO_HANDLER;
     EscapedPath *escaped_uri;
-    
+
     /* Escape and then unescape. A little inefficient. */
     escaped_uri = escape_uri_path (uri);
     pathname = get_local_path (escaped_uri);
@@ -449,7 +449,7 @@ drag_data_get (GtkWidget	*widget,
 		    pathname, (char *) escaped_uri);
 #endif
     g_free (escaped_uri);
-    
+
     if (!pathname)
       to_send = 'F';    /* Not on the local machine */
     else
@@ -487,7 +487,7 @@ read_xds_property (GdkDragContext *context, gboolean delete)
   guchar  *prop_text;
   guint	  length;
   guchar  *retval = NULL;
-  
+
   g_return_val_if_fail (context != NULL, NULL);
 
   if (gdk_property_get (context->source_window, XdndDirectSave, text_plain,
@@ -541,7 +541,7 @@ static void drag_end (GtkWidget *widget, GdkDragContext *context)
 	  escaped_uri = escape_uri_path (uri);
 	  path = get_local_path (escaped_uri);
 	  g_free(escaped_uri);
-	  
+
 	  g_signal_emit (widget, savebox_signals[SAVED_TO_URI], 0,
 			 path ? path : (const gchar *) uri);
 	  if (path)
@@ -633,7 +633,7 @@ gtk_savebox_response (GtkDialog *savebox, gint response)
 		gtk_widget_destroy (GTK_WIDGET (savebox));
 }
 
-static void 
+static void
 gtk_savebox_set_property (GObject      *object,
                           guint         prop_id,
                           const GValue *value,
@@ -652,16 +652,16 @@ gtk_savebox_set_property (GObject      *object,
     }
 }
 
-static void 
+static void
 gtk_savebox_get_property (GObject     *object,
                           guint        prop_id,
                           GValue      *value,
                           GParamSpec  *pspec)
 {
   GtkSavebox *savebox;
-  
+
   savebox = GTK_SAVEBOX (object);
-  
+
   switch (prop_id)
     {
     case PROP_HAS_DISCARD:

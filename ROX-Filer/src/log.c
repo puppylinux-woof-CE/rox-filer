@@ -174,7 +174,7 @@ void log_show_window()
 	gtk_widget_show(dialog);
 	g_object_unref(builder);
 }
-	
+
 /****************************************************************
  *			INTERNAL FUNCTIONS			*
  ****************************************************************/

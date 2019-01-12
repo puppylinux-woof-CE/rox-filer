@@ -213,7 +213,7 @@ static GtkWidget *make_vbox(const guchar *path, GObject *window)
 	MaskedPixmap    *thumb;
 
 	g_return_val_if_fail(path[0] == '/', NULL);
-	
+
 	base = g_path_get_basename(path);
 	item = diritem_new(base);
 	g_free(base);
@@ -247,7 +247,7 @@ static GtkWidget *make_vbox(const guchar *path, GObject *window)
 	gtk_label_set_line_wrap(GTK_LABEL(name), TRUE);
 	gtk_label_set_line_wrap_mode(GTK_LABEL(name), PANGO_WRAP_WORD_CHAR);
 	gtk_box_pack_start(GTK_BOX(hbox), name, FALSE, TRUE, 4);
-	
+
 	make_heading(name, PANGO_SCALE_X_LARGE);
 
 	thumb=pixmap_try_thumb(path, FALSE);
@@ -269,12 +269,12 @@ static GtkWidget *make_vbox(const guchar *path, GObject *window)
 		GtkWidget *button, *align;
 
 		align = gtk_alignment_new(0.5, 0.5, 0, 0);
-		
+
 		button = button_new_mixed(GTK_STOCK_JUMP_TO,
 				_("Show _Help Files"));
 		gtk_box_pack_start(vbox, align, FALSE, TRUE, 0);
 		gtk_container_add(GTK_CONTAINER(align), button);
-		g_signal_connect_swapped(button, "clicked", 
+		g_signal_connect_swapped(button, "clicked",
 				G_CALLBACK(show_help_files),
 				(gpointer) path);
 	}
@@ -341,7 +341,7 @@ static void set_selection(GtkTreeView *view, gpointer data)
 
 	if (!primary)
 		primary = gtk_clipboard_get(gdk_atom_intern("PRIMARY", FALSE));
-	
+
 	model = gtk_tree_view_get_model(GTK_TREE_VIEW(view));
 
 	gtk_tree_model_get_iter(model, &iter, path);
@@ -481,13 +481,14 @@ static gboolean read_du_output(GIOChannel *source, GIOCondition cond, DU *du)
 			break;
 	}
 	g_string_free(line, TRUE);
-	
+
 	return FALSE;
 }
 
 static void kill_du_output(GtkWidget *widget, DU *du)
 {
-        g_source_remove(du->watch);
+		g_source_remove(du->watch);
+
 	g_io_channel_shutdown(du->chan, FALSE, NULL);
 	g_io_channel_unref(du->chan);
 	kill((pid_t) du->child, SIGTERM);
@@ -604,7 +605,7 @@ static GtkWidget *make_details(const guchar *path, DirItem *item,
 		} else {
 			DU *du;
 			int out;
-			
+
 			gchar *args[] = {"du", "-sk", "", NULL};
 
 			du = g_new(DU, 1);
@@ -643,7 +644,7 @@ static GtkWidget *make_details(const guchar *path, DirItem *item,
 	}
 
 	add_row_and_free(store, _("Change time:"), pretty_time(&item->ctime));
-	
+
 	add_row_and_free(store, _("Modify time:"), pretty_time(&item->mtime));
 
 	add_row_and_free(store, _("Access time:"), pretty_time(&item->atime));
@@ -692,7 +693,7 @@ static GtkWidget *make_details(const guchar *path, DirItem *item,
 
 	return view;
 }
-	
+
 /* Create the TreeView widget with the application's details */
 static GtkWidget *make_about(const guchar *path, XMLwrapper *ai)
 {
@@ -716,7 +717,7 @@ static GtkWidget *make_about(const guchar *path, XMLwrapper *ai)
 	}
 
 	g_return_val_if_fail(about != NULL, NULL);
-	
+
 	make_list(&store, &view, NULL);
 
 	/* Add each field in about to the list, but overriding each element
@@ -797,7 +798,7 @@ static GtkWidget *make_about_desktop(const gchar *path)
 		add_row_and_free(store, _("Comment"), comment);
 	if(exec)
 		add_row_and_free(store, _("Execute"), exec);
-	
+
 	return view;
 }
 
@@ -815,7 +816,7 @@ static GtkWidget *make_file_says(const guchar *path)
 	l_file_label = GTK_LABEL(w_file_label);
 	gtk_label_set_line_wrap(l_file_label, TRUE);
 	gtk_label_set_selectable(l_file_label, TRUE);
-	
+
 	if (pipe(file_data))
 	{
 		tmp = g_strdup_printf("pipe(): %s", g_strerror(errno));
@@ -893,7 +894,7 @@ static void add_file_output(FileStatus *fs,
 	str = g_strconcat(fs->text, buffer, NULL);
 	g_free(fs->text);
 	fs->text = str;
-	
+
 	str = to_utf8(fs->text);
 	g_strstrip(str);
 	gtk_label_set_text(fs->label, str);
@@ -916,7 +917,7 @@ static void permissions_destroyed(GtkWidget *widget, Permissions *perm)
 {
 	g_free(perm->path);
 	diritem_free(perm->item);
-	
+
 	g_free(perm);
 }
 
@@ -926,7 +927,7 @@ static void permissions_apply(GtkWidget *widget, Permissions *perm)
 	int i;
 
 	nmode=0;
-	
+
 	for (i = 0; i < 9; i++)
 	{
 		GtkToggleButton *bit = GTK_TOGGLE_BUTTON(perm->bits[i]);
@@ -939,7 +940,7 @@ static void permissions_apply(GtkWidget *widget, Permissions *perm)
 		nmode |= S_ISGID;
 	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(perm->bits[11])))
 		nmode |= S_ISVTX;
-	
+
 	if (chmod(perm->path, nmode))
 		report_error(_("Could not change permissions: %s"),
 			     g_strerror(errno));
@@ -1013,7 +1014,7 @@ static GtkWidget *make_permissions(const gchar *path, DirItem *item)
 
 	g_signal_connect(table, "destroy",
 				G_CALLBACK(permissions_destroyed), perm);
-			
+
 	gtk_widget_show_all(table);
 	return table;
 }
@@ -1033,7 +1034,7 @@ static GtkWidget *pack_unmount_radio(const char *path,
         UnmountPrompt btn_value, GtkWidget *group_owner, GtkWidget *hbox)
 {
     GtkWidget *radio;
-    
+
     if (group_owner)
     {
         radio = gtk_radio_button_new_with_label_from_widget(
@@ -1057,7 +1058,7 @@ static GtkWidget *make_unmount_options(const char *path)
 {
     GtkWidget *hbox, *radio;
     UnmountPrompt upval = filer_get_unmount_action(path);
-    
+
     hbox = gtk_hbox_new(TRUE, 4);
     radio = pack_unmount_radio(path, upval,
             _("Do nothing"), UNMOUNT_PROMPT_NO_CHANGE, NULL, hbox);

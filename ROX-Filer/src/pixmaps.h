@@ -53,7 +53,7 @@ struct _MaskedPixmap
 
 	/* If huge_pixbuf is NULL then call pixmap_make_huge() */
 	GdkPixbuf	*huge_pixbuf;
-	int		huge_width, huge_height;
+	int huge_width, huge_height;
 
 	GdkPixbuf	*pixbuf;	/* Normal size image, always valid */
 	int		width, height;

@@ -59,6 +59,7 @@ BindAction bind_lookup_bev(BindContext context, GdkEventButton *event)
 	gboolean background = context == BIND_PINBOARD ||
 				context == BIND_PANEL ||
 				context == BIND_DIRECTORY;
+
 	gboolean press = event->type == GDK_BUTTON_PRESS;
 	gboolean release = event->type == GDK_BUTTON_RELEASE;
 	gboolean select = event->button == 1; /* (old RISC OS names) */

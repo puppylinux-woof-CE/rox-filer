@@ -6,11 +6,9 @@
 #ifndef __GTK_SAVEBOX_H__
 #define __GTK_SAVEBOX_H__
 
-
 #include <gdk/gdk.h>
 #include <gtk/gtkdialog.h>
 #include <gtk/gtkselection.h>
-
 
 #ifdef __cplusplus
 extern "C" {

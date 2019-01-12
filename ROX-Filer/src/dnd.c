@@ -222,7 +222,7 @@ gboolean provides(GdkDragContext *context, GdkAtom target)
 
 /*			DRAGGING FROM US			*/
 
-/* The user has held the mouse button down over a group of item and moved - 
+/* The user has held the mouse button down over a group of item and moved -
  * start a drag. 'uri_list' is copied, so you can delete it straight away.
  */
 void drag_selection(GtkWidget *widget, GdkEventMotion *event, guchar *uri_list)
@@ -235,7 +235,7 @@ void drag_selection(GtkWidget *widget, GdkEventMotion *event, guchar *uri_list)
 		{"text/uri-list", 0, TARGET_URI_LIST},
 		{"UTF8_STRING", 0, TARGET_UTF8},
 	};
-		
+
 	if (event->state & GDK_BUTTON1_MASK)
 		actions = GDK_ACTION_COPY | GDK_ACTION_MOVE
 			| GDK_ACTION_LINK | GDK_ACTION_ASK;
@@ -246,7 +246,7 @@ void drag_selection(GtkWidget *widget, GdkEventMotion *event, guchar *uri_list)
 		else
 			actions = GDK_ACTION_MOVE;
 	}
-	
+
 	target_list = gtk_target_list_new(target_table,
 					G_N_ELEMENTS(target_table));
 
@@ -293,7 +293,7 @@ void drag_one_item(GtkWidget		*widget,
 	if (item->base_type == TYPE_FILE)
 	{
 		MIME_type *t = item->mime_type;
-		
+
 		target_table[3].target = g_strconcat(t->media_type, "/",
 						     t->subtype, NULL);
 		target_list = gtk_target_list_new(target_table,
@@ -313,7 +313,7 @@ void drag_one_item(GtkWidget		*widget,
 		else
 			actions = GDK_ACTION_MOVE;
 	}
-	
+
 	context = gtk_drag_begin(widget,
 			target_list,
 			actions,
@@ -368,7 +368,7 @@ static gchar *uri_list_to_utf8(const char *uri_list)
 		g_free(uri);
 	}
 
-	if (uris)	
+	if (uris)
 		g_list_free(uris);
 
 	string = new->str;
@@ -549,7 +549,7 @@ static gboolean drag_drop(GtkWidget 	  *widget,
 	GdkAtom		target = GDK_NONE;
 	char		*dest_path;
 	char		*dest_type = NULL;
-	
+
 	dest_path = g_dataset_get_data(context, "drop_dest_path");
 	dest_type = g_dataset_get_data(context, "drop_dest_type");
 
@@ -626,7 +626,7 @@ static gboolean drag_drop(GtkWidget 	  *widget,
 	if (error)
 	{
 		gtk_drag_finish(context, FALSE, FALSE, time);	/* Failure */
-		
+
 		delayed_error("%s", error);
 	}
 	else
@@ -660,7 +660,7 @@ static void desktop_drag_data_received(GtkWidget      	*widget,
 		pinboard_move_icons();
 		return;
 	}
-	
+
 	gdk_window_get_position(widget->window, &dx, &dy);
 	x += dx;
 	y += dy;
@@ -684,7 +684,7 @@ static void desktop_drag_data_received(GtkWidget      	*widget,
 		g_free(next->data);
 	}
 
-	if (uris)	
+	if (uris)
 		g_list_free(uris);
 
 	if (error_example)
@@ -860,7 +860,7 @@ static void got_data_raw(GtkWidget 		*widget,
 	leafname = g_dataset_get_data(context, "leafname");
 	if (!leafname)
 		leafname = _("UntitledData");
-	
+
 	fd = open(make_path(dest_path, leafname),
 		O_WRONLY | O_CREAT | O_EXCL | O_NOCTTY,
 			S_IRUSR | S_IRGRP | S_IROTH |
@@ -880,7 +880,7 @@ static void got_data_raw(GtkWidget 		*widget,
 
 		refresh_dirs(dest_path);
 	}
-	
+
 	if (error)
 	{
 		if (provides(context, XdndDirectSave0))
@@ -940,7 +940,7 @@ static void got_uri_list(GtkWidget 		*widget,
 	gboolean	send_reply = TRUE;
 	char		*dest_path;
 	char		*type;
-	
+
 	dest_path = g_dataset_get_data(context, "drop_dest_path");
 	type = g_dataset_get_data(context, "drop_dest_type");
 
@@ -1010,7 +1010,7 @@ static void got_uri_list(GtkWidget 		*widget,
 			/*printf("%s -> %s\n", (char *) next_uri->data,
 			  path? path: "NULL");*/
 
-			if (path) 
+			if (path)
 				local_paths = g_list_append(local_paths,
 								path);
 			else
@@ -1061,7 +1061,7 @@ static void menuitem_response(gpointer data, guint action, GtkWidget *widget)
 		action_link(prompt_local_paths, prompt_dest_path, NULL, TRUE);
 	else if (action == MENU_LINK_ABS)
 		action_link(prompt_local_paths, prompt_dest_path, NULL, FALSE);
-} 
+}
 
 /* When some local files are dropped somewhere with ACTION_ASK, this
  * function is called to display the menu.
@@ -1076,7 +1076,7 @@ static void prompt_action(GList *paths, gchar *dest)
 		destroy_glist(&prompt_local_paths);
 		null_g_free(&prompt_dest_path);
 	}
-	
+
 	/* Make a copy of the arguments */
 	for (next = paths; next; next = next->next)
 		prompt_local_paths = g_list_append(prompt_local_paths,
@@ -1127,7 +1127,7 @@ void dnd_spring_load(GdkDragContext *context, FilerWindow *src_win)
 
 	if (spring_context)
 		dnd_spring_abort();
-	
+
 	spring_context = context;
 	g_object_ref(spring_context);
 	spring_src_window = src_win;
@@ -1181,7 +1181,7 @@ static gboolean spring_now(gpointer data)
 	const char	*type;
 	const guchar	*dest_path;
 	gint		x, y;
-	
+
 	g_return_val_if_fail(spring_context != NULL, FALSE);
 	g_return_val_if_fail(!spring_in_progress, FALSE);
 
@@ -1207,7 +1207,7 @@ static gboolean spring_now(gpointer data)
 		*/
 
 	get_pointer_xy(&x, &y);
-	
+
 	spring_in_progress++;
 	if (spring_window)
 	{
@@ -1276,7 +1276,7 @@ gboolean dnd_motion_press(GtkWidget *widget, GdkEventButton *event)
 
 	if (motion_state != MOTION_NONE)
 		return FALSE;		/* Ignore clicks - we're busy! */
-	
+
 	motion_state = MOTION_DISABLED;
 	drag_start_x = event->x_root;
 	drag_start_y = event->y_root;
@@ -1377,7 +1377,7 @@ void dnd_motion_ungrab(void)
 /* Call this on motion events. If the mouse position is far enough
  * from the click position, returns TRUE and does dnd_motion_ungrab().
  * You should then start regular drag-and-drop.
- * 
+ *
  * Otherwise, returns FALSE.
  */
 gboolean dnd_motion_moved(GdkEventMotion *event)
