@@ -142,7 +142,9 @@ static Tool all_tools[] = {
 	 toolbar_autosize_clicked, DROP_NONE, TRUE,
 	 FALSE},
 
-	{N_("Details"), ROX_STOCK_SHOW_DETAILS, N_("Show extra details"),
+	{N_("Details"), ROX_STOCK_SHOW_DETAILS, N_("Left: toggle List View\n"
+				"Center: Return to normal Icon View\n"
+				"Right: cycle extra details"),
 	 toolbar_details_clicked, DROP_NONE, TRUE,
 	 FALSE},
 
