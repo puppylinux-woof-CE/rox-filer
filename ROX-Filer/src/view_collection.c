@@ -632,9 +632,9 @@ static void small_full_template(GdkRectangle *area, CollectionItem *colitem,
 				view->details_height / 2;
 }
 
-#define INSIDE(px, py, area)	\
+#define INSIDE(px, py, area, adj)	\
 	(px >= area.x && py >= area.y && \
-	 px <= area.x + area.width && py <= area.y + area.height)
+	 px <= area.x + area.width + adj && py <= area.y + area.height)
 
 static gboolean test_point(Collection *collection,
 				int point_x, int point_y,
@@ -654,9 +654,11 @@ static gboolean test_point(Collection *collection,
 
 	fill_template(&area, colitem, view_collection, &template);
 
-	return INSIDE(point_x, point_y, template.leafname) ||
-	       INSIDE(point_x, point_y, template.icon) ||
-	       (view->details && INSIDE(point_x, point_y, template.details));
+	int adj = view_collection->filer_window->display_style == SMALL_ICONS ? 4 : 0;
+
+	return INSIDE(point_x, point_y, template.leafname, 0) ||
+	       INSIDE(point_x, point_y, template.icon, adj) ||
+	       (view->details && INSIDE(point_x, point_y, template.details, 0));
 }
 
 /* 'box' renders a background box if the string is also selected */
