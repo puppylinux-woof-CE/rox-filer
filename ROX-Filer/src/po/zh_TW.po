@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-02 18:43-0600\n"
+"POT-Creation-Date: 2019-01-13 00:18-0600\n"
 "PO-Revision-Date: 2008-12-29 16:00+0100\n"
 "Last-Translator: Babyfai Cheung<babyfai1@yahoo.com.hk>\n"
 "Language-Team: none\n"
@@ -32,7 +32,7 @@ msgstr "默許"
 msgid "Don't confirm every operation"
 msgstr "不用對每次操作進行確認"
 
-#: abox.c:454 infobox.c:795 tips:38 tips:80
+#: abox.c:454 infobox.c:796 tips:38 tips:80
 msgid "Name"
 msgstr "名稱"
 
@@ -40,7 +40,7 @@ msgstr "名稱"
 msgid "Directory"
 msgstr "目錄"
 
-#: abox.c:551
+#: abox.c:550
 msgid "Expression:"
 msgstr "表示式："
 
@@ -267,15 +267,15 @@ msgstr ""
 msgid "ERROR"
 msgstr "錯誤"
 
-#: action.c:732 main.c:703 main.c:717
+#: action.c:731 main.c:703 main.c:717
 msgid "Yes"
 msgstr "是"
 
-#: action.c:735 main.c:705 main.c:717
+#: action.c:734 main.c:705 main.c:717
 msgid "No"
 msgstr "否"
 
-#: action.c:753
+#: action.c:752
 msgid ""
 "\n"
 "Asking child process to terminate...\n"
@@ -283,7 +283,7 @@ msgstr ""
 "\n"
 "正在終結子程序... \n"
 
-#: action.c:760
+#: action.c:759
 msgid ""
 "\n"
 "Trying to KILL run-away process...\n"
@@ -291,41 +291,41 @@ msgstr ""
 "\n"
 "嘗試殺掉已遺失之程序... \n"
 
-#: action.c:915
+#: action.c:914
 #, c-format
 msgid "?Count contents of %s?"
 msgstr "?計算內容從 %s?"
 
-#: action.c:952
+#: action.c:951
 #, c-format
 msgid "?Delete %s'%s'?"
 msgstr "?刪除 %s'%s'?"
 
-#: action.c:953
+#: action.c:952
 msgid "WRITE-PROTECTED "
 msgstr "防寫入的"
 
-#: action.c:960
+#: action.c:959
 #, c-format
 msgid "'Deleting '%s'\n"
 msgstr "'正在刪除 '%s'\n"
 
-#: action.c:973
+#: action.c:972
 #, c-format
 msgid "'Directory '%s' deleted\n"
 msgstr "'目錄 '%s' 已刪除\n"
 
-#: action.c:1007
+#: action.c:1006
 #, c-format
 msgid "?Eject '%s'?"
 msgstr "?彈出 '%s'?"
 
-#: action.c:1014
+#: action.c:1013
 #, c-format
 msgid "'Eject '%s'\n"
 msgstr "'正在彈出 '%s'\n"
 
-#: action.c:1033
+#: action.c:1032
 #, c-format
 msgid ""
 "!%s\n"
@@ -334,95 +334,95 @@ msgstr ""
 "!%s\n"
 "彈出失敗\n"
 
-#: action.c:1053 action.c:1072
+#: action.c:1052 action.c:1071
 #, c-format
 msgid "?Check '%s'?"
 msgstr "?檢查 '%s'?"
 
-#: action.c:1069
+#: action.c:1068
 msgid "!Invalid find condition - change it and try again\n"
 msgstr "!非法的找尋設定-請更改後再嘗試\n"
 
-#: action.c:1079
+#: action.c:1078
 #, c-format
 msgid "'(while checking '%s')\n"
 msgstr "'(正當檢查 '%s')\n"
 
-#: action.c:1154 action.c:1179
+#: action.c:1153 action.c:1178
 #, c-format
 msgid "?Change permissions of '%s'?"
 msgstr "?改變 '%s' 的權限？"
 
-#: action.c:1160
+#: action.c:1159
 #, c-format
 msgid "'Changing permissions of '%s'\n"
 msgstr "'正在改變 '%s' 的權限\n"
 
-#: action.c:1177
+#: action.c:1176
 msgid "!Invalid mode command - change it and try again\n"
 msgstr "!非法指令模式-請更改後再試\n"
 
-#: action.c:1235
+#: action.c:1234
 #, c-format
 msgid "?Change contents of '%s'?"
 msgstr "?改變 '%s' 的內容？"
 
-#: action.c:1238 action.c:1258
+#: action.c:1237 action.c:1257
 #, c-format
 msgid "?Change type of '%s'?"
 msgstr "?改變 '%s' 的類型？"
 
-#: action.c:1255
+#: action.c:1254
 msgid "!Invalid type - change it and try again\n"
 msgstr "!非法類型-請更改後再試\n"
 
-#: action.c:1277
+#: action.c:1276
 #, c-format
 msgid "'Changing type of '%s' to '%s'\n"
 msgstr "'正在改變類型從 '%s' 為 '%s'\n"
 
-#: action.c:1300
+#: action.c:1299
 #, c-format
 msgid "'Not changing type of directory '%s'\n"
 msgstr "'目錄 '%s' 的類型沒有改變'\n"
 
-#: action.c:1306
+#: action.c:1305
 #, c-format
 msgid "'Non-regular file '%s' not changed\n"
 msgstr "非常規檔案 '%s' 沒有改變\n"
 
-#: action.c:1389 action.c:1582
+#: action.c:1388 action.c:1581
 #, c-format
 msgid "?'%s' already exists - %s?"
 msgstr "?'%s' 經已存在 - %s?"
 
-#: action.c:1391 action.c:1584
+#: action.c:1390 action.c:1583
 msgid "merge contents"
 msgstr "合拼內容"
 
-#: action.c:1392 action.c:1585
+#: action.c:1391 action.c:1584
 msgid "overwrite"
 msgstr "覆蓋"
 
-#: action.c:1408
+#: action.c:1407
 msgid "'Trying copy anyway...\n"
 msgstr "'嘗試硬複製..\n"
 
-#: action.c:1417
+#: action.c:1416
 #, c-format
 msgid "?Copy %s as %s?"
 msgstr "?複製%s 為 %s?"
 
-#: action.c:1421
+#: action.c:1420
 #, c-format
 msgid "'Copying %s as %s\n"
 msgstr "'正在複製 %s 為 %s\n"
 
-#: action.c:1436 action.c:1631
+#: action.c:1435 action.c:1630
 msgid "!ERROR: Destination already exists, but is not a directory\n"
 msgstr "!錯誤：目標已存在，但不是一個目錄\n"
 
-#: action.c:1515
+#: action.c:1514
 #, c-format
 msgid ""
 "!%s\n"
@@ -431,21 +431,21 @@ msgstr ""
 "!%s\n"
 "複製 '%s' 失敗\n"
 
-#: action.c:1601
+#: action.c:1600
 msgid "'Trying move anyway...\n"
 msgstr "'嘗試強制移動...\n"
 
-#: action.c:1610
+#: action.c:1609
 #, c-format
 msgid "?Move %s as %s?"
 msgstr "?移動 %s 為 %s?"
 
-#: action.c:1614
+#: action.c:1613
 #, c-format
 msgid "'Moving %s as %s\n"
 msgstr "'正在移動 %s 為 %s\n"
 
-#: action.c:1664
+#: action.c:1663
 #, c-format
 msgid ""
 "!%s\n"
@@ -454,45 +454,45 @@ msgstr ""
 "!%s\n"
 "移動 %s 到 %s 失敗\n"
 
-#: action.c:1686
+#: action.c:1685
 msgid "!ERROR: Can't copy object into itself\n"
 msgstr "!錯誤：不能複製物件到本身內\n"
 
-#: action.c:1701
+#: action.c:1700
 msgid "!ERROR: Can't move/rename object into itself\n"
 msgstr "!錯誤：不能移動/改名物件到本身內\n"
 
-#: action.c:1713
+#: action.c:1712
 #, c-format
 msgid "'Linking %s as %s\n"
 msgstr "'連結 %s 為 %s\n"
 
-#: action.c:1718
+#: action.c:1717
 #, c-format
 msgid "?Link %s as %s?"
 msgstr "?連結 %s 為 %s?"
 
-#: action.c:1761
+#: action.c:1760
 #, c-format
 msgid "'Mounting %s\n"
 msgstr "'掛載 %s\n"
 
-#: action.c:1762
+#: action.c:1761
 #, c-format
 msgid "'Unmounting %s\n"
 msgstr "'解除掛載 %s\n"
 
-#: action.c:1765
+#: action.c:1764
 #, c-format
 msgid "?Mount %s?"
 msgstr "?掛載 %s?"
 
-#: action.c:1766
+#: action.c:1765
 #, c-format
 msgid "?Unmount %s?"
 msgstr "?解除掛載 %s?"
 
-#: action.c:1787
+#: action.c:1786
 #, c-format
 msgid ""
 "!%s\n"
@@ -501,7 +501,7 @@ msgstr ""
 "!%s\n"
 "掛載失敗\n"
 
-#: action.c:1788
+#: action.c:1787
 #, c-format
 msgid ""
 "!%s\n"
@@ -510,11 +510,11 @@ msgstr ""
 "!%s\n"
 "解除掛載失敗\n"
 
-#: action.c:1796
+#: action.c:1795
 msgid "'(seems to be mounted now anyway)\n"
 msgstr "'(經已掛載)\n"
 
-#: action.c:1845
+#: action.c:1844
 #, c-format
 msgid ""
 "'\n"
@@ -523,216 +523,216 @@ msgstr ""
 "'\n"
 "總數：%s("
 
-#: action.c:1851
+#: action.c:1850
 msgid "file"
 msgstr "檔案"
 
-#: action.c:1851
+#: action.c:1850
 msgid "files"
 msgstr "檔案"
 
-#: action.c:1855
+#: action.c:1854
 msgid "no directories)\n"
 msgstr "沒有目錄)\n"
 
-#: action.c:1859
+#: action.c:1858
 msgid "directory"
 msgstr "目錄"
 
-#: action.c:1860
+#: action.c:1859
 msgid "directories"
 msgstr "目錄"
 
-#: action.c:1901
+#: action.c:1900
 msgid "!No mount points selected!\n"
 msgstr "!沒有掛載點被標記!\n"
 
-#: action.c:1986
+#: action.c:1984
 msgid "?Another search?"
 msgstr "?其他的搜尋？"
 
-#: action.c:2018 action.c:2052
+#: action.c:2016 action.c:2050
 #, c-format
 msgid "!'%s' is a symbolic link\n"
 msgstr "!'%s' 是一符號連結\n"
 
-#: action.c:2093
+#: action.c:2091
 msgid "You need to select some items to search through"
 msgstr "你需要選擇一些項目來搜尋"
 
-#: action.c:2103 menu.c:261
+#: action.c:2101 menu.c:261
 msgid "Find"
 msgstr "找尋"
 
-#: action.c:2138
+#: action.c:2136
 msgid "You need to select some items to count"
 msgstr "你需要選擇一些項目來計算"
 
-#: action.c:2142
+#: action.c:2140
 msgid "Disk Usage"
 msgstr "磁碟用量"
 
-#: action.c:2180
+#: action.c:2178
 msgid "Mount / Unmount"
 msgstr "掛載 / 解除掛載"
 
-#: action.c:2199
+#: action.c:2197
 msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr "ROX-Filer 對系統上的掛載點尚未支援"
 
-#: action.c:2213 menu.c:246 tips:194
+#: action.c:2211 menu.c:246 tips:194
 msgid "Delete"
 msgstr "刪除"
 
-#: action.c:2227 tips:199
+#: action.c:2225 tips:199
 msgid "Force"
 msgstr "強制"
 
-#: action.c:2227
+#: action.c:2225
 msgid "Don't confirm deletion of non-writeable items"
 msgstr "不可確認刪除唯讀的項目"
 
-#: action.c:2230 action.c:2291 action.c:2356 action.c:2439 action.c:2489
+#: action.c:2228 action.c:2289 action.c:2354 action.c:2437 action.c:2487
 #: tips:201
 msgid "Brief"
 msgstr "簡潔"
 
-#: action.c:2230
+#: action.c:2228
 msgid "Only log directories being deleted"
 msgstr "祗記錄已刪除的目錄"
 
-#: action.c:2249
+#: action.c:2247
 msgid "You need to select the items whose permissions you want to change"
 msgstr "你需選擇更改權限的項目"
 
-#: action.c:2257
+#: action.c:2255
 msgid "a+x (Make executable/searchable)"
 msgstr "a+x (使之可執行/可被搜尋)"
 
-#: action.c:2259
+#: action.c:2257
 msgid "a-x (Make non-executable/non-searchable)"
 msgstr "a-x (使之不可執行/不可被搜尋)"
 
-#: action.c:2261
+#: action.c:2259
 msgid "u+rw (Give owner read+write)"
 msgstr "u+rw (給用戶寫讀的權限)"
 
-#: action.c:2263
+#: action.c:2261
 msgid "go-rwx (Private - owner access only)"
 msgstr "go-rwx (私有化 - 只用戶可存取)"
 
-#: action.c:2265
+#: action.c:2263
 msgid "go=u-w (Public access, not write)"
 msgstr "go=u-w (共享存取，不可寫入)"
 
-#: action.c:2276 menu.c:215 menu.c:259 tips:56 tips:86
+#: action.c:2274 menu.c:215 menu.c:259 tips:56 tips:86
 msgid "Permissions"
 msgstr "權限"
 
-#: action.c:2291 action.c:2356
+#: action.c:2289 action.c:2354
 msgid "Don't list processed files"
 msgstr "不列出已處理的檔案"
 
-#: action.c:2294 action.c:2359 tips:203
+#: action.c:2292 action.c:2357 tips:203
 msgid "Recurse"
 msgstr "包含"
 
-#: action.c:2294
+#: action.c:2292
 msgid "Also change contents of subdirectories"
 msgstr "同時改變子目錄的內容"
 
-#: action.c:2298
+#: action.c:2296
 msgid "Command:"
 msgstr "指令："
 
-#: action.c:2328
+#: action.c:2326
 msgid "You need to select the items whose type you want to change"
 msgstr "你需選擇更改類型的項目"
 
-#: action.c:2341
+#: action.c:2339
 msgid "Set type"
 msgstr "另定類型"
 
-#: action.c:2359
+#: action.c:2357
 msgid "Change contents of subdirectories"
 msgstr "改變子目錄的內容"
 
-#: action.c:2366 infobox.c:651
+#: action.c:2364 infobox.c:652
 msgid "Type:"
 msgstr "類型："
 
-#: action.c:2413 dnd.c:123 menu.c:241 tips:188
+#: action.c:2411 dnd.c:123 menu.c:241 tips:188
 msgid "Copy"
 msgstr "複製"
 
-#: action.c:2427 action.c:2477 tips:209
+#: action.c:2425 action.c:2475 tips:209
 msgid "Ignore Older"
 msgstr ""
 
-#: action.c:2428 action.c:2478 tips:210
+#: action.c:2426 action.c:2476 tips:210
 #, fuzzy
 msgid "Silently ignore if source is older than destination."
 msgstr "只覆蓋舊版本的檔案"
 
-#: action.c:2431 action.c:2481 tips:207
+#: action.c:2429 action.c:2479 tips:207
 msgid "Newer"
 msgstr "更新"
 
-#: action.c:2432 action.c:2482 tips:208
+#: action.c:2430 action.c:2480 tips:208
 #, fuzzy
 msgid "Always over-write if source is newer than destination."
 msgstr "只覆蓋舊版本的檔案"
 
-#: action.c:2435 action.c:2485 tips:205
+#: action.c:2433 action.c:2483 tips:205
 msgid "Merge"
 msgstr ""
 
-#: action.c:2436 action.c:2486 tips:206
+#: action.c:2434 action.c:2484 tips:206
 #, fuzzy
 msgid "Always merge directories."
 msgstr "目錄"
 
-#: action.c:2439
+#: action.c:2437
 msgid "Only log directories as they are copied"
 msgstr "只記錄已被複製的目錄"
 
-#: action.c:2463 dnd.c:124 tips:190
+#: action.c:2461 dnd.c:124 tips:190
 msgid "Move"
 msgstr "移動"
 
-#: action.c:2489
+#: action.c:2487
 msgid "Don't log each file as it is moved"
 msgstr "不記錄每個移動的檔案"
 
-#: action.c:2512 tips:192
+#: action.c:2510 tips:192
 msgid "Link"
 msgstr "連結"
 
-#: action.c:2537 appmenu.c:112 filer.c:680 infobox.c:1067
+#: action.c:2535 appmenu.c:112 filer.c:675 infobox.c:1068
 msgid "Eject"
 msgstr "彈出"
 
-#: action.c:2609
+#: action.c:2608
 msgid "Deleting items such as "
 msgstr "刪除項目為"
 
-#: action.c:2613
+#: action.c:2612
 msgid "Deleting the item "
 msgstr "刪除中"
 
-#: action.c:2615
+#: action.c:2614
 msgid "Deleting the items "
 msgstr "刪除中"
 
-#: action.c:2634
+#: action.c:2633
 msgid " and "
 msgstr " 及 "
 
-#: action.c:2643
+#: action.c:2642
 msgid " will affect some items on the pinboard or panel - really delete it?"
 msgstr "將影嚮桌面或面板上某些項目 - 真的刪除？"
 
-#: action.c:2650
+#: action.c:2649
 msgid " will affect some items on the pinboard or panel - really delete them?"
 msgstr "將影嚮桌面或面板上某些項目 - 真的刪除？"
 
@@ -752,7 +752,7 @@ msgstr ""
 msgid "Customise Menu..."
 msgstr "自定選單..."
 
-#: appmenu.c:402 menu.c:293 toolbar.c:174
+#: appmenu.c:403 menu.c:293 toolbar.c:176
 msgid "Help"
 msgstr "說明"
 
@@ -791,15 +791,15 @@ msgstr "此項目已排在最後"
 msgid "Can't bookmark non-local directories like '%s'"
 msgstr "不能書簽化非本機目錄如 '%s'"
 
-#: bookmarks.c:779
+#: bookmarks.c:780
 msgid "Add New Bookmark"
 msgstr "加入新書簽"
 
-#: bookmarks.c:786
+#: bookmarks.c:787
 msgid "Edit Bookmarks"
 msgstr "編輯書簽"
 
-#: bookmarks.c:791
+#: bookmarks.c:792
 msgid "Recently Visited"
 msgstr "最近存取的"
 
@@ -944,17 +944,17 @@ msgstr ""
 "%s\n"
 "%s"
 
-#: dir.c:918
+#: dir.c:920
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "不能打開目錄：%s"
 
-#: dir.c:929
+#: dir.c:931
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "不能打開目錄：%s"
 
-#: display.c:728
+#: display.c:734
 #, c-format
 msgid "lstat(2) failed: %s"
 msgstr "lstat(2) 失敗：%s"
@@ -1098,7 +1098,7 @@ msgstr ""
 "不能存取 '%s'：\n"
 "%s"
 
-#: filer.c:499
+#: filer.c:494
 #, c-format
 msgid ""
 "Error scanning '%s':\n"
@@ -1107,7 +1107,7 @@ msgstr ""
 "錯誤檢視 '%s'：\n"
 "%s\n"
 
-#: filer.c:655
+#: filer.c:650
 msgid ""
 "Do you want to unmount this device?\n"
 "\n"
@@ -1117,19 +1117,19 @@ msgstr ""
 "\n"
 "解除掛載後才把媒體移出，會較為安全."
 
-#: filer.c:660
+#: filer.c:655
 msgid "Perform the same action in future for this mount point"
 msgstr ""
 
-#: filer.c:667
+#: filer.c:662
 msgid "No change"
 msgstr "沒有改變"
 
-#: filer.c:673 infobox.c:1065 menu.c:956
+#: filer.c:668 infobox.c:1066 menu.c:956
 msgid "Unmount"
 msgstr "解除掛載"
 
-#: filer.c:1142
+#: filer.c:1137
 #, c-format
 msgid ""
 "Group %s is not set. Select some files and press Ctrl+%s to set the group. "
@@ -1140,112 +1140,112 @@ msgstr ""
 "重選其他檔案.\n"
 "注意，鍵盤上的 NumLock 必須開啟"
 
-#: filer.c:1826
+#: filer.c:1820
 msgid "Cancel"
 msgstr "取消"
 
-#: filer.c:2110
+#: filer.c:2104
 msgid "A"
 msgstr ""
 
-#: filer.c:2112 find.c:1034
+#: filer.c:2106 find.c:1034
 msgid "G"
 msgstr ""
 
-#: filer.c:2117
+#: filer.c:2111
 msgid "S"
 msgstr ""
 
-#: filer.c:2119
+#: filer.c:2113
 msgid "T"
 msgstr ""
 
-#: filer.c:2120
+#: filer.c:2114
 msgid "D"
 msgstr ""
 
-#: filer.c:2121
+#: filer.c:2115
 msgid "F"
 msgstr ""
 
-#: filer.c:2131
+#: filer.c:2125
 msgid "All, "
 msgstr ""
 
-#: filer.c:2134
+#: filer.c:2128
 #, c-format
 msgid "Glob (%s), "
 msgstr "只匹配 (%s), "
 
-#: filer.c:2142
+#: filer.c:2136
 msgid "Scanning, "
 msgstr "從新檢視中, "
 
-#: filer.c:2144
+#: filer.c:2138
 msgid "Thumbs, "
 msgstr "顯示縮圖, "
 
-#: filer.c:2145
+#: filer.c:2139
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2146
+#: filer.c:2140
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2422
+#: filer.c:2416
 msgid "Symbolic link to "
 msgstr "連結指向 "
 
-#: filer.c:2478
+#: filer.c:2472
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "不是正確的 UTF-8 名稱，請重新命名.\n"
 
-#: filer.c:2795 menu.c:2603
+#: filer.c:2790 menu.c:2604
 msgid "Item no longer exists!"
 msgstr "項目已不存在！"
 
-#: filer.c:3610
+#: filer.c:3606
 msgid "Select display properties to save"
 msgstr "選擇顯示內容以儲存"
 
-#: filer.c:3614
+#: filer.c:3610
 msgid "<b>Save display settings for directory</b>"
 msgstr "<b>儲存目錄的顯示設定</b>"
 
-#: filer.c:3621
+#: filer.c:3617
 msgid "Select settings to save"
 msgstr "選擇設定以儲存"
 
-#: filer.c:3628
+#: filer.c:3624
 msgid "Position"
 msgstr "位置"
 
-#: filer.c:3633 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "大小"
 
-#: filer.c:3638
+#: filer.c:3634
 msgid "Show hidden"
 msgstr "顯示隱藏檔"
 
-#: filer.c:3644
+#: filer.c:3640
 msgid "Display style"
 msgstr "顯示風格"
 
-#: filer.c:3650
+#: filer.c:3646
 msgid "Sort type and order"
 msgstr "以類型排序"
 
-#: filer.c:3655 toolbar.c:145
+#: filer.c:3651 toolbar.c:145
 msgid "Details"
 msgstr "詳述"
 
-#: filer.c:3660 tips:115 tips:116
+#: filer.c:3656 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "縮圖"
 
-#: filer.c:3666
+#: filer.c:3662
 msgid "Filter"
 msgstr "過濾"
 
@@ -1714,7 +1714,7 @@ msgstr "<b>內容指示為...</b>"
 msgid "<b>When all directories are closed</b>"
 msgstr "只記錄已被複製的目錄"
 
-#: infobox.c:451 infobox.c:592 support.c:349
+#: infobox.c:451 infobox.c:593 support.c:349
 msgid "bytes"
 msgstr "bytes"
 
@@ -1722,12 +1722,12 @@ msgstr "bytes"
 msgid "Failed to read size"
 msgstr "未能檢視檔案之大小"
 
-#: infobox.c:535
+#: infobox.c:536
 #, c-format
 msgid "'%s' is no longer a symlink"
 msgstr "'%s' 不是一個符號連結"
 
-#: infobox.c:542
+#: infobox.c:543
 #, c-format
 msgid ""
 "Failed to unlink '%s':\n"
@@ -1736,7 +1736,7 @@ msgstr ""
 "未能移除符號連結 '%s'：\n"
 "%s"
 
-#: infobox.c:547
+#: infobox.c:548
 #, c-format
 msgid ""
 "Failed to create symlink from '%s':\n"
@@ -1747,159 +1747,159 @@ msgstr ""
 "%s\n"
 "(注意:舊的連結已被刪除)"
 
-#: infobox.c:571 tips:272
+#: infobox.c:572 tips:272
 msgid "Error:"
 msgstr "錯誤："
 
-#: infobox.c:578
+#: infobox.c:579
 msgid "Real directory:"
 msgstr "真正目錄："
 
-#: infobox.c:581
+#: infobox.c:582
 msgid "Owner, Group:"
 msgstr "用戶，組別："
 
-#: infobox.c:588 infobox.c:603 infobox.c:612
+#: infobox.c:589 infobox.c:604 infobox.c:613
 msgid "Size:"
 msgstr "大小："
 
-#: infobox.c:613
+#: infobox.c:614
 msgid "Scanning"
 msgstr "檢視中"
 
-#: infobox.c:638
+#: infobox.c:639
 msgid "Failed to scan"
 msgstr "檢視失敗"
 
-#: infobox.c:645
+#: infobox.c:646
 msgid "Change time:"
 msgstr "變更時間："
 
-#: infobox.c:647
+#: infobox.c:648
 msgid "Modify time:"
 msgstr "修改時間："
 
-#: infobox.c:649
+#: infobox.c:650
 msgid "Access time:"
 msgstr "存取時間："
 
-#: infobox.c:657
+#: infobox.c:658
 msgid "Extended attributes:"
 msgstr "伸延屬性："
 
-#: infobox.c:659
+#: infobox.c:660
 msgid "Present"
 msgstr "目前"
 
-#: infobox.c:660
+#: infobox.c:661
 msgid "None"
 msgstr "沒有"
 
-#: infobox.c:661
+#: infobox.c:662
 msgid "Not supported"
 msgstr "不支援"
 
-#: infobox.c:673
+#: infobox.c:674
 msgid "Link target:"
 msgstr "連結目標："
 
-#: infobox.c:685 infobox.c:688
+#: infobox.c:686 infobox.c:689
 msgid "Run action:"
 msgstr "執行程序："
 
-#: infobox.c:685
+#: infobox.c:686
 msgid "Execute file"
 msgstr "執行檔案"
 
-#: infobox.c:797
+#: infobox.c:798
 msgid "Comment"
 msgstr "註解"
 
-#: infobox.c:799
+#: infobox.c:800
 msgid "Execute"
 msgstr "執行檔案"
 
-#: infobox.c:814
+#: infobox.c:815
 msgid "<nothing yet>"
 msgstr "<還是空的>"
 
-#: infobox.c:887
+#: infobox.c:888
 #, c-format
 msgid "file(1) says... %s"
 msgstr "檔案(1) 顯示...%s"
 
-#: infobox.c:944
+#: infobox.c:945
 #, c-format
 msgid "Could not change permissions: %s"
 msgstr "不能改變 '%s' 的權限"
 
-#: infobox.c:962 tips:88
+#: infobox.c:963 tips:88
 msgid "Owner"
 msgstr "用戶"
 
-#: infobox.c:964 tips:90
+#: infobox.c:965 tips:90
 msgid "Group"
 msgstr "組別"
 
-#: infobox.c:966
+#: infobox.c:967
 msgid "World"
 msgstr "其他"
 
-#: infobox.c:969
+#: infobox.c:970
 msgid "Read"
 msgstr "可讀"
 
-#: infobox.c:972
+#: infobox.c:973
 msgid "Write"
 msgstr "可寫"
 
-#: infobox.c:975
+#: infobox.c:976
 msgid "Exec"
 msgstr "可執行"
 
-#: infobox.c:993
+#: infobox.c:994
 msgid "SUID"
 msgstr "SUID"
 
-#: infobox.c:1000
+#: infobox.c:1001
 msgid "SGID"
 msgstr "SGID"
 
-#: infobox.c:1007
+#: infobox.c:1008
 msgid "Sticky"
 msgstr "Sticky"
 
-#: infobox.c:1063
+#: infobox.c:1064
 #, fuzzy
 msgid "Do nothing"
 msgstr "<空的>"
 
-#: infobox.c:1069
+#: infobox.c:1070
 msgid "Ask"
 msgstr ""
 
-#: infobox.c:1081
+#: infobox.c:1082
 msgid "Symbolic link"
 msgstr "是一符號連結"
 
-#: infobox.c:1084
+#: infobox.c:1085
 msgid "ROX application"
 msgstr "ROX 應用程式"
 
-#: infobox.c:1092
+#: infobox.c:1093
 msgid "mounted"
 msgstr "已掛載"
 
-#: infobox.c:1092
+#: infobox.c:1093
 msgid "unmounted"
 msgstr "已解除掛載"
 
-#: infobox.c:1096
+#: infobox.c:1097
 #, c-format
 msgid "Mount point for %s (%s)"
 msgstr "掛載點為 %s (%s)"
 
-#: infobox.c:1099
+#: infobox.c:1100
 #, c-format
 msgid "Mount point (%s)"
 msgstr "掛載點 (%s)"
@@ -2206,7 +2206,7 @@ msgstr "計算"
 msgid "Set Type..."
 msgstr "另定類型..."
 
-#: menu.c:262 toolbar.c:164
+#: menu.c:262 toolbar.c:166
 msgid "Select"
 msgstr "選擇"
 
@@ -2234,7 +2234,7 @@ msgstr "條件式選擇"
 msgid "Paste"
 msgstr ""
 
-#: menu.c:272 toolbar.c:168
+#: menu.c:272 toolbar.c:170
 msgid "New"
 msgstr "新增"
 
@@ -2543,23 +2543,23 @@ msgstr "複製...？"
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2586
+#: menu.c:2587
 msgid "You cannot do this to more than one item at a time"
 msgstr "不可同時以此方式處理多個項目"
 
-#: menu.c:2613
+#: menu.c:2614
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2618
+#: menu.c:2619
 msgid "Rename"
 msgstr "改名"
 
-#: menu.c:2623
+#: menu.c:2624
 msgid "Symlink"
 msgstr "符號連結"
 
-#: menu.c:2658
+#: menu.c:2659
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2578,7 +2578,7 @@ msgstr ""
 "\tgtk-can-chang-accels = 1\n"
 "\t(只可在不用 XSETTINGS 的情況下)"
 
-#: menu.c:2669
+#: menu.c:2670
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2598,7 +2598,7 @@ msgstr ""
 "對應的熱鍵會出現在選單的某個項目上，而日後你想開啟這項目，祗須按下熱鍵而不需"
 "先開啟選單."
 
-#: menu.c:2684
+#: menu.c:2685
 msgid "Set keyboard shortcuts"
 msgstr "設定熱鍵"
 
@@ -2716,7 +2716,7 @@ msgstr "(儲存設定被終止,因應 CHOICEPATH)"
 msgid "Error saving %s: %s"
 msgstr "錯誤儲存 %s: %s"
 
-#: options.c:1795
+#: options.c:1794
 msgid "Missing '='"
 msgstr "遺失 '='"
 
@@ -3139,22 +3139,25 @@ msgid "Automatic size mode"
 msgstr "自動化大少"
 
 #: toolbar.c:145
-msgid "Show extra details"
-msgstr "更詳述"
+msgid ""
+"Left: toggle List View\n"
+"Center: Return to normal Icon View\n"
+"Right: cycle extra details"
+msgstr ""
 
-#: toolbar.c:149
+#: toolbar.c:151
 msgid "Sort"
 msgstr "排序"
 
-#: toolbar.c:149
+#: toolbar.c:151
 msgid "Change sort criteria"
 msgstr "改變排序標準"
 
-#: toolbar.c:153
+#: toolbar.c:155
 msgid "Hidden"
 msgstr "隱藏"
 
-#: toolbar.c:153
+#: toolbar.c:155
 #, fuzzy
 msgid ""
 "Left: Show/hide hidden files\n"
@@ -3164,11 +3167,11 @@ msgstr ""
 "左： 顯示 隱藏檔\n"
 "右： 顯示 縮圖"
 
-#: toolbar.c:159
+#: toolbar.c:161
 msgid "Dirs"
 msgstr ""
 
-#: toolbar.c:159
+#: toolbar.c:161
 #, fuzzy
 msgid ""
 "Left: Show dirs only\n"
@@ -3177,73 +3180,73 @@ msgstr ""
 "左： 顯示 隱藏檔\n"
 "右： 顯示 縮圖"
 
-#: toolbar.c:164
+#: toolbar.c:166
 msgid "Select all/invert selection"
 msgstr "全選/反向 選擇"
 
-#: toolbar.c:168
+#: toolbar.c:170
 msgid ""
 "Left: New Directory\n"
 "Center: New Blank file\n"
 "Right: Menu"
 msgstr ""
 
-#: toolbar.c:174
+#: toolbar.c:176
 msgid "Show ROX-Filer help"
 msgstr "顯示 ROX-Filer 說明"
 
-#: toolbar.c:237
+#: toolbar.c:239
 #, c-format
 msgid " (%u hidden)"
 msgstr " (%u 隱藏)"
 
-#: toolbar.c:245 tips:61
+#: toolbar.c:247 tips:61
 msgid "items"
 msgstr "項目"
 
-#: toolbar.c:245
+#: toolbar.c:247
 msgid "item"
 msgstr "項目"
 
-#: toolbar.c:248
+#: toolbar.c:250
 #, c-format
 msgid "No items%s"
 msgstr "沒有項目%s"
 
-#: toolbar.c:267
+#: toolbar.c:269
 #, c-format
 msgid "%u selected (%s)"
 msgstr "%u 已選擇 (%s)"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by name"
 msgstr "以名稱排序"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by type"
 msgstr "以類型排序"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by date"
 msgstr "以日期排序"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by size"
 msgstr "以大小排序"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by owner"
 msgstr "以用戶排序"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by group"
 msgstr "以組別排序"
 
-#: toolbar.c:496
+#: toolbar.c:499
 msgid "ascending"
 msgstr "提升"
 
-#: toolbar.c:496
+#: toolbar.c:499
 msgid "descending"
 msgstr "下降"
 
@@ -3351,30 +3354,30 @@ msgstr "請拖放一個合適的程式在此處"
 msgid "OR"
 msgstr "或"
 
-#: type.c:1032
+#: type.c:1033
 msgid "Enter a shell command:"
 msgstr "請輸入指令："
 
-#: type.c:1061
+#: type.c:1062
 msgid "_Use Command"
 msgstr "套用指令(_U)"
 
-#: type.c:1091
+#: type.c:1092
 msgid ""
 "A run action already exists and is quite a big program - are you sure you "
 "want to delete it?"
 msgstr "一個相同而頗大的程序正在執行中 - 你決定要刪除它？"
 
-#: type.c:1102
+#: type.c:1103
 #, c-format
 msgid "Can't remove %s: %s"
 msgstr "不能移除 %s: %s"
 
-#: type.c:1139
+#: type.c:1140
 msgid "Choices saving is disabled by CHOICESPATH variable"
 msgstr "'Choice' 路徑變數錯誤,儲存取消"
 
-#: type.c:1441
+#: type.c:1442
 #, c-format
 msgid ""
 "Failed to create symlink '%s':\n"
@@ -3482,39 +3485,39 @@ msgstr "等寬字體"
 msgid "Font for displaying mono-spaced text"
 msgstr "用以顯示等寬字體的字型"
 
-#: view_details.c:1115
+#: view_details.c:1118
 msgid "_Name"
 msgstr "名稱(_N)"
 
-#: view_details.c:1123
+#: view_details.c:1126
 msgid "_Type"
 msgstr "類型(_T)"
 
-#: view_details.c:1132
+#: view_details.c:1135
 msgid "_Size"
 msgstr "大小(_S)"
 
-#: view_details.c:1144
+#: view_details.c:1147
 msgid "_Permissions"
 msgstr "權限(_P)"
 
-#: view_details.c:1155
+#: view_details.c:1158
 msgid "_Owner"
 msgstr "用戶(_O)"
 
-#: view_details.c:1163
+#: view_details.c:1166
 msgid "_Group"
 msgstr "組別(_G)"
 
-#: view_details.c:1171
+#: view_details.c:1174
 msgid "Last _Modified"
 msgstr "最後改動(_M)"
 
-#: view_details.c:1183
+#: view_details.c:1186
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1195
+#: view_details.c:1198
 msgid "Last _Accessed"
 msgstr ""
 
@@ -4858,6 +4861,9 @@ msgstr "頂部邊沿"
 #: ../Templates.ui.h:25
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
+
+#~ msgid "Show extra details"
+#~ msgstr "更詳述"
 
 #~ msgid "Panel (obsolete)"
 #~ msgstr "面板(廢棄)"

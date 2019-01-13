@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-02 18:43-0600\n"
+"POT-Creation-Date: 2019-01-13 00:18-0600\n"
 "PO-Revision-Date: 2005-01-27 14:01+0200\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish\n"
@@ -31,7 +31,7 @@ msgstr "Hiljaa"
 msgid "Don't confirm every operation"
 msgstr "Älä pyydä vahvistusta jokaiselle tapahtumalle"
 
-#: abox.c:454 infobox.c:795 tips:38 tips:80
+#: abox.c:454 infobox.c:796 tips:38 tips:80
 msgid "Name"
 msgstr "Nimi"
 
@@ -39,7 +39,7 @@ msgstr "Nimi"
 msgid "Directory"
 msgstr "Hakemisto"
 
-#: abox.c:551
+#: abox.c:550
 msgid "Expression:"
 msgstr "Lauseke:"
 
@@ -272,15 +272,15 @@ msgstr ""
 msgid "ERROR"
 msgstr "VIRHE"
 
-#: action.c:732 main.c:703 main.c:717
+#: action.c:731 main.c:703 main.c:717
 msgid "Yes"
 msgstr "Kyllä"
 
-#: action.c:735 main.c:705 main.c:717
+#: action.c:734 main.c:705 main.c:717
 msgid "No"
 msgstr "Ei"
 
-#: action.c:753
+#: action.c:752
 msgid ""
 "\n"
 "Asking child process to terminate...\n"
@@ -288,7 +288,7 @@ msgstr ""
 "\n"
 "Pyydetään lapsiprosessia päättämään toimintansa...\n"
 
-#: action.c:760
+#: action.c:759
 msgid ""
 "\n"
 "Trying to KILL run-away process...\n"
@@ -296,41 +296,41 @@ msgstr ""
 "\n"
 "Yritetään tappaa karannut prosessi...\n"
 
-#: action.c:915
+#: action.c:914
 #, c-format
 msgid "?Count contents of %s?"
 msgstr "?Lasketaanko kohteen %s sisältö?"
 
-#: action.c:952
+#: action.c:951
 #, c-format
 msgid "?Delete %s'%s'?"
 msgstr "?Poistetaanko %s'%s'?"
 
-#: action.c:953
+#: action.c:952
 msgid "WRITE-PROTECTED "
 msgstr "KIRJOITUSSUOJATTU"
 
-#: action.c:960
+#: action.c:959
 #, c-format
 msgid "'Deleting '%s'\n"
 msgstr "'Poistetaan '%s'\n"
 
-#: action.c:973
+#: action.c:972
 #, c-format
 msgid "'Directory '%s' deleted\n"
 msgstr "'Hakemisto '%s' poistettu\n"
 
-#: action.c:1007
+#: action.c:1006
 #, c-format
 msgid "?Eject '%s'?"
 msgstr "?Poistetaanko media '%s'?"
 
-#: action.c:1014
+#: action.c:1013
 #, c-format
 msgid "'Eject '%s'\n"
 msgstr "'Poista media '%s'\n"
 
-#: action.c:1033
+#: action.c:1032
 #, c-format
 msgid ""
 "!%s\n"
@@ -339,95 +339,95 @@ msgstr ""
 "!%s\n"
 "Poistaminen epäonnistui\n"
 
-#: action.c:1053 action.c:1072
+#: action.c:1052 action.c:1071
 #, c-format
 msgid "?Check '%s'?"
 msgstr "?Tarkistetaanko '%s'?"
 
-#: action.c:1069
+#: action.c:1068
 msgid "!Invalid find condition - change it and try again\n"
 msgstr "!Hakuehto ei kelpaa - vaihda se ja yritä uudelleen\n"
 
-#: action.c:1079
+#: action.c:1078
 #, c-format
 msgid "'(while checking '%s')\n"
 msgstr "'(kun kohdetta '%s' tarkistetaan)\n"
 
-#: action.c:1154 action.c:1179
+#: action.c:1153 action.c:1178
 #, c-format
 msgid "?Change permissions of '%s'?"
 msgstr "?Vaihda oikeudet kohteelle '%s'?"
 
-#: action.c:1160
+#: action.c:1159
 #, c-format
 msgid "'Changing permissions of '%s'\n"
 msgstr "'Vaihdetaan oikeudet kohteelle '%s'\n"
 
-#: action.c:1177
+#: action.c:1176
 msgid "!Invalid mode command - change it and try again\n"
 msgstr "!Oikeuksien muutoskomento ei kelpaa - muuta sitä ja yritä uudelleen\n"
 
-#: action.c:1235
+#: action.c:1234
 #, fuzzy, c-format
 msgid "?Change contents of '%s'?"
 msgstr "?Vaihdetaanko tiedoston '%s' tyyppi'?"
 
-#: action.c:1238 action.c:1258
+#: action.c:1237 action.c:1257
 #, c-format
 msgid "?Change type of '%s'?"
 msgstr "?Vaihdetaanko tiedoston '%s' tyyppi'?"
 
-#: action.c:1255
+#: action.c:1254
 msgid "!Invalid type - change it and try again\n"
 msgstr "!Tyyppi ei kelpaa - vaihda se ja kokeile uudelleen\n"
 
-#: action.c:1277
+#: action.c:1276
 #, c-format
 msgid "'Changing type of '%s' to '%s'\n"
 msgstr "'Vaihdetaan tiedoston '%s' tyypiksi '%s'\n"
 
-#: action.c:1300
+#: action.c:1299
 #, fuzzy, c-format
 msgid "'Not changing type of directory '%s'\n"
 msgstr "'Vaihdetaan tiedoston '%s' tyypiksi '%s'\n"
 
-#: action.c:1306
+#: action.c:1305
 #, c-format
 msgid "'Non-regular file '%s' not changed\n"
 msgstr ""
 
-#: action.c:1389 action.c:1582
+#: action.c:1388 action.c:1581
 #, c-format
 msgid "?'%s' already exists - %s?"
 msgstr "?'%s' on jo olemassa - %s?"
 
-#: action.c:1391 action.c:1584
+#: action.c:1390 action.c:1583
 msgid "merge contents"
 msgstr "yhdistä sisällöt"
 
-#: action.c:1392 action.c:1585
+#: action.c:1391 action.c:1584
 msgid "overwrite"
 msgstr "korvaa"
 
-#: action.c:1408
+#: action.c:1407
 msgid "'Trying copy anyway...\n"
 msgstr "'Yritetään kopioida siitä huolimatta...\n"
 
-#: action.c:1417
+#: action.c:1416
 #, c-format
 msgid "?Copy %s as %s?"
 msgstr "?Kopioidaanko %s kohteeseen %s?"
 
-#: action.c:1421
+#: action.c:1420
 #, c-format
 msgid "'Copying %s as %s\n"
 msgstr "'Kopioidaan %s kohteeseen %s\n"
 
-#: action.c:1436 action.c:1631
+#: action.c:1435 action.c:1630
 msgid "!ERROR: Destination already exists, but is not a directory\n"
 msgstr "!VIRHE: Kohde on jo olemassa, mutta ei ole hakemisto\n"
 
-#: action.c:1515
+#: action.c:1514
 #, c-format
 msgid ""
 "!%s\n"
@@ -436,21 +436,21 @@ msgstr ""
 "!%s\n"
 "Tiedoston '%s' kopiointi epäonnistui\n"
 
-#: action.c:1601
+#: action.c:1600
 msgid "'Trying move anyway...\n"
 msgstr "'Yritetään siirtää kaikesta huolimatta...\n"
 
-#: action.c:1610
+#: action.c:1609
 #, c-format
 msgid "?Move %s as %s?"
 msgstr "?Siirretäänkö %s kohteeseen %s?"
 
-#: action.c:1614
+#: action.c:1613
 #, c-format
 msgid "'Moving %s as %s\n"
 msgstr "'Siirretään %s kohteeseen %s\n"
 
-#: action.c:1664
+#: action.c:1663
 #, c-format
 msgid ""
 "!%s\n"
@@ -459,45 +459,45 @@ msgstr ""
 "!%s\n"
 "!VIRHE: Tiedoston %s siirto kohteeseen %s epäonnistui\n"
 
-#: action.c:1686
+#: action.c:1685
 msgid "!ERROR: Can't copy object into itself\n"
 msgstr "!VIRHE: Kohdetta ei voi kopioida itseensä\n"
 
-#: action.c:1701
+#: action.c:1700
 msgid "!ERROR: Can't move/rename object into itself\n"
 msgstr "!VIRHE: Kohdetta ei voi siirtää/nimetä itsensä päälle\n"
 
-#: action.c:1713
+#: action.c:1712
 #, c-format
 msgid "'Linking %s as %s\n"
 msgstr "'Linkitetään %s nimellä %s\n"
 
-#: action.c:1718
+#: action.c:1717
 #, c-format
 msgid "?Link %s as %s?"
 msgstr "?Linkitetäänkö %s nimellä %s?"
 
-#: action.c:1761
+#: action.c:1760
 #, c-format
 msgid "'Mounting %s\n"
 msgstr "'Liitetään %s\n"
 
-#: action.c:1762
+#: action.c:1761
 #, c-format
 msgid "'Unmounting %s\n"
 msgstr "'Irrotetaan %s\n"
 
-#: action.c:1765
+#: action.c:1764
 #, c-format
 msgid "?Mount %s?"
 msgstr "?Liitetäänkö %s tiedostojärjestelmään?"
 
-#: action.c:1766
+#: action.c:1765
 #, c-format
 msgid "?Unmount %s?"
 msgstr "?Irrotetaanko %s tiedostojärjestelmästä?"
 
-#: action.c:1787
+#: action.c:1786
 #, c-format
 msgid ""
 "!%s\n"
@@ -506,7 +506,7 @@ msgstr ""
 "!%s\n"
 "Liittäminen epäonnistui\n"
 
-#: action.c:1788
+#: action.c:1787
 #, c-format
 msgid ""
 "!%s\n"
@@ -515,11 +515,11 @@ msgstr ""
 "!%s\n"
 "Irrottaminen epäonnistui\n"
 
-#: action.c:1796
+#: action.c:1795
 msgid "'(seems to be mounted now anyway)\n"
 msgstr "'(näyttää ainakin olevan nyt liitetty)\n"
 
-#: action.c:1845
+#: action.c:1844
 #, c-format
 msgid ""
 "'\n"
@@ -528,218 +528,218 @@ msgstr ""
 "'\n"
 "Yhteensä: %s ("
 
-#: action.c:1851
+#: action.c:1850
 msgid "file"
 msgstr "tiedosto"
 
-#: action.c:1851
+#: action.c:1850
 msgid "files"
 msgstr "tiedostoa"
 
-#: action.c:1855
+#: action.c:1854
 msgid "no directories)\n"
 msgstr "ei hakemistoja)\n"
 
-#: action.c:1859
+#: action.c:1858
 msgid "directory"
 msgstr "hakemisto"
 
-#: action.c:1860
+#: action.c:1859
 msgid "directories"
 msgstr "hakemistoa"
 
-#: action.c:1901
+#: action.c:1900
 msgid "!No mount points selected!\n"
 msgstr "!Ei liitoskohtia valittuna!\n"
 
-#: action.c:1986
+#: action.c:1984
 msgid "?Another search?"
 msgstr "?Uusi haku?"
 
-#: action.c:2018 action.c:2052
+#: action.c:2016 action.c:2050
 #, c-format
 msgid "!'%s' is a symbolic link\n"
 msgstr "!'%s' on symbolinen linkki\n"
 
-#: action.c:2093
+#: action.c:2091
 msgid "You need to select some items to search through"
 msgstr "Sinun täytyy valita hakukohteet"
 
-#: action.c:2103 menu.c:261
+#: action.c:2101 menu.c:261
 msgid "Find"
 msgstr "Etsi"
 
-#: action.c:2138
+#: action.c:2136
 msgid "You need to select some items to count"
 msgstr "Sinun täytyy valita laskettavat kohteet"
 
-#: action.c:2142
+#: action.c:2140
 msgid "Disk Usage"
 msgstr "Levyn Käyttö"
 
-#: action.c:2180
+#: action.c:2178
 msgid "Mount / Unmount"
 msgstr "Liitä / Irrota"
 
-#: action.c:2199
+#: action.c:2197
 msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr "ROX-Filer ei vielä tue liitoskohtia järjestelmässäsi. Pahoittelen."
 
-#: action.c:2213 menu.c:246 tips:194
+#: action.c:2211 menu.c:246 tips:194
 msgid "Delete"
 msgstr "Poista"
 
-#: action.c:2227 tips:199
+#: action.c:2225 tips:199
 msgid "Force"
 msgstr "Pakota"
 
-#: action.c:2227
+#: action.c:2225
 msgid "Don't confirm deletion of non-writeable items"
 msgstr "Poista kirjoitussuojatut kohteet pyytämättä vahvistusta."
 
-#: action.c:2230 action.c:2291 action.c:2356 action.c:2439 action.c:2489
+#: action.c:2228 action.c:2289 action.c:2354 action.c:2437 action.c:2487
 #: tips:201
 msgid "Brief"
 msgstr "Suppea"
 
-#: action.c:2230
+#: action.c:2228
 msgid "Only log directories being deleted"
 msgstr "Kirjaa vain poistettavat hakemistot"
 
-#: action.c:2249
+#: action.c:2247
 msgid "You need to select the items whose permissions you want to change"
 msgstr "Sinun täytyy valita kohteet, joiden oikeuksia haluat vaihtaa"
 
-#: action.c:2257
+#: action.c:2255
 msgid "a+x (Make executable/searchable)"
 msgstr "a+x (Anna suoritus/selausoikeudet)"
 
-#: action.c:2259
+#: action.c:2257
 msgid "a-x (Make non-executable/non-searchable)"
 msgstr "a-x (Poista suoritus/selausoikeudet)"
 
-#: action.c:2261
+#: action.c:2259
 msgid "u+rw (Give owner read+write)"
 msgstr "u+rw (Anna omistajalle luku- ja kirjoitusoikeudet)"
 
-#: action.c:2263
+#: action.c:2261
 msgid "go-rwx (Private - owner access only)"
 msgstr "go-rwx (Henkilökohtainen - vain omistajan saatavilla)"
 
-#: action.c:2265
+#: action.c:2263
 msgid "go=u-w (Public access, not write)"
 msgstr "go=u-w (Julkisesti saatavilla, ei kirjoitettavissa)"
 
-#: action.c:2276 menu.c:215 menu.c:259 tips:56 tips:86
+#: action.c:2274 menu.c:215 menu.c:259 tips:56 tips:86
 msgid "Permissions"
 msgstr "Oikeudet"
 
-#: action.c:2291 action.c:2356
+#: action.c:2289 action.c:2354
 msgid "Don't list processed files"
 msgstr "Älä luettele käsiteltyjä tiedostoja"
 
-#: action.c:2294 action.c:2359 tips:203
+#: action.c:2292 action.c:2357 tips:203
 msgid "Recurse"
 msgstr "Rekursiivinen"
 
-#: action.c:2294
+#: action.c:2292
 msgid "Also change contents of subdirectories"
 msgstr "Muuta myös alihakemistojen sisältöä"
 
-#: action.c:2298
+#: action.c:2296
 msgid "Command:"
 msgstr "Komento:"
 
-#: action.c:2328
+#: action.c:2326
 msgid "You need to select the items whose type you want to change"
 msgstr "Sinun täytyy valita kohteet, joiden tyypin haluat vaihtaa"
 
-#: action.c:2341
+#: action.c:2339
 msgid "Set type"
 msgstr "Aseta tyyppi"
 
-#: action.c:2359
+#: action.c:2357
 msgid "Change contents of subdirectories"
 msgstr "Muuta alihakemistojen sisältöä"
 
-#: action.c:2366 infobox.c:651
+#: action.c:2364 infobox.c:652
 msgid "Type:"
 msgstr "Tyyppi:"
 
-#: action.c:2413 dnd.c:123 menu.c:241 tips:188
+#: action.c:2411 dnd.c:123 menu.c:241 tips:188
 msgid "Copy"
 msgstr "Kopioi"
 
-#: action.c:2427 action.c:2477 tips:209
+#: action.c:2425 action.c:2475 tips:209
 msgid "Ignore Older"
 msgstr ""
 
-#: action.c:2428 action.c:2478 tips:210
+#: action.c:2426 action.c:2476 tips:210
 #, fuzzy
 msgid "Silently ignore if source is older than destination."
 msgstr "Korvaa ainoastaan, jos lähdetiedosto on kohdetta uudempi."
 
-#: action.c:2431 action.c:2481 tips:207
+#: action.c:2429 action.c:2479 tips:207
 msgid "Newer"
 msgstr "Uudemmat"
 
-#: action.c:2432 action.c:2482 tips:208
+#: action.c:2430 action.c:2480 tips:208
 #, fuzzy
 msgid "Always over-write if source is newer than destination."
 msgstr "Korvaa ainoastaan, jos lähdetiedosto on kohdetta uudempi."
 
-#: action.c:2435 action.c:2485 tips:205
+#: action.c:2433 action.c:2483 tips:205
 msgid "Merge"
 msgstr ""
 
-#: action.c:2436 action.c:2486 tips:206
+#: action.c:2434 action.c:2484 tips:206
 #, fuzzy
 msgid "Always merge directories."
 msgstr "hakemistoa"
 
-#: action.c:2439
+#: action.c:2437
 msgid "Only log directories as they are copied"
 msgstr "Kirjaa vain kopioitavat hakemistot"
 
-#: action.c:2463 dnd.c:124 tips:190
+#: action.c:2461 dnd.c:124 tips:190
 msgid "Move"
 msgstr "Siirrä"
 
-#: action.c:2489
+#: action.c:2487
 msgid "Don't log each file as it is moved"
 msgstr "Älä kirjaa jokaista tiedostoa siirrettäessä"
 
-#: action.c:2512 tips:192
+#: action.c:2510 tips:192
 msgid "Link"
 msgstr "Luo linkki"
 
-#: action.c:2537 appmenu.c:112 filer.c:680 infobox.c:1067
+#: action.c:2535 appmenu.c:112 filer.c:675 infobox.c:1068
 msgid "Eject"
 msgstr "Poista media"
 
-#: action.c:2609
+#: action.c:2608
 msgid "Deleting items such as "
 msgstr "Kohteiden, kuten "
 
-#: action.c:2613
+#: action.c:2612
 msgid "Deleting the item "
 msgstr "Kohteen "
 
-#: action.c:2615
+#: action.c:2614
 msgid "Deleting the items "
 msgstr "Kohteiden "
 
-#: action.c:2634
+#: action.c:2633
 msgid " and "
 msgstr " sekä "
 
-#: action.c:2643
+#: action.c:2642
 msgid " will affect some items on the pinboard or panel - really delete it?"
 msgstr ""
 " poistaminen vaikuttaa kohteisiin työpöydällä tai paneelissa - poistetaanko "
 "se varmasti?"
 
-#: action.c:2650
+#: action.c:2649
 msgid " will affect some items on the pinboard or panel - really delete them?"
 msgstr ""
 " poistaminen vaikuttaa kohteisiin työpöydällä tai paneelissa - poistetaanko "
@@ -762,7 +762,7 @@ msgstr ""
 msgid "Customise Menu..."
 msgstr "Mukauta Valikkoa..."
 
-#: appmenu.c:402 menu.c:293 toolbar.c:174
+#: appmenu.c:403 menu.c:293 toolbar.c:176
 msgid "Help"
 msgstr "Ohje"
 
@@ -801,15 +801,15 @@ msgstr "Kohde on jo viimeisenä"
 msgid "Can't bookmark non-local directories like '%s'"
 msgstr "Ei voi luoda kirjanmerkkiä etäkansioille, kuten '%s'"
 
-#: bookmarks.c:779
+#: bookmarks.c:780
 msgid "Add New Bookmark"
 msgstr "Lisää Kirjanmerkki"
 
-#: bookmarks.c:786
+#: bookmarks.c:787
 msgid "Edit Bookmarks"
 msgstr "Muokkaa Kirjanmerkkejä"
 
-#: bookmarks.c:791
+#: bookmarks.c:792
 msgid "Recently Visited"
 msgstr "Viimeksi Avatut"
 
@@ -960,17 +960,17 @@ msgid ""
 "%s"
 msgstr ""
 
-#: dir.c:918
+#: dir.c:920
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "Hakemiston tila ei saatavilla: %s"
 
-#: dir.c:929
+#: dir.c:931
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "Ei voi avata hakemistoa: %s"
 
-#: display.c:728
+#: display.c:734
 #, c-format
 msgid "lstat(2) failed: %s"
 msgstr "lstat(2) epäonnistui: %s"
@@ -1128,7 +1128,7 @@ msgstr ""
 "Kohde '%s' ei ole saatavilla:\n"
 "%s"
 
-#: filer.c:499
+#: filer.c:494
 #, c-format
 msgid ""
 "Error scanning '%s':\n"
@@ -1137,7 +1137,7 @@ msgstr ""
 "Virhe lukiessa kohdetta '%s:\n"
 "%s\n"
 
-#: filer.c:655
+#: filer.c:650
 msgid ""
 "Do you want to unmount this device?\n"
 "\n"
@@ -1147,19 +1147,19 @@ msgstr ""
 "\n"
 "Tämä tekee tallennuslaitteen poistamisesta turvallisen."
 
-#: filer.c:660
+#: filer.c:655
 msgid "Perform the same action in future for this mount point"
 msgstr ""
 
-#: filer.c:667
+#: filer.c:662
 msgid "No change"
 msgstr "Ei muutosta"
 
-#: filer.c:673 infobox.c:1065 menu.c:956
+#: filer.c:668 infobox.c:1066 menu.c:956
 msgid "Unmount"
 msgstr "Irrota"
 
-#: filer.c:1142
+#: filer.c:1137
 #, c-format
 msgid ""
 "Group %s is not set. Select some files and press Ctrl+%s to set the group. "
@@ -1171,113 +1171,113 @@ msgstr ""
 "uudelleen.\n"
 "Varmista, että NumLock on päällä, jos käytät numeronäppäimistöä."
 
-#: filer.c:1826
+#: filer.c:1820
 msgid "Cancel"
 msgstr "Peruuta"
 
-#: filer.c:2110
+#: filer.c:2104
 msgid "A"
 msgstr ""
 
-#: filer.c:2112 find.c:1034
+#: filer.c:2106 find.c:1034
 msgid "G"
 msgstr "G"
 
-#: filer.c:2117
+#: filer.c:2111
 msgid "S"
 msgstr "L"
 
-#: filer.c:2119
+#: filer.c:2113
 msgid "T"
 msgstr "P"
 
-#: filer.c:2120
+#: filer.c:2114
 msgid "D"
 msgstr ""
 
-#: filer.c:2121
+#: filer.c:2115
 msgid "F"
 msgstr ""
 
-#: filer.c:2131
+#: filer.c:2125
 msgid "All, "
 msgstr ""
 
-#: filer.c:2134
+#: filer.c:2128
 #, c-format
 msgid "Glob (%s), "
 msgstr ""
 
-#: filer.c:2142
+#: filer.c:2136
 msgid "Scanning, "
 msgstr "Luetaan, "
 
-#: filer.c:2144
+#: filer.c:2138
 msgid "Thumbs, "
 msgstr "Pienoiskuvat, "
 
-#: filer.c:2145
+#: filer.c:2139
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2146
+#: filer.c:2140
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2422
+#: filer.c:2416
 msgid "Symbolic link to "
 msgstr "Symbolinen linkki kohteeseen"
 
-#: filer.c:2478
+#: filer.c:2472
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "Tiedostonimen koodaus ei ole UTF-8. Se pitäisi nimetä uudelleen.\n"
 
-#: filer.c:2795 menu.c:2603
+#: filer.c:2790 menu.c:2604
 msgid "Item no longer exists!"
 msgstr "Kohdetta ei enää ole!"
 
-#: filer.c:3610
+#: filer.c:3606
 msgid "Select display properties to save"
 msgstr "Valitse tallennettavat näkymäasetukset"
 
-#: filer.c:3614
+#: filer.c:3610
 msgid "<b>Save display settings for directory</b>"
 msgstr ""
 
-#: filer.c:3621
+#: filer.c:3617
 #, fuzzy
 msgid "Select settings to save"
 msgstr "Valitse tallennettavat näkymäasetukset"
 
-#: filer.c:3628
+#: filer.c:3624
 msgid "Position"
 msgstr "Sijainti"
 
-#: filer.c:3633 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "Koko"
 
-#: filer.c:3638
+#: filer.c:3634
 msgid "Show hidden"
 msgstr "Näytä piilotetut"
 
-#: filer.c:3644
+#: filer.c:3640
 msgid "Display style"
 msgstr "Näkymä"
 
-#: filer.c:3650
+#: filer.c:3646
 msgid "Sort type and order"
 msgstr "järjestämistapa"
 
-#: filer.c:3655 toolbar.c:145
+#: filer.c:3651 toolbar.c:145
 msgid "Details"
 msgstr "Tiedot"
 
-#: filer.c:3660 tips:115 tips:116
+#: filer.c:3656 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "Pienoiskuvat"
 
-#: filer.c:3666
+#: filer.c:3662
 msgid "Filter"
 msgstr "Suodatin"
 
@@ -1756,7 +1756,7 @@ msgstr "<b>Sisältö viittaa...</b>"
 msgid "<b>When all directories are closed</b>"
 msgstr "Kirjaa vain kopioitavat hakemistot"
 
-#: infobox.c:451 infobox.c:592 support.c:349
+#: infobox.c:451 infobox.c:593 support.c:349
 msgid "bytes"
 msgstr "tavua"
 
@@ -1764,12 +1764,12 @@ msgstr "tavua"
 msgid "Failed to read size"
 msgstr "Koon lukeminen epäonnistui"
 
-#: infobox.c:535
+#: infobox.c:536
 #, c-format
 msgid "'%s' is no longer a symlink"
 msgstr "'%s' ei ole enää symbolinen linkki"
 
-#: infobox.c:542
+#: infobox.c:543
 #, c-format
 msgid ""
 "Failed to unlink '%s':\n"
@@ -1778,7 +1778,7 @@ msgstr ""
 "Kohteen '%s' poisto epäonnistui:\n"
 "%s"
 
-#: infobox.c:547
+#: infobox.c:548
 #, c-format
 msgid ""
 "Failed to create symlink from '%s':\n"
@@ -1789,161 +1789,161 @@ msgstr ""
 "%s\n"
 "(huomaa: vanha linkki on poistettu)"
 
-#: infobox.c:571 tips:272
+#: infobox.c:572 tips:272
 msgid "Error:"
 msgstr "Virhe:"
 
-#: infobox.c:578
+#: infobox.c:579
 msgid "Real directory:"
 msgstr "Todellinen hakemisto:"
 
-#: infobox.c:581
+#: infobox.c:582
 msgid "Owner, Group:"
 msgstr "Omistaja, Ryhmä:"
 
-#: infobox.c:588 infobox.c:603 infobox.c:612
+#: infobox.c:589 infobox.c:604 infobox.c:613
 msgid "Size:"
 msgstr "Koko:"
 
-#: infobox.c:613
+#: infobox.c:614
 msgid "Scanning"
 msgstr "Luetaan"
 
-#: infobox.c:638
+#: infobox.c:639
 msgid "Failed to scan"
 msgstr "Lukeminen epäonnistui"
 
-#: infobox.c:645
+#: infobox.c:646
 msgid "Change time:"
 msgstr "Muutettu:"
 
-#: infobox.c:647
+#: infobox.c:648
 msgid "Modify time:"
 msgstr "Muokattu:"
 
-#: infobox.c:649
+#: infobox.c:650
 msgid "Access time:"
 msgstr "Käytetty:"
 
-#: infobox.c:657
+#: infobox.c:658
 msgid "Extended attributes:"
 msgstr "Lisäattribuutit:"
 
-#: infobox.c:659
+#: infobox.c:660
 msgid "Present"
 msgstr "Paikalla"
 
-#: infobox.c:660
+#: infobox.c:661
 msgid "None"
 msgstr "Ei mitään"
 
-#: infobox.c:661
+#: infobox.c:662
 msgid "Not supported"
 msgstr "Ei tueta"
 
-#: infobox.c:673
+#: infobox.c:674
 msgid "Link target:"
 msgstr "Linkin kohde:"
 
-#: infobox.c:685 infobox.c:688
+#: infobox.c:686 infobox.c:689
 msgid "Run action:"
 msgstr "Suoritustoiminto:"
 
-#: infobox.c:685
+#: infobox.c:686
 msgid "Execute file"
 msgstr "Suorita tiedosto"
 
-#: infobox.c:797
+#: infobox.c:798
 #, fuzzy
 msgid "Comment"
 msgstr "Komento:"
 
-#: infobox.c:799
+#: infobox.c:800
 #, fuzzy
 msgid "Execute"
 msgstr "Suorita tiedosto"
 
-#: infobox.c:814
+#: infobox.c:815
 msgid "<nothing yet>"
 msgstr "<ei vielä mitään>"
 
-#: infobox.c:887
+#: infobox.c:888
 #, c-format
 msgid "file(1) says... %s"
 msgstr "file(1) kertoo... %s"
 
-#: infobox.c:944
+#: infobox.c:945
 #, c-format
 msgid "Could not change permissions: %s"
 msgstr "Oikeuksien muuttaminen epäonnistui: %s"
 
-#: infobox.c:962 tips:88
+#: infobox.c:963 tips:88
 msgid "Owner"
 msgstr "Omistaja"
 
-#: infobox.c:964 tips:90
+#: infobox.c:965 tips:90
 msgid "Group"
 msgstr "Ryhmä"
 
-#: infobox.c:966
+#: infobox.c:967
 msgid "World"
 msgstr "Muut"
 
-#: infobox.c:969
+#: infobox.c:970
 msgid "Read"
 msgstr "Luku"
 
-#: infobox.c:972
+#: infobox.c:973
 msgid "Write"
 msgstr "Kirjoitus"
 
-#: infobox.c:975
+#: infobox.c:976
 msgid "Exec"
 msgstr "Suoritus"
 
-#: infobox.c:993
+#: infobox.c:994
 msgid "SUID"
 msgstr "SUID"
 
-#: infobox.c:1000
+#: infobox.c:1001
 msgid "SGID"
 msgstr "SGID"
 
-#: infobox.c:1007
+#: infobox.c:1008
 msgid "Sticky"
 msgstr "Kiinnitetty"
 
-#: infobox.c:1063
+#: infobox.c:1064
 #, fuzzy
 msgid "Do nothing"
 msgstr "<ei mitään>"
 
-#: infobox.c:1069
+#: infobox.c:1070
 msgid "Ask"
 msgstr ""
 
-#: infobox.c:1081
+#: infobox.c:1082
 msgid "Symbolic link"
 msgstr "Symbolinen linkki"
 
-#: infobox.c:1084
+#: infobox.c:1085
 msgid "ROX application"
 msgstr "ROX-sovellus"
 
-#: infobox.c:1092
+#: infobox.c:1093
 msgid "mounted"
 msgstr "liitetty"
 
-#: infobox.c:1092
+#: infobox.c:1093
 msgid "unmounted"
 msgstr "irrotettu"
 
-#: infobox.c:1096
+#: infobox.c:1097
 #, c-format
 msgid "Mount point for %s (%s)"
 msgstr "Liitoskohta kohteelle %s (%s)"
 
-#: infobox.c:1099
+#: infobox.c:1100
 #, c-format
 msgid "Mount point (%s)"
 msgstr "Liitoskohta (%s) "
@@ -2286,7 +2286,7 @@ msgstr "Laske"
 msgid "Set Type..."
 msgstr "Aseta Tyyppi..."
 
-#: menu.c:262 toolbar.c:164
+#: menu.c:262 toolbar.c:166
 msgid "Select"
 msgstr "Valitse"
 
@@ -2314,7 +2314,7 @@ msgstr "Valitse Jos..."
 msgid "Paste"
 msgstr ""
 
-#: menu.c:272 toolbar.c:168
+#: menu.c:272 toolbar.c:170
 msgid "New"
 msgstr "Uusi"
 
@@ -2631,23 +2631,23 @@ msgstr "Kopioidaanko ... ?"
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2586
+#: menu.c:2587
 msgid "You cannot do this to more than one item at a time"
 msgstr "Et voi tehdä tätä kuin yhdelle kohteelle kerrallaan"
 
-#: menu.c:2613
+#: menu.c:2614
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2618
+#: menu.c:2619
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
-#: menu.c:2623
+#: menu.c:2624
 msgid "Symlink"
 msgstr "Luo symbolinen linkki"
 
-#: menu.c:2658
+#: menu.c:2659
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2668,7 +2668,7 @@ msgstr ""
 "\tgtk-can-change-accels = 1\n"
 "\t(tämä toimii vain, kun XSETTINGS EI ole käytössä)"
 
-#: menu.c:2669
+#: menu.c:2670
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2688,7 +2688,7 @@ msgstr ""
 "Pikanäppäin ilmestyy kohteen viereen, ja voit jatkossa vain painaa "
 "pikanäppäintä avaamatta valikkoa."
 
-#: menu.c:2684
+#: menu.c:2685
 msgid "Set keyboard shortcuts"
 msgstr "Aseta pikanäppäimet"
 
@@ -2812,7 +2812,7 @@ msgstr "(tallentaminen estetty CHOICESPATH-muuttujalla)"
 msgid "Error saving %s: %s"
 msgstr "Virhe tallennettaessa kohdetta %s: %s"
 
-#: options.c:1795
+#: options.c:1794
 msgid "Missing '='"
 msgstr "Puuttuva '='"
 
@@ -3257,105 +3257,108 @@ msgid "Automatic size mode"
 msgstr "Automaattinen koko"
 
 #: toolbar.c:145
-msgid "Show extra details"
-msgstr "Näytä lisätietoja"
+msgid ""
+"Left: toggle List View\n"
+"Center: Return to normal Icon View\n"
+"Right: cycle extra details"
+msgstr ""
 
-#: toolbar.c:149
+#: toolbar.c:151
 msgid "Sort"
 msgstr "Järjestä"
 
-#: toolbar.c:149
+#: toolbar.c:151
 msgid "Change sort criteria"
 msgstr "Muuta järjestysperusteita"
 
-#: toolbar.c:153
+#: toolbar.c:155
 msgid "Hidden"
 msgstr "Piilotettu"
 
-#: toolbar.c:153
+#: toolbar.c:155
 msgid ""
 "Left: Show/hide hidden files\n"
 "Center: Reset to defaults\n"
 "Right: Show/hide thumbnails"
 msgstr ""
 
-#: toolbar.c:159
+#: toolbar.c:161
 msgid "Dirs"
 msgstr ""
 
-#: toolbar.c:159
+#: toolbar.c:161
 msgid ""
 "Left: Show dirs only\n"
 "Right: Show files only"
 msgstr ""
 
-#: toolbar.c:164
+#: toolbar.c:166
 msgid "Select all/invert selection"
 msgstr "Valitse kaikki/käänteinen valinta"
 
-#: toolbar.c:168
+#: toolbar.c:170
 msgid ""
 "Left: New Directory\n"
 "Center: New Blank file\n"
 "Right: Menu"
 msgstr ""
 
-#: toolbar.c:174
+#: toolbar.c:176
 msgid "Show ROX-Filer help"
 msgstr "Näytä ROX-Filerin ohje"
 
-#: toolbar.c:237
+#: toolbar.c:239
 #, c-format
 msgid " (%u hidden)"
 msgstr " (%u piilotettua)"
 
-#: toolbar.c:245 tips:61
+#: toolbar.c:247 tips:61
 msgid "items"
 msgstr "kohdetta"
 
-#: toolbar.c:245
+#: toolbar.c:247
 msgid "item"
 msgstr "kohde"
 
-#: toolbar.c:248
+#: toolbar.c:250
 #, c-format
 msgid "No items%s"
 msgstr "Ei kohteita%s"
 
-#: toolbar.c:267
+#: toolbar.c:269
 #, c-format
 msgid "%u selected (%s)"
 msgstr "%u valittu (%s)"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by name"
 msgstr "Järjestä nimen mukaan"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by type"
 msgstr "Järjestä tyypin mukaan"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by date"
 msgstr "Järjestä päivämäärän mukaan"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by size"
 msgstr "Järjestä koon mukaan"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by owner"
 msgstr "Järjestä omistajan mukaan"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by group"
 msgstr "Järjestä ryhmän mukaan"
 
-#: toolbar.c:496
+#: toolbar.c:499
 msgid "ascending"
 msgstr "nouseva"
 
-#: toolbar.c:496
+#: toolbar.c:499
 msgid "descending"
 msgstr "laskeva"
 
@@ -3465,15 +3468,15 @@ msgstr "Raahaa sopiva sovellus tähän"
 msgid "OR"
 msgstr "TAI"
 
-#: type.c:1032
+#: type.c:1033
 msgid "Enter a shell command:"
 msgstr "Syötä komentotulkin komento:"
 
-#: type.c:1061
+#: type.c:1062
 msgid "_Use Command"
 msgstr "_Käytä komentoa"
 
-#: type.c:1091
+#: type.c:1092
 msgid ""
 "A run action already exists and is quite a big program - are you sure you "
 "want to delete it?"
@@ -3481,16 +3484,16 @@ msgstr ""
 "Suoritustoiminto on jo olemassa, ja on melko kookas ohjelma - haluatko "
 "varmasti poistaa sen?"
 
-#: type.c:1102
+#: type.c:1103
 #, c-format
 msgid "Can't remove %s: %s"
 msgstr "Ei voi poistaa kohdetta %s: %s"
 
-#: type.c:1139
+#: type.c:1140
 msgid "Choices saving is disabled by CHOICESPATH variable"
 msgstr "Asetusten tallentaminen estetty CHOICESPATH-muuttujalla"
 
-#: type.c:1441
+#: type.c:1442
 #, fuzzy, c-format
 msgid ""
 "Failed to create symlink '%s':\n"
@@ -3603,39 +3606,39 @@ msgstr ""
 msgid "Font for displaying mono-spaced text"
 msgstr ""
 
-#: view_details.c:1115
+#: view_details.c:1118
 msgid "_Name"
 msgstr "_Nimi"
 
-#: view_details.c:1123
+#: view_details.c:1126
 msgid "_Type"
 msgstr "_Tyyppi"
 
-#: view_details.c:1132
+#: view_details.c:1135
 msgid "_Size"
 msgstr "_Koko"
 
-#: view_details.c:1144
+#: view_details.c:1147
 msgid "_Permissions"
 msgstr "O_ikeudet"
 
-#: view_details.c:1155
+#: view_details.c:1158
 msgid "_Owner"
 msgstr "_Omistaja"
 
-#: view_details.c:1163
+#: view_details.c:1166
 msgid "_Group"
 msgstr "_Ryhmä"
 
-#: view_details.c:1171
+#: view_details.c:1174
 msgid "Last _Modified"
 msgstr "Viimeksi _Muokattu"
 
-#: view_details.c:1183
+#: view_details.c:1186
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1195
+#: view_details.c:1198
 msgid "Last _Accessed"
 msgstr ""
 
@@ -5120,6 +5123,9 @@ msgstr ""
 #, fuzzy
 msgid "<b>Position</b>"
 msgstr "<b>Oikeudet</b>"
+
+#~ msgid "Show extra details"
+#~ msgstr "Näytä lisätietoja"
 
 #, fuzzy
 #~ msgid "Inotify support"

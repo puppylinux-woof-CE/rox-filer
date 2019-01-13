@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-02 18:43-0600\n"
+"POT-Creation-Date: 2019-01-13 00:18-0600\n"
 "PO-Revision-Date: 2010-01-03 12:00+0100\n"
 "Last-Translator: Yuri Bongiorno http://yuri.bongiorno.googlepages.com <>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -32,7 +32,7 @@ msgstr "Tutti"
 msgid "Don't confirm every operation"
 msgstr "Non chiede conferma ad ogni operazione"
 
-#: abox.c:454 infobox.c:795 tips:38 tips:80
+#: abox.c:454 infobox.c:796 tips:38 tips:80
 msgid "Name"
 msgstr "Nome"
 
@@ -40,7 +40,7 @@ msgstr "Nome"
 msgid "Directory"
 msgstr "Directory"
 
-#: abox.c:551
+#: abox.c:550
 msgid "Expression:"
 msgstr "Espressione:"
 
@@ -276,15 +276,15 @@ msgstr ""
 msgid "ERROR"
 msgstr "ERRORE"
 
-#: action.c:732 main.c:703 main.c:717
+#: action.c:731 main.c:703 main.c:717
 msgid "Yes"
 msgstr "Si"
 
-#: action.c:735 main.c:705 main.c:717
+#: action.c:734 main.c:705 main.c:717
 msgid "No"
 msgstr "No"
 
-#: action.c:753
+#: action.c:752
 msgid ""
 "\n"
 "Asking child process to terminate...\n"
@@ -292,7 +292,7 @@ msgstr ""
 "\n"
 "Chiedo al processo figlio di terminare...\n"
 
-#: action.c:760
+#: action.c:759
 msgid ""
 "\n"
 "Trying to KILL run-away process...\n"
@@ -300,41 +300,41 @@ msgstr ""
 "\n"
 "Invio il segnale KILL al processo fuori controllo...\n"
 
-#: action.c:915
+#: action.c:914
 #, c-format
 msgid "?Count contents of %s?"
 msgstr "?Calcolare il contenuto di %s?"
 
-#: action.c:952
+#: action.c:951
 #, c-format
 msgid "?Delete %s'%s'?"
 msgstr "?Eliminare %s«%s»?"
 
-#: action.c:953
+#: action.c:952
 msgid "WRITE-PROTECTED "
 msgstr "PROTETTO DA SCRITTURA "
 
-#: action.c:960
+#: action.c:959
 #, c-format
 msgid "'Deleting '%s'\n"
 msgstr "'Eliminazione di «%s» in corso.\n"
 
-#: action.c:973
+#: action.c:972
 #, c-format
 msgid "'Directory '%s' deleted\n"
 msgstr "'Directory «%s» eliminata\n"
 
-#: action.c:1007
+#: action.c:1006
 #, c-format
 msgid "?Eject '%s'?"
 msgstr "?Espellere «%s»?"
 
-#: action.c:1014
+#: action.c:1013
 #, c-format
 msgid "'Eject '%s'\n"
 msgstr "'Espulsione di «%s» in corso.\n"
 
-#: action.c:1033
+#: action.c:1032
 #, c-format
 msgid ""
 "!%s\n"
@@ -343,95 +343,95 @@ msgstr ""
 "!%s\n"
 "Espulsione fallita\n"
 
-#: action.c:1053 action.c:1072
+#: action.c:1052 action.c:1071
 #, c-format
 msgid "?Check '%s'?"
 msgstr "?Controllare «%s»?"
 
-#: action.c:1069
+#: action.c:1068
 msgid "!Invalid find condition - change it and try again\n"
 msgstr "!Condizione di ricerca non valida: cambiarla e riprovare\n"
 
-#: action.c:1079
+#: action.c:1078
 #, c-format
 msgid "'(while checking '%s')\n"
 msgstr "'(durante il controllo di «%s»)\n"
 
-#: action.c:1154 action.c:1179
+#: action.c:1153 action.c:1178
 #, c-format
 msgid "?Change permissions of '%s'?"
 msgstr "?Cambiare i permessi di «%s»?"
 
-#: action.c:1160
+#: action.c:1159
 #, c-format
 msgid "'Changing permissions of '%s'\n"
 msgstr "'Modifica dei permessi di «%s» in corso.\n"
 
-#: action.c:1177
+#: action.c:1176
 msgid "!Invalid mode command - change it and try again\n"
 msgstr "!Comando non valido: cambiarlo e riprovare\n"
 
-#: action.c:1235
+#: action.c:1234
 #, c-format
 msgid "?Change contents of '%s'?"
 msgstr "?Cambiare il contenuto di «%s»?"
 
-#: action.c:1238 action.c:1258
+#: action.c:1237 action.c:1257
 #, c-format
 msgid "?Change type of '%s'?"
 msgstr "?Cambiare il tipo di file di «%s»?"
 
-#: action.c:1255
+#: action.c:1254
 msgid "!Invalid type - change it and try again\n"
 msgstr "!Tipo non valido: cambiarlo e riprovare\n"
 
-#: action.c:1277
+#: action.c:1276
 #, c-format
 msgid "'Changing type of '%s' to '%s'\n"
 msgstr "'Modifica del tipo di file da «%s» a «%s» in corso.\n"
 
-#: action.c:1300
+#: action.c:1299
 #, c-format
 msgid "'Not changing type of directory '%s'\n"
 msgstr "'Non cambiare il tipo di directory «%s»\n"
 
-#: action.c:1306
+#: action.c:1305
 #, c-format
 msgid "'Non-regular file '%s' not changed\n"
 msgstr "'Il file non regolare·«%s»·non è stato cambiato\n"
 
-#: action.c:1389 action.c:1582
+#: action.c:1388 action.c:1581
 #, c-format
 msgid "?'%s' already exists - %s?"
 msgstr "?«%s» esiste già: %s?"
 
-#: action.c:1391 action.c:1584
+#: action.c:1390 action.c:1583
 msgid "merge contents"
 msgstr "unire i contenuti"
 
-#: action.c:1392 action.c:1585
+#: action.c:1391 action.c:1584
 msgid "overwrite"
 msgstr "sovrascrivere"
 
-#: action.c:1408
+#: action.c:1407
 msgid "'Trying copy anyway...\n"
 msgstr "'Provo comunque a copiare...\n"
 
-#: action.c:1417
+#: action.c:1416
 #, c-format
 msgid "?Copy %s as %s?"
 msgstr "?Copiare %s come %s?"
 
-#: action.c:1421
+#: action.c:1420
 #, c-format
 msgid "'Copying %s as %s\n"
 msgstr "'Copia di %s come %s in corso.\n"
 
-#: action.c:1436 action.c:1631
+#: action.c:1435 action.c:1630
 msgid "!ERROR: Destination already exists, but is not a directory\n"
 msgstr "!ERRORE: la destinazione esiste già, ma non è una directory\n"
 
-#: action.c:1515
+#: action.c:1514
 #, c-format
 msgid ""
 "!%s\n"
@@ -440,21 +440,21 @@ msgstr ""
 "!%s\n"
 "Copia di «%s» fallita\n"
 
-#: action.c:1601
+#: action.c:1600
 msgid "'Trying move anyway...\n"
 msgstr "'Provo comunque a spostare...\n"
 
-#: action.c:1610
+#: action.c:1609
 #, c-format
 msgid "?Move %s as %s?"
 msgstr "?Spostare %s in %s?"
 
-#: action.c:1614
+#: action.c:1613
 #, c-format
 msgid "'Moving %s as %s\n"
 msgstr "'Spostamento di %s in %s in corso.\n"
 
-#: action.c:1664
+#: action.c:1663
 #, c-format
 msgid ""
 "!%s\n"
@@ -463,45 +463,45 @@ msgstr ""
 "!%s\n"
 "Spostamento di %s in %s fallito\n"
 
-#: action.c:1686
+#: action.c:1685
 msgid "!ERROR: Can't copy object into itself\n"
 msgstr "!ERRORE: impossibile copiare l'oggetto su se stesso\n"
 
-#: action.c:1701
+#: action.c:1700
 msgid "!ERROR: Can't move/rename object into itself\n"
 msgstr "!ERRORE: impossibile spostare o rinominare l'oggetto su se stesso\n"
 
-#: action.c:1713
+#: action.c:1712
 #, c-format
 msgid "'Linking %s as %s\n"
 msgstr "'Collegamento di %s in %s in corso.\n"
 
-#: action.c:1718
+#: action.c:1717
 #, c-format
 msgid "?Link %s as %s?"
 msgstr "?Collegare %s come %s?"
 
-#: action.c:1761
+#: action.c:1760
 #, c-format
 msgid "'Mounting %s\n"
 msgstr "'Montaggio di %s in corso.\n"
 
-#: action.c:1762
+#: action.c:1761
 #, c-format
 msgid "'Unmounting %s\n"
 msgstr "'Smontaggio di %s in corso.\n"
 
-#: action.c:1765
+#: action.c:1764
 #, c-format
 msgid "?Mount %s?"
 msgstr "?Montare %s?"
 
-#: action.c:1766
+#: action.c:1765
 #, c-format
 msgid "?Unmount %s?"
 msgstr "?Smontare %s?"
 
-#: action.c:1787
+#: action.c:1786
 #, c-format
 msgid ""
 "!%s\n"
@@ -510,7 +510,7 @@ msgstr ""
 "!%s\n"
 "Montaggio fallito\n"
 
-#: action.c:1788
+#: action.c:1787
 #, c-format
 msgid ""
 "!%s\n"
@@ -519,11 +519,11 @@ msgstr ""
 "!%s\n"
 "Smontaggio fallito\n"
 
-#: action.c:1796
+#: action.c:1795
 msgid "'(seems to be mounted now anyway)\n"
 msgstr "'(ora sembra montato)\n"
 
-#: action.c:1845
+#: action.c:1844
 #, c-format
 msgid ""
 "'\n"
@@ -532,219 +532,219 @@ msgstr ""
 "'\n"
 "Totale: %s ("
 
-#: action.c:1851
+#: action.c:1850
 msgid "file"
 msgstr "file"
 
-#: action.c:1851
+#: action.c:1850
 msgid "files"
 msgstr "file"
 
-#: action.c:1855
+#: action.c:1854
 msgid "no directories)\n"
 msgstr "nessuna directory)\n"
 
-#: action.c:1859
+#: action.c:1858
 msgid "directory"
 msgstr "directory"
 
-#: action.c:1860
+#: action.c:1859
 msgid "directories"
 msgstr "directory"
 
-#: action.c:1901
+#: action.c:1900
 msgid "!No mount points selected!\n"
 msgstr "!Nessun punto di montaggio selezionato!\n"
 
-#: action.c:1986
+#: action.c:1984
 msgid "?Another search?"
 msgstr "?Un'altra ricerca?"
 
-#: action.c:2018 action.c:2052
+#: action.c:2016 action.c:2050
 #, c-format
 msgid "!'%s' is a symbolic link\n"
 msgstr "!«%s» è un collegamento simbolico\n"
 
-#: action.c:2093
+#: action.c:2091
 msgid "You need to select some items to search through"
 msgstr "È necessario selezionare alcuni elementi in cui cercare"
 
-#: action.c:2103 menu.c:261
+#: action.c:2101 menu.c:261
 msgid "Find"
 msgstr "Trova"
 
-#: action.c:2138
+#: action.c:2136
 msgid "You need to select some items to count"
 msgstr "È necessario selezionare alcuni elementi da contare"
 
-#: action.c:2142
+#: action.c:2140
 msgid "Disk Usage"
 msgstr "Utilizzo disco"
 
-#: action.c:2180
+#: action.c:2178
 msgid "Mount / Unmount"
 msgstr "Monta / Smonta"
 
-#: action.c:2199
+#: action.c:2197
 msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr "ROX-Filer non supporta ancora i punti di montaggio su questo sistema."
 
-#: action.c:2213 menu.c:246 tips:194
+#: action.c:2211 menu.c:246 tips:194
 msgid "Delete"
 msgstr "Elimina"
 
-#: action.c:2227 tips:199
+#: action.c:2225 tips:199
 msgid "Force"
 msgstr "Forza"
 
-#: action.c:2227
+#: action.c:2225
 msgid "Don't confirm deletion of non-writeable items"
 msgstr ""
 "Non chiede conferma dell'eliminazione degli elementi protetti da scrittura"
 
-#: action.c:2230 action.c:2291 action.c:2356 action.c:2439 action.c:2489
+#: action.c:2228 action.c:2289 action.c:2354 action.c:2437 action.c:2487
 #: tips:201
 msgid "Brief"
 msgstr "Breve"
 
-#: action.c:2230
+#: action.c:2228
 msgid "Only log directories being deleted"
 msgstr "Elenca solo le directory eliminate"
 
-#: action.c:2249
+#: action.c:2247
 msgid "You need to select the items whose permissions you want to change"
 msgstr "È necessario selezionare gli elementi a cui cambiare i permessi"
 
-#: action.c:2257
+#: action.c:2255
 msgid "a+x (Make executable/searchable)"
 msgstr "a+x (Rende eseguibile/ricercabile)"
 
-#: action.c:2259
+#: action.c:2257
 msgid "a-x (Make non-executable/non-searchable)"
 msgstr "a-x (Rende non eseguibile/non ricercabile)"
 
-#: action.c:2261
+#: action.c:2259
 msgid "u+rw (Give owner read+write)"
 msgstr "u+rw (Permette al proprietario di leggere e scrivere)"
 
-#: action.c:2263
+#: action.c:2261
 msgid "go-rwx (Private - owner access only)"
 msgstr "go-rwx (Privato - accesso solo al proprietario)"
 
-#: action.c:2265
+#: action.c:2263
 msgid "go=u-w (Public access, not write)"
 msgstr "go=u-w (Accesso pubblico, ma non in scrittura)"
 
-#: action.c:2276 menu.c:215 menu.c:259 tips:56 tips:86
+#: action.c:2274 menu.c:215 menu.c:259 tips:56 tips:86
 msgid "Permissions"
 msgstr "Permessi"
 
-#: action.c:2291 action.c:2356
+#: action.c:2289 action.c:2354
 msgid "Don't list processed files"
 msgstr "Non elenca i file elaborati"
 
-#: action.c:2294 action.c:2359 tips:203
+#: action.c:2292 action.c:2357 tips:203
 msgid "Recurse"
 msgstr "Ricorsivo"
 
-#: action.c:2294
+#: action.c:2292
 msgid "Also change contents of subdirectories"
 msgstr "Cambia anche il contenuto delle sottodirectory"
 
-#: action.c:2298
+#: action.c:2296
 msgid "Command:"
 msgstr "Comando:"
 
-#: action.c:2328
+#: action.c:2326
 msgid "You need to select the items whose type you want to change"
 msgstr "È necessario selezionare gli elementi a cui cambiare il tipo di MIME"
 
-#: action.c:2341
+#: action.c:2339
 msgid "Set type"
 msgstr "Imposta il tipo"
 
-#: action.c:2359
+#: action.c:2357
 msgid "Change contents of subdirectories"
 msgstr "Cambia anche il contenuto delle sottodirectory"
 
-#: action.c:2366 infobox.c:651
+#: action.c:2364 infobox.c:652
 msgid "Type:"
 msgstr "Tipo:"
 
-#: action.c:2413 dnd.c:123 menu.c:241 tips:188
+#: action.c:2411 dnd.c:123 menu.c:241 tips:188
 msgid "Copy"
 msgstr "Copia"
 
-#: action.c:2427 action.c:2477 tips:209
+#: action.c:2425 action.c:2475 tips:209
 msgid "Ignore Older"
 msgstr ""
 
-#: action.c:2428 action.c:2478 tips:210
+#: action.c:2426 action.c:2476 tips:210
 #, fuzzy
 msgid "Silently ignore if source is older than destination."
 msgstr "Sovrascrive solo se l'origine è più recente della destinazione."
 
-#: action.c:2431 action.c:2481 tips:207
+#: action.c:2429 action.c:2479 tips:207
 msgid "Newer"
 msgstr "Più recente"
 
-#: action.c:2432 action.c:2482 tips:208
+#: action.c:2430 action.c:2480 tips:208
 #, fuzzy
 msgid "Always over-write if source is newer than destination."
 msgstr "Sovrascrive solo se l'origine è più recente della destinazione."
 
-#: action.c:2435 action.c:2485 tips:205
+#: action.c:2433 action.c:2483 tips:205
 msgid "Merge"
 msgstr ""
 
-#: action.c:2436 action.c:2486 tips:206
+#: action.c:2434 action.c:2484 tips:206
 #, fuzzy
 msgid "Always merge directories."
 msgstr "directory"
 
-#: action.c:2439
+#: action.c:2437
 msgid "Only log directories as they are copied"
 msgstr "Elenca solo le directory che sono copiate"
 
-#: action.c:2463 dnd.c:124 tips:190
+#: action.c:2461 dnd.c:124 tips:190
 msgid "Move"
 msgstr "Sposta"
 
-#: action.c:2489
+#: action.c:2487
 msgid "Don't log each file as it is moved"
 msgstr "Non elencare ogni file che viene spostato"
 
-#: action.c:2512 tips:192
+#: action.c:2510 tips:192
 msgid "Link"
 msgstr "Collegamento"
 
-#: action.c:2537 appmenu.c:112 filer.c:680 infobox.c:1067
+#: action.c:2535 appmenu.c:112 filer.c:675 infobox.c:1068
 msgid "Eject"
 msgstr "Espelli"
 
-#: action.c:2609
+#: action.c:2608
 msgid "Deleting items such as "
 msgstr "Eliminazione degli elementi come "
 
-#: action.c:2613
+#: action.c:2612
 msgid "Deleting the item "
 msgstr "Eliminazione di "
 
-#: action.c:2615
+#: action.c:2614
 msgid "Deleting the items "
 msgstr "Eliminazione di "
 
-#: action.c:2634
+#: action.c:2633
 msgid " and "
 msgstr " e "
 
-#: action.c:2643
+#: action.c:2642
 msgid " will affect some items on the pinboard or panel - really delete it?"
 msgstr ""
 " influenzerà alcuni elementi della bacheca o del pannello. Eliminarlo "
 "veramente?"
 
-#: action.c:2650
+#: action.c:2649
 msgid " will affect some items on the pinboard or panel - really delete them?"
 msgstr ""
 " influenzerà alcuni elementi della bacheca o del pannello. Eliminarli "
@@ -767,7 +767,7 @@ msgstr ""
 msgid "Customise Menu..."
 msgstr "Personalizza il menù..."
 
-#: appmenu.c:402 menu.c:293 toolbar.c:174
+#: appmenu.c:403 menu.c:293 toolbar.c:176
 msgid "Help"
 msgstr "Aiuto"
 
@@ -806,15 +806,15 @@ msgstr "Questo elemento è l'ultimo"
 msgid "Can't bookmark non-local directories like '%s'"
 msgstr "Impossibile aggiungere nei segnalibri directory non locali come «%s»"
 
-#: bookmarks.c:779
+#: bookmarks.c:780
 msgid "Add New Bookmark"
 msgstr "Aggiungi un nuovo segnalibro"
 
-#: bookmarks.c:786
+#: bookmarks.c:787
 msgid "Edit Bookmarks"
 msgstr "Modifica segnalibri"
 
-#: bookmarks.c:791
+#: bookmarks.c:792
 msgid "Recently Visited"
 msgstr "Visitati di recente"
 
@@ -967,17 +967,17 @@ msgstr ""
 "%s\n"
 "%s"
 
-#: dir.c:918
+#: dir.c:920
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "Impossibile effettuare stat sulla directory: %s"
 
-#: dir.c:929
+#: dir.c:931
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "Impossibile aprire la directory: %s"
 
-#: display.c:728
+#: display.c:734
 #, c-format
 msgid "lstat(2) failed: %s"
 msgstr "lstat(2) fallito: %s"
@@ -1135,7 +1135,7 @@ msgstr ""
 "Impossibile accedere a «%s»:\n"
 "%s"
 
-#: filer.c:499
+#: filer.c:494
 #, c-format
 msgid ""
 "Error scanning '%s':\n"
@@ -1144,7 +1144,7 @@ msgstr ""
 "Errore durante la scansione di «%s»:\n"
 "%s\n"
 
-#: filer.c:655
+#: filer.c:650
 msgid ""
 "Do you want to unmount this device?\n"
 "\n"
@@ -1154,19 +1154,19 @@ msgstr ""
 "\n"
 "Smontare un device rende sicura la rimozione del disco."
 
-#: filer.c:660
+#: filer.c:655
 msgid "Perform the same action in future for this mount point"
 msgstr "Esegui la stessa azione in futuro per questo punto di mount"
 
-#: filer.c:667
+#: filer.c:662
 msgid "No change"
 msgstr "Nessun cambiamento"
 
-#: filer.c:673 infobox.c:1065 menu.c:956
+#: filer.c:668 infobox.c:1066 menu.c:956
 msgid "Unmount"
 msgstr "Smonta"
 
-#: filer.c:1142
+#: filer.c:1137
 #, c-format
 msgid ""
 "Group %s is not set. Select some files and press Ctrl+%s to set the group. "
@@ -1178,114 +1178,114 @@ msgstr ""
 "seguito.\n"
 "Se si usa il tastierino numerico, assucurarsi che NumLock sia acceso."
 
-#: filer.c:1826
+#: filer.c:1820
 msgid "Cancel"
 msgstr "Annulla"
 
-#: filer.c:2110
+#: filer.c:2104
 msgid "A"
 msgstr "T"
 
-#: filer.c:2112 find.c:1034
+#: filer.c:2106 find.c:1034
 msgid "G"
 msgstr "F"
 
-#: filer.c:2117
+#: filer.c:2111
 msgid "S"
 msgstr "S"
 
-#: filer.c:2119
+#: filer.c:2113
 msgid "T"
 msgstr "M"
 
-#: filer.c:2120
+#: filer.c:2114
 msgid "D"
 msgstr ""
 
-#: filer.c:2121
+#: filer.c:2115
 msgid "F"
 msgstr ""
 
-#: filer.c:2131
+#: filer.c:2125
 msgid "All, "
 msgstr "Tutti, "
 
-#: filer.c:2134
+#: filer.c:2128
 #, c-format
 msgid "Glob (%s), "
 msgstr "Filtro (%s), "
 
-#: filer.c:2142
+#: filer.c:2136
 msgid "Scanning, "
 msgstr "Scansione, "
 
-#: filer.c:2144
+#: filer.c:2138
 msgid "Thumbs, "
 msgstr "Miniature, "
 
-#: filer.c:2145
+#: filer.c:2139
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2146
+#: filer.c:2140
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2422
+#: filer.c:2416
 msgid "Symbolic link to "
 msgstr "Collegamento simbolico a "
 
-#: filer.c:2478
+#: filer.c:2472
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr ""
 "Il nome di questo file non è in formato UTF-8 valido. Bisognerebbe "
 "rinominarlo.\n"
 
-#: filer.c:2795 menu.c:2603
+#: filer.c:2790 menu.c:2604
 msgid "Item no longer exists!"
 msgstr "L'elemento non esiste più."
 
-#: filer.c:3610
+#: filer.c:3606
 msgid "Select display properties to save"
 msgstr "Selezionare le proprietà di visualizzazione da salvare"
 
-#: filer.c:3614
+#: filer.c:3610
 msgid "<b>Save display settings for directory</b>"
 msgstr "<b>Salva le impostazioni di visualizzazione per la directory</b>"
 
-#: filer.c:3621
+#: filer.c:3617
 msgid "Select settings to save"
 msgstr "Seleziona le impostazioni da salvare"
 
-#: filer.c:3628
+#: filer.c:3624
 msgid "Position"
 msgstr "Posizione"
 
-#: filer.c:3633 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "Dimensioni"
 
-#: filer.c:3638
+#: filer.c:3634
 msgid "Show hidden"
 msgstr "Mostra nascosti"
 
-#: filer.c:3644
+#: filer.c:3640
 msgid "Display style"
 msgstr "Stile di visualizzazione"
 
-#: filer.c:3650
+#: filer.c:3646
 msgid "Sort type and order"
 msgstr "Tipo di ordinamento"
 
-#: filer.c:3655 toolbar.c:145
+#: filer.c:3651 toolbar.c:145
 msgid "Details"
 msgstr "Dettagli"
 
-#: filer.c:3660 tips:115 tips:116
+#: filer.c:3656 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "Miniature"
 
-#: filer.c:3666
+#: filer.c:3662
 msgid "Filter"
 msgstr "Filtro"
 
@@ -1766,7 +1766,7 @@ msgstr "<b>Il contenuto sembra essere:</b>"
 msgid "<b>When all directories are closed</b>"
 msgstr "<b>Quando tutte le directory sono chiuse</b>"
 
-#: infobox.c:451 infobox.c:592 support.c:349
+#: infobox.c:451 infobox.c:593 support.c:349
 msgid "bytes"
 msgstr "byte"
 
@@ -1774,12 +1774,12 @@ msgstr "byte"
 msgid "Failed to read size"
 msgstr "Fallita la lettura della dimensione"
 
-#: infobox.c:535
+#: infobox.c:536
 #, c-format
 msgid "'%s' is no longer a symlink"
 msgstr "«%s» non è più un collegamento simbolico"
 
-#: infobox.c:542
+#: infobox.c:543
 #, c-format
 msgid ""
 "Failed to unlink '%s':\n"
@@ -1788,7 +1788,7 @@ msgstr ""
 "Scollegamento di «%s» fallito:\n"
 "%s"
 
-#: infobox.c:547
+#: infobox.c:548
 #, c-format
 msgid ""
 "Failed to create symlink from '%s':\n"
@@ -1799,158 +1799,158 @@ msgstr ""
 "%s\n"
 "(nota: il vecchio collegamento è stato eliminato)"
 
-#: infobox.c:571 tips:272
+#: infobox.c:572 tips:272
 msgid "Error:"
 msgstr "Errore:"
 
-#: infobox.c:578
+#: infobox.c:579
 msgid "Real directory:"
 msgstr "Directory effettiva:"
 
-#: infobox.c:581
+#: infobox.c:582
 msgid "Owner, Group:"
 msgstr "Proprietario, gruppo:"
 
-#: infobox.c:588 infobox.c:603 infobox.c:612
+#: infobox.c:589 infobox.c:604 infobox.c:613
 msgid "Size:"
 msgstr "Dimensione:"
 
-#: infobox.c:613
+#: infobox.c:614
 msgid "Scanning"
 msgstr "Scansione in corso."
 
-#: infobox.c:638
+#: infobox.c:639
 msgid "Failed to scan"
 msgstr "Scansione fallita"
 
-#: infobox.c:645
+#: infobox.c:646
 msgid "Change time:"
 msgstr "Ultimo cambiamento:"
 
-#: infobox.c:647
+#: infobox.c:648
 msgid "Modify time:"
 msgstr "Ultima modifica:"
 
-#: infobox.c:649
+#: infobox.c:650
 msgid "Access time:"
 msgstr "Ultimo accesso:"
 
-#: infobox.c:657
+#: infobox.c:658
 msgid "Extended attributes:"
 msgstr "Attributi estesi:"
 
-#: infobox.c:659
+#: infobox.c:660
 msgid "Present"
 msgstr "Presente"
 
-#: infobox.c:660
+#: infobox.c:661
 msgid "None"
 msgstr "Nessuno"
 
-#: infobox.c:661
+#: infobox.c:662
 msgid "Not supported"
 msgstr "Non supportato"
 
-#: infobox.c:673
+#: infobox.c:674
 msgid "Link target:"
 msgstr "Il collegamento punta a:"
 
-#: infobox.c:685 infobox.c:688
+#: infobox.c:686 infobox.c:689
 msgid "Run action:"
 msgstr "Azione:"
 
-#: infobox.c:685
+#: infobox.c:686
 msgid "Execute file"
 msgstr "Esegui file"
 
-#: infobox.c:797
+#: infobox.c:798
 msgid "Comment"
 msgstr "Commento"
 
-#: infobox.c:799
+#: infobox.c:800
 msgid "Execute"
 msgstr "Eseguire"
 
-#: infobox.c:814
+#: infobox.c:815
 msgid "<nothing yet>"
 msgstr "<ancora nulla>"
 
-#: infobox.c:887
+#: infobox.c:888
 #, c-format
 msgid "file(1) says... %s"
 msgstr "file(1) dice: %s"
 
-#: infobox.c:944
+#: infobox.c:945
 #, c-format
 msgid "Could not change permissions: %s"
 msgstr "Impossibile cambiare i permessi: %s"
 
-#: infobox.c:962 tips:88
+#: infobox.c:963 tips:88
 msgid "Owner"
 msgstr "Proprietario"
 
-#: infobox.c:964 tips:90
+#: infobox.c:965 tips:90
 msgid "Group"
 msgstr "Gruppo"
 
-#: infobox.c:966
+#: infobox.c:967
 msgid "World"
 msgstr "Altri"
 
-#: infobox.c:969
+#: infobox.c:970
 msgid "Read"
 msgstr "Lettura"
 
-#: infobox.c:972
+#: infobox.c:973
 msgid "Write"
 msgstr "Scrittura"
 
-#: infobox.c:975
+#: infobox.c:976
 msgid "Exec"
 msgstr "Esecuzione"
 
-#: infobox.c:993
+#: infobox.c:994
 msgid "SUID"
 msgstr "SUID"
 
-#: infobox.c:1000
+#: infobox.c:1001
 msgid "SGID"
 msgstr "SGID"
 
-#: infobox.c:1007
+#: infobox.c:1008
 msgid "Sticky"
 msgstr "Sticky"
 
-#: infobox.c:1063
+#: infobox.c:1064
 msgid "Do nothing"
 msgstr "Non fare nulla"
 
-#: infobox.c:1069
+#: infobox.c:1070
 msgid "Ask"
 msgstr "Chiedi"
 
-#: infobox.c:1081
+#: infobox.c:1082
 msgid "Symbolic link"
 msgstr "Collegamento simbolico"
 
-#: infobox.c:1084
+#: infobox.c:1085
 msgid "ROX application"
 msgstr "Applicazione ROX"
 
-#: infobox.c:1092
+#: infobox.c:1093
 msgid "mounted"
 msgstr "montato"
 
-#: infobox.c:1092
+#: infobox.c:1093
 msgid "unmounted"
 msgstr "smontato"
 
-#: infobox.c:1096
+#: infobox.c:1097
 #, c-format
 msgid "Mount point for %s (%s)"
 msgstr "Punto di montaggio per %s (%s)"
 
-#: infobox.c:1099
+#: infobox.c:1100
 #, c-format
 msgid "Mount point (%s)"
 msgstr "Punto di montaggio (%s)"
@@ -2298,7 +2298,7 @@ msgstr "Spazio usato"
 msgid "Set Type..."
 msgstr "Tipo di file..."
 
-#: menu.c:262 toolbar.c:164
+#: menu.c:262 toolbar.c:166
 msgid "Select"
 msgstr "Seleziona"
 
@@ -2326,7 +2326,7 @@ msgstr "Seleziona se..."
 msgid "Paste"
 msgstr ""
 
-#: menu.c:272 toolbar.c:168
+#: menu.c:272 toolbar.c:170
 msgid "New"
 msgstr "Nuovo"
 
@@ -2649,23 +2649,23 @@ msgstr "Copia... ?"
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2586
+#: menu.c:2587
 msgid "You cannot do this to more than one item at a time"
 msgstr "Non è possibile fare questo a più di un elemento alla volta"
 
-#: menu.c:2613
+#: menu.c:2614
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2618
+#: menu.c:2619
 msgid "Rename"
 msgstr "Rinomina"
 
-#: menu.c:2623
+#: menu.c:2624
 msgid "Symlink"
 msgstr "Collegamento simbolico"
 
-#: menu.c:2658
+#: menu.c:2659
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2685,7 +2685,7 @@ msgstr ""
 "2) aggiungendo questa riga in «~/.gtkrc-2.0»:\n"
 "\tgtk-can-change-accels = 1\t(funziona solo se NON si usa XSETTINGS)"
 
-#: menu.c:2669
+#: menu.c:2670
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2705,7 +2705,7 @@ msgstr ""
 "Il tasto appare vicino alla voce di menù e da questo momento è possibile "
 "premere solo quel tasto anziché attivare il menù."
 
-#: menu.c:2684
+#: menu.c:2685
 msgid "Set keyboard shortcuts"
 msgstr "Imposta le scorciatoie da tastiera"
 
@@ -2831,7 +2831,7 @@ msgstr "(salvataggio disabilitato da CHOICESPATH)"
 msgid "Error saving %s: %s"
 msgstr "Errore nel salvare %s: %s"
 
-#: options.c:1795
+#: options.c:1794
 msgid "Missing '='"
 msgstr "Manca «=»"
 
@@ -3275,22 +3275,25 @@ msgid "Automatic size mode"
 msgstr "Modalità di ridimensionamento automatico"
 
 #: toolbar.c:145
-msgid "Show extra details"
-msgstr "Mostra dettagli extra"
+msgid ""
+"Left: toggle List View\n"
+"Center: Return to normal Icon View\n"
+"Right: cycle extra details"
+msgstr ""
 
-#: toolbar.c:149
+#: toolbar.c:151
 msgid "Sort"
 msgstr "Ordina"
 
-#: toolbar.c:149
+#: toolbar.c:151
 msgid "Change sort criteria"
 msgstr "Cambia i criteri di ordinamento"
 
-#: toolbar.c:153
+#: toolbar.c:155
 msgid "Hidden"
 msgstr "Nascosti"
 
-#: toolbar.c:153
+#: toolbar.c:155
 #, fuzzy
 msgid ""
 "Left: Show/hide hidden files\n"
@@ -3300,11 +3303,11 @@ msgstr ""
 "Clic sinistro: mostra/nasconde i file nascosti\n"
 "Clic destro: mostra/nasconde le miniature"
 
-#: toolbar.c:159
+#: toolbar.c:161
 msgid "Dirs"
 msgstr ""
 
-#: toolbar.c:159
+#: toolbar.c:161
 #, fuzzy
 msgid ""
 "Left: Show dirs only\n"
@@ -3313,73 +3316,73 @@ msgstr ""
 "Clic sinistro: mostra/nasconde i file nascosti\n"
 "Clic destro: mostra/nasconde le miniature"
 
-#: toolbar.c:164
+#: toolbar.c:166
 msgid "Select all/invert selection"
 msgstr "Seleziona tutto/Inverte la selezione"
 
-#: toolbar.c:168
+#: toolbar.c:170
 msgid ""
 "Left: New Directory\n"
 "Center: New Blank file\n"
 "Right: Menu"
 msgstr ""
 
-#: toolbar.c:174
+#: toolbar.c:176
 msgid "Show ROX-Filer help"
 msgstr "Mostra i file di aiuto di ROX-Filer"
 
-#: toolbar.c:237
+#: toolbar.c:239
 #, c-format
 msgid " (%u hidden)"
 msgstr " (%u nascosti)"
 
-#: toolbar.c:245 tips:61
+#: toolbar.c:247 tips:61
 msgid "items"
 msgstr "elementi"
 
-#: toolbar.c:245
+#: toolbar.c:247
 msgid "item"
 msgstr "elemento"
 
-#: toolbar.c:248
+#: toolbar.c:250
 #, c-format
 msgid "No items%s"
 msgstr "Nessun elemento%s"
 
-#: toolbar.c:267
+#: toolbar.c:269
 #, c-format
 msgid "%u selected (%s)"
 msgstr "%u selezionati (%s)"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by name"
 msgstr "Ordina per nome"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by type"
 msgstr "Ordina per tipo"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by date"
 msgstr "Ordina per data"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by size"
 msgstr "Ordina per dimensione"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by owner"
 msgstr "Ordina per proprietario"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by group"
 msgstr "Ordina per gruppo"
 
-#: toolbar.c:496
+#: toolbar.c:499
 msgid "ascending"
 msgstr "ascendente"
 
-#: toolbar.c:496
+#: toolbar.c:499
 msgid "descending"
 msgstr "discendente"
 
@@ -3490,31 +3493,31 @@ msgstr "Trascinare qui un'applicazione adatta"
 msgid "OR"
 msgstr "O"
 
-#: type.c:1032
+#: type.c:1033
 msgid "Enter a shell command:"
 msgstr "Inserire un comando di shell:"
 
-#: type.c:1061
+#: type.c:1062
 msgid "_Use Command"
 msgstr "_Usa il comando"
 
-#: type.c:1091
+#: type.c:1092
 msgid ""
 "A run action already exists and is quite a big program - are you sure you "
 "want to delete it?"
 msgstr "Un'azione esiste già ed è un programma. Eliminarla veramente?"
 
-#: type.c:1102
+#: type.c:1103
 #, c-format
 msgid "Can't remove %s: %s"
 msgstr "Impossibile eliminare %s: %s"
 
-#: type.c:1139
+#: type.c:1140
 msgid "Choices saving is disabled by CHOICESPATH variable"
 msgstr ""
 "Il salvataggio delle preferenze è disabilitato dalla variabile CHOICESPATH"
 
-#: type.c:1441
+#: type.c:1442
 #, c-format
 msgid ""
 "Failed to create symlink '%s':\n"
@@ -3630,39 +3633,39 @@ msgid "Font for displaying mono-spaced text"
 msgstr ""
 "Tipo di carattere da usare per visualizzare il testo a spaziatura fissa"
 
-#: view_details.c:1115
+#: view_details.c:1118
 msgid "_Name"
 msgstr "_Nome"
 
-#: view_details.c:1123
+#: view_details.c:1126
 msgid "_Type"
 msgstr "_Tipo"
 
-#: view_details.c:1132
+#: view_details.c:1135
 msgid "_Size"
 msgstr "Dimen_sioni"
 
-#: view_details.c:1144
+#: view_details.c:1147
 msgid "_Permissions"
 msgstr "_Permessi"
 
-#: view_details.c:1155
+#: view_details.c:1158
 msgid "_Owner"
 msgstr "Proprietari_o"
 
-#: view_details.c:1163
+#: view_details.c:1166
 msgid "_Group"
 msgstr "_Gruppo"
 
-#: view_details.c:1171
+#: view_details.c:1174
 msgid "Last _Modified"
 msgstr "Ultima _modifica"
 
-#: view_details.c:1183
+#: view_details.c:1186
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1195
+#: view_details.c:1198
 msgid "Last _Accessed"
 msgstr ""
 
@@ -5126,6 +5129,9 @@ msgstr "In alto"
 #: ../Templates.ui.h:25
 msgid "<b>Position</b>"
 msgstr "<b>Posizione</b>"
+
+#~ msgid "Show extra details"
+#~ msgstr "Mostra dettagli extra"
 
 #~ msgid "Inotify support"
 #~ msgstr "Supporto a Inotify"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.7.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-02 18:43-0600\n"
+"POT-Creation-Date: 2019-01-13 00:18-0600\n"
 "Last-Translator: anhtuan, xomhau\n"
 "Language-Team: vi_VN <out of team>\n"
 "Language: \n"
@@ -29,7 +29,7 @@ msgstr "Im lặng"
 msgid "Don't confirm every operation"
 msgstr "Không xác nhận cho mỗi thao tác"
 
-#: abox.c:454 infobox.c:795 tips:38 tips:80
+#: abox.c:454 infobox.c:796 tips:38 tips:80
 msgid "Name"
 msgstr "Tên"
 
@@ -37,7 +37,7 @@ msgstr "Tên"
 msgid "Directory"
 msgstr "Thư mục"
 
-#: abox.c:551
+#: abox.c:550
 msgid "Expression:"
 msgstr "Từ cần tìm:"
 
@@ -258,15 +258,15 @@ msgstr ""
 msgid "ERROR"
 msgstr "LỖI"
 
-#: action.c:732 main.c:703 main.c:717
+#: action.c:731 main.c:703 main.c:717
 msgid "Yes"
 msgstr "Đồng ý"
 
-#: action.c:735 main.c:705 main.c:717
+#: action.c:734 main.c:705 main.c:717
 msgid "No"
 msgstr "Không đồng ý"
 
-#: action.c:753
+#: action.c:752
 msgid ""
 "\n"
 "Asking child process to terminate...\n"
@@ -274,7 +274,7 @@ msgstr ""
 "\n"
 "Yêu cầu quá trình con kết thúc...\n"
 
-#: action.c:760
+#: action.c:759
 msgid ""
 "\n"
 "Trying to KILL run-away process...\n"
@@ -282,42 +282,42 @@ msgstr ""
 "\n"
 "KILL quá trình đang chạy...\n"
 
-#: action.c:915
+#: action.c:914
 #, c-format
 msgid "?Count contents of %s?"
 msgstr "?Kiểm kê nội dung của %s?"
 
-#: action.c:952
+#: action.c:951
 #, c-format
 msgid "?Delete %s'%s'?"
 msgstr "?Xoá %s'%s'?"
 
 # Dịch thế nào cho xuôi tai?
-#: action.c:953
+#: action.c:952
 msgid "WRITE-PROTECTED "
 msgstr "CHỐNG-GHI"
 
-#: action.c:960
+#: action.c:959
 #, c-format
 msgid "'Deleting '%s'\n"
 msgstr "'Xoá '%s'\n"
 
-#: action.c:973
+#: action.c:972
 #, c-format
 msgid "'Directory '%s' deleted\n"
 msgstr "'Thư mục '%s' đã bị xoá\n"
 
-#: action.c:1007
+#: action.c:1006
 #, c-format
 msgid "?Eject '%s'?"
 msgstr "?Eject '%s'?"
 
-#: action.c:1014
+#: action.c:1013
 #, c-format
 msgid "'Eject '%s'\n"
 msgstr "'Eject '%s'\n"
 
-#: action.c:1033
+#: action.c:1032
 #, c-format
 msgid ""
 "!%s\n"
@@ -326,95 +326,95 @@ msgstr ""
 "!%s\n"
 "eject đã lỗi\n"
 
-#: action.c:1053 action.c:1072
+#: action.c:1052 action.c:1071
 #, c-format
 msgid "?Check '%s'?"
 msgstr "?Kiểm tra '%s'?"
 
-#: action.c:1069
+#: action.c:1068
 msgid "!Invalid find condition - change it and try again\n"
 msgstr "!Điều kiện tìm kiếm không đúng - hãy thay đổi chúng và thử lại\n"
 
-#: action.c:1079
+#: action.c:1078
 #, c-format
 msgid "'(while checking '%s')\n"
 msgstr "'(kiểm kê '%s')\n"
 
-#: action.c:1154 action.c:1179
+#: action.c:1153 action.c:1178
 #, c-format
 msgid "?Change permissions of '%s'?"
 msgstr "?Thay đổi quyền hạn của '%s'?"
 
-#: action.c:1160
+#: action.c:1159
 #, c-format
 msgid "'Changing permissions of '%s'\n"
 msgstr "'Thay đổi quyền hạn của '%s'\n"
 
-#: action.c:1177
+#: action.c:1176
 msgid "!Invalid mode command - change it and try again\n"
 msgstr "!Lệnh không đúng - hãy thay đổi và thử lại\n"
 
-#: action.c:1235
+#: action.c:1234
 #, c-format
 msgid "?Change contents of '%s'?"
 msgstr "?Thay đổi nội dung của '%s'?"
 
-#: action.c:1238 action.c:1258
+#: action.c:1237 action.c:1257
 #, c-format
 msgid "?Change type of '%s'?"
 msgstr "?Thay đổi loại của '%s'?"
 
-#: action.c:1255
+#: action.c:1254
 msgid "!Invalid type - change it and try again\n"
 msgstr "!Loại không đúng - hãy thay đổi và thử lại\n"
 
-#: action.c:1277
+#: action.c:1276
 #, c-format
 msgid "'Changing type of '%s' to '%s'\n"
 msgstr "'Thay đổi loại của '%s' đến '%s'\n"
 
-#: action.c:1300
+#: action.c:1299
 #, c-format
 msgid "'Not changing type of directory '%s'\n"
 msgstr "'Không thay đổi kiểu của thư mục '%s'\n"
 
-#: action.c:1306
+#: action.c:1305
 #, c-format
 msgid "'Non-regular file '%s' not changed\n"
 msgstr "Tập tin không-chuẩn '%s' không thay đổi\n"
 
-#: action.c:1389 action.c:1582
+#: action.c:1388 action.c:1581
 #, c-format
 msgid "?'%s' already exists - %s?"
 msgstr "?'%s' đã tồn tại - %s?"
 
-#: action.c:1391 action.c:1584
+#: action.c:1390 action.c:1583
 msgid "merge contents"
 msgstr "kết hợp nội dung"
 
-#: action.c:1392 action.c:1585
+#: action.c:1391 action.c:1584
 msgid "overwrite"
 msgstr "ghi đè lên"
 
-#: action.c:1408
+#: action.c:1407
 msgid "'Trying copy anyway...\n"
 msgstr "'Thử sao chép bằng mọi cách...\n"
 
-#: action.c:1417
+#: action.c:1416
 #, c-format
 msgid "?Copy %s as %s?"
 msgstr "?Sao chép %s như %s?"
 
-#: action.c:1421
+#: action.c:1420
 #, c-format
 msgid "'Copying %s as %s\n"
 msgstr "'Sao chép %s như %s\n"
 
-#: action.c:1436 action.c:1631
+#: action.c:1435 action.c:1630
 msgid "!ERROR: Destination already exists, but is not a directory\n"
 msgstr "!LỖI: Đích đã tồn tại, nhưng đó không phải là một thư mục\n"
 
-#: action.c:1515
+#: action.c:1514
 #, c-format
 msgid ""
 "!%s\n"
@@ -423,21 +423,21 @@ msgstr ""
 "!%s\n"
 "Quá trình sao chép '%s' bị lỗi\n"
 
-#: action.c:1601
+#: action.c:1600
 msgid "'Trying move anyway...\n"
 msgstr "'Thử di chuyển bằng mọi cách...\n"
 
-#: action.c:1610
+#: action.c:1609
 #, c-format
 msgid "?Move %s as %s?"
 msgstr "?Chuyển %s như %s?"
 
-#: action.c:1614
+#: action.c:1613
 #, c-format
 msgid "'Moving %s as %s\n"
 msgstr "'Đang chuyển %s như %s\n"
 
-#: action.c:1664
+#: action.c:1663
 #, c-format
 msgid ""
 "!%s\n"
@@ -446,45 +446,45 @@ msgstr ""
 "!%s\n"
 "Lỗi khi di chuyển %s như %s\n"
 
-#: action.c:1686
+#: action.c:1685
 msgid "!ERROR: Can't copy object into itself\n"
 msgstr "!LỖI: Không thể sao chép đối tượng lên chính nó\n"
 
-#: action.c:1701
+#: action.c:1700
 msgid "!ERROR: Can't move/rename object into itself\n"
 msgstr "!LỖI: Không thể di chuyển hoặc đổi tên đối tượng vào/như chính nó\n"
 
-#: action.c:1713
+#: action.c:1712
 #, c-format
 msgid "'Linking %s as %s\n"
 msgstr "'Tạo liên kết cho %s như %s\n"
 
-#: action.c:1718
+#: action.c:1717
 #, c-format
 msgid "?Link %s as %s?"
 msgstr "?Tạo liên kết cho %s như %s?"
 
-#: action.c:1761
+#: action.c:1760
 #, c-format
 msgid "'Mounting %s\n"
 msgstr "'Đang gắn kết %s\n"
 
-#: action.c:1762
+#: action.c:1761
 #, c-format
 msgid "'Unmounting %s\n"
 msgstr "'Hủy gắn kết %s\n"
 
-#: action.c:1765
+#: action.c:1764
 #, c-format
 msgid "?Mount %s?"
 msgstr "?Gắn kết %s?"
 
-#: action.c:1766
+#: action.c:1765
 #, c-format
 msgid "?Unmount %s?"
 msgstr "?Hủy gắn kết %s?"
 
-#: action.c:1787
+#: action.c:1786
 #, c-format
 msgid ""
 "!%s\n"
@@ -493,7 +493,7 @@ msgstr ""
 "!%s\n"
 "Gắn kết đã lỗi\n"
 
-#: action.c:1788
+#: action.c:1787
 #, c-format
 msgid ""
 "!%s\n"
@@ -502,11 +502,11 @@ msgstr ""
 "!%s\n"
 "Hủy gắn kết đã lỗi\n"
 
-#: action.c:1796
+#: action.c:1795
 msgid "'(seems to be mounted now anyway)\n"
 msgstr "'(dường như đã được gắn kết ở đâu đó)'\n"
 
-#: action.c:1845
+#: action.c:1844
 #, c-format
 msgid ""
 "'\n"
@@ -515,217 +515,217 @@ msgstr ""
 "'\n"
 "Tổng cộng: %s ("
 
-#: action.c:1851
+#: action.c:1850
 msgid "file"
 msgstr "tập tin"
 
-#: action.c:1851
+#: action.c:1850
 msgid "files"
 msgstr "tập tin"
 
-#: action.c:1855
+#: action.c:1854
 msgid "no directories)\n"
 msgstr "không có thư mục)\n"
 
-#: action.c:1859
+#: action.c:1858
 msgid "directory"
 msgstr "thư mục"
 
-#: action.c:1860
+#: action.c:1859
 msgid "directories"
 msgstr "thư mục"
 
-#: action.c:1901
+#: action.c:1900
 msgid "!No mount points selected!\n"
 msgstr "!Chưa chọn điểm gắn kết\n"
 
-#: action.c:1986
+#: action.c:1984
 msgid "?Another search?"
 msgstr "?Tìm kiếm lại?"
 
-#: action.c:2018 action.c:2052
+#: action.c:2016 action.c:2050
 #, c-format
 msgid "!'%s' is a symbolic link\n"
 msgstr "!'%s' đây là liên kết tượng trưng\n"
 
-#: action.c:2093
+#: action.c:2091
 msgid "You need to select some items to search through"
 msgstr "Bạn cần chọn vài mục để tìm kiếm"
 
-#: action.c:2103 menu.c:261
+#: action.c:2101 menu.c:261
 msgid "Find"
 msgstr "Tìm kiếm"
 
-#: action.c:2138
+#: action.c:2136
 msgid "You need to select some items to count"
 msgstr "Bạn cần chọn vài mục để kiểm kê"
 
-#: action.c:2142
+#: action.c:2140
 msgid "Disk Usage"
 msgstr "Sử dụng đĩa"
 
-#: action.c:2180
+#: action.c:2178
 msgid "Mount / Unmount"
 msgstr "Gắn kết / Hủy gắn kết"
 
-#: action.c:2199
+#: action.c:2197
 msgid "ROX-Filer does not yet support mount points on your system. Sorry."
 msgstr "ROX-Filer chưa hỗ trợ điểm gắn kết trên hệ thống của bạn. Xin lỗi."
 
-#: action.c:2213 menu.c:246 tips:194
+#: action.c:2211 menu.c:246 tips:194
 msgid "Delete"
 msgstr "Xoá"
 
-#: action.c:2227 tips:199
+#: action.c:2225 tips:199
 msgid "Force"
 msgstr "Bắt buộc"
 
-#: action.c:2227
+#: action.c:2225
 msgid "Don't confirm deletion of non-writeable items"
 msgstr "Không xác nhận việc xoá của những mục chỉ đọc"
 
-#: action.c:2230 action.c:2291 action.c:2356 action.c:2439 action.c:2489
+#: action.c:2228 action.c:2289 action.c:2354 action.c:2437 action.c:2487
 #: tips:201
 msgid "Brief"
 msgstr "Ngắn gọn"
 
-#: action.c:2230
+#: action.c:2228
 msgid "Only log directories being deleted"
 msgstr "Chỉ ghi nhận các thư mục đã xoá"
 
-#: action.c:2249
+#: action.c:2247
 msgid "You need to select the items whose permissions you want to change"
 msgstr "Bạn cần chọn các mục mà bạn muốn thay đổi quyền hạn"
 
-#: action.c:2257
+#: action.c:2255
 msgid "a+x (Make executable/searchable)"
 msgstr "a+x (Thực thi/Tìm kiếm được)"
 
-#: action.c:2259
+#: action.c:2257
 msgid "a-x (Make non-executable/non-searchable)"
 msgstr "a-x (Không thực thi/Không tìm kiếm được)"
 
-#: action.c:2261
+#: action.c:2259
 msgid "u+rw (Give owner read+write)"
 msgstr "u+rw (Cho phép chủ nhân đọc và ghi)"
 
-#: action.c:2263
+#: action.c:2261
 msgid "go-rwx (Private - owner access only)"
 msgstr "go-rwx (Riêng tư - chỉ chủ nhân truy nhập)"
 
-#: action.c:2265
+#: action.c:2263
 msgid "go=u-w (Public access, not write)"
 msgstr "go=u-w (Tất cả đều truy nhập được, không ghi được)"
 
-#: action.c:2276 menu.c:215 menu.c:259 tips:56 tips:86
+#: action.c:2274 menu.c:215 menu.c:259 tips:56 tips:86
 msgid "Permissions"
 msgstr "Quyền hạn"
 
-#: action.c:2291 action.c:2356
+#: action.c:2289 action.c:2354
 msgid "Don't list processed files"
 msgstr "Không liệt kê các tập tin đã tiến hành"
 
-#: action.c:2294 action.c:2359 tips:203
+#: action.c:2292 action.c:2357 tips:203
 #, fuzzy
 msgid "Recurse"
 msgstr "Recurse"
 
-#: action.c:2294
+#: action.c:2292
 msgid "Also change contents of subdirectories"
 msgstr "Thay đổi cả nội dung các thư mục con"
 
-#: action.c:2298
+#: action.c:2296
 msgid "Command:"
 msgstr "Lệnh:"
 
-#: action.c:2328
+#: action.c:2326
 msgid "You need to select the items whose type you want to change"
 msgstr "Bạn cần chọn các mục mà bạn muốn thay đổi quyền hạn"
 
-#: action.c:2341
+#: action.c:2339
 msgid "Set type"
 msgstr "Thiết đặt Loại"
 
-#: action.c:2359
+#: action.c:2357
 msgid "Change contents of subdirectories"
 msgstr "Thay đổi cả nội dung các thư mục con"
 
-#: action.c:2366 infobox.c:651
+#: action.c:2364 infobox.c:652
 msgid "Type:"
 msgstr "Loại:"
 
-#: action.c:2413 dnd.c:123 menu.c:241 tips:188
+#: action.c:2411 dnd.c:123 menu.c:241 tips:188
 msgid "Copy"
 msgstr "Sao chép"
 
-#: action.c:2427 action.c:2477 tips:209
+#: action.c:2425 action.c:2475 tips:209
 msgid "Ignore Older"
 msgstr ""
 
-#: action.c:2428 action.c:2478 tips:210
+#: action.c:2426 action.c:2476 tips:210
 #, fuzzy
 msgid "Silently ignore if source is older than destination."
 msgstr "Ghi đè lên nếu nguồn mới hơn đích"
 
-#: action.c:2431 action.c:2481 tips:207
+#: action.c:2429 action.c:2479 tips:207
 msgid "Newer"
 msgstr "Mới hơn"
 
-#: action.c:2432 action.c:2482 tips:208
+#: action.c:2430 action.c:2480 tips:208
 #, fuzzy
 msgid "Always over-write if source is newer than destination."
 msgstr "Ghi đè lên nếu nguồn mới hơn đích"
 
-#: action.c:2435 action.c:2485 tips:205
+#: action.c:2433 action.c:2483 tips:205
 msgid "Merge"
 msgstr ""
 
-#: action.c:2436 action.c:2486 tips:206
+#: action.c:2434 action.c:2484 tips:206
 #, fuzzy
 msgid "Always merge directories."
 msgstr "thư mục"
 
-#: action.c:2439
+#: action.c:2437
 msgid "Only log directories as they are copied"
 msgstr "Chỉ ghi nhận các thư mục đã được sao chép"
 
-#: action.c:2463 dnd.c:124 tips:190
+#: action.c:2461 dnd.c:124 tips:190
 msgid "Move"
 msgstr "Di chuyển"
 
-#: action.c:2489
+#: action.c:2487
 msgid "Don't log each file as it is moved"
 msgstr "Không ghi nhận tập tin khi nó được di chuyển"
 
-#: action.c:2512 tips:192
+#: action.c:2510 tips:192
 msgid "Link"
 msgstr "Liên kết"
 
-#: action.c:2537 appmenu.c:112 filer.c:680 infobox.c:1067
+#: action.c:2535 appmenu.c:112 filer.c:675 infobox.c:1068
 msgid "Eject"
 msgstr "Eject"
 
-#: action.c:2609
+#: action.c:2608
 msgid "Deleting items such as "
 msgstr "Xoá các mục này như "
 
-#: action.c:2613
+#: action.c:2612
 msgid "Deleting the item "
 msgstr "Đang xoá mục "
 
-#: action.c:2615
+#: action.c:2614
 msgid "Deleting the items "
 msgstr "Đang xoá các mục "
 
-#: action.c:2634
+#: action.c:2633
 msgid " and "
 msgstr " và "
 
-#: action.c:2643
+#: action.c:2642
 msgid " will affect some items on the pinboard or panel - really delete it?"
 msgstr " sẽ ảnh hưởng vài mục trên pinboard và panel - xóa nó?"
 
-#: action.c:2650
+#: action.c:2649
 msgid " will affect some items on the pinboard or panel - really delete them?"
 msgstr " sẽ ảnh hưởng vài mục trên pinboard và panel - xóa chúng?"
 
@@ -746,7 +746,7 @@ msgstr ""
 msgid "Customise Menu..."
 msgstr "Tinh chỉnh Menu..."
 
-#: appmenu.c:402 menu.c:293 toolbar.c:174
+#: appmenu.c:403 menu.c:293 toolbar.c:176
 msgid "Help"
 msgstr "Trợ giúp"
 
@@ -785,15 +785,15 @@ msgstr "Mục này đã nằm cuối danh sách"
 msgid "Can't bookmark non-local directories like '%s'"
 msgstr "Không thể bookmark các thư mục bên ngoài như '%s'"
 
-#: bookmarks.c:779
+#: bookmarks.c:780
 msgid "Add New Bookmark"
 msgstr "Thêm Bookmark"
 
-#: bookmarks.c:786
+#: bookmarks.c:787
 msgid "Edit Bookmarks"
 msgstr "Chỉnh sửa Bookmark"
 
-#: bookmarks.c:791
+#: bookmarks.c:792
 msgid "Recently Visited"
 msgstr "Đã truy nhập gần đây"
 
@@ -942,17 +942,17 @@ msgstr ""
 "%s\n"
 "%s"
 
-#: dir.c:918
+#: dir.c:920
 #, c-format
 msgid "Can't stat directory: %s"
 msgstr "Không thể thống kê thư mục: %s"
 
-#: dir.c:929
+#: dir.c:931
 #, c-format
 msgid "Can't open directory: %s"
 msgstr "Không thể mở thư mục %s"
 
-#: display.c:728
+#: display.c:734
 #, c-format
 msgid "lstat(2) failed: %s"
 msgstr "lstat(2) lỗi: %s"
@@ -1106,7 +1106,7 @@ msgstr ""
 "Không thể truy nhập %s:\n"
 "%s"
 
-#: filer.c:499
+#: filer.c:494
 #, c-format
 msgid ""
 "Error scanning '%s':\n"
@@ -1115,7 +1115,7 @@ msgstr ""
 "Lỗi quét '%s':\n"
 "%s\n"
 
-#: filer.c:655
+#: filer.c:650
 msgid ""
 "Do you want to unmount this device?\n"
 "\n"
@@ -1125,19 +1125,19 @@ msgstr ""
 "\n"
 "Hủy gắn kết một thiết bị giúp an tòan hơn để lấy đĩa ra."
 
-#: filer.c:660
+#: filer.c:655
 msgid "Perform the same action in future for this mount point"
 msgstr ""
 
-#: filer.c:667
+#: filer.c:662
 msgid "No change"
 msgstr "Không"
 
-#: filer.c:673 infobox.c:1065 menu.c:956
+#: filer.c:668 infobox.c:1066 menu.c:956
 msgid "Unmount"
 msgstr "Huỷ gắn kết"
 
-#: filer.c:1142
+#: filer.c:1137
 #, c-format
 msgid ""
 "Group %s is not set. Select some files and press Ctrl+%s to set the group. "
@@ -1148,112 +1148,112 @@ msgstr ""
 "nhóm. Nhấn %s trên chính nó để chọn lại tập tin sau đó.\n"
 "Hãy chắc Numlock được bật nếu bạn dùng phím số (keypad)."
 
-#: filer.c:1826
+#: filer.c:1820
 msgid "Cancel"
 msgstr "Huỷ"
 
-#: filer.c:2110
+#: filer.c:2104
 msgid "A"
 msgstr "A"
 
-#: filer.c:2112 find.c:1034
+#: filer.c:2106 find.c:1034
 msgid "G"
 msgstr "G"
 
-#: filer.c:2117
+#: filer.c:2111
 msgid "S"
 msgstr "S"
 
-#: filer.c:2119
+#: filer.c:2113
 msgid "T"
 msgstr "T"
 
-#: filer.c:2120
+#: filer.c:2114
 msgid "D"
 msgstr ""
 
-#: filer.c:2121
+#: filer.c:2115
 msgid "F"
 msgstr ""
 
-#: filer.c:2131
+#: filer.c:2125
 msgid "All, "
 msgstr "Tất cả, "
 
-#: filer.c:2134
+#: filer.c:2128
 #, c-format
 msgid "Glob (%s), "
 msgstr "Glob (%s), "
 
-#: filer.c:2142
+#: filer.c:2136
 msgid "Scanning, "
 msgstr "Đang quét, "
 
-#: filer.c:2144
+#: filer.c:2138
 msgid "Thumbs, "
 msgstr "Thumbs, "
 
-#: filer.c:2145
+#: filer.c:2139
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2146
+#: filer.c:2140
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2422
+#: filer.c:2416
 msgid "Symbolic link to "
 msgstr "Liên kết đến "
 
-#: filer.c:2478
+#: filer.c:2472
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "Tên tập tin này không là UTF-8. Bạn nên đổi tên nó.\n"
 
-#: filer.c:2795 menu.c:2603
+#: filer.c:2790 menu.c:2604
 msgid "Item no longer exists!"
 msgstr "Mục này không tồn tại!"
 
-#: filer.c:3610
+#: filer.c:3606
 msgid "Select display properties to save"
 msgstr "Chọn thuộc tính hiển thị để lưu lại"
 
-#: filer.c:3614
+#: filer.c:3610
 msgid "<b>Save display settings for directory</b>"
 msgstr "Lưu thiết lập hiển thị cho thư mục"
 
-#: filer.c:3621
+#: filer.c:3617
 msgid "Select settings to save"
 msgstr "Chọn thiết lập để lưu"
 
-#: filer.c:3628
+#: filer.c:3624
 msgid "Position"
 msgstr "Vị trí"
 
-#: filer.c:3633 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "Kích cỡ"
 
-#: filer.c:3638
+#: filer.c:3634
 msgid "Show hidden"
 msgstr "Hiện tập tin ẩn"
 
-#: filer.c:3644
+#: filer.c:3640
 msgid "Display style"
 msgstr "Kiểu hiện thị"
 
-#: filer.c:3650
+#: filer.c:3646
 msgid "Sort type and order"
 msgstr "Sằp xếp theo loại và thứ tự"
 
-#: filer.c:3655 toolbar.c:145
+#: filer.c:3651 toolbar.c:145
 msgid "Details"
 msgstr "Chi tiết"
 
-#: filer.c:3660 tips:115 tips:116
+#: filer.c:3656 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "Thumbnail"
 
-#: filer.c:3666
+#: filer.c:3662
 msgid "Filter"
 msgstr "Bộ lọc"
 
@@ -1733,7 +1733,7 @@ msgstr "<b>Nội dung biểu thị...</b>"
 msgid "<b>When all directories are closed</b>"
 msgstr "Chỉ ghi nhận các thư mục đã được sao chép"
 
-#: infobox.c:451 infobox.c:592 support.c:349
+#: infobox.c:451 infobox.c:593 support.c:349
 msgid "bytes"
 msgstr "bytes"
 
@@ -1741,12 +1741,12 @@ msgstr "bytes"
 msgid "Failed to read size"
 msgstr "Lỗi đọc kích cỡ"
 
-#: infobox.c:535
+#: infobox.c:536
 #, c-format
 msgid "'%s' is no longer a symlink"
 msgstr "'%s' không phải là một liên kết (symlink)"
 
-#: infobox.c:542
+#: infobox.c:543
 #, c-format
 msgid ""
 "Failed to unlink '%s':\n"
@@ -1755,7 +1755,7 @@ msgstr ""
 "Lỗi hủy liên kết '%s':\n"
 "%s"
 
-#: infobox.c:547
+#: infobox.c:548
 #, c-format
 msgid ""
 "Failed to create symlink from '%s':\n"
@@ -1766,159 +1766,159 @@ msgstr ""
 "%s\n"
 "(liên kết cũ đã được xóa)"
 
-#: infobox.c:571 tips:272
+#: infobox.c:572 tips:272
 msgid "Error:"
 msgstr "Lỗi"
 
-#: infobox.c:578
+#: infobox.c:579
 msgid "Real directory:"
 msgstr "Thư mục thực:"
 
-#: infobox.c:581
+#: infobox.c:582
 msgid "Owner, Group:"
 msgstr "Sở hữu, nhóm:"
 
-#: infobox.c:588 infobox.c:603 infobox.c:612
+#: infobox.c:589 infobox.c:604 infobox.c:613
 msgid "Size:"
 msgstr "Kích cỡ:"
 
-#: infobox.c:613
+#: infobox.c:614
 msgid "Scanning"
 msgstr "Quét"
 
-#: infobox.c:638
+#: infobox.c:639
 msgid "Failed to scan"
 msgstr "Lỗi quét"
 
-#: infobox.c:645
+#: infobox.c:646
 msgid "Change time:"
 msgstr "Thay đổi cuối:"
 
-#: infobox.c:647
+#: infobox.c:648
 msgid "Modify time:"
 msgstr "Điều chỉnh cuối:"
 
-#: infobox.c:649
+#: infobox.c:650
 msgid "Access time:"
 msgstr "Truy nhập cuối:"
 
-#: infobox.c:657
+#: infobox.c:658
 msgid "Extended attributes:"
 msgstr "Thuộc tính mở rộng"
 
-#: infobox.c:659
+#: infobox.c:660
 msgid "Present"
 msgstr "Hiện tại"
 
-#: infobox.c:660
+#: infobox.c:661
 msgid "None"
 msgstr "Không có"
 
-#: infobox.c:661
+#: infobox.c:662
 msgid "Not supported"
 msgstr "Không hỗ trợ"
 
-#: infobox.c:673
+#: infobox.c:674
 msgid "Link target:"
 msgstr "Liên kết đích"
 
-#: infobox.c:685 infobox.c:688
+#: infobox.c:686 infobox.c:689
 msgid "Run action:"
 msgstr "Thực thi hành động:"
 
-#: infobox.c:685
+#: infobox.c:686
 msgid "Execute file"
 msgstr "Tập tin thực thi"
 
-#: infobox.c:797
+#: infobox.c:798
 msgid "Comment"
 msgstr "Chú giải"
 
-#: infobox.c:799
+#: infobox.c:800
 msgid "Execute"
 msgstr "Thực thi"
 
-#: infobox.c:814
+#: infobox.c:815
 msgid "<nothing yet>"
 msgstr "<chưa có gì>"
 
-#: infobox.c:887
+#: infobox.c:888
 #, c-format
 msgid "file(1) says... %s"
 msgstr "file(1) nói... %s"
 
-#: infobox.c:944
+#: infobox.c:945
 #, c-format
 msgid "Could not change permissions: %s"
 msgstr "Không thể thay đổi quyền truy nhập: %s"
 
-#: infobox.c:962 tips:88
+#: infobox.c:963 tips:88
 msgid "Owner"
 msgstr "Sở hữu"
 
-#: infobox.c:964 tips:90
+#: infobox.c:965 tips:90
 msgid "Group"
 msgstr "Nhóm"
 
-#: infobox.c:966
+#: infobox.c:967
 msgid "World"
 msgstr "Khác"
 
-#: infobox.c:969
+#: infobox.c:970
 msgid "Read"
 msgstr "Đọc"
 
-#: infobox.c:972
+#: infobox.c:973
 msgid "Write"
 msgstr "Ghi"
 
-#: infobox.c:975
+#: infobox.c:976
 msgid "Exec"
 msgstr "Thực thi"
 
-#: infobox.c:993
+#: infobox.c:994
 msgid "SUID"
 msgstr "SUID"
 
-#: infobox.c:1000
+#: infobox.c:1001
 msgid "SGID"
 msgstr "SGID"
 
-#: infobox.c:1007
+#: infobox.c:1008
 msgid "Sticky"
 msgstr "Sticky"
 
-#: infobox.c:1063
+#: infobox.c:1064
 #, fuzzy
 msgid "Do nothing"
 msgstr "<không có gì>"
 
-#: infobox.c:1069
+#: infobox.c:1070
 msgid "Ask"
 msgstr ""
 
-#: infobox.c:1081
+#: infobox.c:1082
 msgid "Symbolic link"
 msgstr "Liên kết tượng trưng"
 
-#: infobox.c:1084
+#: infobox.c:1085
 msgid "ROX application"
 msgstr "Ứng dụng ROX"
 
-#: infobox.c:1092
+#: infobox.c:1093
 msgid "mounted"
 msgstr "gắn kết"
 
-#: infobox.c:1092
+#: infobox.c:1093
 msgid "unmounted"
 msgstr "huỷ gắn kết"
 
-#: infobox.c:1096
+#: infobox.c:1097
 #, c-format
 msgid "Mount point for %s (%s)"
 msgstr "Điểm gắn kết cho %s (%s) "
 
-#: infobox.c:1099
+#: infobox.c:1100
 #, c-format
 msgid "Mount point (%s)"
 msgstr "Điểm gắn kết (%s)"
@@ -2266,7 +2266,7 @@ msgstr "Kiểm kê"
 msgid "Set Type..."
 msgstr "Thiết đặt Lọai..."
 
-#: menu.c:262 toolbar.c:164
+#: menu.c:262 toolbar.c:166
 msgid "Select"
 msgstr "Chọn"
 
@@ -2294,7 +2294,7 @@ msgstr "Chọn nếu..."
 msgid "Paste"
 msgstr ""
 
-#: menu.c:272 toolbar.c:168
+#: menu.c:272 toolbar.c:170
 msgid "New"
 msgstr "Tạo"
 
@@ -2612,23 +2612,23 @@ msgstr "Sao chép...?"
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2586
+#: menu.c:2587
 msgid "You cannot do this to more than one item at a time"
 msgstr "Bạn không thể làm việc này với nhiều hơn một tập tin cùng lúc"
 
-#: menu.c:2613
+#: menu.c:2614
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2618
+#: menu.c:2619
 msgid "Rename"
 msgstr "Đổi tên"
 
-#: menu.c:2623
+#: menu.c:2624
 msgid "Symlink"
 msgstr "Liên kết"
 
-#: menu.c:2658
+#: menu.c:2659
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2650,7 +2650,7 @@ msgstr ""
 "\tgtk-can-change-accels = 1\n"
 "\t(nó chỉ làm việc nếu bạn KHÔNG dùng XSETTINGS)"
 
-#: menu.c:2669
+#: menu.c:2670
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2670,7 +2670,7 @@ msgstr ""
 "Phím sẽ hiện ra lần kế trong mục menu và sau này bạn chỉ cần nhấn phím mà "
 "không cần mở menu."
 
-#: menu.c:2684
+#: menu.c:2685
 msgid "Set keyboard shortcuts"
 msgstr "Thiết đặt các phím tắt"
 
@@ -2793,7 +2793,7 @@ msgstr "(lưu trữ đã tắt bởi CHOICESPATH)"
 msgid "Error saving %s: %s"
 msgstr "Lỗi khi lưu %s: %s"
 
-#: options.c:1795
+#: options.c:1794
 msgid "Missing '='"
 msgstr "Lỗi '='"
 
@@ -3229,22 +3229,25 @@ msgid "Automatic size mode"
 msgstr "Tự động chọn kích cỡ"
 
 #: toolbar.c:145
-msgid "Show extra details"
-msgstr "Hiện chi tiết"
+msgid ""
+"Left: toggle List View\n"
+"Center: Return to normal Icon View\n"
+"Right: cycle extra details"
+msgstr ""
 
-#: toolbar.c:149
+#: toolbar.c:151
 msgid "Sort"
 msgstr "Sắp xếp"
 
-#: toolbar.c:149
+#: toolbar.c:151
 msgid "Change sort criteria"
 msgstr "Thay đổi tiêu chuẩn sắp xếp"
 
-#: toolbar.c:153
+#: toolbar.c:155
 msgid "Hidden"
 msgstr "Ẩn"
 
-#: toolbar.c:153
+#: toolbar.c:155
 #, fuzzy
 msgid ""
 "Left: Show/hide hidden files\n"
@@ -3254,11 +3257,11 @@ msgstr ""
 "Trái: Hiện/Ẩn các tập tin ẩn\n"
 "Phải: Hiện/Ẩn các thumbnail"
 
-#: toolbar.c:159
+#: toolbar.c:161
 msgid "Dirs"
 msgstr ""
 
-#: toolbar.c:159
+#: toolbar.c:161
 #, fuzzy
 msgid ""
 "Left: Show dirs only\n"
@@ -3267,73 +3270,73 @@ msgstr ""
 "Trái: Hiện/Ẩn các tập tin ẩn\n"
 "Phải: Hiện/Ẩn các thumbnail"
 
-#: toolbar.c:164
+#: toolbar.c:166
 msgid "Select all/invert selection"
 msgstr "Chọn tất cả/đảo ngược lựa chọn"
 
-#: toolbar.c:168
+#: toolbar.c:170
 msgid ""
 "Left: New Directory\n"
 "Center: New Blank file\n"
 "Right: Menu"
 msgstr ""
 
-#: toolbar.c:174
+#: toolbar.c:176
 msgid "Show ROX-Filer help"
 msgstr "Hiện trợ giúp của ROX-Filer"
 
-#: toolbar.c:237
+#: toolbar.c:239
 #, c-format
 msgid " (%u hidden)"
 msgstr " (%u ẩn)"
 
-#: toolbar.c:245 tips:61
+#: toolbar.c:247 tips:61
 msgid "items"
 msgstr "mục"
 
-#: toolbar.c:245
+#: toolbar.c:247
 msgid "item"
 msgstr "mục"
 
-#: toolbar.c:248
+#: toolbar.c:250
 #, c-format
 msgid "No items%s"
 msgstr "Không có các mục%s"
 
-#: toolbar.c:267
+#: toolbar.c:269
 #, c-format
 msgid "%u selected (%s)"
 msgstr "%u mục đã được chọn (%s)"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by name"
 msgstr "Sắp xếp theo tên"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by type"
 msgstr "Sắp xếp theo lọai"
 
-#: toolbar.c:461
+#: toolbar.c:464
 msgid "Sort by date"
 msgstr "Sắp xếp theo ngày"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by size"
 msgstr "Sắp xếp theo kích cỡ"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by owner"
 msgstr "Sắp xếp theo sở hữu"
 
-#: toolbar.c:462
+#: toolbar.c:465
 msgid "Sort by group"
 msgstr "Sắp xếp theo nhóm"
 
-#: toolbar.c:496
+#: toolbar.c:499
 msgid "ascending"
 msgstr "tăng lên"
 
-#: toolbar.c:496
+#: toolbar.c:499
 msgid "descending"
 msgstr "giảm dần"
 
@@ -3443,15 +3446,15 @@ msgstr "Thả một ứng dụng ở đây"
 msgid "OR"
 msgstr "HOẶC"
 
-#: type.c:1032
+#: type.c:1033
 msgid "Enter a shell command:"
 msgstr "Nhập một lệnh shell:"
 
-#: type.c:1061
+#: type.c:1062
 msgid "_Use Command"
 msgstr "_Sử dụng lệnh:"
 
-#: type.c:1091
+#: type.c:1092
 msgid ""
 "A run action already exists and is quite a big program - are you sure you "
 "want to delete it?"
@@ -3459,16 +3462,16 @@ msgstr ""
 "Một hành động thực thi đã có và là một chương trình rất lớn - bạn có chắc "
 "muốn xóa nó?"
 
-#: type.c:1102
+#: type.c:1103
 #, c-format
 msgid "Can't remove %s: %s"
 msgstr "Không thể xóa %s: %s"
 
-#: type.c:1139
+#: type.c:1140
 msgid "Choices saving is disabled by CHOICESPATH variable"
 msgstr "Chọn lựa lưu trữ được tắt bởi biến CHOICESPATH"
 
-#: type.c:1441
+#: type.c:1442
 #, c-format
 msgid ""
 "Failed to create symlink '%s':\n"
@@ -3580,39 +3583,39 @@ msgstr "Mono font"
 msgid "Font for displaying mono-spaced text"
 msgstr "Font dùng hiển thị văn bản mono-space"
 
-#: view_details.c:1115
+#: view_details.c:1118
 msgid "_Name"
 msgstr "_Tên"
 
-#: view_details.c:1123
+#: view_details.c:1126
 msgid "_Type"
 msgstr "_Loại"
 
-#: view_details.c:1132
+#: view_details.c:1135
 msgid "_Size"
 msgstr "_Kích cỡ"
 
-#: view_details.c:1144
+#: view_details.c:1147
 msgid "_Permissions"
 msgstr "_Quyền"
 
-#: view_details.c:1155
+#: view_details.c:1158
 msgid "_Owner"
 msgstr "_Sở hữu"
 
-#: view_details.c:1163
+#: view_details.c:1166
 msgid "_Group"
 msgstr "_Nhóm"
 
-#: view_details.c:1171
+#: view_details.c:1174
 msgid "Last _Modified"
 msgstr "_Chỉnh Sửa Cuối"
 
-#: view_details.c:1183
+#: view_details.c:1186
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1195
+#: view_details.c:1198
 msgid "Last _Accessed"
 msgstr ""
 
@@ -5031,6 +5034,9 @@ msgstr "Cạnh trên"
 #: ../Templates.ui.h:25
 msgid "<b>Position</b>"
 msgstr "<b>Vị trí</b>"
+
+#~ msgid "Show extra details"
+#~ msgstr "Hiện chi tiết"
 
 #, fuzzy
 #~ msgid "Inotify support"
