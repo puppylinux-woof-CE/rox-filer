@@ -113,7 +113,7 @@ static const GtkTargetEntry clipboard_targets[] = {
 	{"x-special/gnome-copied-files", 0, TARGET_GNOME_COPIED_FILES},
 };
 static GtkClipboard *clipboard;
-static gchar *clipboard_action = NULL;
+static const char *clipboard_action = NULL;
 static GList *selected_paths = NULL;
 
 /* Static prototypes */
@@ -2298,132 +2298,114 @@ static void clipboard_clear(GtkClipboard *clipboard, gpointer user_data)
 
 static void paste_from_clipboard(gpointer data, guint action, GtkWidget *unused)
 {
-	GtkSelectionData *clipboard_selection = NULL;
-	GList *local_paths = NULL;
-	gchar **uri_iter;
-	gchar **uri_list;
 	const gchar *error = NULL;
 	const gchar *dest_path = (gchar *)window_with_focus->sym_path;
 	const gchar *dest_real_path = (gchar *)window_with_focus->real_path;
-	gchar *string_data = NULL;
 	gboolean are_copying = TRUE;
 	gboolean ignore_no_local_paths = FALSE;
-	struct stat dest_info;
 
-	clipboard_selection =
+	GtkSelectionData *selection =
 				gtk_clipboard_wait_for_contents(clipboard, gnome_copied_files);
-
-	if (clipboard_selection == NULL)
-	{
-		clipboard_selection =
-					gtk_clipboard_wait_for_contents(clipboard, text_uri_list);
-	}
-
-	if (clipboard_selection == NULL)
+	if (selection == NULL)
+		selection = gtk_clipboard_wait_for_contents(clipboard, text_uri_list);
+	if (selection == NULL)
 	{
 		delayed_error(_("The clipboard is empty."));
 		return;
 	}
-	else
+
+	char **uri_list = gtk_selection_data_get_uris(selection);
+	if (!uri_list)
 	{
-		uri_list = gtk_selection_data_get_uris(clipboard_selection);
+		char *tmp = g_strndup(selection->data, selection->length);
+		uri_list = g_strsplit_set(tmp, "\r\n", -1);
+		g_free(tmp);
+	}
 
-		if (uri_list == NULL)
+	/* Either one local URI, or a list. If everything in the list
+	* isn't local then we are stuck.
+	*/
+
+	GList *local_paths = NULL;
+	for (gchar **uri_iter = uri_list; *uri_iter; uri_iter++)
+	{
+		if (**uri_iter == '\0')
+			continue;
+		if (strcmp(*uri_iter, "copy") == 0)
+			continue;
+		if (strcmp(*uri_iter, "cut") == 0)
 		{
-			string_data = g_strndup(clipboard_selection->data,
-									clipboard_selection->length);
-
-			uri_list = g_strsplit_set(string_data, "\r\n", -1);
-			g_free(string_data);
+			are_copying = FALSE;
+			continue;
 		}
 
-		/* Either one local URI, or a list. If everything in the list
-		* isn't local then we are stuck.
-		*/
-
-		for (uri_iter = uri_list; *uri_iter; uri_iter++)
+		char *path = get_local_path((EscapedPath *) *uri_iter);
+		if (path)
 		{
-			if (**uri_iter == '\0')
-				continue;
-			if (strcmp(*uri_iter, "copy") == 0)
-				continue;
-			if (strcmp(*uri_iter, "cut") == 0)
+			gchar *source_real_path = pathdup(path);
+			gchar *source_dirname = g_path_get_dirname(source_real_path);
+			if (strcmp(source_dirname, dest_real_path) == 0 &&
+				are_copying == TRUE)
 			{
-				are_copying = FALSE;
-				continue;
-			}
+				gchar *source_basename = g_path_get_basename(path);
+				gchar *new_name = NULL;
+				GList *one_path = NULL;
 
-			char *path;
+				ignore_no_local_paths = TRUE;
+				one_path = g_list_append(one_path, path);
 
-			path = get_local_path((EscapedPath *) *uri_iter);
-
-			if (path)
-			{
-				gchar *source_real_path = pathdup(path);
-				gchar *source_dirname = g_path_get_dirname(source_real_path);
-				if (strcmp(source_dirname, dest_real_path) == 0 &&
-					are_copying == TRUE)
+				new_name = g_strdup_printf(_("Copy of %s"), source_basename);
+				int i = 2;
+				struct stat dest_info;
+				while (mc_lstat(make_path(source_dirname, new_name), &dest_info) == 0)
 				{
-					gchar *source_basename = g_path_get_basename(path);
-					gchar *new_name = NULL;
-					GList *one_path = NULL;
-
-					ignore_no_local_paths = TRUE;
-					one_path = g_list_append(one_path, path);
-
-					new_name = g_strdup_printf(_("Copy of %s"), source_basename);
-					int i = 2;
-					while (mc_lstat(make_path(source_dirname, new_name), &dest_info) == 0)
-					{
-						g_free(new_name);
-						new_name = g_strdup_printf(_("Copy(%d) of %s"), i, source_basename);
-						i++;
-					}
-					action_copy(one_path, dest_path, new_name, -1);
-
 					g_free(new_name);
-					g_free(source_basename);
-					destroy_glist(&one_path);
+					new_name = g_strdup_printf(_("Copy(%d) of %s"), i, source_basename);
+					i++;
 				}
-				else
-					local_paths = g_list_append(local_paths, path);
+				action_copy(one_path, dest_path, new_name, -1);
 
-				g_free(source_real_path);
-				g_free(source_dirname);
+				g_free(new_name);
+				g_free(source_basename);
+				destroy_glist(&one_path);
 			}
 			else
-				error = _("Some of these files are on a "
-						"different machine - they will be "
-						"ignored - sorry");
-		}
+				local_paths = g_list_append(local_paths, path);
 
-		if (!local_paths)
-		{
-			if (ignore_no_local_paths == FALSE)
-				error = _("None of these files are on the local "
-					"machine - I can't operate on multiple "
-					"remote files - sorry.");
+			g_free(source_real_path);
+			g_free(source_dirname);
 		}
 		else
-		{
-			if (are_copying == TRUE)
-				action_copy(local_paths, dest_path, NULL, -1);
-			else
-				action_move(local_paths, dest_path, NULL, -1);
+			error = _("Some of these files are on a "
+					"different machine - they will be "
+					"ignored - sorry");
+	}
 
-			destroy_glist(&local_paths);
-		}
-
-		if (error)
-			delayed_error(_("Error getting file list: %s"), error);
-
-		g_strfreev(uri_list);
+	if (!local_paths)
+	{
+		if (ignore_no_local_paths == FALSE)
+			error = _("None of these files are on the local "
+				"machine - I can't operate on multiple "
+				"remote files - sorry.");
+	}
+	else
+	{
 		if (are_copying == FALSE)
 		{
-			gtk_selection_data_free (clipboard_selection);
+			action_move(local_paths, dest_path, NULL, -1);
 			gtk_clipboard_clear(clipboard);
 		}
+		else
+			action_copy(local_paths, dest_path, NULL, -1);
+
+		destroy_glist(&local_paths);
 	}
+
+	if (error)
+		delayed_error(_("Error getting file list: %s"), error);
+
+	g_strfreev(uri_list);
+	gtk_selection_data_free(selection);
 }
 
 static void file_op(gpointer data, FileOp action, GtkWidget *unused)
@@ -2549,33 +2531,19 @@ static void file_op(gpointer data, FileOp action, GtkWidget *unused)
 			break;	/* Not a bulk rename... see below */
 
 		case FILE_COPY_TO_CLIPBOARD:
-		{
-			gtk_clipboard_clear(clipboard);
-
-			if (clipboard_action)
-				g_free(clipboard_action);
-			clipboard_action = g_strdup("copy\n");
-
-			selected_paths = filer_selected_items(window_with_focus);
-
-			gtk_clipboard_set_with_data(clipboard, clipboard_targets, 2,
-				clipboard_get, clipboard_clear, NULL);
-			return;
-		}
 		case FILE_CUT_TO_CLIPBOARD:
-		{
 			gtk_clipboard_clear(clipboard);
 
-			if (clipboard_action)
-				g_free(clipboard_action);
-			clipboard_action = g_strdup("cut\n");
+			if (action == FILE_COPY_TO_CLIPBOARD)
+				clipboard_action = "copy\n";
+			else
+				clipboard_action = "cut\n";
 
 			selected_paths = filer_selected_items(window_with_focus);
 
 			gtk_clipboard_set_with_data(clipboard, clipboard_targets, 2,
 				clipboard_get, clipboard_clear, NULL);
 			return;
-		}
 		default:
 			break;
 	}
