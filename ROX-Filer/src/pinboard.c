@@ -452,7 +452,8 @@ void pinboard_moved_widget(GtkWidget *widget, const gchar *name,
  * 'x' and 'y' are the coordinates of the point in the middle of the text.
  *   If they are negative, the icon is placed automatically.
  *   The values then indicate where they should be added.
- *   x: -1 means left, -2 means right
+ *   x: -1 means left (vertical), -2 means right (vertical),
+ *      -3 means left (horizontal), -4 means right (horizontal)
  *   y: -1 means top, -2 means bottom
  * 'name' is the name to use. If NULL then the leafname of path is used.
  * If update is TRUE and there's already an icon for that path, it is updated.
@@ -540,6 +541,7 @@ void pinboard_pin_with_args(const gchar *path, const gchar *name,
 		GtkRequisition req;
 		GdkRectangle rect;
 		int placement = CORNER_TOP_LEFT;
+		int direction = DIR_VERT;
 
 		switch (x)
 		{
@@ -548,6 +550,23 @@ void pinboard_pin_with_args(const gchar *path, const gchar *name,
 					placement = CORNER_BOTTOM_LEFT;
 				break;
 			case -2:
+				switch (y)
+				{
+					case -1:
+						placement = CORNER_TOP_RIGHT;
+						break;
+					case -2:
+						placement = CORNER_BOTTOM_RIGHT;
+						break;
+				}
+				break;
+			case -3:
+				direction = DIR_HORZ;
+				if (y == -2)
+					placement = CORNER_BOTTOM_LEFT;
+				break;
+			case -4:
+				direction = DIR_HORZ;
 				switch (y)
 				{
 					case -1:
@@ -567,7 +586,7 @@ void pinboard_pin_with_args(const gchar *path, const gchar *name,
 		gtk_widget_size_request(pi->label, &req);
 		rect.width = MAX(rect.width, req.width);
 		rect.height += req.height;
-		find_free_rect(current_pinboard, &rect, FALSE, placement, DIR_VERT);
+		find_free_rect(current_pinboard, &rect, FALSE, placement, direction);
 		x = rect.x + rect.width/2;
 		y = rect.y + rect.height/2;
 	}
