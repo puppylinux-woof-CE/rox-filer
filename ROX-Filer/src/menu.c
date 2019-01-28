@@ -2327,7 +2327,8 @@ static void paste_from_clipboard(gpointer data, guint action, GtkWidget *unused)
 	*/
 
 	GList *local_paths = NULL;
-	for (gchar **uri_iter = uri_list; *uri_iter; uri_iter++)
+	gchar **uri_iter;
+	for (uri_iter = uri_list; *uri_iter; uri_iter++)
 	{
 		if (**uri_iter == '\0')
 			continue;
