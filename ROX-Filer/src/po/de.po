@@ -3289,6 +3289,9 @@ msgid ""
 "Center: Return to normal Icon View\n"
 "Right: cycle extra details"
 msgstr ""
+"Left: Darstellung als einfache Liste\n"
+"Center: Normale Darstellung (nur Ikonen)\n"
+"Right: Darstellungen detaillierter Listen"
 
 #: toolbar.c:151
 msgid "Sort"
