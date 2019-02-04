@@ -223,7 +223,7 @@ static void drag_backdrop_dropped(GtkWidget	*drop_box,
 				  GtkWidget	*dialog);
 static void backdrop_response(GtkWidget *dialog, gint response, gpointer data);
 static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
-			   gboolean old, int start, int direction);
+			   gboolean old, int start, int direction, int start_coord);
 static void update_pinboard_font(void);
 static void draw_lasso(void);
 static gint lasso_motion(GtkWidget *widget, GdkEventMotion *event, gpointer d);
@@ -419,7 +419,7 @@ void pinboard_add_widget(GtkWidget *widget, const gchar *name)
 	/*printf("%s at %d,%d %d\n", name? name: "(nil)", rect->x,
 	  rect->y, found);*/
 	find_free_rect(current_pinboard, rect, found,
-			o_iconify_start.int_value, o_iconify_dir.int_value);
+			o_iconify_start.int_value, o_iconify_dir.int_value, 0);
 	/*printf("%s at %d,%d %d\n", name? name: "(nil)", rect->x,
 	  rect->y, found);*/
 
@@ -455,6 +455,20 @@ void pinboard_moved_widget(GtkWidget *widget, const gchar *name,
  *   x: -1 means left (vertical), -2 means right (vertical),
  *      -3 means left (horizontal), -4 means right (horizontal)
  *   y: -1 means top, -2 means bottom
+ *
+ *   Half-automatic placement
+ *   x or y: -5 means placement starting at CORNER_TOP_LEFT
+ *              of box bounded by non-zero x or y coordinate.
+ *
+ *   x or y: -6 means placement starting at CORNER_TOP_RIGHT
+ *              of box bounded by non-zero x or y coordinate.
+ *
+ *   x or y: -7 means placement starting at CORNER_BOTTOM_LEFT
+ *              of box bounded by non-zero x or y coordinate.
+ *
+ *   x or y: -8 means placement starting at CORNER_BOTTOM_RIGHT
+ *              of box bounded by non-zero x or y coordinate.
+ *
  * 'name' is the name to use. If NULL then the leafname of path is used.
  * If update is TRUE and there's already an icon for that path, it is updated.
  */
@@ -540,33 +554,24 @@ void pinboard_pin_with_args(const gchar *path, const gchar *name,
 	{
 		GtkRequisition req;
 		GdkRectangle rect;
+		int start_coord = 0;
 		int placement = CORNER_TOP_LEFT;
 		int direction = DIR_VERT;
+
+		if (x == -3 || x == -4)
+		{
+			direction = DIR_HORZ;
+		}
 
 		switch (x)
 		{
 			case -1:
+			case -3:
 				if (y == -2)
 					placement = CORNER_BOTTOM_LEFT;
 				break;
 			case -2:
-				switch (y)
-				{
-					case -1:
-						placement = CORNER_TOP_RIGHT;
-						break;
-					case -2:
-						placement = CORNER_BOTTOM_RIGHT;
-						break;
-				}
-				break;
-			case -3:
-				direction = DIR_HORZ;
-				if (y == -2)
-					placement = CORNER_BOTTOM_LEFT;
-				break;
 			case -4:
-				direction = DIR_HORZ;
 				switch (y)
 				{
 					case -1:
@@ -579,6 +584,23 @@ void pinboard_pin_with_args(const gchar *path, const gchar *name,
 				break;
 		}
 
+		if (x == -5 || y == -5)
+			placement = CORNER_TOP_LEFT;
+		if (x == -6 || y == -6)
+			placement = CORNER_TOP_RIGHT;
+		if (x == -7 || y == -7)
+			placement = CORNER_BOTTOM_LEFT;
+		if (x == -8 || y == -8)
+			placement = CORNER_BOTTOM_RIGHT;
+
+		if (y > 0)
+		{
+			direction = DIR_HORZ;
+			start_coord = y;
+		}
+		else if (x > 0)
+			start_coord = x;
+
 		pinboard_reshape_icon((Icon *) pi);
 		gtk_widget_size_request(pi->widget, &req);
 		rect.width = req.width;
@@ -586,7 +608,8 @@ void pinboard_pin_with_args(const gchar *path, const gchar *name,
 		gtk_widget_size_request(pi->label, &req);
 		rect.width = MAX(rect.width, req.width);
 		rect.height += req.height;
-		find_free_rect(current_pinboard, &rect, FALSE, placement, direction);
+		find_free_rect(current_pinboard, &rect, FALSE,
+			placement, direction, start_coord);
 		x = rect.x + rect.width/2;
 		y = rect.y + rect.height/2;
 	}
@@ -2696,14 +2719,14 @@ static void search_free_area(GdkRectangle *rect, GdkRegion *used,
 	if (direction == DIR_VERT)
 	{
 		search_free(rect, used,
-			    &rect->x, dx, x0, width,
-			    &rect->y, dy, y0, height);
+			&rect->x, dx, x0, x0 + width,
+			&rect->y, dy, y0, y0 + height);
 	}
 	else
 	{
 		search_free(rect, used,
-			    &rect->y, dy, x0, height,
-			    &rect->x, dx, y0, width);
+			&rect->y, dy, y0, y0 + height,
+			&rect->x, dx, x0, x0 + width);
 	}
 }
 
@@ -2725,7 +2748,7 @@ static gboolean search_free_xinerama(GdkRectangle *rect, GdkRegion *used,
  * If no area is free, returns any old area.
  */
 static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
-			   gboolean old, int start, int direction)
+			   gboolean old, int start, int direction, int start_coord)
 {
 	GdkRegion *used;
 	GList *next;
@@ -2813,12 +2836,79 @@ static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
 		dy = -SEARCH_STEP;
 
 	/* If pinboard covers more than one monitor, try to find free space on
-	 * monitor under pointer first, then whole screen if that fails */
-	if (n_monitors == 1 || !search_free_xinerama(rect, used,
-			direction, dx, dy, rect->width, rect->height))
+	 * monitor under pointer first (unless start_coord has been specified),
+	 * then whole screen if that fails */
+	if (n_monitors == 1 || (start_coord == 0 &&
+			!search_free_xinerama(rect, used, direction,
+				dx, dy, rect->width, rect->height)))
 	{
-		search_free_area(rect, used, direction, dx, dy,
-			0, 0, screen_width - rect->width, screen_height - rect->height);
+		if (start_coord > 0)
+		{
+			GdkRectangle search_rect;
+			search_rect.x = 0;
+			search_rect.y = 0;
+			search_rect.width = screen_width;
+			search_rect.height = screen_height;
+
+			if (direction == DIR_VERT)
+			{
+				if (dx > 0)
+				{
+					// start_coord is the left side of search_rect
+					if (start_coord - (rect->width / 2) > search_rect.x &&
+						search_rect.width - start_coord > 0)
+					{
+						search_rect.x = start_coord - (rect->width / 2);
+						search_rect.width = search_rect.width - start_coord;
+					}
+				}
+				else
+				{
+					// start_coord is the right side of search_rect
+					if (start_coord + (rect->width / 2) > 0)
+						search_rect.width = start_coord + (rect->width / 2);
+				}
+			}
+			if (direction == DIR_HORZ)
+			{
+				if (dy > 0)
+				{
+					// start_coord is the top side of search_rect
+					if (start_coord - (rect->height / 2) > search_rect.y &&
+						search_rect.height - start_coord > 0)
+					{
+						search_rect.y = start_coord - (rect->height / 2);
+						search_rect.height = search_rect.height - start_coord;
+					}
+				}
+				else
+				{
+					// start_coord is the bottom side of search_rect
+					if (start_coord + (rect->height / 2) > 0)
+						search_rect.height = start_coord + (rect->height / 2);
+				}
+			}
+
+			search_free_area(rect, used, direction, dx, dy,
+					search_rect.x, search_rect.y,
+					search_rect.width - rect->width,
+					search_rect.height - rect->height);
+
+			// If an empty space couldn't be found in search_rect,
+			// search whole screen area.
+			if (rect->x == -1)
+			{
+				search_free_area(rect, used, direction, dx, dy, 0, 0,
+						screen_width - rect->width,
+						screen_height - rect->height);
+			}
+		}
+		else
+		{
+			search_free_area(rect, used, direction, dx, dy, 0, 0,
+					screen_width - rect->width,
+					screen_height - rect->height);
+		}
 	}
 
 	gdk_region_destroy(used);
