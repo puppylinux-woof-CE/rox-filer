@@ -2845,10 +2845,12 @@ static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
 		if (start_coord > 0)
 		{
 			GdkRectangle search_rect;
-			search_rect.x = 0;
-			search_rect.y = 0;
-			search_rect.width = screen_width;
-			search_rect.height = screen_height;
+			search_rect.x = o_left_margin.int_value;
+			search_rect.y = o_top_margin.int_value;
+			search_rect.width = screen_width -
+					(o_left_margin.int_value + o_right_margin.int_value);
+			search_rect.height = screen_height -
+					(o_top_margin.int_value + o_bottom_margin.int_value);
 
 			if (direction == DIR_VERT)
 			{
