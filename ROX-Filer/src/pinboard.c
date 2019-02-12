@@ -148,6 +148,7 @@ static Option o_label_font, o_pinboard_shadow_colour;
 static Option o_pinboard_shadow_labels;
 static Option o_blackbox_hack;
 
+static Option o_search_step_x, o_search_step_y;
 static Option o_top_margin, o_bottom_margin, o_left_margin, o_right_margin;
 static Option o_pinboard_image_scaling;
 
@@ -258,10 +259,13 @@ void pinboard_init(void)
 
 	option_add_int(&o_blackbox_hack, "blackbox_hack", FALSE);
 
-	option_add_int(&o_top_margin, "pinboard_top_margin", 0);
-	option_add_int(&o_bottom_margin, "pinboard_bottom_margin", 0);
-	option_add_int(&o_left_margin, "pinboard_left_margin", 0);
-	option_add_int(&o_right_margin, "pinboard_right_margin", 0);
+	option_add_int(&o_search_step_x, "pinboard_search_step_x", 32);
+	option_add_int(&o_search_step_y, "pinboard_search_step_y", 32);
+
+	option_add_int(&o_top_margin, "pinboard_top_margin", 7);
+	option_add_int(&o_bottom_margin, "pinboard_bottom_margin", 7);
+	option_add_int(&o_left_margin, "pinboard_left_margin", 6);
+	option_add_int(&o_right_margin, "pinboard_right_margin", 6);
 
 	option_add_int(&o_pinboard_image_scaling, "pinboard_image_scaling", 0);
 
@@ -2675,7 +2679,6 @@ static void reload_backdrop(Pinboard *pinboard,
 	}
 }
 
-#define SEARCH_STEP 32
 
 /* Search the area (omin, imin) to (omax, imax) for a free region the size of
  * 'rect' that doesn't overlap 'used'.  Which of inner and outer is the
@@ -2753,7 +2756,8 @@ static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
 	GdkRegion *used;
 	GList *next;
 	GdkRectangle used_rect;
-	int dx = SEARCH_STEP, dy = SEARCH_STEP;
+	int dx = o_search_step_x.int_value, dy = o_search_step_y.int_value;
+	int step = o_pinboard_grid_step.int_value;
 
 	used = gdk_region_new();
 
@@ -2827,13 +2831,15 @@ static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
 	 * it works). If you know a better (fast!) algorithm, let me know!
 	 */
 
-	if (start == CORNER_TOP_RIGHT ||
-	    start == CORNER_BOTTOM_RIGHT)
-		dx = -SEARCH_STEP;
+	if (start == CORNER_TOP_RIGHT || start == CORNER_BOTTOM_RIGHT)
+		dx = -(((dx - 1) / step) + 1) * step;
+	else
+		dx = (((dx - 1) / step) + 1) * step;
 
-	if (start == CORNER_BOTTOM_LEFT ||
-	    start == CORNER_BOTTOM_RIGHT)
-		dy = -SEARCH_STEP;
+	if (start == CORNER_BOTTOM_LEFT || start == CORNER_BOTTOM_RIGHT)
+		dy = -(((dy - 1) / step) + 1) * step;
+	else
+		dy = (((dy - 1) / step) + 1) * step;
 
 	/* If pinboard covers more than one monitor, try to find free space on
 	 * monitor under pointer first (unless start_coord has been specified),
