@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 00:18-0600\n"
+"POT-Creation-Date: 2019-02-13 14:12-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jan 'jenik' Provaznik <xprovazn@fi.muni.cz>\n"
 "Language-Team:\n"
@@ -1031,14 +1031,14 @@ msgstr ""
 "Nelze získat data ze vzdáleného poèítaèe (application/octet-stream není "
 "poskytován)"
 
-#: dnd.c:1017 menu.c:2395
+#: dnd.c:1017 menu.c:2380
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr ""
 "Nìkteré z tìchto souborù jsou na vzdáleném poèítaèi - tyto soubory budou "
 "ignorovány - sorry"
 
-#: dnd.c:1024 menu.c:2403
+#: dnd.c:1024 menu.c:2388
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1050,7 +1050,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "Po¾adována neznámá akce"
 
-#: dnd.c:1045 menu.c:2418
+#: dnd.c:1045 menu.c:2406
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Chyba pøi získání seznamu souborù: %s"
@@ -1084,7 +1084,7 @@ msgstr "Promiòte, na toto místo musíte pøetáhnout právì jeden soubor."
 msgid "Sorry, I can't use '%s' because it's not a local file."
 msgstr "Promiòte, nemohu pou¾ít '%s' proto¾e to není místní soubor."
 
-#: dropbox.c:278 pinboard.c:932
+#: dropbox.c:278 pinboard.c:951
 #, c-format
 msgid ""
 "Can't access '%s':\n"
@@ -1136,119 +1136,119 @@ msgstr ""
 "stisknìte  Ctrl+%s. Pozdìji mù¾ete tyto soubory znovu vybrat stisknutím %s.\n"
 "Ujistìte se, ¾e je zapnutý NumLock v pøípadì, ¾e pou¾íváte keypad."
 
-#: filer.c:1820
+#: filer.c:1822
 msgid "Cancel"
 msgstr "Zavøít"
 
-#: filer.c:2104
+#: filer.c:2106
 msgid "A"
 msgstr "A"
 
-#: filer.c:2106 find.c:1034
+#: filer.c:2108 find.c:1034
 msgid "G"
 msgstr ""
 
-#: filer.c:2111
+#: filer.c:2113
 msgid "S"
 msgstr "S"
 
-#: filer.c:2113
+#: filer.c:2115
 msgid "T"
 msgstr "T"
 
-#: filer.c:2114
+#: filer.c:2116
 msgid "D"
 msgstr ""
 
-#: filer.c:2115
+#: filer.c:2117
 msgid "F"
 msgstr ""
 
-#: filer.c:2125
+#: filer.c:2127
 msgid "All, "
 msgstr "V¹e, "
 
-#: filer.c:2128
+#: filer.c:2130
 #, c-format
 msgid "Glob (%s), "
 msgstr ""
 
-#: filer.c:2136
+#: filer.c:2138
 msgid "Scanning, "
 msgstr "Prozkoumávám"
 
-#: filer.c:2138
+#: filer.c:2140
 msgid "Thumbs, "
 msgstr "Náhledy, "
 
-#: filer.c:2139
+#: filer.c:2141
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2140
+#: filer.c:2142
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2416
+#: filer.c:2418
 msgid "Symbolic link to "
 msgstr "Symbolický odkaz na "
 
-#: filer.c:2472
+#: filer.c:2474
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr ""
 "Toto není platné jméno souboru v kódování UTF-8. Mìli by jste jej "
 "pøejmenovat.\n"
 
-#: filer.c:2790 menu.c:2604
+#: filer.c:2792 menu.c:2573
 msgid "Item no longer exists!"
 msgstr "Polo¾ka u¾ neexistuje"
 
-#: filer.c:3606
+#: filer.c:3608
 msgid "Select display properties to save"
 msgstr ""
 
-#: filer.c:3610
+#: filer.c:3612
 msgid "<b>Save display settings for directory</b>"
 msgstr ""
 
-#: filer.c:3617
+#: filer.c:3619
 #, fuzzy
 msgid "Select settings to save"
 msgstr "Defaultní nastavení"
 
-#: filer.c:3624
+#: filer.c:3626
 #, fuzzy
 msgid "Position"
 msgstr "®ádný popis"
 
-#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3631 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "Velikost"
 
-#: filer.c:3634
+#: filer.c:3636
 #, fuzzy
 msgid "Show hidden"
 msgstr "Zobrazit skryté"
 
-#: filer.c:3640
+#: filer.c:3642
 #, fuzzy
 msgid "Display style"
 msgstr "Zobrazit"
 
-#: filer.c:3646
+#: filer.c:3648
 #, fuzzy
 msgid "Sort type and order"
 msgstr "Tøídit podle vlastníka"
 
-#: filer.c:3651 toolbar.c:145
+#: filer.c:3653 toolbar.c:145
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: filer.c:3656 tips:115 tips:116
+#: filer.c:3658 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "Náhledy"
 
-#: filer.c:3662
+#: filer.c:3664
 #, fuzzy
 msgid "Filter"
 msgstr "Soubor"
@@ -2534,105 +2534,105 @@ msgstr ""
 "Nemù¾ete otevøít druhý pohled na tento adresáø, proto¾e volba `Unikátní "
 "okna' je zapnuta v oknì Mo¾nosti."
 
-#: menu.c:2324
+#: menu.c:2313
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2374
+#: menu.c:2358
 #, fuzzy, c-format
 msgid "Copy of %s"
 msgstr "?Zkopírovat %s jako %s?"
 
-#: menu.c:2379
+#: menu.c:2364
 #, fuzzy, c-format
 msgid "Copy(%d) of %s"
 msgstr "?Zkopírovat %s jako %s?"
 
-#: menu.c:2447
+#: menu.c:2430
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2450
+#: menu.c:2433
 msgid "Rename ... ?"
 msgstr "Pøejmenovat ... ?"
 
-#: menu.c:2453
+#: menu.c:2436
 msgid "Symlink ... ?"
 msgstr "Symbolický odkaz ... ?"
 
-#: menu.c:2456
+#: menu.c:2439
 msgid "Shift Open ... ?"
 msgstr "Shift Otevøení ... ?"
 
-#: menu.c:2459
+#: menu.c:2442
 #, fuzzy
 msgid "Properties of ... ?"
 msgstr "Spoèítat velikost ... ?"
 
-#: menu.c:2463
+#: menu.c:2446
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Nepou¾ívat jména poèítaèù"
 
-#: menu.c:2467
+#: menu.c:2450
 #, fuzzy
 msgid "Set type of ... ?"
 msgstr "Nastavit ikonu pro ... ?"
 
-#: menu.c:2470
+#: menu.c:2453
 msgid "Set run action for ... ?"
 msgstr "Nastavit spou¹tìcí akci pro ... ?"
 
-#: menu.c:2473
+#: menu.c:2456
 msgid "Set icon for ... ?"
 msgstr "Nastavit ikonu pro ... ?"
 
-#: menu.c:2476
+#: menu.c:2459
 msgid "Send ... to ... ?"
 msgstr "Poslat ... na ... ?"
 
-#: menu.c:2479
+#: menu.c:2462
 msgid "DELETE ... ?"
 msgstr "SMAZAT ... ?"
 
-#: menu.c:2482
+#: menu.c:2465
 msgid "Count the size of ... ?"
 msgstr "Spoèítat velikost ... ?"
 
-#: menu.c:2485
+#: menu.c:2468
 msgid "Set permissions on ... ?"
 msgstr "Nastavit práva pro ... ?"
 
-#: menu.c:2488
+#: menu.c:2471
 msgid "Search inside ... ?"
 msgstr "Hledat uvnitø ... ?"
 
-#: menu.c:2491
+#: menu.c:2474
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Kopírovat ... ?"
 
-#: menu.c:2494
+#: menu.c:2477
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2587
+#: menu.c:2556
 msgid "You cannot do this to more than one item at a time"
 msgstr "Nemù¾ete pou¾ít souèasnì na více polo¾ek"
 
-#: menu.c:2614
+#: menu.c:2583
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2619
+#: menu.c:2588
 msgid "Rename"
 msgstr "Pøejmenovat"
 
-#: menu.c:2624
+#: menu.c:2593
 msgid "Symlink"
 msgstr "Symbolický odkaz"
 
-#: menu.c:2659
+#: menu.c:2628
 #, fuzzy
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
@@ -2652,7 +2652,7 @@ msgstr ""
 "2) pøidáním této øádky do ~/.gtkrc-2.0:\n"
 "\tgtk-can-change-accels = 1"
 
-#: menu.c:2670
+#: menu.c:2639
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2672,7 +2672,7 @@ msgstr ""
 "Zkratka se pøí¹tì objeví vedle polo¾ky nabídky a mù¾ete rovnou pou¾ívat "
 "zkratku bez otevírání nabídky."
 
-#: menu.c:2685
+#: menu.c:2654
 msgid "Set keyboard shortcuts"
 msgstr "Nastavit klávesovou zkratku"
 
@@ -2888,7 +2888,7 @@ msgid "Your old pinboard file has been converted to the new XML format."
 msgstr ""
 "Vá¹ starý soubor s nastavením plochy byl pøeveden do nového XML formátu."
 
-#: pinboard.c:711
+#: pinboard.c:730
 msgid ""
 "The backdrop handler must be an application directory. Drag an application "
 "directory into the Set Backdrop dialog box, or (for programmers) pass it to "
@@ -2898,7 +2898,7 @@ msgstr ""
 "aplikaèní adresáø na dialog Nastavení pozadí, nebo (pro programátory) jej "
 "pøedejte SOAP metodì SetBackdropApp."
 
-#: pinboard.c:730
+#: pinboard.c:749
 msgid ""
 "You can only set the backdrop to an image or to a program which knows how to "
 "manage ROX-Filer's backdrop.\n"
@@ -2912,63 +2912,63 @@ msgstr ""
 "Programátorùm: AppInfo.xml aplikace musí obsahovat CanSetBackdrop element, "
 "jak je popsáno v manuálu ROX-Fileru."
 
-#: pinboard.c:750
+#: pinboard.c:769
 msgid "Set backdrop"
 msgstr "Nastavit pozadí"
 
-#: pinboard.c:761
+#: pinboard.c:780
 msgid "Choose a style and drag an image in:"
 msgstr "Vyberte styl a pøetáhnìte obrázek na:"
 
-#: pinboard.c:774
+#: pinboard.c:793
 msgid "Centre the image without scaling it"
 msgstr "Umístit obrázek do støedu a nemìnit jeho velikost"
 
-#: pinboard.c:775
+#: pinboard.c:794
 msgid "Centre"
 msgstr "Umístit do støedu"
 
-#: pinboard.c:776
+#: pinboard.c:795
 msgid "Scale the image to fit the backdrop area, without distorting it"
 msgstr "Zmìnit velikost obrázku na velikost plochy a nezkreslovat ho"
 
-#: pinboard.c:778
+#: pinboard.c:797
 msgid "Scale"
 msgstr "Zmìnit velikost"
 
-#: pinboard.c:779
+#: pinboard.c:798
 #, fuzzy
 msgid ""
 "Scale the image to fit the backdrop area, regardless of image dimensions - "
 "overscale"
 msgstr "Zmìnit velikost obrázku na velikost plochy a nezkreslovat ho"
 
-#: pinboard.c:781
+#: pinboard.c:800
 #, fuzzy
 msgid "Fit"
 msgstr "Soubor"
 
-#: pinboard.c:782
+#: pinboard.c:801
 msgid "Stretch the image to fill the backdrop area"
 msgstr "Roztáhnout obrázek na velikost plochy"
 
-#: pinboard.c:783
+#: pinboard.c:802
 msgid "Stretch"
 msgstr "Roztáhnout"
 
-#: pinboard.c:784
+#: pinboard.c:803
 msgid "Tile the image over the backdrop area"
 msgstr "Umístit obrázek na plo¹e jako dla¾dice"
 
-#: pinboard.c:785
+#: pinboard.c:804
 msgid "Tile"
 msgstr "Dla¾dice"
 
-#: pinboard.c:790
+#: pinboard.c:809
 msgid "Drop an image here"
 msgstr "Sem umístìte obrázek"
 
-#: pinboard.c:851
+#: pinboard.c:870
 msgid ""
 "No pinboard was in use... the 'Default' pinboard has been selected. Use 'rox "
 "-p=Default' to turn it on in future."
@@ -2976,7 +2976,7 @@ msgstr ""
 "Nebylo pou¾ito ¾ádné pozadí... 'Default' pozadí bylo vybráno. Pou¾ijte 'rox -"
 "p=Default' pro zapnutí."
 
-#: pinboard.c:945
+#: pinboard.c:964
 msgid ""
 "Only files (and certain applications) can be used to set the background "
 "image."
@@ -2984,29 +2984,29 @@ msgstr ""
 "Jen soubory (a nìkteré aplikace) mohou být pou¾ity pro nastavení obrázku na "
 "pozadí."
 
-#: pinboard.c:1605
+#: pinboard.c:1624
 msgid "Missing '>' in icon label"
 msgstr "Chybí '>' ve jmenovce ikony"
 
-#: pinboard.c:1614
+#: pinboard.c:1633
 msgid "Missing ',' after icon label"
 msgstr "Chybí ',' za jmenovkou ikony"
 
-#: pinboard.c:1702
+#: pinboard.c:1721
 #, c-format
 msgid "Error saving pinboard %s: %s"
 msgstr "Chyba pøi ukládání pozadí %s: %s"
 
-#: pinboard.c:2247
+#: pinboard.c:2266
 msgid "Backdrop..."
 msgstr "Nastavit pozadí..."
 
-#: pinboard.c:2250
+#: pinboard.c:2269
 #, fuzzy
 msgid "Add Panel"
 msgstr "Panely"
 
-#: pinboard.c:2344
+#: pinboard.c:2363
 #, c-format
 msgid ""
 "Error loading backdrop image:\n"
@@ -3587,47 +3587,47 @@ msgstr ""
 "Chyba pøi vytváøení obrázku '%s':\n"
 "%s"
 
-#: view_details.c:1010
+#: view_details.c:1011
 msgid "Mono font"
 msgstr ""
 
-#: view_details.c:1011
+#: view_details.c:1012
 msgid "Font for displaying mono-spaced text"
 msgstr ""
 
-#: view_details.c:1118
+#: view_details.c:1119
 msgid "_Name"
 msgstr "_Jméno"
 
-#: view_details.c:1126
+#: view_details.c:1127
 msgid "_Type"
 msgstr "_Typ"
 
-#: view_details.c:1135
+#: view_details.c:1136
 msgid "_Size"
 msgstr "_Velikost"
 
-#: view_details.c:1147
+#: view_details.c:1148
 msgid "_Permissions"
 msgstr "_Práva"
 
-#: view_details.c:1158
+#: view_details.c:1159
 msgid "_Owner"
 msgstr "_Vlastník"
 
-#: view_details.c:1166
+#: view_details.c:1167
 msgid "_Group"
 msgstr "_Skupina"
 
-#: view_details.c:1174
+#: view_details.c:1175
 msgid "Last _Modified"
 msgstr "Poslední _Modifikace"
 
-#: view_details.c:1186
+#: view_details.c:1187
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1198
+#: view_details.c:1199
 msgid "Last _Accessed"
 msgstr ""
 

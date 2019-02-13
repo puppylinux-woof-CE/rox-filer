@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rox-filer-2.9 galego\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 00:18-0600\n"
+"POT-Creation-Date: 2019-02-13 14:12-0600\n"
 "PO-Revision-Date: 2009-10-22 19:59+0100\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -1067,14 +1067,14 @@ msgstr ""
 "Non é posible obter datos da máquina remota (application/octet-stream non "
 "dispoñible)"
 
-#: dnd.c:1017 menu.c:2395
+#: dnd.c:1017 menu.c:2380
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr ""
 "Desculpe - Algúns destes ficheiros están nunha máquina diferente - van ser "
 "ignorados"
 
-#: dnd.c:1024 menu.c:2403
+#: dnd.c:1024 menu.c:2388
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1086,7 +1086,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "A acción solicitada é descoñecida"
 
-#: dnd.c:1045 menu.c:2418
+#: dnd.c:1045 menu.c:2406
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Atopouse un erro ao obter a lista de ficheiros: %s"
@@ -1120,7 +1120,7 @@ msgstr "Desculpe, debe soltar un ficheiro exactamente na área de destino."
 msgid "Sorry, I can't use '%s' because it's not a local file."
 msgstr "Desculpe, non se pode usar '%s' porque non é un ficheiro local."
 
-#: dropbox.c:278 pinboard.c:932
+#: dropbox.c:278 pinboard.c:951
 #, c-format
 msgid ""
 "Can't access '%s':\n"
@@ -1171,112 +1171,112 @@ msgstr ""
 "para definir o grupo. Prema só %s para seleccionar os ficheiros mais tarde.\n"
 "Asegúrese de que «BloqNum» está activado ao usar o teclado numérico."
 
-#: filer.c:1820
+#: filer.c:1822
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: filer.c:2104
+#: filer.c:2106
 msgid "A"
 msgstr "T"
 
-#: filer.c:2106 find.c:1034
+#: filer.c:2108 find.c:1034
 msgid "G"
 msgstr "G"
 
-#: filer.c:2111
+#: filer.c:2113
 msgid "S"
 msgstr "E"
 
-#: filer.c:2113
+#: filer.c:2115
 msgid "T"
 msgstr "M"
 
-#: filer.c:2114
+#: filer.c:2116
 msgid "D"
 msgstr ""
 
-#: filer.c:2115
+#: filer.c:2117
 msgid "F"
 msgstr ""
 
-#: filer.c:2125
+#: filer.c:2127
 msgid "All, "
 msgstr "Todos, "
 
-#: filer.c:2128
+#: filer.c:2130
 #, c-format
 msgid "Glob (%s), "
 msgstr "Glob (%s),"
 
-#: filer.c:2136
+#: filer.c:2138
 msgid "Scanning, "
 msgstr "Explorando,"
 
-#: filer.c:2138
+#: filer.c:2140
 msgid "Thumbs, "
 msgstr "Miniaturas,"
 
-#: filer.c:2139
+#: filer.c:2141
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2140
+#: filer.c:2142
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2416
+#: filer.c:2418
 msgid "Symbolic link to "
 msgstr "Ligazón simbólica a "
 
-#: filer.c:2472
+#: filer.c:2474
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "O nome do ficheiro non é un UTF-8 válido. Debe renomealo.\n"
 
-#: filer.c:2790 menu.c:2604
+#: filer.c:2792 menu.c:2573
 msgid "Item no longer exists!"
 msgstr "O elemento xa non existe!"
 
-#: filer.c:3606
+#: filer.c:3608
 msgid "Select display properties to save"
 msgstr "Seleccione as propiedades de visualización para gardar"
 
-#: filer.c:3610
+#: filer.c:3612
 msgid "<b>Save display settings for directory</b>"
 msgstr "<b>Gardar axustes de visualización para o directorio/b>"
 
-#: filer.c:3617
+#: filer.c:3619
 msgid "Select settings to save"
 msgstr "Seleccione os axustes para gardar"
 
-#: filer.c:3624
+#: filer.c:3626
 msgid "Position"
 msgstr "Posición"
 
-#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3631 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "Tamaño"
 
-#: filer.c:3634
+#: filer.c:3636
 msgid "Show hidden"
 msgstr "Amosar agochados"
 
-#: filer.c:3640
+#: filer.c:3642
 msgid "Display style"
 msgstr "Estilo de visualización"
 
-#: filer.c:3646
+#: filer.c:3648
 msgid "Sort type and order"
 msgstr "Ordenar por tipo e propietario"
 
-#: filer.c:3651 toolbar.c:145
+#: filer.c:3653 toolbar.c:145
 msgid "Details"
 msgstr "Detalles"
 
-#: filer.c:3656 tips:115 tips:116
+#: filer.c:3658 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "Miniaturas"
 
-#: filer.c:3662
+#: filer.c:3664
 msgid "Filter"
 msgstr "Filtro"
 
@@ -2569,106 +2569,106 @@ msgstr ""
 "Non é posible abrir unha segunda vista para este directorio porque a opción "
 "«fiestras únicas» está activada na caixa Opcións."
 
-#: menu.c:2324
+#: menu.c:2313
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2374
+#: menu.c:2358
 #, fuzzy, c-format
 msgid "Copy of %s"
 msgstr "?Copiar %s en %s?"
 
-#: menu.c:2379
+#: menu.c:2364
 #, fuzzy, c-format
 msgid "Copy(%d) of %s"
 msgstr "?Copiar %s en %s?"
 
-#: menu.c:2447
+#: menu.c:2430
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2450
+#: menu.c:2433
 msgid "Rename ... ?"
 msgstr "Renomear ... ?"
 
-#: menu.c:2453
+#: menu.c:2436
 msgid "Symlink ... ?"
 msgstr "Crear ligazón ... ?"
 
-#: menu.c:2456
+#: menu.c:2439
 msgid "Shift Open ... ?"
 msgstr "Abrir con «Mayús» ... ?"
 
-#: menu.c:2459
+#: menu.c:2442
 msgid "Properties of ... ?"
 msgstr "Propiedades de ... ?"
 
-#: menu.c:2463
+#: menu.c:2446
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Atributos estendidos"
 
-#: menu.c:2467
+#: menu.c:2450
 msgid "Set type of ... ?"
 msgstr "Definir tipo de ... ?"
 
-#: menu.c:2470
+#: menu.c:2453
 msgid "Set run action for ... ?"
 msgstr "Definir acción executar para ... ?"
 
-#: menu.c:2473
+#: menu.c:2456
 msgid "Set icon for ... ?"
 msgstr "Definir ícona de ... ?"
 
-#: menu.c:2476
+#: menu.c:2459
 msgid "Send ... to ... ?"
 msgstr "Enviar ... a ... ?"
 
-#: menu.c:2479
+#: menu.c:2462
 msgid "DELETE ... ?"
 msgstr "BORRAR ... ?"
 
-#: menu.c:2482
+#: menu.c:2465
 msgid "Count the size of ... ?"
 msgstr "Calcular o tamaño de ... ?"
 
-#: menu.c:2485
+#: menu.c:2468
 msgid "Set permissions on ... ?"
 msgstr "Definir permisos de ... ?"
 
-#: menu.c:2488
+#: menu.c:2471
 msgid "Search inside ... ?"
 msgstr "Buscar dentro de ... ?"
 
-#: menu.c:2491
+#: menu.c:2474
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Copiar ... ?"
 
-#: menu.c:2494
+#: menu.c:2477
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2587
+#: menu.c:2556
 msgid "You cannot do this to more than one item at a time"
 msgstr ""
 "Isto só é posible facelo con un elemento de cada vez.\n"
 "Rox ten unha política moi visual, arrastre directamente os elementos cara a "
 "fiestra de destino."
 
-#: menu.c:2614
+#: menu.c:2583
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2619
+#: menu.c:2588
 msgid "Rename"
 msgstr "Renomear"
 
-#: menu.c:2624
+#: menu.c:2593
 msgid "Symlink"
 msgstr "Crear ligazón"
 
-#: menu.c:2659
+#: menu.c:2628
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2690,7 +2690,7 @@ msgstr ""
 "\tgtk-can-change-accels = 1\n"
 "\t(isto funciona se NON se utiliza XSETTINGS)"
 
-#: menu.c:2670
+#: menu.c:2639
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2710,7 +2710,7 @@ msgstr ""
 "A tecla aparecerá ao lado do elemento do menú, e no futuro poderá "
 "simplemente premer nesa tecla sen ter que abrir o menú."
 
-#: menu.c:2685
+#: menu.c:2654
 msgid "Set keyboard shortcuts"
 msgstr "Definir atallos de teclado"
 
@@ -2928,7 +2928,7 @@ msgstr "Descoñecido"
 msgid "Your old pinboard file has been converted to the new XML format."
 msgstr "O seu antigo taboleiro foi convertido ao novo formato XML"
 
-#: pinboard.c:711
+#: pinboard.c:730
 msgid ""
 "The backdrop handler must be an application directory. Drag an application "
 "directory into the Set Backdrop dialog box, or (for programmers) pass it to "
@@ -2938,7 +2938,7 @@ msgstr ""
 "aplicativo do directorio á caixa de diálogo, ou (para programadores) "
 "asignalo a SetBackdropApp método SOAP."
 
-#: pinboard.c:730
+#: pinboard.c:749
 msgid ""
 "You can only set the backdrop to an image or to a program which knows how to "
 "manage ROX-Filer's backdrop.\n"
@@ -2952,31 +2952,31 @@ msgstr ""
 "Programadores: o aplicativo AppInfo.xml debe conter o elemento "
 "CanSetBackdrop, tal como se describe no manual de «ROX-Filer»."
 
-#: pinboard.c:750
+#: pinboard.c:769
 msgid "Set backdrop"
 msgstr "Definir fondo"
 
-#: pinboard.c:761
+#: pinboard.c:780
 msgid "Choose a style and drag an image in:"
 msgstr "Elixa un estilo e arrastre unha imaxe en:"
 
-#: pinboard.c:774
+#: pinboard.c:793
 msgid "Centre the image without scaling it"
 msgstr "Centrar a imaxe sen escalala"
 
-#: pinboard.c:775
+#: pinboard.c:794
 msgid "Centre"
 msgstr "Centrado"
 
-#: pinboard.c:776
+#: pinboard.c:795
 msgid "Scale the image to fit the backdrop area, without distorting it"
 msgstr "Escalar a imaxe para que cubra todo o fondo, sen distorsionala"
 
-#: pinboard.c:778
+#: pinboard.c:797
 msgid "Scale"
 msgstr "Escalado"
 
-#: pinboard.c:779
+#: pinboard.c:798
 msgid ""
 "Scale the image to fit the backdrop area, regardless of image dimensions - "
 "overscale"
@@ -2984,31 +2984,31 @@ msgstr ""
 "Escala a imaxe para adaptala ao tamaño do fondo, independente das dimensións "
 "-"
 
-#: pinboard.c:781
+#: pinboard.c:800
 msgid "Fit"
 msgstr "Axustar"
 
-#: pinboard.c:782
+#: pinboard.c:801
 msgid "Stretch the image to fill the backdrop area"
 msgstr "Estira a imaxe para encher o fondo"
 
-#: pinboard.c:783
+#: pinboard.c:802
 msgid "Stretch"
 msgstr "Estirada"
 
-#: pinboard.c:784
+#: pinboard.c:803
 msgid "Tile the image over the backdrop area"
 msgstr "Fai un mosaico coa imaxe para encher o fondo"
 
-#: pinboard.c:785
+#: pinboard.c:804
 msgid "Tile"
 msgstr "Mosaico"
 
-#: pinboard.c:790
+#: pinboard.c:809
 msgid "Drop an image here"
 msgstr "Solte unha imaxe aquí"
 
-#: pinboard.c:851
+#: pinboard.c:870
 msgid ""
 "No pinboard was in use... the 'Default' pinboard has been selected. Use 'rox "
 "-p=Default' to turn it on in future."
@@ -3016,7 +3016,7 @@ msgstr ""
 "Non hai un taboleiro en uso... o taboleiro «Default» está seleccionado. "
 "Utilice «rox -p=Default» cando queira activalo"
 
-#: pinboard.c:945
+#: pinboard.c:964
 msgid ""
 "Only files (and certain applications) can be used to set the background "
 "image."
@@ -3024,28 +3024,28 @@ msgstr ""
 "Só se poden utilizar ficheiros (e algúns aplicativos) para fixar unha imaxe "
 "de fondo."
 
-#: pinboard.c:1605
+#: pinboard.c:1624
 msgid "Missing '>' in icon label"
 msgstr "Falta '>' na etiqueta da icona"
 
-#: pinboard.c:1614
+#: pinboard.c:1633
 msgid "Missing ',' after icon label"
 msgstr "Falta ',' despos da etiqueta da icona"
 
-#: pinboard.c:1702
+#: pinboard.c:1721
 #, c-format
 msgid "Error saving pinboard %s: %s"
 msgstr "Produciuse un erro gardando o taboleiro %s: %s"
 
-#: pinboard.c:2247
+#: pinboard.c:2266
 msgid "Backdrop..."
 msgstr "Fondo de pantalla..."
 
-#: pinboard.c:2250
+#: pinboard.c:2269
 msgid "Add Panel"
 msgstr "Engadir panel"
 
-#: pinboard.c:2344
+#: pinboard.c:2363
 #, c-format
 msgid ""
 "Error loading backdrop image:\n"
@@ -3625,47 +3625,47 @@ msgstr ""
 "Produciuse un erro creando a imaxe '%s':\n"
 "%s"
 
-#: view_details.c:1010
+#: view_details.c:1011
 msgid "Mono font"
 msgstr "Fonte «Mono»"
 
-#: view_details.c:1011
+#: view_details.c:1012
 msgid "Font for displaying mono-spaced text"
 msgstr "Fonte para amosar texto mono espazado"
 
-#: view_details.c:1118
+#: view_details.c:1119
 msgid "_Name"
 msgstr "_Nome"
 
-#: view_details.c:1126
+#: view_details.c:1127
 msgid "_Type"
 msgstr "_Tipo"
 
-#: view_details.c:1135
+#: view_details.c:1136
 msgid "_Size"
 msgstr "_Tamaño"
 
-#: view_details.c:1147
+#: view_details.c:1148
 msgid "_Permissions"
 msgstr "_Permisos"
 
-#: view_details.c:1158
+#: view_details.c:1159
 msgid "_Owner"
 msgstr "P_ropietario"
 
-#: view_details.c:1166
+#: view_details.c:1167
 msgid "_Group"
 msgstr "_Grupo"
 
-#: view_details.c:1174
+#: view_details.c:1175
 msgid "Last _Modified"
 msgstr "Última _modificación"
 
-#: view_details.c:1186
+#: view_details.c:1187
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1198
+#: view_details.c:1199
 msgid "Last _Accessed"
 msgstr ""
 

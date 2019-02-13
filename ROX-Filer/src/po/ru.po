@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 00:18-0600\n"
+"POT-Creation-Date: 2019-02-13 14:12-0600\n"
 "PO-Revision-Date: 2006-03-30 21:14+0400\n"
 "Last-Translator: Nikita E. Shalaev <smacker@mail.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -1074,14 +1074,14 @@ msgstr ""
 "Невозможно получить данные от удаленной машины (application/octet-stream не "
 "передан)"
 
-#: dnd.c:1017 menu.c:2395
+#: dnd.c:1017 menu.c:2380
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr ""
 "Некоторые из этих файлов находятся на другой машине - они будут пропущены - "
 "извините"
 
-#: dnd.c:1024 menu.c:2403
+#: dnd.c:1024 menu.c:2388
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1093,7 +1093,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "Запрошено неизвестное действие"
 
-#: dnd.c:1045 menu.c:2418
+#: dnd.c:1045 menu.c:2406
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Ошибка при получении списка файлов: %s"
@@ -1129,7 +1129,7 @@ msgid "Sorry, I can't use '%s' because it's not a local file."
 msgstr ""
 "Извините, Я не могу использовать \"%s\" потому что это не локальный файл."
 
-#: dropbox.c:278 pinboard.c:932
+#: dropbox.c:278 pinboard.c:951
 #, c-format
 msgid ""
 "Can't access '%s':\n"
@@ -1181,113 +1181,113 @@ msgstr ""
 "Убедитесь, что numlock включен, если вы используете цифровую  клавиатуру "
 "справа (keypad)."
 
-#: filer.c:1820
+#: filer.c:1822
 msgid "Cancel"
 msgstr "Отменить"
 
-#: filer.c:2104
+#: filer.c:2106
 msgid "A"
 msgstr "А"
 
-#: filer.c:2106 find.c:1034
+#: filer.c:2108 find.c:1034
 msgid "G"
 msgstr "G"
 
-#: filer.c:2111
+#: filer.c:2113
 msgid "S"
 msgstr "S"
 
-#: filer.c:2113
+#: filer.c:2115
 msgid "T"
 msgstr "T"
 
-#: filer.c:2114
+#: filer.c:2116
 msgid "D"
 msgstr ""
 
-#: filer.c:2115
+#: filer.c:2117
 msgid "F"
 msgstr ""
 
-#: filer.c:2125
+#: filer.c:2127
 msgid "All, "
 msgstr "Все, "
 
-#: filer.c:2128
+#: filer.c:2130
 #, c-format
 msgid "Glob (%s), "
 msgstr "Раскрыть регулярное выражение (%s), "
 
-#: filer.c:2136
+#: filer.c:2138
 msgid "Scanning, "
 msgstr "Сканирование, "
 
-#: filer.c:2138
+#: filer.c:2140
 msgid "Thumbs, "
 msgstr "Миниатюры, "
 
-#: filer.c:2139
+#: filer.c:2141
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2140
+#: filer.c:2142
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2416
+#: filer.c:2418
 msgid "Symbolic link to "
 msgstr "Символическая ссылка на "
 
-#: filer.c:2472
+#: filer.c:2474
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr ""
 "Имя файла не соответствует кодировке UTF-8. Вам лучше его переименовать.\n"
 
-#: filer.c:2790 menu.c:2604
+#: filer.c:2792 menu.c:2573
 msgid "Item no longer exists!"
 msgstr "Объект не существует!"
 
-#: filer.c:3606
+#: filer.c:3608
 msgid "Select display properties to save"
 msgstr "Выберите, какие параметры отображения сохранить."
 
-#: filer.c:3610
+#: filer.c:3612
 msgid "<b>Save display settings for directory</b>"
 msgstr "<b>Сохранить настройки отображения для каталога</b>"
 
-#: filer.c:3617
+#: filer.c:3619
 msgid "Select settings to save"
 msgstr "Выберите, какие параметры отображения сохранить"
 
-#: filer.c:3624
+#: filer.c:3626
 msgid "Position"
 msgstr "Местоположение"
 
-#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3631 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "Размер"
 
-#: filer.c:3634
+#: filer.c:3636
 msgid "Show hidden"
 msgstr "Показать скрытые"
 
-#: filer.c:3640
+#: filer.c:3642
 msgid "Display style"
 msgstr "Отображать как"
 
-#: filer.c:3646
+#: filer.c:3648
 msgid "Sort type and order"
 msgstr "Тип и порядок сортировки"
 
-#: filer.c:3651 toolbar.c:145
+#: filer.c:3653 toolbar.c:145
 msgid "Details"
 msgstr "Подробности"
 
-#: filer.c:3656 tips:115 tips:116
+#: filer.c:3658 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "Миниатюры"
 
-#: filer.c:3662
+#: filer.c:3664
 msgid "Filter"
 msgstr "Фильтр"
 
@@ -2581,103 +2581,103 @@ msgstr ""
 "Вы не можете открыть второе окно просмотра этого каталога, так как включена "
 "опция \"Уникальные окна\"."
 
-#: menu.c:2324
+#: menu.c:2313
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2374
+#: menu.c:2358
 #, fuzzy, c-format
 msgid "Copy of %s"
 msgstr "?Копировать %s в %s?"
 
-#: menu.c:2379
+#: menu.c:2364
 #, fuzzy, c-format
 msgid "Copy(%d) of %s"
 msgstr "?Копировать %s в %s?"
 
-#: menu.c:2447
+#: menu.c:2430
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2450
+#: menu.c:2433
 msgid "Rename ... ?"
 msgstr "Что переименовать?"
 
-#: menu.c:2453
+#: menu.c:2436
 msgid "Symlink ... ?"
 msgstr "На что сделать ссылку?"
 
-#: menu.c:2456
+#: menu.c:2439
 msgid "Shift Open ... ?"
 msgstr "Что открыть принудительно?"
 
-#: menu.c:2459
+#: menu.c:2442
 msgid "Properties of ... ?"
 msgstr "Свойства файла ...?"
 
-#: menu.c:2463
+#: menu.c:2446
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Расширенные атрибуты"
 
-#: menu.c:2467
+#: menu.c:2450
 msgid "Set type of ... ?"
 msgstr "Установить тип файла ...?"
 
-#: menu.c:2470
+#: menu.c:2453
 msgid "Set run action for ... ?"
 msgstr "Установить ассоциацию для ...?"
 
-#: menu.c:2473
+#: menu.c:2456
 msgid "Set icon for ... ?"
 msgstr "Выбрать значок для ...?"
 
-#: menu.c:2476
+#: menu.c:2459
 msgid "Send ... to ... ?"
 msgstr "Отправить ... в ...?"
 
-#: menu.c:2479
+#: menu.c:2462
 msgid "DELETE ... ?"
 msgstr "Что удалить?"
 
-#: menu.c:2482
+#: menu.c:2465
 msgid "Count the size of ... ?"
 msgstr "Подсчитать размер ...?"
 
-#: menu.c:2485
+#: menu.c:2468
 msgid "Set permissions on ... ?"
 msgstr "Установить права для ...?"
 
-#: menu.c:2488
+#: menu.c:2471
 msgid "Search inside ... ?"
 msgstr "Искать внутри чего?"
 
-#: menu.c:2491
+#: menu.c:2474
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Что копировать?"
 
-#: menu.c:2494
+#: menu.c:2477
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2587
+#: menu.c:2556
 msgid "You cannot do this to more than one item at a time"
 msgstr "Вы не можете делать это более чем с одним объектом сразу"
 
-#: menu.c:2614
+#: menu.c:2583
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2619
+#: menu.c:2588
 msgid "Rename"
 msgstr "Переименовать"
 
-#: menu.c:2624
+#: menu.c:2593
 msgid "Symlink"
 msgstr "Символическая ссылка"
 
-#: menu.c:2659
+#: menu.c:2628
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2699,7 +2699,7 @@ msgstr ""
 "\tgtk-can-change-accels = 1\n"
 "\t(это сработает только если вы НЕ используете XSETTINGS)"
 
-#: menu.c:2670
+#: menu.c:2639
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2720,7 +2720,7 @@ msgstr ""
 "будет просто нажать эту клавишу для активизации элемента без открытия самого "
 "меню."
 
-#: menu.c:2685
+#: menu.c:2654
 msgid "Set keyboard shortcuts"
 msgstr "Установить горячие клавиши"
 
@@ -2941,7 +2941,7 @@ msgstr "Неизвестная сторона"
 msgid "Your old pinboard file has been converted to the new XML format."
 msgstr "Ваша старая витрина была сконвертирована в новый XML формат."
 
-#: pinboard.c:711
+#: pinboard.c:730
 msgid ""
 "The backdrop handler must be an application directory. Drag an application "
 "directory into the Set Backdrop dialog box, or (for programmers) pass it to "
@@ -2951,7 +2951,7 @@ msgstr ""
 "программой в окно \"Установить Фон\" - или (для программистов) передайте его "
 "методу SOAP SetBackdropApp."
 
-#: pinboard.c:730
+#: pinboard.c:749
 msgid ""
 "You can only set the backdrop to an image or to a program which knows how to "
 "manage ROX-Filer's backdrop.\n"
@@ -2965,31 +2965,31 @@ msgstr ""
 "Программисты: файл приложения AppInfo.xml должен содержать элемент "
 "CanSetBackdrop, как это описано в руководстве программы ROX-Filer."
 
-#: pinboard.c:750
+#: pinboard.c:769
 msgid "Set backdrop"
 msgstr "Установить фон"
 
-#: pinboard.c:761
+#: pinboard.c:780
 msgid "Choose a style and drag an image in:"
 msgstr "Выберите стиль и затем перетащите изображение в:"
 
-#: pinboard.c:774
+#: pinboard.c:793
 msgid "Centre the image without scaling it"
 msgstr "Помещать изображение в центре без масштабирования."
 
-#: pinboard.c:775
+#: pinboard.c:794
 msgid "Centre"
 msgstr "По центру"
 
-#: pinboard.c:776
+#: pinboard.c:795
 msgid "Scale the image to fit the backdrop area, without distorting it"
 msgstr "Масштабировать изображение без искажения соотношений сторон"
 
-#: pinboard.c:778
+#: pinboard.c:797
 msgid "Scale"
 msgstr "Масштабировать"
 
-#: pinboard.c:779
+#: pinboard.c:798
 msgid ""
 "Scale the image to fit the backdrop area, regardless of image dimensions - "
 "overscale"
@@ -2997,31 +2997,31 @@ msgstr ""
 "Масштабировать изображение так, чтобы заполнить область фона, "
 "безотносительно его размеров."
 
-#: pinboard.c:781
+#: pinboard.c:800
 msgid "Fit"
 msgstr "Подогнать по размеру"
 
-#: pinboard.c:782
+#: pinboard.c:801
 msgid "Stretch the image to fill the backdrop area"
 msgstr "Масштабировать изображение"
 
-#: pinboard.c:783
+#: pinboard.c:802
 msgid "Stretch"
 msgstr "Растянуть"
 
-#: pinboard.c:784
+#: pinboard.c:803
 msgid "Tile the image over the backdrop area"
 msgstr "Настелить изображение черепицей на рабочем столе"
 
-#: pinboard.c:785
+#: pinboard.c:804
 msgid "Tile"
 msgstr "Черепицей"
 
-#: pinboard.c:790
+#: pinboard.c:809
 msgid "Drop an image here"
 msgstr "Бросьте изображение сюда"
 
-#: pinboard.c:851
+#: pinboard.c:870
 msgid ""
 "No pinboard was in use... the 'Default' pinboard has been selected. Use 'rox "
 "-p=Default' to turn it on in future."
@@ -3029,7 +3029,7 @@ msgstr ""
 "Витрина не использовалась... Была выбрана витрина по умолчанию. Используйте "
 "'rox -p=Default' чтобы включить эту витрину в будущем."
 
-#: pinboard.c:945
+#: pinboard.c:964
 msgid ""
 "Only files (and certain applications) can be used to set the background "
 "image."
@@ -3037,28 +3037,28 @@ msgstr ""
 "Только файлы (и определённые приложения) могут быть использованы для "
 "установки фона."
 
-#: pinboard.c:1605
+#: pinboard.c:1624
 msgid "Missing '>' in icon label"
 msgstr "Отсутствует \">\" в метке"
 
-#: pinboard.c:1614
+#: pinboard.c:1633
 msgid "Missing ',' after icon label"
 msgstr "Отсутствует \",\" после метки"
 
-#: pinboard.c:1702
+#: pinboard.c:1721
 #, c-format
 msgid "Error saving pinboard %s: %s"
 msgstr "Ошибка сохранения витрины %s: %s"
 
-#: pinboard.c:2247
+#: pinboard.c:2266
 msgid "Backdrop..."
 msgstr "Фон..."
 
-#: pinboard.c:2250
+#: pinboard.c:2269
 msgid "Add Panel"
 msgstr "Добавить панель"
 
-#: pinboard.c:2344
+#: pinboard.c:2363
 #, c-format
 msgid ""
 "Error loading backdrop image:\n"
@@ -3638,47 +3638,47 @@ msgstr ""
 "Ошибка при создании изображения \"%s\":\n"
 "%s"
 
-#: view_details.c:1010
+#: view_details.c:1011
 msgid "Mono font"
 msgstr "Моноширинный шрифт"
 
-#: view_details.c:1011
+#: view_details.c:1012
 msgid "Font for displaying mono-spaced text"
 msgstr "Шрифт для отображения моноширинного текста"
 
-#: view_details.c:1118
+#: view_details.c:1119
 msgid "_Name"
 msgstr "_Имя"
 
-#: view_details.c:1126
+#: view_details.c:1127
 msgid "_Type"
 msgstr "_Тип"
 
-#: view_details.c:1135
+#: view_details.c:1136
 msgid "_Size"
 msgstr "_Размер"
 
-#: view_details.c:1147
+#: view_details.c:1148
 msgid "_Permissions"
 msgstr "_Права доступа"
 
-#: view_details.c:1158
+#: view_details.c:1159
 msgid "_Owner"
 msgstr "_Владелец"
 
-#: view_details.c:1166
+#: view_details.c:1167
 msgid "_Group"
 msgstr "_Группа"
 
-#: view_details.c:1174
+#: view_details.c:1175
 msgid "Last _Modified"
 msgstr "_Был изменен"
 
-#: view_details.c:1186
+#: view_details.c:1187
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1198
+#: view_details.c:1199
 msgid "Last _Accessed"
 msgstr ""
 
