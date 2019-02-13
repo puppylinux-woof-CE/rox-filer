@@ -718,8 +718,10 @@ static gint collection_key_press(GtkWidget *widget, GdkEventKey *event)
 	key = event->keyval;
 	if (event->state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK))
 	{
-		if (key == GDK_Left || key == GDK_Right || \
-				key == GDK_Up || key == GDK_Down)
+		if (key == GDK_Left || key == GDK_KEY_KP_Left || \
+			key == GDK_Right || key == GDK_KEY_KP_Right || \
+			key == GDK_Up || key == GDK_KEY_KP_Up || \
+			key == GDK_Down || key == GDK_KEY_KP_Down)
 		{ /* nothing */ }
 		else
 			return FALSE;
@@ -728,15 +730,19 @@ static gint collection_key_press(GtkWidget *widget, GdkEventKey *event)
 	switch (key)
 	{
 		case GDK_Left:
+		case GDK_KEY_KP_Left:
 			collection_move_cursor(collection, 0, -1, event->state);
 			break;
 		case GDK_Right:
+		case GDK_KEY_KP_Right:
 			collection_move_cursor(collection, 0, 1, event->state);
 			break;
 		case GDK_Up:
+		case GDK_KEY_KP_Up:
 			collection_move_cursor(collection, -1, 0, event->state);
 			break;
 		case GDK_Down:
+		case GDK_KEY_KP_Down:
 			collection_move_cursor(collection, 1, 0, event->state);
 			break;
 		case GDK_Home:
