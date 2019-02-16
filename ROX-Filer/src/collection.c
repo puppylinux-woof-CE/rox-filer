@@ -746,14 +746,17 @@ static gint collection_key_press(GtkWidget *widget, GdkEventKey *event)
 			collection_move_cursor(collection, 1, 0, event->state);
 			break;
 		case GDK_Home:
+		case GDK_KEY_KP_Home:
 			collection_set_cursor_item(collection, 0, TRUE);
 			break;
 		case GDK_End:
+		case GDK_KEY_KP_End:
 			collection_set_cursor_item(collection,
 				MAX((gint) collection->number_of_items - 1, 0),
 				TRUE);
 			break;
 		case GDK_Page_Up:
+		case GDK_KEY_KP_Page_Up:
 		  {
 		        int first, last;
 		       	get_visible_limits(collection, &first, &last);
@@ -761,6 +764,7 @@ static gint collection_key_press(GtkWidget *widget, GdkEventKey *event)
 			break;
 		  }
 		case GDK_Page_Down:
+		case GDK_KEY_KP_Page_Down:
 		  {
 		        int first, last;
 		       	get_visible_limits(collection, &first, &last);

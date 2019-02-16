@@ -664,7 +664,8 @@ static gint view_details_key_press(GtkWidget *widget, GdkEventKey *event)
 	if (event->keyval == GDK_Up || event->keyval == GDK_Down ||
 		event->keyval == GDK_KEY_KP_Up || event->keyval == GDK_KEY_KP_Down ||
 	    event->keyval == GDK_Prior || event->keyval == GDK_Next ||
-	    event->keyval == GDK_Home || event->keyval == GDK_End) {
+		event->keyval == GDK_Home || event->keyval == GDK_End ||
+		event->keyval == GDK_KEY_KP_Home || event->keyval == GDK_KEY_KP_End) {
 		/* Work around a strange GTK bug that prevents you from moving the cursor
 		 * if nothing is selected.
 		 */
