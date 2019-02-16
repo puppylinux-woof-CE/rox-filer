@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ROX-Filer 2.11\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-13 20:21-0600\n"
-"PO-Revision-Date: 2019-02-13 21:12-0600\n"
+"PO-Revision-Date: 2019-02-16 17:15-0600\n"
 "Last-Translator: FR_PUPPY_LINUX <fr_puppy_linux@tradux.org>\n"
 "Language-Team: FR_PUPPY_LINUX <fr_puppy_linux@tradux.org>\n"
 "Language: fr\n"
@@ -1847,7 +1847,7 @@ msgstr "Échec de l'examen"
 
 #: infobox.c:646
 msgid "Change time:"
-msgstr "Date de modification:"
+msgstr "Date de changement:"
 
 #: infobox.c:648
 msgid "Modify time:"
@@ -2228,11 +2228,11 @@ msgstr "Automatique"
 
 #: menu.c:224
 msgid "Sort by Name"
-msgstr "Trier par nom"
+msgstr "Trier par Nom"
 
 #: menu.c:225
 msgid "Sort by Type"
-msgstr "Trier par type"
+msgstr "Trier par Type"
 
 #: menu.c:226
 msgid "Sort by Date (atime)"
@@ -3321,7 +3321,7 @@ msgstr "Trier"
 
 #: toolbar.c:151
 msgid "Change sort criteria"
-msgstr "Modifier le critère de tri"
+msgstr "Modifier de critère de tri"
 
 #: toolbar.c:155
 msgid "Hidden"
@@ -3392,27 +3392,27 @@ msgstr "%u sélectionné(s) (%s)"
 
 #: toolbar.c:464
 msgid "Sort by name"
-msgstr "Tri par nom"
+msgstr "Trier par nom"
 
 #: toolbar.c:464
 msgid "Sort by type"
-msgstr "Tri par type"
+msgstr "Trier par type"
 
 #: toolbar.c:464
 msgid "Sort by date"
-msgstr "Tri par date"
+msgstr "Trier par date"
 
 #: toolbar.c:465
 msgid "Sort by size"
-msgstr "Tri par taille"
+msgstr "Trier par taille"
 
 #: toolbar.c:465
 msgid "Sort by owner"
-msgstr "Tri par propriétaire"
+msgstr "Trier par propriétaire"
 
 #: toolbar.c:465
 msgid "Sort by group"
-msgstr "Tri par groupe"
+msgstr "Trier par groupe"
 
 #: toolbar.c:499
 msgid "ascending"
@@ -3700,7 +3700,7 @@ msgstr "Dernière _Modification"
 
 #: view_details.c:1187
 msgid "Last _Changed"
-msgstr "Dernière_Modification"
+msgstr "Dernier _Changement"
 
 #: view_details.c:1199
 msgid "Last _Accessed"
@@ -4101,7 +4101,7 @@ msgstr "Dernière Modification"
 #: tips:93
 msgid "If this is on then Last Modified column will be shown in the list view."
 msgstr ""
-"Lorsque cette option est activée, la colonne Dernière modification sera "
+"Lorsque cette option est activée, la colonne Dernière Modification sera "
 "affichée dans la vue en liste."
 
 #: tips:94
@@ -4111,7 +4111,7 @@ msgstr "Dernière Modification"
 #: tips:95
 msgid "If this is on then Last Changed column will be shown in the list view."
 msgstr ""
-"Lorsque cette option est activée, la colonne Dernière modification sera "
+"Lorsque cette option est activée, la colonne Dernier Changement sera "
 "affichée dans la vue en liste."
 
 #: tips:96
@@ -4121,7 +4121,7 @@ msgstr "Dernier Accès"
 #: tips:97
 msgid "If this is on then Last Accessed column will be shown in the list view."
 msgstr ""
-"Lorsque cette option est activée, la colonne Dernier accès sera affichée "
+"Lorsque cette option est activée, la colonne Dernier Accès sera affichée "
 "dans la vue en liste."
 
 #: tips:98
