@@ -50,6 +50,7 @@
 #include "xml.h"
 #include "diritem.h"
 #include "usericons.h"
+#include "options.h"
 
 static GdkAtom filer_atom;	/* _ROX_FILER_EUID_VERSION_HOST */
 static GdkAtom filer_atom_any;	/* _ROX_FILER_EUID_HOST */
@@ -80,6 +81,8 @@ static void soap_register(char *name, SOAP_func func, char *req, char *opt);
 static xmlNodePtr soap_invoke(xmlNode *method);
 
 static xmlNodePtr rpc_Version(GList *args);
+static xmlNodePtr rpc_GetOption(GList *args);
+static xmlNodePtr rpc_SetOption(GList *args);
 static xmlNodePtr rpc_OpenDir(GList *args);
 static xmlNodePtr rpc_CloseDir(GList *args);
 static xmlNodePtr rpc_Examine(GList *args);
@@ -126,6 +129,9 @@ gboolean remote_init(xmlDocPtr rpc, gboolean new_copy)
 	rpc_calls = g_hash_table_new(g_str_hash, g_str_equal);
 
 	soap_register("Version", rpc_Version, NULL, NULL);
+
+	soap_register("GetOption", rpc_GetOption, "Name", NULL);
+	soap_register("SetOption", rpc_SetOption, "Name,Value", NULL);
 
 	soap_register("Run", rpc_Run, "Filename", NULL);
 	soap_register("OpenDir", rpc_OpenDir, "Filename",
@@ -670,6 +676,42 @@ static xmlNodePtr rpc_Version(GList *args)
 	xmlNewTextChild(reply, NULL, "soap:result", VERSION);
 
 	return reply;
+}
+
+static xmlNodePtr rpc_GetOption(GList *args)
+{
+	xmlNodePtr reply;
+	char *option_name;
+	char *option_value;
+
+	option_name = string_value(ARG(0));
+	option_value = option_get(option_name);
+
+	reply = xmlNewNode(NULL, "rox:VersionResponse");
+	xmlNewNs(reply, SOAP_RPC_NS, "soap");
+	xmlNewTextChild(reply, NULL, "soap:result", option_value);
+
+	g_free(option_value);
+	g_free(option_name);
+
+	return reply;
+}
+
+static xmlNodePtr rpc_SetOption(GList *args)
+{
+	char *option_name;
+	char *option_value = NULL;
+
+	option_name = string_value(ARG(0));
+	option_value = string_value(ARG(1));
+
+	if (option_value != NULL)
+		option_set(option_name, option_value);
+
+	g_free(option_value);
+	g_free(option_name);
+
+	return NULL;
 }
 
 /* Args: Path, [Style, Details, Sort, Class, Window] */
