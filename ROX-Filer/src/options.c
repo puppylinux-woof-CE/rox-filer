@@ -403,6 +403,41 @@ GList *build_numentry_base(Option *option, xmlNode *node,
 	return g_list_append(NULL, hbox);
 }
 
+/* Returns the value of the option as a string.
+ * g_free() the result.
+ */
+gchar *option_get(const gchar *key)
+{
+	Option *option;
+
+	g_return_val_if_fail(option_hash != NULL, NULL);
+	option = g_hash_table_lookup(option_hash, key);
+	g_return_val_if_fail(option != NULL, NULL);
+
+	return g_strdup(option->value);
+}
+
+void option_set(const gchar *key, const gchar *new_value)
+{
+	Option *option;
+
+	g_return_if_fail(option_hash != NULL);
+	option = g_hash_table_lookup(option_hash, key);
+	g_return_if_fail(option != NULL);
+	g_return_if_fail(new_value != NULL);
+
+	option->has_changed = strcmp(option->value, new_value) != 0;
+
+	if (!option->has_changed)
+		return;
+
+	g_free(option->value);
+	option->value = g_strdup(new_value);
+	option->int_value = atoi(new_value);
+
+	save_options();
+}
+
 /****************************************************************
  *                      INTERNAL FUNCTIONS                      *
  ****************************************************************/

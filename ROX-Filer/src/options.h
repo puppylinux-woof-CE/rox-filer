@@ -41,4 +41,8 @@ GList *build_numentry_base(Option *option, xmlNode *node,
 
 GtkWidget *options_show(void);
 
+/* Used by rpc_GetOption, rpc_SetOption */
+gchar *option_get(const gchar *key);
+void option_set(const gchar *key, const gchar *new_value);
+
 #endif /* _OPTIONS_H */
