@@ -183,8 +183,8 @@ indicator'>If this is on then files which have one or more extended attributes s
             <spacer/>
             <spacer/>
           <vbox>
-            <numentry name='pinboard_search_step_x' label='Search step (x):' unit='pixels' min='2' max='200' width='3'>Step size when auto-placing icons.</numentry>
-            <numentry name='pinboard_search_step_y' label='Search step (y):' unit='pixels' min='2' max='200' width='3'>Step size when auto-placing icons.</numentry>
+            <numentry name='pinboard_search_step_x' label='Search step (x):' unit='pixels' min='2' max='256' width='3'>Step size when auto-placing icons.</numentry>
+            <numentry name='pinboard_search_step_y' label='Search step (y):' unit='pixels' min='2' max='256' width='3'>Step size when auto-placing icons.</numentry>
           </vbox>
         </hbox>
        <hbox>
