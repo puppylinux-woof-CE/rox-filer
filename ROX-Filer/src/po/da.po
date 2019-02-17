@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 00:18-0600\n"
+"POT-Creation-Date: 2019-02-13 14:12-0600\n"
 "PO-Revision-Date: 2005-02-23 17:11+0100\n"
 "Last-Translator: Christan D. Storgaard <dannieglitter@gmail.com>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -1057,14 +1057,14 @@ msgid ""
 msgstr ""
 "Kan ikke få dataen fra anden maskine (application/octet-stream ikke givet)"
 
-#: dnd.c:1017 menu.c:2395
+#: dnd.c:1017 menu.c:2380
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr ""
 "Nogle af disse filer er på en anden maskine - de vil blive ignoreret - "
 "desværre"
 
-#: dnd.c:1024 menu.c:2403
+#: dnd.c:1024 menu.c:2388
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1076,7 +1076,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "Ukendt handling anmodet"
 
-#: dnd.c:1045 menu.c:2418
+#: dnd.c:1045 menu.c:2406
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Fejl uder hentning af fil-liste: %s"
@@ -1110,7 +1110,7 @@ msgstr "Desværre; du kan kun slippe én fil oven på slip-området."
 msgid "Sorry, I can't use '%s' because it's not a local file."
 msgstr "Jeg kan desværre ikke bruge '%s', da det ikke er en lokal fil."
 
-#: dropbox.c:278 pinboard.c:932
+#: dropbox.c:278 pinboard.c:951
 #, c-format
 msgid ""
 "Can't access '%s':\n"
@@ -1161,113 +1161,113 @@ msgstr ""
 "Gruppen %s er ikke sat. Vælg nogle filer og tryk Ctrl+%s for at huske "
 "gruppen. Tryk %s alene for at genvælge filerne senere."
 
-#: filer.c:1820
+#: filer.c:1822
 msgid "Cancel"
 msgstr "Fortryd"
 
-#: filer.c:2104
+#: filer.c:2106
 msgid "A"
 msgstr ""
 
-#: filer.c:2106 find.c:1034
+#: filer.c:2108 find.c:1034
 msgid "G"
 msgstr ""
 
-#: filer.c:2111
+#: filer.c:2113
 msgid "S"
 msgstr "K"
 
-#: filer.c:2113
+#: filer.c:2115
 msgid "T"
 msgstr "M"
 
-#: filer.c:2114
+#: filer.c:2116
 msgid "D"
 msgstr ""
 
-#: filer.c:2115
+#: filer.c:2117
 msgid "F"
 msgstr ""
 
-#: filer.c:2125
+#: filer.c:2127
 msgid "All, "
 msgstr "Alle, "
 
-#: filer.c:2128
+#: filer.c:2130
 #, c-format
 msgid "Glob (%s), "
 msgstr ""
 
-#: filer.c:2136
+#: filer.c:2138
 msgid "Scanning, "
 msgstr "Scanner, "
 
-#: filer.c:2138
+#: filer.c:2140
 msgid "Thumbs, "
 msgstr "Thumbs, "
 
-#: filer.c:2139
+#: filer.c:2141
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2140
+#: filer.c:2142
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2416
+#: filer.c:2418
 msgid "Symbolic link to "
 msgstr "Symbolsk lænke til "
 
-#: filer.c:2472
+#: filer.c:2474
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "Dette filnavn er ikke i korrekt UTF-8. Du bør omdøbe den.\n"
 
-#: filer.c:2790 menu.c:2604
+#: filer.c:2792 menu.c:2573
 msgid "Item no longer exists!"
 msgstr "Objektet eksisterer ikke længere!"
 
-#: filer.c:3606
+#: filer.c:3608
 msgid "Select display properties to save"
 msgstr "Vælg hvilke visnings-indstillinger der skal gemmes"
 
-#: filer.c:3610
+#: filer.c:3612
 msgid "<b>Save display settings for directory</b>"
 msgstr ""
 
-#: filer.c:3617
+#: filer.c:3619
 #, fuzzy
 msgid "Select settings to save"
 msgstr "Vælg hvilke visnings-indstillinger der skal gemmes"
 
-#: filer.c:3624
+#: filer.c:3626
 msgid "Position"
 msgstr "Position"
 
-#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3631 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "Størrelse"
 
-#: filer.c:3634
+#: filer.c:3636
 msgid "Show hidden"
 msgstr "Vis skjulte"
 
-#: filer.c:3640
+#: filer.c:3642
 msgid "Display style"
 msgstr "Visnings-stil"
 
-#: filer.c:3646
+#: filer.c:3648
 msgid "Sort type and order"
 msgstr "Sorterings-type og rækkefølge"
 
-#: filer.c:3651 toolbar.c:145
+#: filer.c:3653 toolbar.c:145
 msgid "Details"
 msgstr "Detaljer"
 
-#: filer.c:3656 tips:115 tips:116
+#: filer.c:3658 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "Miniature"
 
-#: filer.c:3662
+#: filer.c:3664
 msgid "Filter"
 msgstr "Filter"
 
@@ -2539,103 +2539,103 @@ msgstr ""
 "Du kan ikke åbne en til oversigt over denne mappe fordi 'Unikke Vinduer' "
 "insdstillingen er slået til i Indstillinger vinduet."
 
-#: menu.c:2324
+#: menu.c:2313
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2374
+#: menu.c:2358
 #, fuzzy, c-format
 msgid "Copy of %s"
 msgstr "?Kopier %s som %s?"
 
-#: menu.c:2379
+#: menu.c:2364
 #, fuzzy, c-format
 msgid "Copy(%d) of %s"
 msgstr "?Kopier %s som %s?"
 
-#: menu.c:2447
+#: menu.c:2430
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2450
+#: menu.c:2433
 msgid "Rename ... ?"
 msgstr "Omdøb ... ?"
 
-#: menu.c:2453
+#: menu.c:2436
 msgid "Symlink ... ?"
 msgstr "Lav en symbolsk lænke ... ?"
 
-#: menu.c:2456
+#: menu.c:2439
 msgid "Shift Open ... ?"
 msgstr "Shift Åben ... ?"
 
-#: menu.c:2459
+#: menu.c:2442
 msgid "Properties of ... ?"
 msgstr "Egenskaber af ... ?"
 
-#: menu.c:2463
+#: menu.c:2446
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Bug ikke værtsnavn"
 
-#: menu.c:2467
+#: menu.c:2450
 msgid "Set type of ... ?"
 msgstr "Definer typen på ... ?"
 
-#: menu.c:2470
+#: menu.c:2453
 msgid "Set run action for ... ?"
 msgstr "Sæt kør handlingen for ... ?"
 
-#: menu.c:2473
+#: menu.c:2456
 msgid "Set icon for ... ?"
 msgstr "Definer ikonet for ... ?"
 
-#: menu.c:2476
+#: menu.c:2459
 msgid "Send ... to ... ?"
 msgstr "Send ... til ... ?"
 
-#: menu.c:2479
+#: menu.c:2462
 msgid "DELETE ... ?"
 msgstr "SLET ... ?"
 
-#: menu.c:2482
+#: menu.c:2465
 msgid "Count the size of ... ?"
 msgstr "Udregn størrelsen af ... ?"
 
-#: menu.c:2485
+#: menu.c:2468
 msgid "Set permissions on ... ?"
 msgstr "Sæt tilladelserne på ... ?"
 
-#: menu.c:2488
+#: menu.c:2471
 msgid "Search inside ... ?"
 msgstr "Søg indeni ... ?"
 
-#: menu.c:2491
+#: menu.c:2474
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Kopier ... ?"
 
-#: menu.c:2494
+#: menu.c:2477
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2587
+#: menu.c:2556
 msgid "You cannot do this to more than one item at a time"
 msgstr "Du kan ikke gøre dette ved mere end et objekt ad gangen"
 
-#: menu.c:2614
+#: menu.c:2583
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2619
+#: menu.c:2588
 msgid "Rename"
 msgstr "Omdøb"
 
-#: menu.c:2624
+#: menu.c:2593
 msgid "Symlink"
 msgstr "Lav symbolsk lænke"
 
-#: menu.c:2659
+#: menu.c:2628
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2657,7 +2657,7 @@ msgstr ""
 "\tgtk-can-change-accels·=·1\n"
 "\t(dette virker kun hvis XSettings IKKE bliver brugt)"
 
-#: menu.c:2670
+#: menu.c:2639
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2677,7 +2677,7 @@ msgstr ""
 "Tasten vil vise sig ved siden af funktionen og du kan bare presse den tast "
 "uden at åbne menuen for fremtiden."
 
-#: menu.c:2685
+#: menu.c:2654
 msgid "Set keyboard shortcuts"
 msgstr "Indstil tastatur-genveje"
 
@@ -2902,7 +2902,7 @@ msgid "Your old pinboard file has been converted to the new XML format."
 msgstr ""
 "Din gamle opslagstavle-fil er blevet konverteret til det nye XML format."
 
-#: pinboard.c:711
+#: pinboard.c:730
 msgid ""
 "The backdrop handler must be an application directory. Drag an application "
 "directory into the Set Backdrop dialog box, or (for programmers) pass it to "
@@ -2912,7 +2912,7 @@ msgstr ""
 "mappe ind i \"Indstil Baggrund\"-dialogboksen, eller (for programører) "
 "videregiv den til SOAP SetBackdropApp-metoden."
 
-#: pinboard.c:730
+#: pinboard.c:749
 msgid ""
 "You can only set the backdrop to an image or to a program which knows how to "
 "manage ROX-Filer's backdrop.\n"
@@ -2926,32 +2926,32 @@ msgstr ""
 "Programmører: programmets AppInfo.xml skal indeholde CanSetBackdrop-"
 "elementet,som beskrevet i ROX-Filer-manualen."
 
-#: pinboard.c:750
+#: pinboard.c:769
 msgid "Set backdrop"
 msgstr "Indstil baggrund"
 
-#: pinboard.c:761
+#: pinboard.c:780
 msgid "Choose a style and drag an image in:"
 msgstr "Vælg en stil og træk et billede til:"
 
-#: pinboard.c:774
+#: pinboard.c:793
 msgid "Centre the image without scaling it"
 msgstr "Centrér billedet uden at skalere det"
 
-#: pinboard.c:775
+#: pinboard.c:794
 msgid "Centre"
 msgstr "Centrér"
 
-#: pinboard.c:776
+#: pinboard.c:795
 msgid "Scale the image to fit the backdrop area, without distorting it"
 msgstr ""
 "Skalér billedet til at passe på baggrundsarealet, uden at forvrænge det"
 
-#: pinboard.c:778
+#: pinboard.c:797
 msgid "Scale"
 msgstr "Skalér"
 
-#: pinboard.c:779
+#: pinboard.c:798
 #, fuzzy
 msgid ""
 "Scale the image to fit the backdrop area, regardless of image dimensions - "
@@ -2959,32 +2959,32 @@ msgid ""
 msgstr ""
 "Skalér billedet til at passe på baggrundsarealet, uden at forvrænge det"
 
-#: pinboard.c:781
+#: pinboard.c:800
 #, fuzzy
 msgid "Fit"
 msgstr "Filter"
 
-#: pinboard.c:782
+#: pinboard.c:801
 msgid "Stretch the image to fill the backdrop area"
 msgstr "Stræk billedet så det fylder baggrundsarealet"
 
-#: pinboard.c:783
+#: pinboard.c:802
 msgid "Stretch"
 msgstr "Udstræk"
 
-#: pinboard.c:784
+#: pinboard.c:803
 msgid "Tile the image over the backdrop area"
 msgstr "Læg billedet som fliser hen over baggrunden"
 
-#: pinboard.c:785
+#: pinboard.c:804
 msgid "Tile"
 msgstr "Læg som fliser"
 
-#: pinboard.c:790
+#: pinboard.c:809
 msgid "Drop an image here"
 msgstr "Træk et billede-hertil"
 
-#: pinboard.c:851
+#: pinboard.c:870
 msgid ""
 "No pinboard was in use... the 'Default' pinboard has been selected. Use 'rox "
 "-p=Default' to turn it on in future."
@@ -2992,36 +2992,36 @@ msgstr ""
 "Der var ikke nogen opslagstavle i brug, derfor er opslagstavlen 'Default' "
 "blevet valgt. Brug 'rox -p=Default' for at slå den til fremover."
 
-#: pinboard.c:945
+#: pinboard.c:964
 msgid ""
 "Only files (and certain applications) can be used to set the background "
 "image."
 msgstr ""
 "Kun filer (og visse programmer) kan bruges til at sætte baggrunds-billedet."
 
-#: pinboard.c:1605
+#: pinboard.c:1624
 msgid "Missing '>' in icon label"
 msgstr "Mangler '>' i ikon titlen"
 
-#: pinboard.c:1614
+#: pinboard.c:1633
 msgid "Missing ',' after icon label"
 msgstr "Mangler ',' efter ikon titlen"
 
-#: pinboard.c:1702
+#: pinboard.c:1721
 #, c-format
 msgid "Error saving pinboard %s: %s"
 msgstr "Fejl under gemning af opslagstavlen %s: %s"
 
-#: pinboard.c:2247
+#: pinboard.c:2266
 msgid "Backdrop..."
 msgstr "Indstil baggrunden"
 
-#: pinboard.c:2250
+#: pinboard.c:2269
 #, fuzzy
 msgid "Add Panel"
 msgstr "Paneler"
 
-#: pinboard.c:2344
+#: pinboard.c:2363
 #, c-format
 msgid ""
 "Error loading backdrop image:\n"
@@ -3597,47 +3597,47 @@ msgstr ""
 "Fejl under generering af billedet '%s':\n"
 "%s"
 
-#: view_details.c:1010
+#: view_details.c:1011
 msgid "Mono font"
 msgstr ""
 
-#: view_details.c:1011
+#: view_details.c:1012
 msgid "Font for displaying mono-spaced text"
 msgstr ""
 
-#: view_details.c:1118
+#: view_details.c:1119
 msgid "_Name"
 msgstr "_Navn"
 
-#: view_details.c:1126
+#: view_details.c:1127
 msgid "_Type"
 msgstr "_Type"
 
-#: view_details.c:1135
+#: view_details.c:1136
 msgid "_Size"
 msgstr "_Størrelse"
 
-#: view_details.c:1147
+#: view_details.c:1148
 msgid "_Permissions"
 msgstr "_Tilladdelser"
 
-#: view_details.c:1158
+#: view_details.c:1159
 msgid "_Owner"
 msgstr "_Ejer"
 
-#: view_details.c:1166
+#: view_details.c:1167
 msgid "_Group"
 msgstr "_Gruppe"
 
-#: view_details.c:1174
+#: view_details.c:1175
 msgid "Last _Modified"
 msgstr "Sidst _Ændret"
 
-#: view_details.c:1186
+#: view_details.c:1187
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1198
+#: view_details.c:1199
 msgid "Last _Accessed"
 msgstr ""
 

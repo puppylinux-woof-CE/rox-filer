@@ -980,9 +980,11 @@ static gint key_press_event(GtkWidget	*widget,
 			switch (event->keyval)
 			{
 				case GDK_Up:
+				case GDK_KEY_KP_Up:
 					search_in_dir(filer_window, -1);
 					break;
 				case GDK_Down:
+				case GDK_KEY_KP_Down:
 					search_in_dir(filer_window, 1);
 					break;
 				case GDK_Return:
@@ -1002,9 +1004,11 @@ static gint key_press_event(GtkWidget	*widget,
 			switch (event->keyval)
 			{
 				case GDK_Up:
+				case GDK_KEY_KP_Up:
 					shell_recall(filer_window, 1);
 					break;
 				case GDK_Down:
+				case GDK_KEY_KP_Down:
 					shell_recall(filer_window, -1);
 					break;
 				case GDK_Tab:
@@ -1022,9 +1026,11 @@ static gint key_press_event(GtkWidget	*widget,
 			switch (event->keyval)
 			{
 				case GDK_Up:
+				case GDK_KEY_KP_Up:
 					shell_recall(filer_window, 1);
 					break;
 				case GDK_Down:
+				case GDK_KEY_KP_Down:
 					shell_recall(filer_window, -1);
 					break;
 				case GDK_Tab:
@@ -1042,9 +1048,11 @@ static gint key_press_event(GtkWidget	*widget,
 			switch (event->keyval)
 			{
 				case GDK_Up:
+				case GDK_KEY_KP_Up:
 					filer_next_selected(filer_window, -1);
 					break;
 				case GDK_Down:
+				case GDK_KEY_KP_Down:
 					filer_next_selected(filer_window, 1);
 					break;
 				case GDK_Tab:

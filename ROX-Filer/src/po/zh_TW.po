@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 00:18-0600\n"
+"POT-Creation-Date: 2019-02-13 14:12-0600\n"
 "PO-Revision-Date: 2008-12-29 16:00+0100\n"
 "Last-Translator: Babyfai Cheung<babyfai1@yahoo.com.hk>\n"
 "Language-Team: none\n"
@@ -1042,12 +1042,12 @@ msgid ""
 "Can't get data from remote machine (application/octet-stream not provided)"
 msgstr "未能在遠端機器上獲得資料 (application/octet-stream 並未提供)"
 
-#: dnd.c:1017 menu.c:2395
+#: dnd.c:1017 menu.c:2380
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr "某些檔案是來自另一主機 - 這些會被忽略 - 抱歉"
 
-#: dnd.c:1024 menu.c:2403
+#: dnd.c:1024 menu.c:2388
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1057,7 +1057,7 @@ msgstr "沒有任何檔案是在本機上的 - 不能在多遠端機器 環境�
 msgid "Unknown action requested"
 msgstr "不明的執行要求"
 
-#: dnd.c:1045 menu.c:2418
+#: dnd.c:1045 menu.c:2406
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "錯誤的檔案列表：%s"
@@ -1089,7 +1089,7 @@ msgstr "抱歉，您每次只可拖放一個檔案."
 msgid "Sorry, I can't use '%s' because it's not a local file."
 msgstr "抱歉，未能運用 '%s' 因其並非本機檔案."
 
-#: dropbox.c:278 pinboard.c:932
+#: dropbox.c:278 pinboard.c:951
 #, c-format
 msgid ""
 "Can't access '%s':\n"
@@ -1140,112 +1140,112 @@ msgstr ""
 "重選其他檔案.\n"
 "注意，鍵盤上的 NumLock 必須開啟"
 
-#: filer.c:1820
+#: filer.c:1822
 msgid "Cancel"
 msgstr "取消"
 
-#: filer.c:2104
+#: filer.c:2106
 msgid "A"
 msgstr ""
 
-#: filer.c:2106 find.c:1034
+#: filer.c:2108 find.c:1034
 msgid "G"
 msgstr ""
 
-#: filer.c:2111
+#: filer.c:2113
 msgid "S"
 msgstr ""
 
-#: filer.c:2113
+#: filer.c:2115
 msgid "T"
 msgstr ""
 
-#: filer.c:2114
+#: filer.c:2116
 msgid "D"
 msgstr ""
 
-#: filer.c:2115
+#: filer.c:2117
 msgid "F"
 msgstr ""
 
-#: filer.c:2125
+#: filer.c:2127
 msgid "All, "
 msgstr ""
 
-#: filer.c:2128
+#: filer.c:2130
 #, c-format
 msgid "Glob (%s), "
 msgstr "只匹配 (%s), "
 
-#: filer.c:2136
+#: filer.c:2138
 msgid "Scanning, "
 msgstr "從新檢視中, "
 
-#: filer.c:2138
+#: filer.c:2140
 msgid "Thumbs, "
 msgstr "顯示縮圖, "
 
-#: filer.c:2139
+#: filer.c:2141
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2140
+#: filer.c:2142
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2416
+#: filer.c:2418
 msgid "Symbolic link to "
 msgstr "連結指向 "
 
-#: filer.c:2472
+#: filer.c:2474
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "不是正確的 UTF-8 名稱，請重新命名.\n"
 
-#: filer.c:2790 menu.c:2604
+#: filer.c:2792 menu.c:2573
 msgid "Item no longer exists!"
 msgstr "項目已不存在！"
 
-#: filer.c:3606
+#: filer.c:3608
 msgid "Select display properties to save"
 msgstr "選擇顯示內容以儲存"
 
-#: filer.c:3610
+#: filer.c:3612
 msgid "<b>Save display settings for directory</b>"
 msgstr "<b>儲存目錄的顯示設定</b>"
 
-#: filer.c:3617
+#: filer.c:3619
 msgid "Select settings to save"
 msgstr "選擇設定以儲存"
 
-#: filer.c:3624
+#: filer.c:3626
 msgid "Position"
 msgstr "位置"
 
-#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3631 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "大小"
 
-#: filer.c:3634
+#: filer.c:3636
 msgid "Show hidden"
 msgstr "顯示隱藏檔"
 
-#: filer.c:3640
+#: filer.c:3642
 msgid "Display style"
 msgstr "顯示風格"
 
-#: filer.c:3646
+#: filer.c:3648
 msgid "Sort type and order"
 msgstr "以類型排序"
 
-#: filer.c:3651 toolbar.c:145
+#: filer.c:3653 toolbar.c:145
 msgid "Details"
 msgstr "詳述"
 
-#: filer.c:3656 tips:115 tips:116
+#: filer.c:3658 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "縮圖"
 
-#: filer.c:3662
+#: filer.c:3664
 msgid "Filter"
 msgstr "過濾"
 
@@ -2463,103 +2463,103 @@ msgstr ""
 "你不能對此目錄開啟第二個窗口，因為你已在選項->Filer窗口內選了「唯一的窗口」的"
 "功能."
 
-#: menu.c:2324
+#: menu.c:2313
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2374
+#: menu.c:2358
 #, fuzzy, c-format
 msgid "Copy of %s"
 msgstr "?複製%s 為 %s?"
 
-#: menu.c:2379
+#: menu.c:2364
 #, fuzzy, c-format
 msgid "Copy(%d) of %s"
 msgstr "?複製%s 為 %s?"
 
-#: menu.c:2447
+#: menu.c:2430
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2450
+#: menu.c:2433
 msgid "Rename ... ?"
 msgstr "改名為...？"
 
-#: menu.c:2453
+#: menu.c:2436
 msgid "Symlink ... ?"
 msgstr "符號連結...？"
 
-#: menu.c:2456
+#: menu.c:2439
 msgid "Shift Open ... ?"
 msgstr "新窗口開啟...？"
 
-#: menu.c:2459
+#: menu.c:2442
 msgid "Properties of ... ?"
 msgstr "訊息...？"
 
-#: menu.c:2463
+#: menu.c:2446
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "伸延屬性"
 
-#: menu.c:2467
+#: menu.c:2450
 msgid "Set type of ... ?"
 msgstr "設定類型...？"
 
-#: menu.c:2470
+#: menu.c:2453
 msgid "Set run action for ... ?"
 msgstr "設定執行程式予... ？"
 
-#: menu.c:2473
+#: menu.c:2456
 msgid "Set icon for ... ?"
 msgstr "設定圖示予...？"
 
-#: menu.c:2476
+#: menu.c:2459
 msgid "Send ... to ... ?"
 msgstr "傳送...至...？"
 
-#: menu.c:2479
+#: menu.c:2462
 msgid "DELETE ... ?"
 msgstr "移除...？"
 
-#: menu.c:2482
+#: menu.c:2465
 msgid "Count the size of ... ?"
 msgstr "計算容量從 ...？"
 
-#: menu.c:2485
+#: menu.c:2468
 msgid "Set permissions on ... ?"
 msgstr "改變權限予...？"
 
-#: menu.c:2488
+#: menu.c:2471
 msgid "Search inside ... ?"
 msgstr "搜索內部...？"
 
-#: menu.c:2491
+#: menu.c:2474
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "複製...？"
 
-#: menu.c:2494
+#: menu.c:2477
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2587
+#: menu.c:2556
 msgid "You cannot do this to more than one item at a time"
 msgstr "不可同時以此方式處理多個項目"
 
-#: menu.c:2614
+#: menu.c:2583
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2619
+#: menu.c:2588
 msgid "Rename"
 msgstr "改名"
 
-#: menu.c:2624
+#: menu.c:2593
 msgid "Symlink"
 msgstr "符號連結"
 
-#: menu.c:2659
+#: menu.c:2628
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2578,7 +2578,7 @@ msgstr ""
 "\tgtk-can-chang-accels = 1\n"
 "\t(只可在不用 XSETTINGS 的情況下)"
 
-#: menu.c:2670
+#: menu.c:2639
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2598,7 +2598,7 @@ msgstr ""
 "對應的熱鍵會出現在選單的某個項目上，而日後你想開啟這項目，祗須按下熱鍵而不需"
 "先開啟選單."
 
-#: menu.c:2685
+#: menu.c:2654
 msgid "Set keyboard shortcuts"
 msgstr "設定熱鍵"
 
@@ -2807,14 +2807,14 @@ msgstr "不明位置"
 msgid "Your old pinboard file has been converted to the new XML format."
 msgstr "你的舊桌面資源檔案已轉為新的XML格式."
 
-#: pinboard.c:711
+#: pinboard.c:730
 msgid ""
 "The backdrop handler must be an application directory. Drag an application "
 "directory into the Set Backdrop dialog box, or (for programmers) pass it to "
 "the SOAP SetBackdropApp method."
 msgstr "桌面處理工具是一個程式目錄，請於設定對話框內，拖進要加入的程序."
 
-#: pinboard.c:730
+#: pinboard.c:749
 msgid ""
 "You can only set the backdrop to an image or to a program which knows how to "
 "manage ROX-Filer's backdrop.\n"
@@ -2827,95 +2827,95 @@ msgstr ""
 "程式員注意: 程式內的 AppInfo.xml 必須包含 CanSetBackdrop 這元素，可參閱 ROX-"
 "Filer 的指南."
 
-#: pinboard.c:750
+#: pinboard.c:769
 msgid "Set backdrop"
 msgstr "設定背景"
 
-#: pinboard.c:761
+#: pinboard.c:780
 msgid "Choose a style and drag an image in:"
 msgstr "選取一風格並將影像拖進 :"
 
-#: pinboard.c:774
+#: pinboard.c:793
 msgid "Centre the image without scaling it"
 msgstr "影像置中及不作調整"
 
-#: pinboard.c:775
+#: pinboard.c:794
 msgid "Centre"
 msgstr "置中"
 
-#: pinboard.c:776
+#: pinboard.c:795
 msgid "Scale the image to fit the backdrop area, without distorting it"
 msgstr "調整影像致全螢幕"
 
-#: pinboard.c:778
+#: pinboard.c:797
 msgid "Scale"
 msgstr "調整"
 
-#: pinboard.c:779
+#: pinboard.c:798
 msgid ""
 "Scale the image to fit the backdrop area, regardless of image dimensions - "
 "overscale"
 msgstr "調整影像致匹配全個背景區，不管影像的任何大小"
 
-#: pinboard.c:781
+#: pinboard.c:800
 msgid "Fit"
 msgstr "適配"
 
-#: pinboard.c:782
+#: pinboard.c:801
 msgid "Stretch the image to fill the backdrop area"
 msgstr "伸延影像致全螢幕"
 
-#: pinboard.c:783
+#: pinboard.c:802
 msgid "Stretch"
 msgstr "伸延"
 
-#: pinboard.c:784
+#: pinboard.c:803
 msgid "Tile the image over the backdrop area"
 msgstr "平鋪影像致全螢幕"
 
-#: pinboard.c:785
+#: pinboard.c:804
 msgid "Tile"
 msgstr "平鋪"
 
-#: pinboard.c:790
+#: pinboard.c:809
 msgid "Drop an image here"
 msgstr "拖放圖像到此處"
 
-#: pinboard.c:851
+#: pinboard.c:870
 msgid ""
 "No pinboard was in use... the 'Default' pinboard has been selected. Use 'rox "
 "-p=Default' to turn it on in future."
 msgstr ""
 "沒有設定所用桌面，桌面將會選用預設值，亦可用指令 'rox -p=Default' 來啟動."
 
-#: pinboard.c:945
+#: pinboard.c:964
 msgid ""
 "Only files (and certain applications) can be used to set the background "
 "image."
 msgstr "只有檔案(及某些應用程式)才可用作設定背景"
 
-#: pinboard.c:1605
+#: pinboard.c:1624
 msgid "Missing '>' in icon label"
 msgstr "沒有 '>' 在圖示標簽內"
 
-#: pinboard.c:1614
+#: pinboard.c:1633
 msgid "Missing ',' after icon label"
 msgstr "沒有 ',' 在圖示標簽後"
 
-#: pinboard.c:1702
+#: pinboard.c:1721
 #, c-format
 msgid "Error saving pinboard %s: %s"
 msgstr "錯誤儲存桌面 %s: %s"
 
-#: pinboard.c:2247
+#: pinboard.c:2266
 msgid "Backdrop..."
 msgstr "背景..."
 
-#: pinboard.c:2250
+#: pinboard.c:2269
 msgid "Add Panel"
 msgstr "增加面板"
 
-#: pinboard.c:2344
+#: pinboard.c:2363
 #, c-format
 msgid ""
 "Error loading backdrop image:\n"
@@ -3477,47 +3477,47 @@ msgstr ""
 "錯誤建立圖像 '%s'：\n"
 "%s"
 
-#: view_details.c:1010
+#: view_details.c:1011
 msgid "Mono font"
 msgstr "等寬字體"
 
-#: view_details.c:1011
+#: view_details.c:1012
 msgid "Font for displaying mono-spaced text"
 msgstr "用以顯示等寬字體的字型"
 
-#: view_details.c:1118
+#: view_details.c:1119
 msgid "_Name"
 msgstr "名稱(_N)"
 
-#: view_details.c:1126
+#: view_details.c:1127
 msgid "_Type"
 msgstr "類型(_T)"
 
-#: view_details.c:1135
+#: view_details.c:1136
 msgid "_Size"
 msgstr "大小(_S)"
 
-#: view_details.c:1147
+#: view_details.c:1148
 msgid "_Permissions"
 msgstr "權限(_P)"
 
-#: view_details.c:1158
+#: view_details.c:1159
 msgid "_Owner"
 msgstr "用戶(_O)"
 
-#: view_details.c:1166
+#: view_details.c:1167
 msgid "_Group"
 msgstr "組別(_G)"
 
-#: view_details.c:1174
+#: view_details.c:1175
 msgid "Last _Modified"
 msgstr "最後改動(_M)"
 
-#: view_details.c:1186
+#: view_details.c:1187
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1198
+#: view_details.c:1199
 msgid "Last _Accessed"
 msgstr ""
 

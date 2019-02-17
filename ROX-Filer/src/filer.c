@@ -1234,7 +1234,8 @@ gint filer_key_press_event(GtkWidget	*widget,
 		gtk_widget_grab_focus(GTK_WIDGET(view));
 
 	view_get_cursor(view, &cursor);
-	if (!cursor.peek(&cursor) && (key == GDK_Up || key == GDK_Down))
+	if (!cursor.peek(&cursor) && (key == GDK_Up || key == GDK_KEY_KP_Up
+		|| key == GDK_Down || key == GDK_KEY_KP_Down))
 	{
 		ViewIter iter;
 		view_get_iter(view, &iter, 0);
@@ -1252,6 +1253,7 @@ gint filer_key_press_event(GtkWidget	*widget,
 			view_clear_selection(filer_window->view);
 			return FALSE;
 		case GDK_Return:
+		case GDK_KEY_KP_Enter:
 			return_pressed(filer_window, event);
 			break;
 		case GDK_ISO_Left_Tab:

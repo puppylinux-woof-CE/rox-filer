@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROX-Filer 2.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 00:18-0600\n"
+"POT-Creation-Date: 2019-02-13 14:12-0600\n"
 "PO-Revision-Date: 2005-12-27 19:01+0200\n"
 "Last-Translator: Teet Tärno <devlin@hot.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -1051,12 +1051,12 @@ msgid ""
 msgstr ""
 "Võrgust pole võimalik andmeid saada (application/octet-stream pole saadaval)"
 
-#: dnd.c:1017 menu.c:2395
+#: dnd.c:1017 menu.c:2380
 msgid ""
 "Some of these files are on a different machine - they will be ignored - sorry"
 msgstr "Vabandust - osad failid jätan vahele, kuna need asuvad teises masinas"
 
-#: dnd.c:1024 menu.c:2403
+#: dnd.c:1024 menu.c:2388
 msgid ""
 "None of these files are on the local machine - I can't operate on multiple "
 "remote files - sorry."
@@ -1068,7 +1068,7 @@ msgstr ""
 msgid "Unknown action requested"
 msgstr "Sooviti tundmatut tegevus"
 
-#: dnd.c:1045 menu.c:2418
+#: dnd.c:1045 menu.c:2406
 #, c-format
 msgid "Error getting file list: %s"
 msgstr "Viga failide nimekirja hankides: %s"
@@ -1102,7 +1102,7 @@ msgstr "Vabandust, te saate siia lohistada vaid ühe faili."
 msgid "Sorry, I can't use '%s' because it's not a local file."
 msgstr "Ei saa kasutada '%s' kuna see pole kohalik fail."
 
-#: dropbox.c:278 pinboard.c:932
+#: dropbox.c:278 pinboard.c:951
 #, c-format
 msgid ""
 "Can't access '%s':\n"
@@ -1153,113 +1153,113 @@ msgstr ""
 "Ctrl+%s. Failide hiljem uuesti valimiseks vajutage vaid %s. "
 "Numbriklahvistiku kasutamisel peab Teil Numlock aktiivne olema"
 
-#: filer.c:1820
+#: filer.c:1822
 msgid "Cancel"
 msgstr "Tühista"
 
-#: filer.c:2104
+#: filer.c:2106
 msgid "A"
 msgstr "A"
 
-#: filer.c:2106 find.c:1034
+#: filer.c:2108 find.c:1034
 msgid "G"
 msgstr "G"
 
-#: filer.c:2111
+#: filer.c:2113
 msgid "S"
 msgstr "S"
 
-#: filer.c:2113
+#: filer.c:2115
 msgid "T"
 msgstr "T"
 
-#: filer.c:2114
+#: filer.c:2116
 msgid "D"
 msgstr ""
 
-#: filer.c:2115
+#: filer.c:2117
 msgid "F"
 msgstr ""
 
-#: filer.c:2125
+#: filer.c:2127
 msgid "All, "
 msgstr "KÃµik, "
 
-#: filer.c:2128
+#: filer.c:2130
 #, c-format
 msgid "Glob (%s), "
 msgstr "Glob (%s), "
 
-#: filer.c:2136
+#: filer.c:2138
 msgid "Scanning, "
 msgstr "Skaneerin, "
 
-#: filer.c:2138
+#: filer.c:2140
 msgid "Thumbs, "
 msgstr "Pisipildid, "
 
-#: filer.c:2139
+#: filer.c:2141
 msgid "Dirs only, "
 msgstr ""
 
-#: filer.c:2140
+#: filer.c:2142
 msgid "Files only, "
 msgstr ""
 
-#: filer.c:2416
+#: filer.c:2418
 msgid "Symbolic link to "
 msgstr "Sümbolviit failile "
 
-#: filer.c:2472
+#: filer.c:2474
 msgid "This filename is not valid UTF-8. You should rename it.\n"
 msgstr "Failinimi pole kodeeringus UTF-8. Te peaksite faili ümber nimetama.\n"
 
-#: filer.c:2790 menu.c:2604
+#: filer.c:2792 menu.c:2573
 msgid "Item no longer exists!"
 msgstr "Objekti pole enam olemas!"
 
-#: filer.c:3606
+#: filer.c:3608
 msgid "Select display properties to save"
 msgstr "Vali ekraani asetused, mida salvestada"
 
-#: filer.c:3610
+#: filer.c:3612
 msgid "<b>Save display settings for directory</b>"
 msgstr ""
 
-#: filer.c:3617
+#: filer.c:3619
 #, fuzzy
 msgid "Select settings to save"
 msgstr "Vali ekraani asetused, mida salvestada"
 
-#: filer.c:3624
+#: filer.c:3626
 msgid "Position"
 msgstr "Asukoht"
 
-#: filer.c:3629 toolbar.c:137 toolbar.c:141 tips:41 tips:84
+#: filer.c:3631 toolbar.c:137 toolbar.c:141 tips:41 tips:84
 msgid "Size"
 msgstr "Suurus"
 
-#: filer.c:3634
+#: filer.c:3636
 msgid "Show hidden"
 msgstr "Näita peidetud"
 
-#: filer.c:3640
+#: filer.c:3642
 msgid "Display style"
 msgstr "Vaate stiil"
 
-#: filer.c:3646
+#: filer.c:3648
 msgid "Sort type and order"
 msgstr "Sorteerimistüüp ja järjekord"
 
-#: filer.c:3651 toolbar.c:145
+#: filer.c:3653 toolbar.c:145
 msgid "Details"
 msgstr "Lisainfo"
 
-#: filer.c:3656 tips:115 tips:116
+#: filer.c:3658 tips:115 tips:116
 msgid "Thumbnails"
 msgstr "Pisipildid"
 
-#: filer.c:3662
+#: filer.c:3664
 msgid "Filter"
 msgstr "Filter"
 
@@ -2542,103 +2542,103 @@ msgstr ""
 "Te ei saa avada teist akent selle kataloogiga, kuna eelistustes on "
 "aktiveeritud  'Näita ühes aknas'."
 
-#: menu.c:2324
+#: menu.c:2313
 msgid "The clipboard is empty."
 msgstr ""
 
-#: menu.c:2374
+#: menu.c:2358
 #, fuzzy, c-format
 msgid "Copy of %s"
 msgstr "?Kopeeri %s nime alla %s?"
 
-#: menu.c:2379
+#: menu.c:2364
 #, fuzzy, c-format
 msgid "Copy(%d) of %s"
 msgstr "?Kopeeri %s nime alla %s?"
 
-#: menu.c:2447
+#: menu.c:2430
 msgid "Duplicate ... ?"
 msgstr ""
 
-#: menu.c:2450
+#: menu.c:2433
 msgid "Rename ... ?"
 msgstr "Nimeta ümber ... ?"
 
-#: menu.c:2453
+#: menu.c:2436
 msgid "Symlink ... ?"
 msgstr "Tekita viit ... ?"
 
-#: menu.c:2456
+#: menu.c:2439
 msgid "Shift Open ... ?"
 msgstr "Ava tekstina ... ?"
 
-#: menu.c:2459
+#: menu.c:2442
 msgid "Properties of ... ?"
 msgstr "Omadused ... ?"
 
-#: menu.c:2463
+#: menu.c:2446
 #, fuzzy
 msgid "Extended attributes of ... ?"
 msgstr "Laiendatud atribuudid"
 
-#: menu.c:2467
+#: menu.c:2450
 msgid "Set type of ... ?"
 msgstr "Sea ... tüüpi ?"
 
-#: menu.c:2470
+#: menu.c:2453
 msgid "Set run action for ... ?"
 msgstr "Avaja seadmine ... jaoks ?"
 
-#: menu.c:2473
+#: menu.c:2456
 msgid "Set icon for ... ?"
 msgstr "Sea ... ikooni ?"
 
-#: menu.c:2476
+#: menu.c:2459
 msgid "Send ... to ... ?"
 msgstr "Ava ... kasutades ... ?"
 
-#: menu.c:2479
+#: menu.c:2462
 msgid "DELETE ... ?"
 msgstr "KUSTUTA ... ?"
 
-#: menu.c:2482
+#: menu.c:2465
 msgid "Count the size of ... ?"
 msgstr "Loenda kokku ... suurused ?"
 
-#: menu.c:2485
+#: menu.c:2468
 msgid "Set permissions on ... ?"
 msgstr "Muuda ... loabitte ?"
 
-#: menu.c:2488
+#: menu.c:2471
 msgid "Search inside ... ?"
 msgstr "Otsi ... seest ?"
 
-#: menu.c:2491
+#: menu.c:2474
 #, fuzzy
 msgid "Copy ... to clipboard ?"
 msgstr "Kopeeri ... ?"
 
-#: menu.c:2494
+#: menu.c:2477
 msgid "Cut ... to clipboard ?"
 msgstr ""
 
-#: menu.c:2587
+#: menu.c:2556
 msgid "You cannot do this to more than one item at a time"
 msgstr "Antud tegevust ei saa läbi viia mitme failiga"
 
-#: menu.c:2614
+#: menu.c:2583
 msgid "Duplicate"
 msgstr ""
 
-#: menu.c:2619
+#: menu.c:2588
 msgid "Rename"
 msgstr "Nimeta ümber"
 
-#: menu.c:2624
+#: menu.c:2593
 msgid "Symlink"
 msgstr "Loo viit"
 
-#: menu.c:2659
+#: menu.c:2628
 msgid ""
 "User-definable shortcuts are disabled by default in Gtk2, and you have not "
 "enabled them. You can turn this feature on by:\n"
@@ -2659,7 +2659,7 @@ msgstr ""
 "\tgtk-can-change-accels = 1\n"
 "\t(see töötab vaid siis, kui te EI kasuta XSETTINGS)"
 
-#: menu.c:2670
+#: menu.c:2639
 msgid ""
 "To set a keyboard short-cut for a menu item:\n"
 "\n"
@@ -2679,7 +2679,7 @@ msgstr ""
 " Määratud kiirklahv ilmub nähtavale menüüs tegevuse kõrval. Edaspidi piisab "
 "tegevuse väljakutsumiseks kiirklahvi vajutamisest ja menüüd pole vaja avada."
 
-#: menu.c:2685
+#: menu.c:2654
 msgid "Set keyboard shortcuts"
 msgstr "Määra kiirklahve"
 
@@ -2900,7 +2900,7 @@ msgstr "Tundmatu"
 msgid "Your old pinboard file has been converted to the new XML format."
 msgstr "Teie töölaua asetuste fail teisaldati uude XML-põhisesse vormingusse."
 
-#: pinboard.c:711
+#: pinboard.c:730
 msgid ""
 "The backdrop handler must be an application directory. Drag an application "
 "directory into the Set Backdrop dialog box, or (for programmers) pass it to "
@@ -2910,7 +2910,7 @@ msgstr ""
 "tausta' dialoogikasti või (programmeerijate jaoks) edastage see SOAP "
 "SetBackdropApp meetodi argumendina."
 
-#: pinboard.c:730
+#: pinboard.c:749
 msgid ""
 "You can only set the backdrop to an image or to a program which knows how to "
 "manage ROX-Filer's backdrop.\n"
@@ -2924,63 +2924,63 @@ msgstr ""
 "Programmeerijatele: rakenduse Appinfo.xml peab sisaldama CanSetBackdrop "
 "elementi, nagu kirjeldatud ROX-Filer'i käsiraamatus."
 
-#: pinboard.c:750
+#: pinboard.c:769
 msgid "Set backdrop"
 msgstr "Muuda tausta"
 
-#: pinboard.c:761
+#: pinboard.c:780
 msgid "Choose a style and drag an image in:"
 msgstr "Vali tausta positsioon ja lohista pilt kasti:"
 
-#: pinboard.c:774
+#: pinboard.c:793
 msgid "Centre the image without scaling it"
 msgstr "Keskjoonda pilt ilma maksimiseerimata"
 
-#: pinboard.c:775
+#: pinboard.c:794
 msgid "Centre"
 msgstr "Keskjoonda"
 
-#: pinboard.c:776
+#: pinboard.c:795
 msgid "Scale the image to fit the backdrop area, without distorting it"
 msgstr "Maksimiseeri pilt üle tausta ilma mõõtude suhet muutmata"
 
-#: pinboard.c:778
+#: pinboard.c:797
 msgid "Scale"
 msgstr "Maksimiseeri"
 
-#: pinboard.c:779
+#: pinboard.c:798
 #, fuzzy
 msgid ""
 "Scale the image to fit the backdrop area, regardless of image dimensions - "
 "overscale"
 msgstr "Maksimiseeri pilt üle tausta ilma mõõtude suhet muutmata"
 
-#: pinboard.c:781
+#: pinboard.c:800
 #, fuzzy
 msgid "Fit"
 msgstr "Filter"
 
-#: pinboard.c:782
+#: pinboard.c:801
 msgid "Stretch the image to fill the backdrop area"
 msgstr "Venita pilt üle tausta"
 
-#: pinboard.c:783
+#: pinboard.c:802
 msgid "Stretch"
 msgstr "Venita"
 
-#: pinboard.c:784
+#: pinboard.c:803
 msgid "Tile the image over the backdrop area"
 msgstr "Laota pilt taustale paanidena"
 
-#: pinboard.c:785
+#: pinboard.c:804
 msgid "Tile"
 msgstr "Paanidena"
 
-#: pinboard.c:790
+#: pinboard.c:809
 msgid "Drop an image here"
 msgstr "Lohistage siia pilt"
 
-#: pinboard.c:851
+#: pinboard.c:870
 msgid ""
 "No pinboard was in use... the 'Default' pinboard has been selected. Use 'rox "
 "-p=Default' to turn it on in future."
@@ -2989,35 +2989,35 @@ msgstr ""
 "käivitamisel parameetrit 'rox -p=Default', et sama töölauda tulevikus "
 "aktiveerida."
 
-#: pinboard.c:945
+#: pinboard.c:964
 msgid ""
 "Only files (and certain applications) can be used to set the background "
 "image."
 msgstr "Tausta seadmiseks saate kasutada vaid pilte (ja teatud rakendusi)."
 
-#: pinboard.c:1605
+#: pinboard.c:1624
 msgid "Missing '>' in icon label"
 msgstr "Ikooni sildis puudub '>'"
 
-#: pinboard.c:1614
+#: pinboard.c:1633
 msgid "Missing ',' after icon label"
 msgstr "Ikooni sildis puudub ','"
 
-#: pinboard.c:1702
+#: pinboard.c:1721
 #, c-format
 msgid "Error saving pinboard %s: %s"
 msgstr "Viga %s töölaua asetuste salvestamisel: %s"
 
-#: pinboard.c:2247
+#: pinboard.c:2266
 msgid "Backdrop..."
 msgstr "Taust..."
 
-#: pinboard.c:2250
+#: pinboard.c:2269
 #, fuzzy
 msgid "Add Panel"
 msgstr "Paneel"
 
-#: pinboard.c:2344
+#: pinboard.c:2363
 #, c-format
 msgid ""
 "Error loading backdrop image:\n"
@@ -3585,47 +3585,47 @@ msgstr ""
 "Viga pildi kopeerimisel '%s':\n"
 "%s"
 
-#: view_details.c:1010
+#: view_details.c:1011
 msgid "Mono font"
 msgstr ""
 
-#: view_details.c:1011
+#: view_details.c:1012
 msgid "Font for displaying mono-spaced text"
 msgstr ""
 
-#: view_details.c:1118
+#: view_details.c:1119
 msgid "_Name"
 msgstr "_Nimi"
 
-#: view_details.c:1126
+#: view_details.c:1127
 msgid "_Type"
 msgstr "_Tüüp"
 
-#: view_details.c:1135
+#: view_details.c:1136
 msgid "_Size"
 msgstr "_Suurus"
 
-#: view_details.c:1147
+#: view_details.c:1148
 msgid "_Permissions"
 msgstr "_Ligipääsuõigused"
 
-#: view_details.c:1158
+#: view_details.c:1159
 msgid "_Owner"
 msgstr "_Omanik"
 
-#: view_details.c:1166
+#: view_details.c:1167
 msgid "_Group"
 msgstr "_Grupp"
 
-#: view_details.c:1174
+#: view_details.c:1175
 msgid "Last _Modified"
 msgstr "Viimati _muudetud"
 
-#: view_details.c:1186
+#: view_details.c:1187
 msgid "Last _Changed"
 msgstr ""
 
-#: view_details.c:1198
+#: view_details.c:1199
 msgid "Last _Accessed"
 msgstr ""
 
