@@ -735,6 +735,18 @@ static MenuIconStyle get_menu_icon_style(void)
 	return MIS_SMALL;
 }
 
+static void clipboardcb(
+		GtkClipboard *clipboard,
+		GtkSelectionData *data,
+		gpointer p)
+{
+	if (data->length > 0)
+		menu_set_items_shaded(filer_menu, FALSE, 5, 1);
+	else if (GPOINTER_TO_INT(p))
+		gtk_clipboard_request_contents(
+				clipboard, text_uri_list, clipboardcb, GUINT_TO_POINTER(0));
+}
+
 /* iter->peek() is the clicked item, or NULL if none */
 void show_filer_menu(FilerWindow *filer_window, GdkEvent *event, ViewIter *iter)
 {
@@ -742,8 +754,6 @@ void show_filer_menu(FilerWindow *filer_window, GdkEvent *event, ViewIter *iter)
 	GdkModifierType	state = 0;
 	int		n_selected;
 	int             n_added = 0;
-	GtkSelectionData *clipboard_selection = NULL;
-	gboolean clipboard_retrieved;
 
 	g_return_if_fail(event != NULL);
 
@@ -775,20 +785,9 @@ void show_filer_menu(FilerWindow *filer_window, GdkEvent *event, ViewIter *iter)
 	}
 
 	/* Determine whether to shade "Paste" option */
-	clipboard_selection = gtk_clipboard_wait_for_contents(clipboard, gnome_copied_files);
-
-	if (clipboard_selection == NULL)
-		clipboard_selection = gtk_clipboard_wait_for_contents(clipboard, text_uri_list);
-
-	if (clipboard_selection == NULL)
-		clipboard_retrieved = FALSE;
-	else
-	{
-		clipboard_retrieved = TRUE;
-		gtk_selection_data_free (clipboard_selection);
-	}
-
-	menu_set_items_shaded(filer_menu, !clipboard_retrieved, 5, 1);
+	menu_set_items_shaded(filer_menu, TRUE, 5, 1);
+	gtk_clipboard_request_contents(
+			clipboard, gnome_copied_files, clipboardcb, GUINT_TO_POINTER(1));
 
 	/* Short-cut to the Send To menu */
 	if (state & GDK_SHIFT_MASK)
