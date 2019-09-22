@@ -34,6 +34,7 @@
 
 #include <fcntl.h>
 #include <unistd.h>
+#include <errno.h>
 #include <fnmatch.h>
 #include <assert.h>
 
@@ -120,7 +121,9 @@ _xdg_mime_cache_new_from_file (const char *file_name)
   int minor;
 
   /* Open the file and map it into memory */
-  fd = open (file_name, O_RDONLY|_O_BINARY, 0);
+  do {
+    fd = open (file_name, O_RDONLY|_O_BINARY, 0);
+  } while (fd == -1 && errno == EINTR);
 
   if (fd < 0)
     return NULL;
@@ -194,7 +197,7 @@ cache_magic_matchlet_compare_to_data (XdgMimeCache *cache,
 	}
       else
 	{
-	  valid_matchlet = memcmp(cache->buffer + data_offset, data + i, data_length) == 0;
+	  valid_matchlet = memcmp(cache->buffer + data_offset, (unsigned char *)data + i, data_length) == 0;
 	}
 
       if (valid_matchlet)
@@ -785,7 +788,7 @@ _xdg_mime_cache_get_mime_type_for_file (const char  *file_name,
 					    mime_types, n);
 
   if (!mime_type)
-    mime_type = _xdg_binary_or_text_fallback(data, bytes_read);
+    mime_type = _xdg_binary_or_text_fallback (data, bytes_read);
 
   free (data);
   fclose (file);
@@ -814,18 +817,27 @@ _xdg_mime_cache_get_mime_types_from_file_name (const char *file_name,
 
 #if 1
 static int
-is_super_type (const char *mime)
+ends_with (const char *str,
+           const char *suffix)
 {
   int length;
-  const char *type;
+  int suffix_length;
 
-  length = strlen (mime);
-  type = &(mime[length - 2]);
+  length = strlen (str);
+  suffix_length = strlen (suffix);
+  if (length < suffix_length)
+    return 0;
 
-  if (strcmp (type, "/*") == 0)
+  if (strcmp (str + length - suffix_length, suffix) == 0)
     return 1;
 
   return 0;
+}
+
+static int
+is_super_type (const char *mime)
+{
+  return ends_with (mime, "/*");
 }
 #endif
 
@@ -858,7 +870,8 @@ _xdg_mime_cache_mime_type_subclass (const char *mime,
       strncmp (umime, "text/", 5) == 0)
     return 1;
 
-  if (strcmp (ubase, "application/octet-stream") == 0)
+  if (strcmp (ubase, "application/octet-stream") == 0 &&
+      strncmp (umime, "inode/", 6) != 0)
     return 1;
  
   for (i = 0; _caches[i]; i++)
