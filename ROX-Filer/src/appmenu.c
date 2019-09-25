@@ -326,18 +326,23 @@ static void build_menu_for_type(MIME_type *type)
 {
 	GtkWidget *item;
 	GList *widgets = NULL;
+	GHashTable *menu_entries;
+	GHashTableIter hash_table_iter;
+	gpointer key, value;
 
-	widgets = add_sendto_shared(NULL,
+	menu_entries = g_hash_table_new(g_str_hash, g_str_equal);
+
+	widgets = add_sendto_shared(NULL, menu_entries,
 				type->media_type, type->subtype, (CallbackFn) send_to);
     widgets = g_list_concat(widgets,
-        add_sendto_desktop_items(NULL,
+        add_sendto_desktop_items(NULL, menu_entries,
                 type->media_type, type->subtype, (CallbackFn) send_to));
 	widgets = g_list_concat(widgets,
-			add_sendto_shared(NULL,
+			add_sendto_shared(NULL, menu_entries,
 				type->media_type, NULL, (CallbackFn) send_to)
 		);
 	widgets = g_list_concat(widgets,
-			add_sendto_shared(NULL,
+			add_sendto_shared(NULL, menu_entries,
 				"all", NULL, (CallbackFn) send_to)
 		);
 
@@ -349,6 +354,13 @@ static void build_menu_for_type(MIME_type *type)
 	g_signal_connect(item, "activate", G_CALLBACK(customise_type), type);
 
 	gtk_widget_show(item);
+
+	g_hash_table_iter_init (&hash_table_iter, menu_entries);
+	while (g_hash_table_iter_next (&hash_table_iter, &key, &value)) {
+		g_free(key);
+	}
+
+	g_hash_table_destroy(menu_entries);
 }
 
 static inline gboolean is_dir(const char *dir)

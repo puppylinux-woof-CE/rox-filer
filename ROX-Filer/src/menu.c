@@ -534,7 +534,8 @@ static GtkWidget *make_send_to_item(DirItem *ditem, const char *label,
 	return item;
 }
 
-static GList *menu_from_dir(GtkWidget *menu, const gchar *dir_name,
+static GList *menu_from_dir(GtkWidget *menu, GHashTable *menu_entries,
+			    const gchar *dir_name,
 			    MenuIconStyle style, CallbackFn func,
 			    gboolean separator, gboolean strip_ext,
 			    gboolean recurse)
@@ -577,10 +578,19 @@ static GList *menu_from_dir(GtkWidget *menu, const gchar *dir_name,
 				*dot = '\0';
 		}
 
+		if (menu_entries && g_hash_table_contains(menu_entries, leaf))
+		{
+			g_free(leaf);
+			continue;
+		}
+
 		ditem = diritem_new("");
 		diritem_restat(fname, ditem, NULL);
 
 		item = make_send_to_item(ditem, leaf, style);
+
+		if (menu_entries)
+			g_hash_table_add(menu_entries, g_strdup(leaf));
 
 		g_free(leaf);
 
@@ -594,7 +604,7 @@ static GList *menu_from_dir(GtkWidget *menu, const gchar *dir_name,
 			GList *new_widgets;
 
 			sub = gtk_menu_new();
-			new_widgets = menu_from_dir(sub, fname, style, func,
+			new_widgets = menu_from_dir(sub, menu_entries, fname, style, func,
 						separator, strip_ext, TRUE);
 			g_list_free(new_widgets);
 			gtk_menu_item_set_submenu(GTK_MENU_ITEM(item), sub);
@@ -641,7 +651,7 @@ static void update_new_files_menu(MenuIconStyle style)
 	templ_dname = choices_find_xdg_path_load("Templates", "", SITE);
 	if (templ_dname)
 	{
-		widgets = menu_from_dir(filer_new_menu, templ_dname, style,
+		widgets = menu_from_dir(filer_new_menu, NULL, templ_dname, style,
 					(CallbackFn) new_file_type, TRUE, TRUE,
 					FALSE);
 		g_free(templ_dname);
@@ -1677,16 +1687,29 @@ static void customise_new(gpointer data)
 static void add_sendto(GtkWidget *menu, const gchar *type, const gchar *subtype)
 {
 		GList *widgets = NULL;
-		widgets = add_sendto_shared(menu, type, subtype, (CallbackFn) do_send_to);
+		GHashTable *menu_entries;
+		GHashTableIter hash_table_iter;
+		gpointer key, value;
+
+		menu_entries = g_hash_table_new(g_str_hash, g_str_equal);
+
+		widgets = add_sendto_shared(menu, menu_entries, type, subtype, (CallbackFn) do_send_to);
         widgets = g_list_concat(widgets,
-            add_sendto_desktop_items(menu, type, subtype, (CallbackFn) do_send_to));
+            add_sendto_desktop_items(menu, menu_entries, type, subtype, (CallbackFn) do_send_to));
 		if (widgets)
 			gtk_menu_shell_append(GTK_MENU_SHELL(menu),
 					gtk_menu_item_new());
 
+		g_hash_table_iter_init (&hash_table_iter, menu_entries);
+		while (g_hash_table_iter_next (&hash_table_iter, &key, &value)) {
+			g_free(key);
+		}
+
+		g_hash_table_destroy(menu_entries);
+
 		g_list_free(widgets);	/* TODO: Get rid of this */
 }
-GList *add_sendto_shared(GtkWidget *menu,
+GList *add_sendto_shared(GtkWidget *menu, GHashTable *menu_entries,
 		const gchar *type, const gchar *subtype, CallbackFn swapped_func)
 {
 	gchar *searchdir;
@@ -1709,7 +1732,7 @@ GList *add_sendto_shared(GtkWidget *menu,
 		guchar	*dir = (guchar *) paths->pdata[i];
 
 		widgets = g_list_concat(widgets,
-				menu_from_dir(menu, dir, get_menu_icon_style(),
+				menu_from_dir(menu, menu_entries, dir, get_menu_icon_style(),
 					swapped_func, FALSE, FALSE, TRUE)
 			);
 	}
@@ -1717,7 +1740,7 @@ GList *add_sendto_shared(GtkWidget *menu,
 	choices_free_list(paths);
 	return widgets;
 }
-GList *add_sendto_desktop_items(GtkWidget *menu,
+GList *add_sendto_desktop_items(GtkWidget *menu, GHashTable *menu_entries,
         const gchar *type, const gchar *subtype, CallbackFn swapped_func)
 {
 	GList *widgets = NULL;
@@ -1847,6 +1870,13 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 					g_free(full_path);
 					continue;
 				}
+				if (menu_entries && g_hash_table_contains(menu_entries, label)) {
+					g_free(full_path);
+					g_free(label);
+					g_free(only_show_in);
+					g_free(not_show_in);
+					continue;
+				}
 				if (only_show_in) {
 					gchar **envs = g_strsplit(only_show_in, ";", -1);
 					int i = 0;
@@ -1908,6 +1938,8 @@ GList *add_sendto_desktop_items(GtkWidget *menu,
 
 				widgets = g_list_append(widgets, item);
 				g_hash_table_add(desktop_entries, *iter);
+				if (menu_entries)
+					g_hash_table_add(menu_entries, g_strdup(label));
 
 				g_signal_connect_swapped(item, "destroy",
 						G_CALLBACK(g_free), full_path);

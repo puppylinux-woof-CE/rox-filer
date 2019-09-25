@@ -32,9 +32,9 @@ void show_filer_menu(FilerWindow *filer_window,
 		     GdkEvent *event,
 		     ViewIter *item);
 void menu_popdown(void);
-GList *add_sendto_shared(GtkWidget *menu,
+GList *add_sendto_shared(GtkWidget *menu, GHashTable *menu_entries,
 		const gchar *type, const gchar *subtype, CallbackFn func);
-GList *add_sendto_desktop_items(GtkWidget *menu,
+GList *add_sendto_desktop_items(GtkWidget *menu, GHashTable *menu_entries,
 		const gchar *type, const gchar *subtype, CallbackFn swapped_func);
 
 /* For "New" toolbar button */
