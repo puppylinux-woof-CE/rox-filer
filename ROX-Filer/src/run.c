@@ -585,10 +585,8 @@ static gboolean open_file(const guchar *path, MIME_type *type)
 		gboolean success = FALSE;
 		GPtrArray *expanded = NULL;
 
-		gchar *quoted_filename;
 		gchar *mimetype_string;
 
-		quoted_filename = g_shell_quote(path);
 		mimetype_string = g_strconcat(
 			type->media_type, "/", type->subtype, NULL);
 
@@ -620,7 +618,7 @@ static gboolean open_file(const guchar *path, MIME_type *type)
 					{
 						case 'f':
 						case 'F':
-							g_string_append(new_arg, quoted_filename);
+							g_string_append(new_arg, path);
 							break;
 						case 'm':
 						case 'M':
@@ -657,7 +655,6 @@ run_action_helper_err:
 			g_ptr_array_free(expanded, TRUE);
 		}
 
-		g_free(quoted_filename);
 		g_free(mimetype_string);
 
 		if (success)
