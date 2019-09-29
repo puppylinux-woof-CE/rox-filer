@@ -578,18 +578,90 @@ static gboolean open_file(const guchar *path, MIME_type *type)
 
 	if (o_run_action_helper.value && strcmp(o_run_action_helper.value, ""))
 	{
-		const char *argv[] = {"sh", "-c", NULL, NULL};
-		gchar *command_string;
+		GError *error = NULL;
+		gint argc = 0;
+		gchar **argv = NULL;
+		int i, j;
+		gboolean success = FALSE;
+		GPtrArray *expanded = NULL;
 
-		command_string = g_strconcat(
-			o_run_action_helper.value, " ",
-			type->media_type, "/", type->subtype, " ", path, NULL);
-		argv[2] = command_string;
+		gchar *quoted_filename;
+		gchar *mimetype_string;
 
-		rox_spawn(home_dir, argv);
+		quoted_filename = g_shell_quote(path);
+		mimetype_string = g_strconcat(
+			type->media_type, "/", type->subtype, NULL);
 
-		g_free(command_string);
-		return TRUE;
+		if (!g_shell_parse_argv(
+			o_run_action_helper.value, &argc, &argv, &error))
+		{
+			delayed_error("Failed to parse '%s':\n%s",
+				o_run_action_helper.value, error->message);
+			goto run_action_helper_err;
+		}
+
+		expanded = g_ptr_array_new();
+
+		for (i = 0; i < argc; i++)
+		{
+			const char *src = argv[i];
+			gchar **str_array;
+
+			str_array = g_strsplit(src, "%", -1);
+
+			/* If src contained at least 1 "%" character, */
+			if (str_array[1])
+			{
+				GString *new_arg = g_string_new(str_array[0]);
+
+				for (j = 1; str_array[j]; j++)
+
+					switch (str_array[j][0])
+					{
+						case 'f':
+						case 'F':
+							g_string_append(new_arg, quoted_filename);
+							break;
+						case 'm':
+						case 'M':
+							g_string_append(new_arg, mimetype_string);
+							break;
+						default:
+							g_string_append(new_arg, "%");
+							g_string_append(new_arg, str_array[j]);
+					}
+
+				g_ptr_array_add(expanded, g_strdup(new_arg->str));
+				g_string_free(new_arg, TRUE);
+			}
+			else
+			{
+				g_ptr_array_add(expanded, g_strdup(src));
+			}
+
+			g_strfreev(str_array);
+		}
+
+		g_ptr_array_add(expanded, NULL);
+
+		success = rox_spawn(home_dir, (const gchar **) expanded->pdata);
+
+run_action_helper_err:
+		if (error != NULL)
+			g_error_free(error);
+		if (argv != NULL)
+			g_strfreev(argv);
+		if (expanded != NULL)
+		{
+			g_ptr_array_foreach(expanded, (GFunc) g_free, NULL);
+			g_ptr_array_free(expanded, TRUE);
+		}
+
+		g_free(quoted_filename);
+		g_free(mimetype_string);
+
+		if (success)
+			return TRUE;
 	}
 
 	report_error(

@@ -307,7 +307,7 @@ xterm -e wget $1</entry>
   <section title='Types'>
     <frame label='Run actions'>
       <label help='1'>The filer can use a helper script to choose which program to use when no run action has been specified for the file.</label>
-      <entry name='run_action_helper' label="Run action helper">The name of the script to run.  The MIME type will be passed to the script as $1, the file name will be passed as the remaining arguments.</entry>
+      <entry name='run_action_helper' label="Run action helper">The name of the script to run.  %f will be replaced by the file name and %m will be replaced by the MIME type.</entry>
     </frame>
     <frame label='MIME types'>
       <label help='1'>The filer uses a set of rules to work out the correct MIME type for each regular file, and then chooses a suitable icon for that type.</label>
