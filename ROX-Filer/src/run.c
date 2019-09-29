@@ -30,6 +30,7 @@
 #include "run.h"
 #include "support.h"
 #include "gui_support.h"
+#include "options.h"
 #include "filer.h"
 #include "display.h"
 #include "main.h"
@@ -63,6 +64,12 @@ struct _PipedData
 	gulong		length;
 };
 
+static Option o_run_action_helper;
+
+void run_init(void)
+{
+	option_add_string(&o_run_action_helper, "run_action_helper", "");
+}
 
 /****************************************************************
  *			EXTERNAL INTERFACE			*
@@ -568,6 +575,22 @@ static gboolean open_file(const guchar *path, MIME_type *type)
 
 	if (type_open(path, type))
 		return TRUE;
+
+	if (o_run_action_helper.value && strcmp(o_run_action_helper.value, ""))
+	{
+		const char *argv[] = {"sh", "-c", NULL, NULL};
+		gchar *command_string;
+
+		command_string = g_strconcat(
+			o_run_action_helper.value, " ",
+			type->media_type, "/", type->subtype, " ", path, NULL);
+		argv[2] = command_string;
+
+		rox_spawn(home_dir, argv);
+
+		g_free(command_string);
+		return TRUE;
+	}
 
 	report_error(
 		_("No run action specified for files of this type (%s/%s) - "

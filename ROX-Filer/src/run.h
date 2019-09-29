@@ -8,6 +8,7 @@
 
 #include <gtk/gtk.h>
 
+void run_init(void);
 void run_app(const char *path);
 void run_with_files(const char *path, GList *uri_list);
 void run_with_data(const char *path, gpointer data, gulong length);

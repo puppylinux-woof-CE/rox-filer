@@ -610,6 +610,7 @@ int main(int argc, char **argv)
 
 	pinboard_init();
 	panel_init();
+	run_init();
 
 	/* Let everyone update */
 	options_notify();
