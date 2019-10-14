@@ -41,6 +41,6 @@
       <environment insert="lib/pkgconfig" name="PKG_CONFIG_PATH"/>
     </requires>
 
-    <implementation id="." version="2.11-post"/>
+    <implementation id="." version="2.11-17w"/>
   </group>
 </interface>
