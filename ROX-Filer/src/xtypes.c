@@ -107,6 +107,7 @@ int xattr_supported(const char *path)
 
 int xattr_have(const char *path)
 {
+	static char buf[128];
 	ssize_t nent;
 
 	RETURN_IF_IGNORED(FALSE);
@@ -115,7 +116,7 @@ int xattr_have(const char *path)
 		return FALSE;
 
 	errno=0;
-	nent=dyn_listxattr(path, NULL, 0);
+	nent=dyn_listxattr(path, buf, sizeof(buf));
 
 	if(nent<0 && errno==ERANGE)
 		return TRUE;
