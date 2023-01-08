@@ -76,6 +76,8 @@
 #include "bulk_rename.h"
 #include "gtksavebox.h"
 
+extern gboolean session_auto_respawn;
+
 int number_of_windows = 0;	/* Quit when this reaches 0 again... */
 int to_wakeup_pipe = -1;	/* Write here to get noticed */
 

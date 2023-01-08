@@ -10,8 +10,6 @@
 #include <gtk/gtk.h>
 #include <X11/SM/SMlib.h>
 
-gboolean session_auto_respawn;
-
 void session_init(const gchar *client_id);
 
 #endif
